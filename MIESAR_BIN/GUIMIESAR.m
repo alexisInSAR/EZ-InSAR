@@ -12,15 +12,15 @@ function hdl = GUIMIESAR(miesar_para)
 % scripts... 
 
 %% Some information
-figopen = uifigure('Position',[548 376 565 206],'Name','MIESAR Application');
-pg_figopen = uiprogressdlg(figopen,'Title','Loading of MIESAR Application','Message','Opening the application');
+figopen = uifigure('Position',[548 376 565 206],'Name','EZ-InSAR Application');
+pg_figopen = uiprogressdlg(figopen,'Title','Loading of EZ-InSAR Application','Message','Opening the application');
 
 pg_figopen.Value = .1; 
 pg_figopen.Message = 'Open the core of MIESAR';
 pause(0.25); 
 
 %% Main uifigure
-figmiesar = uifigure('Position',[19 15 1620 900],'Name','MIESAR Application','HandleVisibility','on','Visible','off');
+figmiesar = uifigure('Position',[19 15 1620 900],'Name','EZ-InSAR Application','HandleVisibility','on','Visible','off');
 gridfigmiesar = uigridlayout(figmiesar,[28 15]);
 figmiesar.UserData = miesar_para; 
 
@@ -71,12 +71,12 @@ logoageo.Tooltip = 'Go to ageoatlantic.eu';
     end
 
 %% Main title
-maintitle = uilabel(gridfigmiesar,'Text','MIESAR','HorizontalAlignment','center','VerticalAlignment','center','FontSize',50,'FontWeight','bold');
+maintitle = uilabel(gridfigmiesar,'Text','EZ-InSAR','HorizontalAlignment','center','VerticalAlignment','center','FontSize',50,'FontWeight','bold');
 maintitle.Layout.Row = [1 3];
 maintitle.Layout.Column = [6 10];
 
 %% Path panel 
-pathpanel = uipanel(gridfigmiesar,'Title','MIESAR Paths','FontSize',20,'FontWeight','bold'); 
+pathpanel = uipanel(gridfigmiesar,'Title','EZ-InSAR Paths','FontSize',20,'FontWeight','bold'); 
 pathpanel.Layout.Row = [4 6];
 pathpanel.Layout.Column = [1 15];
 
