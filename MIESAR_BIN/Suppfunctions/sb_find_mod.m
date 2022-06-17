@@ -11,6 +11,7 @@ function []=sb_find_mod(rho_min,ddiff_max,bdiff_max)
 %   ======================================================================
 %   04/2008 AH: Criteria for selection changed to coherence basis 
 %   ======================================================================
+% FROM StaMPS Version 4
 
 % Modified by Alexis Hrysiewicz
 
