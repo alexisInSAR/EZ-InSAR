@@ -1,0 +1,101 @@
+function runISCEallstep(action,modepara,figstep,miesar_para)
+%   Function to run several ISCE steps
+%
+%   See also ISCEPROCESSING, PARALLELIZATIONSTEPISCE, RUNISCEALLSTEP,
+%   CHECKIPF.py.
+
+%   Copyright 2021 Alexis Hrysiewicz, UCD / iCRAG2 
+%   Version: 1.0.0 
+%   Date: 30/11/2021
+
+switch action
+    
+    case 'init'
+        %% Create the GUI for user input
+        
+        % Load the log 
+        fi = fopen([miesar_para.WK,'/stackstepisce.log'],'r'); logstack = textscan(fi,'%s %s'); fclose(fi);
+        
+        % Display the GUI 
+        figstep = uifigure;
+        figstep.Name = 'Launching of all steps';
+        headerbox = [];
+        h = 400;
+        for i1 = 1 : length(logstack{1})
+            switch logstack{2}{i1}
+                case 'RUN'
+                    headerbox(i1) = uicheckbox(figstep, 'Text',logstack{1}{i1},'Value', 0,'Position',[150 h 300 15]);
+                case 'NE'
+                    headerbox(i1) = uicheckbox(figstep, 'Text',logstack{1}{i1},'Value', 1,'Position',[150 h 300 15]);
+            end
+            h = h - 20;
+        end
+        btn = uibutton(figstep,'push','Position',[75, 75, 400, 22],'Text','Launch the processing','ButtonPushedFcn',@(btn,event) runISCEallstep('run',modepara,figstep,miesar_para));
+        
+    case 'run'
+        %% Run several selected steps
+
+        % Load the log 
+        fi = fopen([miesar_para.WK,'/stackstepisce.log'],'r'); logstack = textscan(fi,'%s %s'); fclose(fi);
+        
+        % Check the selected steps
+        statestep = [];
+        for i1 = 1 : length(logstack{1})
+            statestep(i1) = get(findobj(figstep,'Text',logstack{1}{i1}),'Value');
+        end
+        
+        % Create the script
+        nrun = find(statestep==1);
+        if isempty(nrun) == 0
+            [nnrun] = gradient(nrun);
+            if isempty(find(nnrun>1))==1
+
+                scripttoeval = ['scripttoeval_',miesar_para.id,'.sh'];
+                fid = fopen(scripttoeval,'w');
+
+                fprintf(fid,'cd %s\n',[miesar_para.WK,'/run_files']);
+                for i1 = 1 : length(logstack{1})
+                    if statestep(i1)==1
+                        if modepara == 1
+                            [modeparabis] = parallelizationstepISCE(logstack{1}{i1},miesar_para);
+                        else
+                            modeparabis = 0;
+                        end
+                        if modeparabis == 1
+                            fprintf(fid,'./%s\n',[logstack{1}{i1},'_para']);
+                        else
+                            fprintf(fid,'./%s\n',[logstack{1}{i1}]);
+                        end
+                        cmdbis = ['sed -i ''/',logstack{1}{i1},'/ s/NE/RUN/'' ',miesar_para.WK,'/stackstepisce.log'];
+                        fprintf(fid,'%s\n',cmdbis);
+                    end
+                end
+                fclose(fid);
+                close(figstep);
+                
+                % Run the script
+                system(['chmod a+x ',scripttoeval]);
+                if strcmp(computer,'MACI64') == 1
+%                     system('./runmacterminal.sh');
+                else
+                    system(['./',scripttoeval]);
+                end   
+                try 
+                    delete(scripttoeval)
+                end 
+            else
+                %Check if the selected steps follow each other
+                si = ['Please, select the steps that follow each other.'];
+                set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
+                set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
+                error(si);
+            end
+            
+        else
+            %Check if at least one step is selected
+            si = ['Please, select at least one step to run.'];
+            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
+            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
+            error(si);
+        end
+end
