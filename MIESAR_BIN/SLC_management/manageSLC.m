@@ -307,7 +307,7 @@ switch action
                         for i1 = 1 : length(index_last)
                             urllast = list{8}{index_last(i1)};
                             [configpath] = readpathinformation([miesar_para.cur,'/pathinformation.txt']);
-                            cmd1 = sprintf('%s -c --http-user=%s --http-password=%s "%s" -P %s',configpath.pathwget,configpath.ASFID,configpath.ASFPWD,urllast,paramslc.pathSLC);
+                            cmd1 = sprintf('wget -c --http-user=%s --http-password=%s "%s" -P %s',configpath.ASFID,configpath.ASFPWD,urllast,paramslc.pathSLC);
                             system(cmd1);
                         end
                 end

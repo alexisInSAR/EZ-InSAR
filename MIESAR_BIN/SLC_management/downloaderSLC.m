@@ -126,7 +126,7 @@ updatelist([],[]);
             Index = find(not(cellfun('isempty',IndexC)));
             if isempty(Index) == 0
                 urllast = list{8}{i1};
-                cmd1 = sprintf('%s -c --http-user=%s --http-password=%s "%s" -P %s',configpath.pathwget,configpath.ASFID,configpath.ASFPWD,urllast,paramslc.pathSLC);
+                cmd1 = sprintf('wget -c --http-user=%s --http-password=%s "%s" -P %s',configpath.ASFID,configpath.ASFPWD,urllast,paramslc.pathSLC);
                 system(cmd1);
                 updatelist([],[]);
                 drawnow; pause(1);
