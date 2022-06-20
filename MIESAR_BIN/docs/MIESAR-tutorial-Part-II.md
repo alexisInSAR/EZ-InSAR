@@ -65,7 +65,7 @@ which matlab
 #B. If the echo of "which matlab" is null, then install MATLAB first, and then specify the MATLAB PATH below, and create a soft-link it to the directory '/usr/bin'
 
 matlab_install_path="ADD-THE-MATLAB-PATH-HERE"
-ln -s $matlab_install_path/bin/matlab /usr/bin
+sudo ln -s $matlab_install_path/bin/matlab /usr/bin
 
 #C. Then start MATLAB in a terminal
 matlab 
@@ -116,13 +116,15 @@ sudo git clone https://github.com/insarwxw/StaMPS.git      $tool_DIR/StaMPS
 sudo git clone https://github.com/dbekaert/TRAIN.git $tool_DIR/StaMPS/TRAIN
 
 # C. Edit the configuration file
-## 1) Copy the configure template file "config_InSARenv.template" from the downloaded "MIESAR_BIN/docs/" directory into "$tools_insar"; 
-##    Rename the configure file as "config_InSARenv.rc". Modify the variable "$MIESAR_HOME" in "config_InSARenv.rc" (Line #3). 
-##    The other variables do not need to be modified if you strictly follow this install instruciton.
+## 1) - Copy the configure template file "config_InSARenv.template" from the downloaded "MIESAR_BIN/docs/" directory into "$tools_insar";  
+##    - Replace the PATH variable "$MIESAR_HOME" in "config_InSARenv.rc" (Line #3). 
+##    - Replace the Path varialbe $APS_toolbox in TRAIN 
+##    - The other variables do not need to be modified if you strictly follow this install instruciton.
 
 sudo cp $tools_insar/MIESAR/MIESAR_BIN/docs/config_InSARenv.template $tools_insar/config_InSARenv.rc
-sudo gedit $tools_insar/config_InSARenv.rc
-## {Make modifications to the path variable "$MIESAR_HOME" in "config_InSARenv.rc"}
+
+sudo sed -i "/MIESAR_HOME=/c\MIESAR_HOME=$MIESAR_HOME"  $tools_insar/config_InSARenv.rc
+sudo sed -i "/APS_toolbox=/c\APS_toolbox=$tool_DIR/StaMPS/TRAIN" $tool_DIR/StaMPS/TRAIN/APS_CONFIG.sh
 
 ## 2) Add the following lines in your "$HOME/.bashrc" file. Note you have to change the variable "$MIESAR_HOME" if it is installed in a differnt PATH. 
 
@@ -149,10 +151,11 @@ MintPy is written purely in Python. So, the use of MintPy just needs the install
 **[Note]**: You can change the PATH variables for MintPy in `config_InSARenv.templte`.
 
 ```bash
+# A. Install the mintpy requirements 
 cd $tool_DIR
 conda install -c conda-forge --file MintPy/requirements.txt
 
-#B. install dependencies not available from conda
+# B. Install dependencies not available from conda
 sudo ln -s ${CONDA_PREFIX}/bin/cython ${CONDA_PREFIX}/bin/cython3
 $CONDA_PREFIX/bin/pip install scalene      # CPU, GPU and memory profiler
 $CONDA_PREFIX/bin/pip install ipynb        # import functions from ipynb files
@@ -162,7 +165,9 @@ $CONDA_PREFIX/bin/pip install ipynb        # import functions from ipynb files
 
 - Check the *gcc* version first becuase the src code in StaMPS only supports gcc-7.  However, the default *gcc/g++* in Ubuntu 20.04 is gcc-9.
 
-   If in this case, you need to install the gcc-7 first.  Follow the [**instruciton**](https://linuxconfig.org/how-to-switch-between-multiple-gcc-and-g-compiler-versions-on-ubuntu-20-04-lts-focal-fossa) here to set proper gcc/g++ versions.
+   If in this case, you need to install the gcc-7 first.  Follow the [**instruciton**](https://linuxconfig.org/how-to-switch-between-multiple-gcc-and-g-compiler-versions-on-ubuntu-20-04-lts-focal-fossa) here to set the proper gcc/g++ versions.  
+   
+   If the error such as "E: Package 'gcc-7' has no installation candidate" appear, please refer to the solution **[here](https://askubuntu.com/questions/1406962/install-gcc7-on-ubuntu-22-04)**. 
 
 ```bash
 ### check which version of gcc
@@ -173,9 +178,9 @@ sudo apt install software-properties-common
 sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 sudo apt install -y gcc-7 g++-7
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 7
-sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g+±7 7
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 7
 sudo update-alternatives --config gcc
-sudo update-alternatives --config g++
+sudo update-alternatives --config g++ 
 ```
 
 - Compile the **src** files and install the required dependencies 
@@ -197,17 +202,17 @@ sudo apt install triangle-bin
 
 ### 2.2.5 Install MIESAR 
 
-- MIESRA recalls the python scripts "coarse_Sentinel_1_baselines.py" to calculate the baseline network for a input data stack and then determine the optimal reference date. Install the dependencies of this python script to your InSARenv.
+- MIESAR callbacks the python scripts "coarse_Sentinel_1_baselines.py" to calculate the baseline network for a input data stack and then determine the optimal reference date. Install the dependencies of this python script to your InSARenv.
 
 ```bash
 conda install fiona geopandas rasterio 
 ```
 
-- MIESRA uses "[aws](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)" to download the NASADEM or Copernicus DEM. Using the following commands to install it. 
+- MIESAR uses "[aws](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)" to download the NASADEM or Copernicus DEM. Using the following commands to install it. 
 
 ```bash
 cd $tool_DIR
-sudo curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 sudo unzip awscliv2.zip
 sudo ./aws/install
 ```
@@ -274,7 +279,7 @@ python PyAPS/tests/test_dload.py
 
 **(2) Notes on [dask](https://docs.dask.org) for parallel processing**
 
-MintPy uses [dask](https://docs.dask.org) for the parallel processing at some of the steps. It is recommended  setting the `temporary-directory` in  [Dask configuration file](https://docs.dask.org/en/stable/configuration.html), e.g. `$HOME/.config/dask/dask.yaml`, by adding the following line, to avoid potential [workspace lock issue](https://github.com/insarlab/MintPy/issues/725). Check more details on parallel processing with Dask [here](./dask.md).
+MintPy uses [dask](https://docs.dask.org) for the parallel processing at some of the steps. It is recommended  setting the `temporary-directory` in  [Dask configuration file](https://docs.dask.org/en/stable/configuration.html), e.g. `~/dask/dask.yaml`, by adding the following line, to avoid potential [workspace lock issue](https://github.com/insarlab/MintPy/issues/725). Check more details on parallel processing with Dask [here](./dask.md).
 
 ```yaml
 temporary-directory: /tmp  # Directory for local disk like /tmp, /scratch, or /local
