@@ -669,8 +669,8 @@ version_info.Layout.Column = [11 15];
 githublink = uihyperlink(gridfigmiesar,'HorizontalAlignment','right','VerticalAlignment','center'); 
 githublink.Layout.Row = [28];
 githublink.Layout.Column = [15];
-githublink.Text = 'MIESAR Gitlab';
-githublink.URL = 'https://www.mathworks.com/';
+githublink.Text = 'EZ-InSAR Gitlab';
+githublink.URL = 'https://github.com/alexisInSAR/EZ-InSAR';
 
 
 %% Finalisation of grid
