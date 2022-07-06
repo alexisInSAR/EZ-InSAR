@@ -5,7 +5,7 @@ function update_progressbar_MIESAR(src,evt,miesar_para,action)
 %       [action]        : name of the action to perform (string value)
 %       [miesar_para]   : user parameters (struct.)
 %
-%       Function to manage the progress bar of EZ-InSAR
+%       Function to manage the progress bar of EZ-InSAR.
 %          
 %       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
 %
