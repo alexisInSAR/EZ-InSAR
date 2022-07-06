@@ -1,5 +1,5 @@
 function hdl = GUIMIESAR(miesar_para)
-%   EZ_InSAR
+%   GUIMIESAR(miesar_para)
 %
 %       Script to create the GUI of EZ-InSAR
 %   
