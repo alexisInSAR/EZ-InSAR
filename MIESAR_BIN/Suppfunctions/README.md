@@ -1,4 +1,4 @@
-# EZ-InSAR supplementary functions for EZ-InSAR
+# EZ-InSAR supplementary functions
 
 **List of scripts:**
 - coarse_Sentinel_1_baselines.py	
