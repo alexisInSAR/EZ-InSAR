@@ -1,13 +1,24 @@
 function stampsPSprocessing(src,evt,action,miesar_para)
-%   Function to run the PS StaMPS processing 
+%   stampsPSprocessing(src,evt,action,miesar_para)
+%       [src]           : callback value
+%       [evt]           : callback value
+%       [action]        : name of the action to perform (string value)
+%       [miesar_para]   : user parameters (struct.)
 %
-%   See also runGUISBASnetwork, runGUIstampsparameters,
-%   stampsMERGEDprocessing, stampsprocessing, stampsPSprocessing,
-%   stampsSBASprocessing.
-
-%   Copyright 2021 Alexis Hrysiewicz, UCD / iCRAG2 
-%   Version: 1.0.0 
+%       Function to run the PS StaMPS processing.
+%          
+%       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
+%
+%   See also runGUISBASnetwork, runGUIstampsparameters, stampsMERGEDprocessing, stampsprocessing, stampsPSprocessing, stampsSBASprocessing.
+%
+%   -------------------------------------------------------
+%   Alexis Hrysiewicz, UCD / iCRAG
+%   Version: 1.0.0 Beta
 %   Date: 30/11/2021
+%
+%   -------------------------------------------------------
+%   Version history:
+%           1.0.0 Beta: Initial (unreleased)
 
 switch action
     case 'prep'
