@@ -45,7 +45,7 @@ A **tutorial** on the use of the toolbox can be downloaded from [**here**](xxxxx
 
 ## 1.3 Developers & Contact
 
-EZ-InSAR is developed and maintained by the **Natural Hazard Research** group lead by **[Prof. Eoghan Holohan](https://people.ucd.ie/eoghan.holohan)** at School of Earth Sciences, ***University College Dublin*** (UCD). The people developing and documenting the toolbox are acknowledged below: 
+Based on original idea and development from Alexis Hrysiewicz, EZ-InSAR is developed and maintained by the **Natural Hazard Research** group lead by **[Eoghan Holohan](https://people.ucd.ie/eoghan.holohan)** at School of Earth Sciences, ***University College Dublin*** (UCD). The people developing and documenting the toolbox are acknowledged below: 
 
 - *Alexis Hrysiewicz,* Postdoctoral Researcher, School of Earth Sciences, UCD
 
@@ -62,11 +62,6 @@ EZ-InSAR is developed and maintained by the **Natural Hazard Research** group le
 We acknowledge that the open-source InSAR processing software and code used by EZ-InSAR are cited properly. EZ-InSAR is distributed for free under the GPLV3 License.
 
 ## 1.5 Patners
-
- 
-
-
-
 
 |<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_1_0_0/MIESAR_BIN/private/AGEO-transparent.png" alt="AGEO" width="150pix">|[**AGEO**](https://ageoatlantic.eu/)|
 |---|---|
