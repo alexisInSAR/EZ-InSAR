@@ -1,6 +1,6 @@
 function initparmslc(WK)
 %   initparmslc(WK)
-%       [WK]   : work workdirectory patch (string value) 
+%       [WK]   : work workdirectory path (string value) 
 %
 %       Function to initiate the SLC parameters. 
 %          
