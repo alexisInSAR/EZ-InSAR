@@ -1,6 +1,21 @@
 function [configpath] = readpathinformation(file)
-%% Function to read the path in the txt file
-%Alexis Hrysiewicz
+%   readpathinformation(file)
+%       [file]           : path to pathinformation file
+%
+%       Function to read the path in the txt file
+%          
+%       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
+%
+%   See also runGUISBASnetwork, runGUIstampsparameters, stampsMERGEDprocessing, stampsprocessing, stampsPSprocessing, stampsSBASprocessing.
+%
+%   -------------------------------------------------------
+%   Alexis Hrysiewicz, UCD / iCRAG
+%   Version: 1.0.0 Beta
+%   Date: 30/11/2021
+%
+%   -------------------------------------------------------
+%   Version history:
+%           1.0.0 Beta: Initial (unreleased)
 
 configpath = []; 
 %[a,b] = system(['grep ''pathISCE'' ',file,' | awk ''END {print $2}''']); configpath.pathISCE = strtrim(b);
