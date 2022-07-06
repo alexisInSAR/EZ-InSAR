@@ -1,11 +1,26 @@
 function mintpy_API_plot_trans(src,evt,action,miesar_para)
-%   Function to interface the plot_transection.py from MintPy
+%   mintpy_API_plot_trans(src,evt,action,miesar_para)
+%       [src]           : callback value
+%       [evt]           : callback value
+%       [action]        : name of the action to perform (string value)
+%       [miesar_para]   : user parameters (struct.)
+%
+%       Function to interface the plot_transection.py from MintPy. 
+%          
+%       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
 %
 %   See also mintpy_allstep, mintpy_API_tsplottrans, mintpy_parameters, mintpy_API_plot_trans, mintpy_API_plottrans, mintpy_processing, mintpy_API_save, mintpy_network_plot.
 %
-%   Copyright 2022 Alexis Hrysiewicz, UCD / iCRAG2
-%   Version: 1.0.0
-%   Date: 17/02/2020
+%   Examples and parameter descriptions from MintPy plot_transection.py script. 
+%
+%   -------------------------------------------------------
+%   Alexis Hrysiewicz, UCD / iCRAG
+%   Version: 1.0.0 Beta
+%   Date: 17/02/2022
+%
+%   -------------------------------------------------------
+%   Version history:
+%           1.0.0 Beta: Initiale (unreleased)
 
 %% Create the GUI
 figapimintpyplottrans = uifigure('Position',[200 100 1000 800],'Name','MintPy''s plottrans.py Application');
