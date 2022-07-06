@@ -2,14 +2,12 @@
 
 # EZ-InSAR 
 
-*Version 1.0.0 Beta*
-
 **EZ-InSAR (formerly called MIESAR for Matlab Interface for Easy InSAR)** is a toolbox written in MATLAB to conduct Interferometric Synthetic Aperture Radar (InSAR) data processing with the open-source software (ISCE+StaMPS/MintPy) under a user-friendly Graphic-User-Interface (GUI). The toolbox now can generate SAR interferograms using ISCE and conduct displacement time series analysis with either Persistent Scatters (**PS**) or Small-Baselines (**SBAS**) approaches using StaMPS or MintPy. 
 
 The spirit of **EZ-InSAR** is minimizing the work of user in downloading, parametrizing, and processing the SAR data, so enabling these who are not familiar with InSAR but can also produce and analyze ground surface displacements by themselves. **EZ-InSAR** is also a contribution to the Platform for Atlantic Geohazard Risk Management (AGEO) project, which is funded by Interreg Atlantic Area Programme through the *European* Regional Development Fund.
 
 
-**Release info**: v1.0, May 27, 2022
+**Release info**: Version 1.0.0 Beta, May 27, 2022
 
 ## 1. Dependencies & Installation 
 
