@@ -1,12 +1,29 @@
 function manageSLC(src,evt,action,miesar_para)
-%   Function to manage the SLCs
+%   manageSLC(src,evt,action,miesar_para)
+%       [src]           : callback value
+%       [evt]           : callback value
+%       [action]        : name of the action to perform (string value)
+%       [miesar_para]   : user parameters (struct.)
+%
+%       Function to manage the SLCs.
+%          
+%       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
 %
 %   See also manageparamaterSLC, initparmslc, readxmlannotationS1, downloaderSLC.
-
-%   Copyright 2021 Alexis Hrysiewicz, UCD / iCRAG2
-%   Version: 1.0.0
+%
+%   -------------------------------------------------------
+%   Alexis Hrysiewicz, UCD / iCRAG
+%   Version: 1.0.0 Beta
 %   Date: 29/11/2021
-%   Modified by Xiaowen Wang, UCD, 02/03/2022
+%
+%   -------------------------------------------------------
+%   Modified:
+%           - Xiaowen Wang, UCD, 02/03/2022: bug fix
+%
+%   -------------------------------------------------------
+%   Version history:
+%           1.0.0 Beta: Initial (unreleased)
+
 switch action
     
     case 'checking'
