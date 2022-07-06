@@ -1,4 +1,4 @@
-# 3rd party functions
+# 3rd party functions of EZ-InSAR
 
 **extendPoly.m**: 
 - Extends a polygon by the specified range and calculates the resulting polygon with the specified resolution. Requires basic Matlab and no additional toolboxes. 
