@@ -1,8 +1,19 @@
 function dem_region=dem_box_cal(lonta,lata,box_burst)
-%   Function to calculate the overlap region between AOI box and the S1 burst footprints 
-%   Copyright 2022 Xiaowen Wang, UCD
+%   dem_box_cal(lonta,lata,box_burst)
+%
+%       Function to calculate the overlap region between AOI box and the S1 burst footprints 
+%   
+%       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
+%
+%   -------------------------------------------------------
+%   Xiaowen Wang, UCD
+%   Version: 1.0.0 Beta
 %   Date: 23/02/2022
 %
+%   -------------------------------------------------------
+%   Version history:
+%           1.0.0 Beta: Initial (unreleased)
+
 poly_aoi=polyshape([min(lonta) max(lonta) max(lonta) min(lonta)],[min(lata) min(lata) max(lata) max(lata)]);
 burst_overlap=[];
 %% IW1
