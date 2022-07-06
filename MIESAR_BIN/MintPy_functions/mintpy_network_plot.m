@@ -3,7 +3,6 @@ function mintpy_network_plot(src,evt,action,miesar_para)
 %       [src]           : callback value
 %       [evt]           : callback value
 %       [action]        : name of the action to perform (string value)
-%       [figstep]       : GUI with the selection of MintPy steps
 %       [miesar_para]   : user parameters (struct.)
 %
 %       Function to check/plot the network from MintPy processing 
