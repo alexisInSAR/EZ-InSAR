@@ -11,7 +11,8 @@ function mintpy_API_plot_trans(src,evt,action,miesar_para)
 %
 %   See also mintpy_allstep, mintpy_API_tsplottrans, mintpy_parameters, mintpy_API_plot_trans, mintpy_API_plottrans, mintpy_processing, mintpy_API_save, mintpy_network_plot.
 %
-%   Examples and parameter descriptions from MintPy plot_transection.py script. 
+%   Examples and parameter descriptions from MintPy mintpy_API_plot_trans.py script: https://github.com/insarlab/MintPy
+%   Author: Zhang Yunjun, Heresh Fattahi, 2013
 %
 %   -------------------------------------------------------
 %   Alexis Hrysiewicz, UCD / iCRAG
