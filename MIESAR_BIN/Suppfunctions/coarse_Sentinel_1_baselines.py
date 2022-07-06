@@ -8,10 +8,10 @@
 """coarse_Sentinel_1_baselines.py: Script to compute the coarse network of interferograms and isolate the best candidate for the super single master"""
 
 __author__ = "Alexis Hrysiewicz"
-__copyright__ = "Copyright 2022"
+__copyright__ = "coarse_Sentinel_1_baselines.py is part of EZ-InSAR toolbox"
 __credits__ = ["Alexis Hrysiewicz"]
-__license__ = "GPL"
-__version__ = "1.0.0"
+__license__ = "GPLV3"
+__version__ = "1.0.0 Beta
 __maintainer__ = "Alexis Hrysiewicz"
 __email__ = "alexis.hrysiewicz@ucd.ie"
 __status__ = "Production"
