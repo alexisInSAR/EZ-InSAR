@@ -1,4 +1,26 @@
 function conversionstacks(src,evt,action,miesar_para)
+%   conversionstacks(src,evt,action,miesar_para)
+%       [src]           : callback value
+%       [evt]           : callback value
+%       [action]        : name of the action to perform (string value)
+%       [miesar_para]   : user parameters (struct.)
+%
+%       conversionstacks converts the InSAR stacks:
+%           - from StaMPS stack (SLC stack) to MintPy stack (ifg stack);
+%           - from MintPy stack (ifg stack) to StaMPS stack (SLC stack);
+%   
+%       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
+%
+%   See also ISCEPROCESSING
+%
+%   -------------------------------------------------------
+%   Alexis Hrysiewicz, UCD / iCRAG
+%   Version: 1.0.0 Beta
+%   Date: 06/07/2022
+%
+%   -------------------------------------------------------
+%   Version history:
+%           1.0.0 Beta: Initial (unreleased)
 
 switch action
     case 'IF2SLC'
