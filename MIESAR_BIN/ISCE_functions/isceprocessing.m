@@ -162,16 +162,16 @@ switch action
                 end
                 
                 dem_box_str=[mat2str(dem_region(1)),'/',mat2str(dem_region(2)),'/',mat2str(dem_region(3)),'/',mat2str(dem_region(4))]; 
-                system(['chmod a+x ',miesar_para.cur,'/private/run_download_DEM.sh'])  ; 
+                system(['chmod a+x ',miesar_para.cur,'/Suppfunctions/run_download_DEM.sh'])  ; 
                              
                 answer = questdlg('Which DEM would you like to download?','DEM Downloading','NASADEM-1arc','COPERNICUS-1arc','Third-party Geotiff DEM','NASADEM-1arc');               
                 switch answer
                     case 'NASADEM-1arc'                    
-                         cmd = [miesar_para.cur,'/private/run_download_DEM.sh ',miesar_para.WK, ' ', dem_box_str];
+                         cmd = [miesar_para.cur,'/Suppfunctions/run_download_DEM.sh ',miesar_para.WK, ' ', dem_box_str];
                     case 'COPERNICUS-1arc'                         
-                         cmd = [miesar_para.cur,'/private/run_download_DEM.sh ',miesar_para.WK, ' ', dem_box_str, ' 1'];
+                         cmd = [miesar_para.cur,'/Suppfunctions/run_download_DEM.sh ',miesar_para.WK, ' ', dem_box_str, ' 1'];
                     case 'Third-party Geotiff DEM'
-                         cmd = [miesar_para.cur,'/private/run_download_DEM.sh ',miesar_para.WK, ' ', dem_box_str, ' 2'];
+                         cmd = [miesar_para.cur,'/Suppfunctions/run_download_DEM.sh ',miesar_para.WK, ' ', dem_box_str, ' 2'];
                     otherwise 
                         lastwarn ('No action will do.')
                         cmd = [''];
