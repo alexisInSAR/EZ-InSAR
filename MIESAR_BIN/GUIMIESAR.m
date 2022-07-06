@@ -1,13 +1,24 @@
 function hdl = GUIMIESAR(miesar_para)
-%   Creation of GUI for EZ-InSAR 
+%   EZ_InSAR
+%
+%       Script to create the GUI of EZ-InSAR
+%   
+%       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
 %
 %   See also MIESAR, EZ_InSAR
-
-%   Copyright 2022 Alexis Hrysiewicz, UCD / iCRAG 
-%   Version: 1.0.0 Beta 
+%
+%   -------------------------------------------------------
+%   Alexis Hrysiewicz, UCD / iCRAG
+%   Version: 1.0.0 Beta
 %   Date: 23/02/2022
-
-%   Modified by Xiaowen Wang, UCD, 10/03/2022
+%
+%   -------------------------------------------------------
+%   Modified:
+%           - Xiaowen Wang, UCD, 10/03/2022: bug fix
+%
+%   -------------------------------------------------------
+%   Version history:
+%           1.0.0 Beta: Initial (unreleased)
 
 %% Creation of GUI for MIESAR
 % To keep the gcf command, we need to create the figure using matlab
