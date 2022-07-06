@@ -1,4 +1,22 @@
 function update_progressbar_MIESAR(src,evt,miesar_para,action)
+%   update_progressbar_MIESAR(src,evt,miesar_para,action)
+%       [src]           : callback value
+%       [evt]           : callback value
+%       [action]        : name of the action to perform (string value)
+%       [miesar_para]   : user parameters (struct.)
+%
+%       Function to manage the progress bar of EZ-InSAR
+%          
+%       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
+%
+%   -------------------------------------------------------
+%   Alexis Hrysiewicz, UCD / iCRAG
+%   Version: 1.0.0 Beta
+%   Date: 30/11/2021
+%
+%   -------------------------------------------------------
+%   Version history:
+%           1.0.0 Beta: Initial (unreleased)
 
 switch action
     case 'isce'
