@@ -1,12 +1,28 @@
 function mintpy_parameters(src,evt,action,miesar_para)
-%   Function to manage the parameters for ISCE
+%   mintpy_parameters(src,evt,action,miesar_para)
+%       [src]           : callback value
+%       [evt]           : callback value
+%       [action]        : name of the action to perform (string value)
+%       [miesar_para]   : user parameters (struct.)
 %
-%   See also mintpy_allstep, mintpy_API_tsview, mintpy_parameters, mintpy_API_plot_trans, mintpy_API_view, mintpy_processing, mintpy_API_save, mintpy_network_plot.
+%       Function to select/manage/store the parameters for MintPy
+%          
+%       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
 %
-%   Copyright 2022 Alexis Hrysiewicz, UCD / iCRAG2
-%   Version: 1.0.0
-%   Date: 17/02/2020
-%   Modified by Xiaowen Wang, UCD, 10/03/2022
+%   See also mintpy_allstep, mintpy_API_tsplottrans, mintpy_parameters, mintpy_API_plot_trans, mintpy_API_plottrans, mintpy_processing, mintpy_API_save, mintpy_network_plot.
+%
+%   -------------------------------------------------------
+%   Alexis Hrysiewicz, UCD / iCRAG
+%   Version: 1.0.0 Beta
+%   Date: 17/02/2022
+%
+%   -------------------------------------------------------
+%   Modified:
+%           - Xiaowen Wang, UCD, 10/03/2022: bug fix
+%
+%   -------------------------------------------------------
+%   Version history:
+%           1.0.0 Beta: Initial (unreleased)
 
 switch action
     case 'pathmintpy'
