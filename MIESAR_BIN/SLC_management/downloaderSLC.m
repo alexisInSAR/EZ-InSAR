@@ -1,11 +1,22 @@
 function downloaderSLC(miesar_para)
-%   Function to download the SLCs
+%   downloaderSLC(miesar_para)
+%       [miesar_para]   : user parameters (struct.)
+%
+%       Function to download the SLCs via a GUI. 
+%          
+%       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
 %
 %   See also manageparamaterSLC, initparmslc, readxmlannotationS1, downloaderSLC.
-
-%   Copyright 2022 Alexis Hrysiewicz, UCD / iCRAG2
-%   Version: 1.0.0
+%
+%   -------------------------------------------------------
+%   Alexis Hrysiewicz, UCD / iCRAG
+%   Version: 1.0.0 Beta
 %   Date: 16/02/2022
+%
+%   -------------------------------------------------------
+%   Version history:
+%           1.0.0 Beta: Initial (unreleased)
+
 
 %% Initialisation of variables
 
