@@ -1,14 +1,25 @@
 function runGUISBASnetwork(action,miesar_para)
-%   Function to define interferogram network using various possibilities
-%   and paramaters. Use the GUISBASnetwork.fig
+%   runGUISBASnetwork(action,miesar_para)
+%       [action]        : name of the action to perform (string value)
+%       [miesar_para]   : user parameters (struct.)
 %
-%   See also runGUISBASnetwork, runGUIstampsparameters,
-%   stampsMERGEDprocessing, stampsprocessing, stampsPSprocessing,
-%   stampsSBASprocessing.
-
-%   Copyright 2021 Alexis Hrysiewicz, UCD / iCRAG2 
-%   Version: 1.0.0 
+%       Function to define interferogram network using various possibilities and paramaters. Use the GUISBASnetwork.fig 
+%          
+%       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
+%
+%   See also runGUISBASnetwork, runGUIstampsparameters, stampsMERGEDprocessing, stampsprocessing, stampsPSprocessing, stampsSBASprocessing.
+%
+%   This script contains some lines from StaMPS sb_baseline_plot.m script: https://github.com/dbekaert/StaMPS/releases/tag/v4.1-beta
+%   Author: Andy Hooper, June 2007
+%
+%   -------------------------------------------------------
+%   Alexis Hrysiewicz, UCD / iCRAG
+%   Version: 1.0.0 Beta
 %   Date: 30/11/2021
+%
+%   -------------------------------------------------------
+%   Version history:
+%           1.0.0 Beta: Initial (unreleased)
 
 global axi % It will be nice to modify the code to remove this global variable. 
 
@@ -58,7 +69,7 @@ switch action
         
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        %Extract from sb_baseline_plot.m (STAMPS scripts)
+        %Extract from sb_baseline_plot.m (StaMPS script), Andy Hooper, June 2007
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         ix=[];
