@@ -1,13 +1,29 @@
 function isceprocessing(src,evt,action,miesar_para)
-%   Function to management the ISCE processing.
+%   isceprocessing(src,evt,action,miesar_para)
+%       [src]           : callback value
+%       [evt]           : callback value
+%       [action]        : name of the action to perform (string value)
+%       [miesar_para]   : user parameters (struct.)
 %
-%   See also ISCEPROCESSING, PARALLELIZATIONSTEPISCE, RUNISCEALLSTEP,
-%   CHECKIPF.py.
-
-%   Copyright 2021 Alexis Hrysiewicz, UCD / iCRAG2
-%   Version: 1.0.0
+%       Function to perform and manage the ISCE processing.
+%          
+%       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
+%
+%   See also ISCEPROCESSING, PARALLELIZATIONSTEPISCE, RUNISCEALLSTEP.
+%
+%   -------------------------------------------------------
+%   Alexis Hrysiewicz, UCD / iCRAG
+%   Version: 1.0.0 Beta
 %   Date: 30/11/2021
-%   Modified by Xiaowen Wang, UCD, 10/02/2022
+%
+%   -------------------------------------------------------
+%   Modified:
+%           - Xiaowen Wang, UCD, 10/02/2022: bug fix
+%
+%   -------------------------------------------------------
+%   Version history:
+%           1.0.0 Beta: Initial (unreleased)
+
 switch action
     
     case 'IPFchecking'
