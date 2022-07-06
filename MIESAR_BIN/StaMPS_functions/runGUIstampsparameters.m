@@ -1,5 +1,5 @@
 function runGUIstampsparameters(fig,action,mode)
-%   runGUIstampsparameters(action,miesar_para)
+%   runGUIstampsparameters(fig,action,mode)
 %       [fig]           : GUI to select the parameters
 %       [action]        : name of the action to perform (string value)
 %       [mode]          : InSAR approach 
