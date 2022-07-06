@@ -1,12 +1,24 @@
 function runISCEallstep(action,modepara,figstep,miesar_para)
-%   Function to run several ISCE steps
+%   runISCEallstep(action,modepara,figstep,miesar_para)
+%       [action]        : name of the action to perform (string value)
+%       [modepara]      : parall. model (0 or 1)
+%       [figstep]       : GUI for the selection of steps
+%       [miesar_para]   : user parameters (struct.)
 %
-%   See also ISCEPROCESSING, PARALLELIZATIONSTEPISCE, RUNISCEALLSTEP,
-%   CHECKIPF.py.
-
-%   Copyright 2021 Alexis Hrysiewicz, UCD / iCRAG2 
-%   Version: 1.0.0 
+%       Function to run several ISCE steps.
+%          
+%       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
+%
+%   See also ISCEPROCESSING, PARALLELIZATIONSTEPISCE.
+%
+%   -------------------------------------------------------
+%   Alexis Hrysiewicz, UCD / iCRAG
+%   Version: 1.0.0 Beta
 %   Date: 30/11/2021
+%
+%   -------------------------------------------------------
+%   Version history:
+%           1.0.0 Beta: Initiale (unreleased)
 
 switch action
     
