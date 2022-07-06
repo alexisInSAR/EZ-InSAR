@@ -1,13 +1,24 @@
 function runGUIstampsparameters(fig,action,mode)
-%   Function to select the StaMPS parameters regarding the InSAR approaches
+%   runGUIstampsparameters(action,miesar_para)
+%       [fig]           : GUI to select the parameters
+%       [action]        : name of the action to perform (string value)
+%       [mode]          : InSAR approach 
 %
-%   See also runGUISBASnetwork, runGUIstampsparameters,
-%   stampsMERGEDprocessing, stampsprocessing, stampsPSprocessing,
-%   stampsSBASprocessing.
-
-%   Copyright 2021 Alexis Hrysiewicz, UCD / iCRAG2 
-%   Version: 1.0.0 
+%       Function to select the StaMPS parameters regarding the InSAR
+%       approaches. 
+%          
+%       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
+%
+%   See also runGUISBASnetwork, runGUIstampsparameters, stampsMERGEDprocessing, stampsprocessing, stampsPSprocessing, stampsSBASprocessing.
+%
+%   -------------------------------------------------------
+%   Alexis Hrysiewicz, UCD / iCRAG
+%   Version: 1.0.0 Beta
 %   Date: 30/11/2021
+%
+%   -------------------------------------------------------
+%   Version history:
+%           1.0.0 Beta: Initial (unreleased)
 
 global figbis
 a = gcf; 
