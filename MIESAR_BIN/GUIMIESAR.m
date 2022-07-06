@@ -1,12 +1,14 @@
 function hdl = GUIMIESAR(miesar_para)
-%   Creation of GUI for MIESAR 
+%   Creation of GUI for EZ-InSAR 
 %
-%   See also MIESAR
+%   See also MIESAR, EZ_InSAR
 
-%   Copyright 2022 Alexis Hrysiewicz, UCD / iCRAG2 
-%   Version: 1.0.0 
+%   Copyright 2022 Alexis Hrysiewicz, UCD / iCRAG 
+%   Version: 1.0.0 Beta 
 %   Date: 23/02/2022
+
 %   Modified by Xiaowen Wang, UCD, 10/03/2022
+
 %% Creation of GUI for MIESAR
 % To keep the gcf command, we need to create the figure using matlab
 % scripts... 
@@ -685,12 +687,12 @@ figmiesar.Visible = 'on';
 %% Some information on the terminal
 disp(sprintf('---------------------------------------------------------'))
 disp(sprintf('---------------------------------------------------------'))
-disp(sprintf('Welcome in MIESAR Application:'))
+disp(sprintf('Welcome in EZ-InSAR Application:'))
 disp(sprintf('\tMatlab Interface for Easy InSAR'))
 disp(sprintf('---------------------------------------------------------'))
 disp(sprintf('---------------------------------------------------------'))
 disp(sprintf('Open source application of bridge between ISCE/StaMPS/MintPy'))
-disp(sprintf('Version 1.0.0'))
+disp(sprintf('Version 1.0.0 Beta'))
 disp(sprintf('Developed by an UCD team.'))
 
 %% Extraction of handle
