@@ -37,21 +37,8 @@ switch action
             error(si);
         else
             [lon,lat] = read_kml([miesar_para.WK,'/area.kml']);
-            system(['cp ',miesar_para.cur,'/private/run_SLCcropStack_mod_orig.csh ',miesar_para.cur,'/private/run_SLCcropStack_mod.csh']);
-            system(['chmod a+x ',miesar_para.cur,'/private/run_SLCcropStack_mod.csh'])
-            
-            if strcmp(computer,'MACI64') == 1
-%                 cmd = ['sed -i''.save'' ''s/keylatmin/',num2str(min(lat)),'/g'' private/run_SLCcropStack_mod.csh']; system(cmd); 
-%                 cmd = ['sed -i''.save'' ''s/keylatmax/',num2str(max(lat)),'/g'' private/run_SLCcropStack_mod.csh']; system(cmd); 
-%                 cmd = ['sed -i''.save'' ''s/keylonmin/',num2str(min(lon)),'/g'' private/run_SLCcropStack_mod.csh']; system(cmd); 
-%                 cmd = ['sed -i''.save'' ''s/keylonmax/',num2str(max(lon)),'/g'' private/run_SLCcropStack_mod.csh']; system(cmd); 
-            else
-                cmd = ['sed -i ''s/keylatmin/',num2str(min(lat)),'/g'' ',miesar_para.cur,'/private/run_SLCcropStack_mod.csh']; system(cmd); 
-                cmd = ['sed -i ''s/keylatmax/',num2str(max(lat)),'/g'' ',miesar_para.cur,'/private/run_SLCcropStack_mod.csh']; system(cmd); 
-                cmd = ['sed -i ''s/keylonmin/',num2str(min(lon)),'/g'' ',miesar_para.cur,'/private/run_SLCcropStack_mod.csh']; system(cmd); 
-                cmd = ['sed -i ''s/keylonmax/',num2str(max(lon)),'/g'' ',miesar_para.cur,'/private/run_SLCcropStack_mod.csh']; system(cmd); 
-            end 
-            cmd = [miesar_para.cur,'/private/run_SLCcropStack_mod.csh 1 ',miesar_para.WK,'/merged ',miesar_para.WK,'/cropped'];
+
+            cmd = [miesar_para.cur,'/Suppfunctions/run_SLCcropStack_mod.csh 1 ',miesar_para.WK,'/merged ',miesar_para.WK,'/cropped ', num2str(min(lat)),' ', num2str(max(lat)),' ', num2str(min(lon)),' ', num2str(max(lon))];
         end
         
         si = ['Running of SLC-stack cropping...'];
