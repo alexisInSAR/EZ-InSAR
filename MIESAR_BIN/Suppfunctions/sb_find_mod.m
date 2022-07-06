@@ -11,9 +11,11 @@ function []=sb_find_mod(rho_min,ddiff_max,bdiff_max)
 %   ======================================================================
 %   04/2008 AH: Criteria for selection changed to coherence basis 
 %   ======================================================================
-% FROM StaMPS Version 4
-
-% Modified by Alexis Hrysiewicz
+%   Script is part of StaMPS https://github.com/dbekaert/StaMPS/releases/tag/v4.1-beta
+%
+%   -------------------------------------------------------
+%   Modified:
+%           - Alexis Hrysiewicz, UCD / iCRAG: compatibility with EZ-InSAR 
 
 
 if nargin<1
