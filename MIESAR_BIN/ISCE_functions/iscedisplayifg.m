@@ -1,10 +1,23 @@
 function iscedisplayifg(src,evt,action,miesar_para)
-%   Function to visualise the interferograms using mdx.py 
+%   iscedisplayifg(src,evt,action,miesar_para)
+%       [src]           : callback value
+%       [evt]           : callback value
+%       [action]        : name of the action to perform (string value)
+%       [miesar_para]   : user parameters (struct.)
+%       
+%       Function to visualise the interferograms using mdx.py script with a
+%       GUI.
+%   
+%       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
 %
-%
-%   Copyright 2022 Alexis Hrysiewicz, UCD / iCRAG2
-%   Version: 1.0.0
+%   -------------------------------------------------------
+%   Alexis Hrysiewicz, UCD / iCRAG
+%   Version: 1.0.0 Beta
 %   Date: 17/02/2020
+%
+%   -------------------------------------------------------
+%   Version history:
+%           1.0.0 Beta: Initial (unreleased)
 
 %% Check the directories
 if exist([miesar_para.WK,'/merged/interferograms'])
