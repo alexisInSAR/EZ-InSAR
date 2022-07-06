@@ -6,8 +6,6 @@ function [configpath] = readpathinformation(file)
 %          
 %       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
 %
-%   See also runGUISBASnetwork, runGUIstampsparameters, stampsMERGEDprocessing, stampsprocessing, stampsPSprocessing, stampsSBASprocessing.
-%
 %   -------------------------------------------------------
 %   Alexis Hrysiewicz, UCD / iCRAG
 %   Version: 1.0.0 Beta
