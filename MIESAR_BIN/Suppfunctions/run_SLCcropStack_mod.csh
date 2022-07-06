@@ -9,6 +9,12 @@
 # Author: David Bekaert
 # Organization: Jet Propulsion Laboratory, California Institute of Technology
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#   Script is part of StaMPS https://github.com/dbekaert/StaMPS/releases/tag/v4.1-beta
+#
+#   -------------------------------------------------------
+#   Modified:
+#           - Alexis Hrysiewicz, UCD / iCRAG
+
 
 set overwrite = $1
 set data_path = $2
