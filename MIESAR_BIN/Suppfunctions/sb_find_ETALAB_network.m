@@ -1,15 +1,22 @@
 function sb_find_ETALAB_network
-%   Function to create a interferogram network using ETALAB considerations 
-%   
-%   Based on the works of Marie-Pierre Doin's Team. 
+%   sb_find_ETALAB_network
 %
-%   See also runGUISBASnetwork, runGUIstampsparameters,
-%   stampsMERGEDprocessing, stampsprocessing, stampsPSprocessing,
-%   stampsSBASprocessing.
-
-%   Copyright 2021 Alexis Hrysiewicz, UCD / iCRAG2 
-%   Version: 1.0.0 
+%       Function to create a interferogram network using some considerations 
+%          
+%       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
+%
+%   Based on the works of Marie-Pierre Doin's Team. 
+%   See Thollard, F.; Clesse, D.; Doin, M.-P.; Donadieu, J.; Durand, P.; Grandin, R.; Lasserre, C.; Laurent, C.; Deschamps-Ostanciaux, E.; Pathier, E.; Pointal, E.; Proy, C.; Specht, B. FLATSIM: The ForM@Ter LArge-Scale Multi-Temporal Sentinel-1 InterferoMetry Service. Remote Sens. 2021, 13, 3734. https://doi.org/10.3390/rs13183734 
+%   See H. Ansari, F. De Zan and A. Parizzi, "Study of Systematic Bias in Measuring Surface Deformation With SAR Interferometry," in IEEE Transactions on Geoscience and Remote Sensing, vol. 59, no. 2, pp. 1285-1301, Feb. 2021, doi: 10.1109/TGRS.2020.3003421.
+%
+%   -------------------------------------------------------
+%   Alexis Hrysiewicz, UCD / iCRAG
+%   Version: 1.0.0 Beta
 %   Date: 30/11/2021
+%
+%   -------------------------------------------------------
+%   Version history:
+%           1.0.0 Beta: Initial (unreleased)
 
 %% Load the parameters 
 load psver
