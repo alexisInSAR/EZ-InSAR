@@ -1,4 +1,24 @@
 function surf = detrending(x,y,pha,mask,degree)
+%   detrending(x,y,pha,mask,degree)
+%       [x]         : x coordinates (vector)
+%       [y]         : y coordinates (vector)
+%       [pha]       : observations (already masked) (vector)
+%       [mask]      : mask vector
+%       [degree]    : degree of order (1 to 6)
+%
+%       Fonction to detrend a matrix using 1-6-order polynomial surface
+%   
+%       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
+%
+%   -------------------------------------------------------
+%   Alexis Hrysiewicz, UCD / iCRAG
+%   Version: 1.0.0 Beta
+%   Date: 06/07/2022
+%
+%   -------------------------------------------------------
+%   Version history:
+%           1.0.0 Beta: Initial (unreleased)
+
 x_coul = x;
 y_coul = y;
 
