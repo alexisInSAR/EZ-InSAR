@@ -1,14 +1,29 @@
 function MIESAR(src,evt,action,miesar_para)
-%   EZ-InSAR main function to run Ez-InSAR, with or without parameter.
-%   Some other functions are here. 
+%   MIESAR(src,evt,action,miesar_para)
+%       [src]           : callback value
+%       [evt]           : callback value
+%       [action]        : name of the action to perform (string value)
+%       [miesar_para]   : user parameters (struct.)
+%
+%       EZ-InSAR main function to run Ez-InSAR, with or without parameter.
+%       Some other function are here. 
+%   
+%       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
 %
 %   See also GUIMIESAR
-
-%   Copyright 2021 Alexis Hrysiewicz, UCD / iCRAG2 
+%
+%   -------------------------------------------------------
+%   Alexis Hrysiewicz, UCD / iCRAG
 %   Version: 1.0.0 Beta
 %   Date: 29/11/2021 
-
-%   Modified by Xiaowen Wang, UCD, 24/02/2022
+%
+%   -------------------------------------------------------
+%   Modified:
+%           - Xiaowen Wang, UCD, 24/02/2022: bug fix
+%
+%   -------------------------------------------------------
+%   Version history:
+%           1.0.0 Beta: Initial (unreleased)
 
 %% If the function is ran without input 
 warning('off')
