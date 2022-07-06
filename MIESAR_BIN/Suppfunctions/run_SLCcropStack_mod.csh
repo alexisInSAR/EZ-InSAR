@@ -21,7 +21,7 @@ endif
     
 # getting the crop extend
 cd $data_path/geom_reference
-crop_rdr.py -b 'keylatmin keylatmax keylonmin keylonmax' > $proc_dir/crop_log.txt
+crop_rdr.py -b '$4 $5 $6 $7' > $proc_dir/crop_log.txt
 
 #### NO changes required below ######
 
