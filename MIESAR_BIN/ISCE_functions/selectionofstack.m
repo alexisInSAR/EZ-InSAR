@@ -1,4 +1,25 @@
 function selectionofstack(src,evt,action,miesar_para)
+%   selectionofstack(src,evt,action,miesar_para)
+%       [src]           : callback value
+%       [evt]           : callback value
+%       [action]        : name of the action to perform (string value)
+%       [miesar_para]   : user parameters (struct.)
+%
+%       Function to select and permute the InSAR stacks (between SLC stack
+%       and ifg stack).
+%          
+%       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
+%
+%   See also ISCEPROCESSING.
+%
+%   -------------------------------------------------------
+%   Alexis Hrysiewicz, UCD / iCRAG
+%   Version: 1.0.0 Beta
+%   Date: 30/11/2021
+%
+%   -------------------------------------------------------
+%   Version history:
+%           1.0.0 Beta: Initiale (unreleased)
 
 %% Firstly we need to detect the states of processing
 if exist([miesar_para.WK,'/merged']) == 0 & ...
