@@ -16,6 +16,7 @@ function []=sb_find_mod(rho_min,ddiff_max,bdiff_max)
 %   -------------------------------------------------------
 %   Modified:
 %           - Alexis Hrysiewicz, UCD / iCRAG: compatibility with EZ-InSAR 
+%   Now, this script is part of EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
 
 
 if nargin<1
