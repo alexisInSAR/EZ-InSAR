@@ -1,6 +1,8 @@
+<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_1_0_0/MIESAR_BIN/private/EZ_InSAR_logo.gif" alt="Girl in a jacket" width="250"> 
+
 # EZ-InSAR 
 
-*Version 1.0.0*
+*Version 1.0.0 Beta*
 
 **EZ-InSAR (formerly called MIESAR for Matlab Interface for Easy InSAR)** is a toolbox written in MATLAB to conduct Interferometric Synthetic Aperture Radar (InSAR) data processing with the open-source software (ISCE+StaMPS/MintPy) under a user-friendly Graphic-User-Interface (GUI). The toolbox now can generate SAR interferograms using ISCE and conduct displacement time series analysis with either Persistent Scatters (**PS**) or Small-Baselines (**SBAS**) approaches using StaMPS or MintPy. 
 
@@ -58,3 +60,19 @@ EZ-InSAR is developed and maintained by the **Natural Hazard Research** group le
 ## 1.4  Acknowledgement
 
 We acknowledge that the open-source InSAR processing software and code used by EZ-InSAR are cited properly. EZ-InSAR is distributed for free under the GPLV3 License.
+
+## 1.5 Patners
+
+ 
+
+
+
+
+|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_1_0_0/MIESAR_BIN/private/AGEO-transparent.png" alt="AGEO" width="150pix">|[**AGEO**](https://ageoatlantic.eu/)|
+|---|---|
+|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_1_0_0/MIESAR_BIN/private/atlanticarealogo.png" alt="Interreg Atlantic Area" width="150pix"> |[**Interreg Atlantic Area**](https://www.atlanticarea.eu/)|
+|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_1_0_0/MIESAR_BIN/private/icrag-logo.png" alt="iCRAG" height="50pix"> | [**iCRAG**](https://www.icrag-centre.org/)|
+|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_1_0_0/MIESAR_BIN/private/UCDlogo.png" alt="UCD" height="100pix"> | [**University College Dublin**](https://www.ucd.ie/)|
+
+
+
