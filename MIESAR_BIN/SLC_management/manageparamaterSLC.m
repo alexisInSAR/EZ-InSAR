@@ -1,12 +1,25 @@
 function manageparamaterSLC(src,evt,action,miesar_para)
-%   Function to manage the SLC parameters (updating and saving) from the
-%   GUI inputs
+%   manageparamaterSLC(src,evt,action,miesar_para)
+%       [src]           : callback value
+%       [evt]           : callback value
+%       [action]        : name of the action to perform (string value)
+%       [miesar_para]   : user parameters (struct.)
 %
-%   See also initparmslc, manageSLC, downloaderSLC.
-
-%   Copyright 2021 Alexis Hrysiewicz, UCD / iCRAG2 
-%   Version: 1.0.0 
+%       Function to manage the SLC parameters (updating and saving) from
+%       the GUI inputs.
+%          
+%       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
+%
+%   See also manageparamaterSLC, initparmslc, readxmlannotationS1, downloaderSLC.
+%
+%   -------------------------------------------------------
+%   Alexis Hrysiewicz, UCD / iCRAG
+%   Version: 1.0.0 Beta
 %   Date: 29/11/2021
+%
+%   -------------------------------------------------------
+%   Version history:
+%           1.0.0 Beta: Initial (unreleased)
 
 %% Action from user inputs
 switch action
