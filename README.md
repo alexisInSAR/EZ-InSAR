@@ -57,4 +57,4 @@ EZ-InSAR is developed and maintained by the **Natural Hazard Research** group le
 
 ## 1.4  Acknowledgement
 
-We acknowledge that the open-source InSAR processing software and code used by EZ-InSAR are cited properly. EZ-InSAR is distributed for free under the MIT License.
+We acknowledge that the open-source InSAR processing software and code used by EZ-InSAR are cited properly. EZ-InSAR is distributed for free under the GPLV3 License.
