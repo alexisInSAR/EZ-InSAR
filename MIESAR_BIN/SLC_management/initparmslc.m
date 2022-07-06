@@ -1,11 +1,21 @@
 function initparmslc(WK)
-%   Function to initiate the SLC parameters
+%   initparmslc(WK)
+%       [WK]   : work workdirectory patch (string value) 
 %
-%   See also manageparamaterSLC, manageSLC, downloaderSLC.
-
-%   Copyright 2021 Alexis Hrysiewicz, UCD / iCRAG2 
-%   Version: 1.0.0 
+%       Function to initiate the SLC parameters. 
+%          
+%       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
+%
+%   See also manageparamaterSLC, initparmslc, readxmlannotationS1, downloaderSLC.
+%
+%   -------------------------------------------------------
+%   Alexis Hrysiewicz, UCD / iCRAG
+%   Version: 1.0.0 Beta
 %   Date: 29/11/2021
+%
+%   -------------------------------------------------------
+%   Version history:
+%           1.0.0 Beta: Initial (unreleased)
 
 %% Initialisation 
 pathSLC ='NONE';
