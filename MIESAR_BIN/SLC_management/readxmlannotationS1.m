@@ -1,11 +1,21 @@
 function [burst_coordinates, nb_burst] = readxmlannotationS1(pathxml)
-%   Function to read the .xml to extract the burst coordinates
+%   readxmlannotationS1(pathxml)
+%       [pathxml]           : path of S1 .xml annotation files. 
 %
-%   See also manageparamaterSLC, initparmslc, manageSLC, downloaderSLC.
-
-%   Copyright 2021 Alexis Hrysiewicz, UCD / iCRAG2
-%   Version: 1.0.0
+%       Function to read the .xml to extract the burst coordinates. 
+%          
+%       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
+%
+%   See also manageparamaterSLC, initparmslc, readxmlannotationS1, downloaderSLC.
+%
+%   -------------------------------------------------------
+%   Alexis Hrysiewicz, UCD / iCRAG
+%   Version: 1.0.0 Beta
 %   Date: 29/11/2021
+%
+%   -------------------------------------------------------
+%   Version history:
+%           1.0.0 Beta: Initial (unreleased)
 
 %% Read the parameters
 % For the lines
