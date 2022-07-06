@@ -1,13 +1,15 @@
 function MIESAR(src,evt,action,miesar_para)
-%   IPSP main function to run MIESAR, with or without parameter.
+%   EZ-InSAR main function to run Ez-InSAR, with or without parameter.
 %   Some other functions are here. 
 %
 %   See also GUIMIESAR
 
 %   Copyright 2021 Alexis Hrysiewicz, UCD / iCRAG2 
-%   Version: 1.0.0 
+%   Version: 1.0.0 Beta
 %   Date: 29/11/2021 
+
 %   Modified by Xiaowen Wang, UCD, 24/02/2022
+
 %% If the function is ran without input 
 warning('off')
 if nargin == 0
@@ -61,7 +63,7 @@ switch action
         %Dialog box for the Work directory
         miesar_para.WK = uigetdir(miesar_para.cur,'Select your work directory');   
         if miesar_para.WK == 0
-            si = ['Please select the REAL TRUE GOOD AND ACTIVE FOLDER. =)'];
+            si = ['Please select a good folder. =)'];
             set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
             set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red'); 
             error(si);
