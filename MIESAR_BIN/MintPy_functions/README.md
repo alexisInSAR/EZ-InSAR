@@ -16,5 +16,5 @@
 
 The API MintPy scripts contain the examples and parameter descriptions provided by MintPy: https://github.com/insarlab/MintPy / Authors: Zhang Yunjun, Heresh Fattahi, 2013
 
-The mintpy_network_plot script contains some lines from the StaMPS sb_baseline_plot.m script: [https://github.com/insarlab/MintPy](https://github.com/dbekaert/StaMPS/releases/tag/v4.1-beta) / Author: Andy Hooper, June 2007
+The mintpy_network_plot script contains some lines from the StaMPS sb_baseline_plot.m script: https://github.com/dbekaert/StaMPS/releases/tag/v4.1-beta / Author: Andy Hooper, June 2007
 
