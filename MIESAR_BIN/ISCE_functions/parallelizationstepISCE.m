@@ -1,12 +1,22 @@
 function [modepara] = parallelizationstepISCE(namestep,miesar_para)
-%   Function to run, in parallel, the ISCE processing 
+%   parallelizationstepISCE(namestep,miesar_para)
+%       [namestep]      : name of ISCE step
+%       [miesar_para]   : user parameters (struct.)
 %
-%   See also ISCEPROCESSING, PARALLELIZATIONSTEPISCE, RUNISCEALLSTEP,
-%   CHECKIPF.py.
-
-%   Copyright 2021 Alexis Hrysiewicz, UCD / iCRAG2 
-%   Version: 1.0.0 
+%       Function to run, in parallel, the ISCE processing.
+%          
+%       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
+%
+%   See also ISCEPROCESSING, RUNISCEALLSTEP.
+%
+%   -------------------------------------------------------
+%   Alexis Hrysiewicz, UCD / iCRAG
+%   Version: 1.0.0 Beta
 %   Date: 30/11/2021
+%
+%   -------------------------------------------------------
+%   Version history:
+%           1.0.0 Beta: Initiale (unreleased)
 
 %% Define the step name
 
