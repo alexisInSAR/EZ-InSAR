@@ -102,8 +102,8 @@ switch action
                 cmd=['mkdir ', miesar_para.WK, '/orbits'];
                 system(cmd);
             end
-            if exist([miesar_para.WK,'/aux']) == 0 %#ok<EXIST> 
-                cmd=['mkdir ', miesar_para.WK, '/aux'];
+            if exist([miesar_para.WK,'/file_aux']) == 0 %#ok<EXIST> 
+                cmd=['mkdir ', miesar_para.WK, '/file_aux'];
                 system(cmd);
             end     
               
@@ -181,7 +181,7 @@ switch action
         if exist(path.pathaux)
             set(findobj(hfig,'Tag','GUIslcmanageraux'),'string',path.pathaux,'ForegroundColor','green','FontWeight','bold');
         else
-            path.pathaux=[miesar_para.WK,'/aux'];
+            path.pathaux=[miesar_para.WK,'/file_aux'];
             set(findobj(hfig,'Tag','GUIslcmanageraux'),'string',path.pathaux,'ForegroundColor','red','FontWeight','bold');
         end
         
