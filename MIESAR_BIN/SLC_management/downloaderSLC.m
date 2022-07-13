@@ -46,7 +46,7 @@ end
 figapidownloader = uifigure('Position',[300 100 1200 900],'Name','Sentinel-1 SLC Downloader');
 glapidownloader = uigridlayout(figapidownloader,[20 5]);
 
-titleapidownloader = uilabel(glapidownloader,'Text','Sentinel-1 IW Downloader','HorizontalAlignment','center','VerticalAlignment','center','FontSize',30,'FontWeight','bold');
+titleapidownloader = uilabel(glapidownloader,'Text','Sentinel-1 SLC Downloader','HorizontalAlignment','center','VerticalAlignment','center','FontSize',30,'FontWeight','bold');
 titleapidownloader.Layout.Row = 1;
 titleapidownloader.Layout.Column = [1 5];
 
