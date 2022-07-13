@@ -1,2 +1,2 @@
-ASFID             hryalexis
-ASFPWD            Ah25051993
+ASFID             xxx
+ASFPWD            xxx
