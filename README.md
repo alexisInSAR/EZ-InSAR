@@ -10,18 +10,18 @@ The spirit of **EZ-InSAR** is minimizing the work of user in downloading, parame
 **Release info**: Version 2.0.0 Alpha, July 13, 2022
 
 **Sensors:**
-| Satellite | Mode | EZ-InSAR | 
-|---|---|---|
-|Sentinel-1|IW|Ready|
-|Sentinel-1|StripMap|Ready|
-|PAZ|StripMap|Ready|
-|PAZ|Spotlight|Ready but ISCE should be fixed|
-|TerraSAR-X|StripMap|No|
-|TerraSAR-X|Spotlight|No|
-|Cosmo-SkyMed|StripMap|No|
-|Cosmo-SkyMed|Spotlight|No|
-|ALOS2|StripMap|No|
-|ALOS2|Spotlight|No|
+| Satellite | Mode | EZ-InSAR | SLC format |
+|---|---|---|---|
+|Sentinel-1|IW|Ready|.zip or .SAFE|
+|Sentinel-1|StripMap|Ready|.zip or .SAFE|
+|PAZ|StripMap|Ready|Unzipped PAZ1-* directory in the slc directory|
+|PAZ|Spotlight|Ready but ISCE should be fixed|Unzipped PAZ1-* directory in the slc directory|
+|TerraSAR-X|StripMap|No|NE|
+|TerraSAR-X|Spotlight|No|NE|
+|Cosmo-SkyMed|StripMap|No|NE|
+|Cosmo-SkyMed|Spotlight|No|NE|
+|ALOS2|StripMap|No|NE|
+|ALOS2|Spotlight|No|NE|
 
 Please check the guidelines to add a new sensor: [here](https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_0_alpha/MIESAR_BIN/docs/guide_new_sensors.md). 
 
