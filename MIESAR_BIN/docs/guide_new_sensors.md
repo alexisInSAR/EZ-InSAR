@@ -1,39 +1,29 @@
 # Some guidelines to add a new sensors
 ***
 
-## If the sensors is in Spotlight or StripMap (and 
+## If the sensors is in Spotlight or StripMap (and different than ALOS2)
+
+### 1. In GUIMIESAR.m
+
+1. Check from the line 172, if your sensor is available. If not, add it.
+
+### 2. In SLC_management
+
+1. Add your sensor is createlistSLC.m.
+2. Script a function like displayextensionTSXPAZ.py.
+3. In manageSLC.m, in *extension* case, add your sensor and the python script.
+4. In manageparameterSLC.m, add your sensors in *save* and *update* cases. 
+
+### 3. In ISCE_functions:
+
+1. Add the command for unpacking in isce_preprocessing_SM.m. If you have scripted your own unpacking scripts, add it in 3rdparty directory, and modify the line 694 of GUIMIESAR.m. 
+2. Script a function like coarse_TSX_PAZ_baselines.py. and add it in *open_coarse_network_check* case in isceprocessing.m 
 
 
-In GUIMIESAR.m: line 694 
-line 172 (check if the sensor is here)
+## If the sensors is in TOPSARS 
 
-In SLC_management
+Please send an email to the authors. 
 
-modify createlistSLC.m 
-add displayextensionTSXPAZ
+## If the sensors is ALOS2 
 
-manageSLC.m case extension displayextensionTSXPAZ
-
-manageparameterSLC.m save 
-                      update
-
-ISCE_functions:
-
-isce_preprocessing_SM %% Command for unpacking
-elseif strcmp(paramslc.mode,'PAZ_SM') == 1 | strcmp(paramslc.mode,'PAZ_SPT') == 1
-        if exist([paramslc.pathSLC,'/',list{1}{i1}]) == 7
-            pathinput = [paramslc.pathSLC,'/',list{1}{i1}];
-
-            cmdi = ['unpackFrame_PAZ.py -i ',pathinput,' -o ',[pathout,'/',di]];
-            cmd = [cmd,sprintf('%s\n',cmdi)];
-        end
-    end
-
-
-isceprocessing open_coarse_network_check
-
-StaMPS: stampsprocessing singlemasterstack 
-
-MintPy: mintpy_parameters.m initialisation_parameters
-
-
+Please send an email to the authors.
