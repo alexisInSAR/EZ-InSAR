@@ -169,7 +169,7 @@ mode_controlslcparameter = uidropdown(gridslcparameterpanel,'Tag','mainpopmode',
 mode_controlslcparameter.ValueChangedFcn = @(src,evt,arg1,arg2) manageparamaterSLC(src,evt,'save',figmiesar.UserData);
 mode_controlslcparameter.Layout.Row = [1];
 mode_controlslcparameter.Layout.Column = [2 3];
-mode_controlslcparameter.Items = {'S1_IW','S1_SM','TSX_SM','TSX_SPT','PAZ_SM','PAZ_SPT','CSK_SM','CSK_SPT'};
+mode_controlslcparameter.Items = {'S1_IW','S1_SM','TSX_SM','TSX_SPT','PAZ_SM','PAZ_SPT','CSK_SM','CSK_SPT','ALOS2_SM','ALOS2_SPT'};
 mode_controlslcparameter.Value = {'S1_IW'};
 mode_controlslcparameter.Tooltip = 'Click to select the mode of acquisition of data.';
 
