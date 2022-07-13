@@ -20,7 +20,8 @@ The spirit of **EZ-InSAR** is minimizing the work of user in downloading, parame
 |TerraSAR-X|Spotlight|No|
 |Cosmo-SkyMed|StripMap|No|
 |Cosmo-SkyMed|Spotlight|No|
-
+|ALOS2|StripMap|No|
+|ALOS2|Spotlight|No|
 
 ## 1. Dependencies & Installation 
 
