@@ -1,4 +1,8 @@
-For new: 
+# Some guidelines to add a new sensors
+***
+
+## If the sensors is in Spotlight or StripMap (and 
+
 
 In GUIMIESAR.m: line 694 
 line 172 (check if the sensor is here)
