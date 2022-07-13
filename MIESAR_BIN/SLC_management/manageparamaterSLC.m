@@ -133,6 +133,22 @@ switch action
             set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
             error(si); 
 
+        elseif strcmp(get(findobj(gcf,'Tag','mainpopmode'),'Value'),'ALOS2_SM') == 1 
+            mode = 'ALOS2_SM';
+
+            si = ['This sensor is not implemented yet.'];
+            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
+            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
+            error(si);
+
+        elseif strcmp(get(findobj(gcf,'Tag','mainpopmode'),'Value'),'ALOS2_SPT') == 1 
+            mode = 'ALOS2_SPT';
+
+            si = ['This sensor is not implemented yet.'];
+            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
+            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
+            error(si); 
+
         end
 
         % Mode for Sentinel-1
