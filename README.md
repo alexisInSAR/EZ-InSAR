@@ -7,7 +7,20 @@
 The spirit of **EZ-InSAR** is minimizing the work of user in downloading, parametrizing, and processing the SAR data, so enabling these who are not familiar with InSAR but can also produce and analyze ground surface displacements by themselves. **EZ-InSAR** is also a contribution to the Platform for Atlantic Geohazard Risk Management (AGEO) project, which is funded by Interreg Atlantic Area Programme through the *European* Regional Development Fund.
 
 
-**Release info**: Version 1.0.0 Beta, May 27, 2022
+**Release info**: Version 2.0.0 Alpha, July 13, 2022
+
+**Sensors:**
+| Satellite | Mode | EZ-InSAR | 
+|---|---|---|
+|Sentinel-1|IW|Ready|
+|Sentinel-1|StripMap|Ready|
+|PAZ|StripMap|Ready|
+|PAZ|Spotlight|Ready but ISCE should be fixed|
+|TerraSAR-X|StripMap|No|
+|TerraSAR-X|Spotlight|No|
+|Cosmo-SkyMed|StripMap|No|
+|Cosmo-SkyMed|Spotlight|No|
+
 
 ## 1. Dependencies & Installation 
 
