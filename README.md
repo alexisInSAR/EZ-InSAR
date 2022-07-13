@@ -23,6 +23,8 @@ The spirit of **EZ-InSAR** is minimizing the work of user in downloading, parame
 |ALOS2|StripMap|No|
 |ALOS2|Spotlight|No|
 
+Please check the guidelines to add a new sensor: [here](https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_0_alpha/MIESAR_BIN/docs/guide_new_sensors.md). 
+
 ## 1. Dependencies & Installation 
 
 **EZ-InSAR** incorporates several the most popular open source InSAR processors to perform SAR interferometry and displacement time series analysis. These processors are: 
