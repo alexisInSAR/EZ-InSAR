@@ -215,6 +215,7 @@ mode_elevetation = options.elev #or elevation value
 # Read the SLC path
 parmsSLC = scipy.io.loadmat(path_WK+'/parmsSLC.mat')
 path_SLC = parmsSLC['pathSLC'][0]
+mode_beam = parmsSLC['mode'][0]
 
 print('\t\tDone')
 
@@ -528,35 +529,50 @@ for di in dates_unique:
                     # print(listOfFileNames)
                     for entry in listOfFileNames: 
                         if "annotation" in entry:
-                            if (pol.lower() in entry) and ('iw1' in entry) and (not 'calibration' in entry) and (not 'noise' in entry):
-                                path_xml_IW1 = entry
-                            if (pol.lower() in entry) and ('iw2' in entry) and (not 'calibration' in entry) and (not 'noise' in entry):
-                                path_xml_IW2 = entry
-                            if (pol.lower() in entry) and ('iw3' in entry) and (not 'calibration' in entry) and (not 'noise' in entry):
-                                path_xml_IW3 = entry
+                            if mode_beam == 'S1_IW':
+                                if (pol.lower() in entry) and ('iw1' in entry) and (not 'calibration' in entry) and (not 'noise' in entry):
+                                    path_xml_IW1 = entry
+                                if (pol.lower() in entry) and ('iw2' in entry) and (not 'calibration' in entry) and (not 'noise' in entry):
+                                    path_xml_IW2 = entry
+                                if (pol.lower() in entry) and ('iw3' in entry) and (not 'calibration' in entry) and (not 'noise' in entry):
+                                    path_xml_IW3 = entry
+                            else:
+                                if (pol.lower() in entry) and (not 'calibration' in entry) and (not 'noise' in entry):
+                                    path_xml = entry
 
-                    zipObj.extract(path_xml_IW1, path='tmp', pwd=None)      
-                    zipObj.extract(path_xml_IW2, path='tmp', pwd=None)     
-                    zipObj.extract(path_xml_IW3, path='tmp', pwd=None)  
+                    if mode_beam == 'S1_IW':
+                        zipObj.extract(path_xml_IW1, path='tmp', pwd=None)      
+                        zipObj.extract(path_xml_IW2, path='tmp', pwd=None)     
+                        zipObj.extract(path_xml_IW3, path='tmp', pwd=None)  
 
-                    shutil.copy2('tmp/'+path_xml_IW1,'tmp_IW1.xml')
-                    shutil.copy2('tmp/'+path_xml_IW2,'tmp_IW2.xml')
-                    shutil.copy2('tmp/'+path_xml_IW3,'tmp_IW3.xml')
+                        shutil.copy2('tmp/'+path_xml_IW1,'tmp_IW1.xml')
+                        shutil.copy2('tmp/'+path_xml_IW2,'tmp_IW2.xml')
+                        shutil.copy2('tmp/'+path_xml_IW3,'tmp_IW3.xml')
+                    else:
+                        zipObj.extract(path_xml, path='tmp', pwd=None) 
+                        shutil.copy2('tmp/'+path_xml,'tmp.xml') 
 
                     shutil.rmtree('tmp')
             else:
                 listOfFiles = os.listdir(path_SLC + '/' + slci + ext[h]+"/annotation") 
                 for entry in listOfFiles:
-                    if (pol.lower() in entry) and ('iw1' in entry) and (not 'calibration' in entry) and (not 'noise' in entry):
-                        path_xml_IW1 = entry
-                    if (pol.lower() in entry) and ('iw2' in entry) and (not 'calibration' in entry) and (not 'noise' in entry):
-                        path_xml_IW2 = entry
-                    if (pol.lower() in entry) and ('iw3' in entry) and (not 'calibration' in entry) and (not 'noise' in entry):
-                        path_xml_IW3 = entry
+                    if mode_beam == 'S1_IW':
+                        if (pol.lower() in entry) and ('iw1' in entry) and (not 'calibration' in entry) and (not 'noise' in entry):
+                            path_xml_IW1 = entry
+                        if (pol.lower() in entry) and ('iw2' in entry) and (not 'calibration' in entry) and (not 'noise' in entry):
+                            path_xml_IW2 = entry
+                        if (pol.lower() in entry) and ('iw3' in entry) and (not 'calibration' in entry) and (not 'noise' in entry):
+                            path_xml_IW3 = entry
+                    else:
+                        if (pol.lower() in entry) and (not 'calibration' in entry) and (not 'noise' in entry):
+                            path_xml = entry
 
-                shutil.copy2(path_xml_IW1,'tmp_IW1.xml')
-                shutil.copy2(path_xml_IW2,'tmp_IW2.xml')
-                shutil.copy2(path_xml_IW3,'tmp_IW3.xml')
+                if mode_beam == 'S1_IW':
+                    shutil.copy2(path_xml_IW1,'tmp_IW1.xml')
+                    shutil.copy2(path_xml_IW2,'tmp_IW2.xml')
+                    shutil.copy2(path_xml_IW3,'tmp_IW3.xml')
+                else:
+                    shutil.copy2(path_xml,'tmp.xml')
 
             h = h + 1
 
@@ -564,20 +580,32 @@ for di in dates_unique:
             print('We process the %s file.' % (slci+ext[h-1]))
 
             #Open the xml
-            data_xmli1, data_orbitsi1  = read_annotation_xml('tmp_IW1.xml') 
-            data_xmli2, data_orbitsi2  = read_annotation_xml('tmp_IW2.xml') 
-            data_xmli3, data_orbitsi3  = read_annotation_xml('tmp_IW3.xml') 
+            if mode_beam == 'S1_IW':
+                data_xmli1, data_orbitsi1  = read_annotation_xml('tmp_IW1.xml') 
+                data_xmli2, data_orbitsi2  = read_annotation_xml('tmp_IW2.xml') 
+                data_xmli3, data_orbitsi3  = read_annotation_xml('tmp_IW3.xml') 
 
-            os.remove('tmp_IW1.xml') 
-            os.remove('tmp_IW2.xml') 
-            os.remove('tmp_IW3.xml') 
+                os.remove('tmp_IW1.xml') 
+                os.remove('tmp_IW2.xml') 
+                os.remove('tmp_IW3.xml') 
 
-            #Save
-            latitude = latitude + data_xmli1['latitude'] + data_xmli2['latitude'] + data_xmli3['latitude']
-            longitude = longitude + data_xmli1['longitude'] + data_xmli2['longitude'] + data_xmli3['longitude']
-            incidenceAngle = incidenceAngle + data_xmli1['incidenceAngle'] + data_xmli2['incidenceAngle'] + data_xmli3['incidenceAngle']
-            azimuthTime = azimuthTime + data_xmli1['azimuthTime'] + data_xmli2['azimuthTime'] + data_xmli3['azimuthTime']
-            azimuthTimestamp = []
+                #Save
+                latitude = latitude + data_xmli1['latitude'] + data_xmli2['latitude'] + data_xmli3['latitude']
+                longitude = longitude + data_xmli1['longitude'] + data_xmli2['longitude'] + data_xmli3['longitude']
+                incidenceAngle = incidenceAngle + data_xmli1['incidenceAngle'] + data_xmli2['incidenceAngle'] + data_xmli3['incidenceAngle']
+                azimuthTime = azimuthTime + data_xmli1['azimuthTime'] + data_xmli2['azimuthTime'] + data_xmli3['azimuthTime']
+                azimuthTimestamp = []
+            else:
+                data_xmli1, data_orbitsi1  = read_annotation_xml('tmp.xml') 
+
+                os.remove('tmp.xml') 
+
+                #Save
+                latitude = latitude + data_xmli1['latitude']
+                longitude = longitude + data_xmli1['longitude']
+                incidenceAngle = incidenceAngle + data_xmli1['incidenceAngle']
+                azimuthTime = azimuthTime + data_xmli1['azimuthTime'] 
+                azimuthTimestamp = []
 
             if options.mode == 'POD' and slcorbiti != 'None':
                 if os.path.isfile(options.orbits+'/'+slcorbiti):
@@ -592,16 +620,28 @@ for di in dates_unique:
                     orb_Z_int = orb_Z_int + data_orbits['orb_Z_int']
                 else:
                     print('\t ERROR with POD files: read the orbits in xml, so the accuracy is poor.')
+                    if mode_beam == 'S1_IW': 
+                        time = time + data_orbitsi1['time'] + data_orbitsi2['time'] + data_orbitsi3['time']
+                        orb_X_int = orb_X_int + data_orbitsi1['orb_X_int'] + data_orbitsi2['orb_X_int'] + data_orbitsi3['orb_X_int']
+                        orb_Y_int = orb_Y_int + data_orbitsi1['orb_Y_int'] + data_orbitsi2['orb_Y_int'] + data_orbitsi3['orb_Y_int']
+                        orb_Z_int = orb_Z_int + data_orbitsi1['orb_Z_int'] + data_orbitsi2['orb_Z_int'] + data_orbitsi3['orb_Z_int'] 
+                    else:
+                        time = time + data_orbitsi1['time']
+                        orb_X_int = orb_X_int + data_orbitsi1['orb_X_int'] 
+                        orb_Y_int = orb_Y_int + data_orbitsi1['orb_Y_int']
+                        orb_Z_int = orb_Z_int + data_orbitsi1['orb_Z_int']
+            else:
+                print('\t We use the orbit files in xml, so the accuracy is poor.')
+                if mode_beam == 'S1_IW': 
                     time = time + data_orbitsi1['time'] + data_orbitsi2['time'] + data_orbitsi3['time']
                     orb_X_int = orb_X_int + data_orbitsi1['orb_X_int'] + data_orbitsi2['orb_X_int'] + data_orbitsi3['orb_X_int']
                     orb_Y_int = orb_Y_int + data_orbitsi1['orb_Y_int'] + data_orbitsi2['orb_Y_int'] + data_orbitsi3['orb_Y_int']
-                    orb_Z_int = orb_Z_int + data_orbitsi1['orb_Z_int'] + data_orbitsi2['orb_Z_int'] + data_orbitsi3['orb_Z_int'] 
-            else:
-                print('\t We use the orbit files in xml, so the accuracy is poor.')
-                time = time + data_orbitsi1['time'] + data_orbitsi2['time'] + data_orbitsi3['time']
-                orb_X_int = orb_X_int + data_orbitsi1['orb_X_int'] + data_orbitsi2['orb_X_int'] + data_orbitsi3['orb_X_int']
-                orb_Y_int = orb_Y_int + data_orbitsi1['orb_Y_int'] + data_orbitsi2['orb_Y_int'] + data_orbitsi3['orb_Y_int']
-                orb_Z_int = orb_Z_int + data_orbitsi1['orb_Z_int'] + data_orbitsi2['orb_Z_int'] + data_orbitsi3['orb_Z_int']        
+                    orb_Z_int = orb_Z_int + data_orbitsi1['orb_Z_int'] + data_orbitsi2['orb_Z_int'] + data_orbitsi3['orb_Z_int']     
+                else:
+                        time = time + data_orbitsi1['time']
+                        orb_X_int = orb_X_int + data_orbitsi1['orb_X_int'] 
+                        orb_Y_int = orb_Y_int + data_orbitsi1['orb_Y_int']
+                        orb_Z_int = orb_Z_int + data_orbitsi1['orb_Z_int']   
 
             timeorbit = []
 
@@ -686,12 +726,6 @@ for di in para_sat['dates']:
         R2 = np.linalg.norm(S - P)
 
         B = np.linalg.norm(M - S)
-
-        # #R2^2 = R1^2 + B^2 - 2*R1*B*cos(angle)
-        # angletmp = np.rad2deg(np.arccos((R2**2 - R1**2 - B**2)/(-2*R1*B)))
-        # alpha = angletmp - (90-para_sat['inc'][h])
-        
-        # Bperpi = B * np.cos(np.deg2rad(para_sat['inc'][h]) - np.deg2rad(alpha))
 
         Bpari = R1 - R2
         Bperpi = np.sqrt(B ** 2 - Bpari ** 2)

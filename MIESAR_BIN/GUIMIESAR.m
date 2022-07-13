@@ -15,10 +15,13 @@ function hdl = GUIMIESAR(miesar_para)
 %   -------------------------------------------------------
 %   Modified:
 %           - Xiaowen Wang, UCD, 10/03/2022: bug fix
+%           - Alexis Hrysiewicz, UCD / iCRAG, 07/07/2022: StripMap
+%           implementation
 %
 %   -------------------------------------------------------
 %   Version history:
 %           1.0.0 Beta: Initial (unreleased)
+%           2.0.0 Alpha: Initial (unreleased)
 
 %% Creation of GUI for MIESAR
 % To keep the gcf command, we need to create the figure using matlab
@@ -88,6 +91,10 @@ maintitle = uilabel(gridfigmiesar,'Text','EZ-InSAR','HorizontalAlignment','cente
 maintitle.Layout.Row = [1 3];
 maintitle.Layout.Column = [6 10];
 
+logoezinsar = uiimage(gridfigmiesar,'ImageSource','private/EZ_InSAR_logo.gif');
+logoezinsar.Layout.Row = [1 3];
+logoezinsar.Layout.Column = [10 ];
+
 %% Path panel 
 pathpanel = uipanel(gridfigmiesar,'Title','EZ-InSAR Paths','FontSize',20,'FontWeight','bold'); 
 pathpanel.Layout.Row = [4 6];
@@ -104,10 +111,10 @@ btworkdirectory.Tooltip = 'Click to select the work directory';
 
 %% SLC panel
 pg_figopen.Value = .2; 
-pg_figopen.Message = 'Open the tools for Sentinel-1';
+pg_figopen.Message = 'Open the tools for SAR data';
 pause(0.25); 
 
-slcpanel = uipanel(gridfigmiesar,'Title','Preparation of Sentinel-1 Data','FontSize',20,'FontWeight','bold','Tag','mainuipanelprepdata'); 
+slcpanel = uipanel(gridfigmiesar,'Title','Preparation of SAR data','FontSize',20,'FontWeight','bold','Tag','mainuipanelprepdata'); 
 slcpanel.Layout.Row = [7 25];
 slcpanel.Layout.Column = [1 5];
 slcpanel.Visible = 'off'; 
@@ -162,9 +169,9 @@ mode_controlslcparameter = uidropdown(gridslcparameterpanel,'Tag','mainpopmode',
 mode_controlslcparameter.ValueChangedFcn = @(src,evt,arg1,arg2) manageparamaterSLC(src,evt,'save',figmiesar.UserData);
 mode_controlslcparameter.Layout.Row = [1];
 mode_controlslcparameter.Layout.Column = [2 3];
-mode_controlslcparameter.Items = {'IW'};
-mode_controlslcparameter.Value = {'IW'};
-mode_controlslcparameter.Tooltip = 'Click to select the mode of acquisition of S1 data.';
+mode_controlslcparameter.Items = {'S1_IW','S1_SM','TSX_SM','TSX_SPT','PAZ_SM','PAZ_SPT','CSK_SM','CSK_SPT'};
+mode_controlslcparameter.Value = {'S1_IW'};
+mode_controlslcparameter.Tooltip = 'Click to select the mode of acquisition of data.';
 
 track_controlslcparameter = uieditfield(gridslcparameterpanel,'text','Tag','maintexttrack'); 
 track_controlslcparameter.ValueChangedFcn = @(src,evt,arg1,arg2) manageparamaterSLC(src,evt,'save',figmiesar.UserData);
@@ -195,7 +202,7 @@ date2_controlslcparameter.Layout.Column = [2 5];
 date2_controlslcparameter.DisplayFormat = 'yyyy-MM-dd';
 date2_controlslcparameter.Tooltip = 'Edit to define the last date <YYYY-MM-DD>.';
 
-satslcparameterpanel = uipanel(gridslcparameterpanel,'Title','Satellites','FontSize',15,'FontWeight','bold'); 
+satslcparameterpanel = uipanel(gridslcparameterpanel,'Title','Satellites (For S1)','FontSize',15,'FontWeight','bold'); 
 satslcparameterpanel.Layout.Row = [1 3];
 satslcparameterpanel.Layout.Column = [4 5];
 satslcparameterpanel.Tooltip = 'Click to select the satellites.';
@@ -212,7 +219,7 @@ SBsatslcparameterpanel.Layout.Column = [1 2];
 SBsatslcparameterpanel.ValueChangedFcn = @(src,evt,arg1,arg2) manageparamaterSLC(src,evt,'save',figmiesar.UserData);
 
 %Button check
-btslccheck = uibutton(gridslcpanel,'Text','Check the SLCs','Tag','dede'); 
+btslccheck = uibutton(gridslcpanel,'Text','Check the SLCs','Tag','buttoncheckslc'); 
 btslccheck.ButtonPushedFcn = @(src,evt,arg1,arg2) manageSLC(src,evt,'checking',figmiesar.UserData);
 btslccheck.Layout.Row = [8];
 btslccheck.Layout.Column = [1];
@@ -233,7 +240,7 @@ btslcext.Layout.Column = [1 2];
 btslcext.Tooltip = 'Click to check the SLC extension';
 
 %Button download
-btslcdown = uibutton(gridslcpanel,'Text','Download the SLCs','Tag','dede'); 
+btslcdown = uibutton(gridslcpanel,'Text','Download the Sentinel-1 SLCs','Tag','buttondownloaderS1'); 
 btslcdown.ButtonPushedFcn = @(src,evt,arg1,arg2) manageSLC(src,evt,'alldownloading',figmiesar.UserData);
 btslcdown.Layout.Row = [10];
 btslcdown.Layout.Column = [1 2];
@@ -252,7 +259,7 @@ iscepanel.Visible = 'off';
 gridiscepanel = uigridlayout(iscepanel,[10 2]);
 
 %Button check IPF
-bt_checkipf_isceprocessing = uibutton(gridiscepanel,'Text','Check the IPF versions','Tag','dede'); 
+bt_checkipf_isceprocessing = uibutton(gridiscepanel,'Text','Check the IPF versions','Tag','buttoncheckIPF'); 
 bt_checkipf_isceprocessing.ButtonPushedFcn = @(src,evt,arg1,arg2) isceprocessing(src,evt,'IPFchecking',figmiesar.UserData);
 bt_checkipf_isceprocessing.Layout.Row = [1];
 bt_checkipf_isceprocessing.Layout.Column = [1 2];
@@ -404,7 +411,7 @@ pause(0.25);
 grid_stampsprocessing = uigridlayout(tab_stamps_disp,[10 2]); 
 
 %Button cropping stamps
-bt_crop_stampsprocessing = uibutton(grid_stampsprocessing,'Text','Crop the SLCs','Tag','dede');  
+bt_crop_stampsprocessing = uibutton(grid_stampsprocessing,'Text','Crop the SLCs','Tag','bt_crop_stampsprocessing');  
 bt_crop_stampsprocessing.ButtonPushedFcn = @(src,evt,arg1,arg2) stampsprocessing(src,evt,'cropping',figmiesar.UserData);
 bt_crop_stampsprocessing.Layout.Row = [1];
 bt_crop_stampsprocessing.Layout.Column = [1 2];
@@ -621,7 +628,6 @@ bt_save_mintpyprocessing.Layout.Column = [1 2];
 bt_save_mintpyprocessing.Tooltip = 'Click to save the MintPy results.';
 
 %% Menu bar
-
 %Level 0
 help_menubar = uimenu(figmiesar,'Text','Help');
 quit_menubar = uimenu(figmiesar,'Text','Quit');
@@ -674,7 +680,7 @@ dvpt_info.Tag = 'dede';
 dvpt_info.Layout.Row = [26];
 dvpt_info.Layout.Column = [11 15];
 
-version_info = uilabel(gridfigmiesar,'Text','Release: 1.0 Beta','HorizontalAlignment','right','VerticalAlignment','center','FontSize',10,'FontWeight','bold');
+version_info = uilabel(gridfigmiesar,'Text','Release: 2.0.0 Alpha','HorizontalAlignment','right','VerticalAlignment','center','FontSize',10,'FontWeight','bold');
 version_info.Tag = 'dede'; 
 version_info.Layout.Row = [27];
 version_info.Layout.Column = [11 15];
@@ -684,6 +690,20 @@ githublink.Layout.Row = [28];
 githublink.Layout.Column = [15];
 githublink.Text = 'EZ-InSAR Gitlab';
 githublink.URL = 'https://github.com/alexisInSAR/EZ-InSAR';
+
+%% Check the ISCE EZ-InSAR scripts
+pg_figopen.Message = 'Check some files...';
+
+% For unpackFrame_PAZ.py
+[a,pathezinsar] = system('which unpackFrame_PAZ.py'); pathezinsar = strip(pathezinsar);
+[a,pathisce] = system('which stackSentinel.py'); pathisce = strip(pathisce);
+pathisce = strrep(pathisce,'/contrib/stack/topsStack/stackSentinel.py','/contrib/stack/stripmapStack/unpackFrame_PAZ.py');
+if exist(pathisce) == 0
+    disp('Please copy and paste the script unpackFrame_PAZ.py')
+    disp('In a Linux terminal')
+    disp(['sudo cp ',pathezinsar,' ',pathisce])
+    error('Missing script...'); 
+end 
 
 
 %% Finalisation of grid
@@ -703,7 +723,7 @@ disp(sprintf('\tMatlab Interface for Easy InSAR'))
 disp(sprintf('---------------------------------------------------------'))
 disp(sprintf('---------------------------------------------------------'))
 disp(sprintf('Open source application of bridge between ISCE/StaMPS/MintPy'))
-disp(sprintf('Version 1.0.0 Beta'))
+disp(sprintf('Version 2.0.0 Alpha'))
 disp(sprintf('Developed by an UCD team.'))
 
 %% Extraction of handle

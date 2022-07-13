@@ -20,10 +20,14 @@ function MIESAR(src,evt,action,miesar_para)
 %   -------------------------------------------------------
 %   Modified:
 %           - Xiaowen Wang, UCD, 24/02/2022: bug fix
+%           - Alexis Hrysiewicz, UCD / iCRAG, 07/07/2022: 
+%                   Modication of the function to display the GUI selection path. 
+%                   Modification of the function for displaying the extension.
 %
 %   -------------------------------------------------------
 %   Version history:
 %           1.0.0 Beta: Initial (unreleased)
+%           2.0.0 Alpha: Initial (unreleased)
 
 %% If the function is ran without input 
 warning('off')
@@ -144,63 +148,7 @@ switch action
 
     case 'SLCmanager'
         %% GUI SLC manager
-        
-        %Loading of directory
-        path = load([miesar_para.WK,'/parmsSLC.mat']);
-        
-        %Open the GUI
-        hfig = open('GUIslcmanager.fig');
-
-        set(hfig,'Userdata',miesar_para)
-        
-        %Display the paths
-        if iscell(path.pathSLC) == 1
-            path.pathSLC = path.pathSLC{1};
-        end
-        if iscell(path.pathorbit) == 1
-            path.pathorbit = path.pathorbit{1};
-        end
-        if iscell(path.pathaux) == 1
-            path.pathaux = path.pathaux{1};
-        end
-        
-        if exist(path.pathSLC)
-            set(findobj(hfig,'Tag','GUIslcmanagerslc'),'string',path.pathSLC,'ForegroundColor','green','FontWeight','bold');
-        else
-            path.pathSLC=[miesar_para.WK,'/slc'];
-            set(findobj(hfig,'Tag','GUIslcmanagerslc'),'string',path.pathSLC,'ForegroundColor','red','FontWeight','bold');
-        end
-        
-        if exist(path.pathorbit)
-            set(findobj(hfig,'Tag','GUIslcmanagerorbit'),'string',path.pathorbit,'ForegroundColor','green','FontWeight','bold');
-        else
-            path.pathorbit=[miesar_para.WK,'/orbits'];
-            set(findobj(hfig,'Tag','GUIslcmanagerorbit'),'string',path.pathorbit,'ForegroundColor','red','FontWeight','bold');
-        end
-        
-        if exist(path.pathaux)
-            set(findobj(hfig,'Tag','GUIslcmanageraux'),'string',path.pathaux,'ForegroundColor','green','FontWeight','bold');
-        else
-            path.pathaux=[miesar_para.WK,'/file_aux'];
-            set(findobj(hfig,'Tag','GUIslcmanageraux'),'string',path.pathaux,'ForegroundColor','red','FontWeight','bold');
-        end
-        
-    case 'SLCmanagervalidation'
-        %% Validation of SLC directories
-        
-        %Save the paths and close the GUI
-        pathSLC = get(findobj(gcf,'Tag','GUIslcmanagerslc'),'string');
-        pathorbit = get(findobj(gcf,'Tag','GUIslcmanagerorbit'),'string');
-        pathaux = get(findobj(gcf,'Tag','GUIslcmanageraux'),'string');
-        miesar_para = get(gcf,'Userdata'); 
-
-        save([miesar_para.WK,'/parmsSLC.mat'],'pathSLC','pathorbit','pathaux','-append');
-        close(gcf)
-        
-        %Display a short message
-        si = ['The directory of SLC is defined.'];
-        set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-        set(findobj(gcf,'Tag','maintextoutput'),'FontColor','black');
+        GUIpathdirectory(src,evt,'open',miesar_para)
 
     case 'Selectionzone'
         %% Selection of study area
@@ -220,8 +168,6 @@ switch action
                     [file,path] = uigetfile({'*.kml'},cur,'Select a new .kml for the target zone');
                     [status,msg] = copyfile([path,'/',file],[miesar_para.WK,'/target.kml'],'f');
             end
-
-
         end
 
         %Display the target and compute the study area
@@ -256,7 +202,7 @@ switch action
             sprintf('The EZ-InSAR is a Matlab toolbox that make a link between the ISCE processor, StaMPS and MintPy. It allows to compute the displacements from Sentinel-1 data.\n'),...
             sprintf('\n'), ...
             sprintf('It is developed by Alexis Hrysiewicz (alexis.hrysiewicz@ucd.ie) and Xiaowen Wang.\n'), ...
-            sprintf('\n\t\t Beta Version 1.0.0 (2022).\n')];
+            sprintf('\n\t\t Alpha Version 2.0.0 (2022).\n')];
         fi = msgbox(si,'About');
         
     case 'quit'

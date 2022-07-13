@@ -2,12 +2,15 @@
 
 **List of scripts:**
 - Scripts:
-  - downloaderSLC.m    
-  - manageparamaterSLC.m  
+  - createlistSLC.m		  
+  - GUIpathdirectory.m	
+  - displayextensionS1.m	  
+  - initparmslc.m		
   - readxmlannotationS1.m
-  - manageSLC.m
-  - initparmslc.m	
+  - displayextensionTSXPAZ.m  
+  - manageparamaterSLC.m
+  - downloaderSLC.m		  
+  - manageSLC.m	
 - MATLAB file:
   - parmsSLC.mat (dumpy file to save the parmSLC.mat)
-- GUI MATLAB figure 
-  - GUIslcmanager.fig (GUI to manage the paths of SLCs, orbits and aux. files. (Please use guide('GUIslcmanager.fig') to modify this file). 
+

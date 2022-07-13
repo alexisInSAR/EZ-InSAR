@@ -19,10 +19,13 @@ function mintpy_parameters(src,evt,action,miesar_para)
 %   -------------------------------------------------------
 %   Modified:
 %           - Xiaowen Wang, UCD, 10/03/2022: bug fix
+%           - Alexis Hrysiewicz, UCD / iCRAG, 13/07/2022: StripMap
+%           implementation
 %
 %   -------------------------------------------------------
 %   Version history:
 %           1.0.0 Beta: Initial (unreleased)
+%           2.0.0 Alpha: Initial (unreleased)
 
 switch action
     case 'pathmintpy'
@@ -164,6 +167,8 @@ switch action
             error(si);
         end
 
+        paramslc = load([miesar_para.WK,'/parmsSLC.mat']);
+
         % Load the MintPy directory
         fi = fopen([miesar_para.WK,'/mintpydirectory.log'],'r');
         pathmintpyprocessing = textscan(fi,'%s'); fclose(fi); pathmintpyprocessing = pathmintpyprocessing{1}{1};
@@ -174,20 +179,42 @@ switch action
         mintpy_full_parameters.mintpy.compute.numWorker.value = '4';
         mintpy_full_parameters.mintpy.load.processor.value = 'isce';
         mintpy_full_parameters.mintpy.load.autoPath.value = 'no';
-        mintpy_full_parameters.mintpy.load.metaFile.value       = [miesar_para.WK,'/reference/IW*.xml'];
+
+        if strcmp(paramslc.mode,'S1_IW') == 1
+            mintpy_full_parameters.mintpy.load.metaFile.value       = [miesar_para.WK,'/reference/IW*.xml'];
+        else
+            % Find the refer date 
+            fi = fopen([miesar_para.WK,'/commandstack.log'],'r');
+            b = textscan(fi,'%s'); fclose(fi); b = b{1};
+            IndexC = strfind(b,['--reference_date']);
+            Index = find(not(cellfun('isempty',IndexC)));
+            datem = b{Index+1};
+
+            mintpy_full_parameters.mintpy.load.metaFile.value       = [miesar_para.WK,'/slc_unpacked_crop/',datem,'/*.xml'];
+        end 
+
         mintpy_full_parameters.mintpy.load.baselineDir.value    = [miesar_para.WK,'/baselines'];
+
         mintpy_full_parameters.mintpy.load.unwFile.value        = [miesar_para.WK,'/merged/interferograms/*/filt*.unw'];
         mintpy_full_parameters.mintpy.load.corFile.value        = [miesar_para.WK,'/merged/interferograms/*/filt*.cor'];
         mintpy_full_parameters.mintpy.load.connCompFile.value   = [miesar_para.WK,'/merged/interferograms/*/filt*.unw.conncomp'];
+
         mintpy_full_parameters.mintpy.load.ionoFile.value       = 'None';
         mintpy_full_parameters.mintpy.load.intFile.value        = 'None';
+        
         mintpy_full_parameters.mintpy.load.demFile.value        = [miesar_para.WK,'/merged/geom_reference/hgt.rdr'];
         mintpy_full_parameters.mintpy.load.lookupYFile.value    = [miesar_para.WK,'/merged/geom_reference/lat.rdr'];
         mintpy_full_parameters.mintpy.load.lookupXFile.value    = [miesar_para.WK,'/merged/geom_reference/lon.rdr'];
         mintpy_full_parameters.mintpy.load.incAngleFile.value   = [miesar_para.WK,'/merged/geom_reference/los.rdr'];
         mintpy_full_parameters.mintpy.load.azAngleFile.value    = [miesar_para.WK,'/merged/geom_reference/los.rdr'];
         mintpy_full_parameters.mintpy.load.shadowMaskFile.value = [miesar_para.WK,'/merged/geom_reference/shadowMask.rdr'];
-        mintpy_full_parameters.mintpy.load.waterMaskFile.value  = [miesar_para.WK,'/merged/geom_reference/waterMask.rdr'];
+
+        if strcmp(paramslc.mode,'S1_IW') == 1
+            mintpy_full_parameters.mintpy.load.waterMaskFile.value  = [miesar_para.WK,'/merged/geom_reference/waterMask.rdr'];
+        else
+            mintpy_full_parameters.mintpy.load.waterMaskFile.value  = 'None';
+        end 
+
         mintpy_full_parameters.mintpy.load.bperpFile.value      = 'None';
 
         [lonta,lata] = read_kml([miesar_para.WK,'/area.kml']);

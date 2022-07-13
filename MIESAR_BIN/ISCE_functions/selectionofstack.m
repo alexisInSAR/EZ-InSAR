@@ -10,7 +10,7 @@ function selectionofstack(src,evt,action,miesar_para)
 %          
 %       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
 %
-%   See also ISCEPROCESSING.
+%   See also conversionstacks_SI_IW, isce_switch_stackfunctions, conversionstacks_SI_SM, parallelizationstepISCE, dem_box_cal, iscedisplayifg, removewatermask_ISCEprocessing_SM, isce_preprocessing_S1_IW, runISCEallstep, isce_preprocessing_SM, selectionofstack, isceprocessing.
 %
 %   -------------------------------------------------------
 %   Alexis Hrysiewicz, UCD / iCRAG
@@ -18,8 +18,14 @@ function selectionofstack(src,evt,action,miesar_para)
 %   Date: 30/11/2021
 %
 %   -------------------------------------------------------
+%   Modified:
+%           - Alexis Hrysiewicz, UCD / iCRAG, 07/07/2022: StripMap
+%           implementation
+%
+%   -------------------------------------------------------
 %   Version history:
-%           1.0.0 Beta: Initiale (unreleased)
+%           1.0.0 Beta: Initial (unreleased)
+%           2.0.0 Alpha: Initial (unreleased)
 
 %% Firstly we need to detect the states of processing
 if exist([miesar_para.WK,'/merged']) == 0 & ...
@@ -109,7 +115,7 @@ if strcmp(action,'modestack') == 1 & exist([miesar_para.WK,'/run_files']) == 7
     %Check the mode of processing
     [b,a] = system(['ls ',[miesar_para.WK,'/run_files/run_*'],' | grep -v ''para'' | wc -l']);
     a = str2num(strtrim(a)); 
-    if a == 13 || a == 14 % if exist([miesar_para.WK,'/run_files/run_13_grid_baseline'])
+    if a == 13 || a == 14 || a == 8 % if exist([miesar_para.WK,'/run_files/run_13_grid_baseline'])
         mode_stack = 'SLC stack';
     else
         mode_stack = 'Interferogram stack';
@@ -173,10 +179,15 @@ if strcmp(action,'modestack') == 1 & exist([miesar_para.WK,'/run_files']) == 7
                     set(findobj(gcf,'Tag','bt_prerun_isceprocessing'),'Enable','off','Visible','off');
                     set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'Enable','on','Visible','on');
                     set(findobj(gcf,'Tag','stepsiscepanel'),'Enable','off');
-                    set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'Text','Retrieve the SLC stack.');
-
-                    set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'ButtonPushedFcn',@(src,evt,arg1,arg2) conversionstacks([],[],'IF2SLC',miesar_para)); 
-
+                    
+                    paramslc = load([miesar_para.WK,'/parmsSLC.mat']);
+                    if strcmp(paramslc.mode,'S1_IW') == 1 
+                        set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'Text','Retrieve the S1 IW SLC stack.');
+                        set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'ButtonPushedFcn',@(src,evt,arg1,arg2) conversionstacks_SI_IW([],[],'IF2SLC',miesar_para)); 
+                    else
+                        set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'Text','Retrieve the StripMap SLC stack.');
+                        set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'ButtonPushedFcn',@(src,evt,arg1,arg2) conversionstacks_SI_SM([],[],'IF2SLC',miesar_para,[])); 
+                    end 
                     
                 case 'Interferogram stack'
                     si = ['You can convert the SLC stack to IFG stack.'];
@@ -185,9 +196,15 @@ if strcmp(action,'modestack') == 1 & exist([miesar_para.WK,'/run_files']) == 7
                     set(findobj(gcf,'Tag','bt_prerun_isceprocessing'),'Enable','off','Visible','off');
                     set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'Enable','on','Visible','on');
                     set(findobj(gcf,'Tag','stepsiscepanel'),'Enable','off');
-                    set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'Text','Continue to generate IFG stack.');
-                    
-                    set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'ButtonPushedFcn',@(src,evt,arg1,arg2) conversionstacks([],[],'SLC2IFG',miesar_para)); 
+
+                    paramslc = load([miesar_para.WK,'/parmsSLC.mat']);
+                    if strcmp(paramslc.mode,'S1_IW') == 1 
+                        set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'Text','Continue to generate S1 IW IFG stack.');
+                        set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'ButtonPushedFcn',@(src,evt,arg1,arg2) conversionstacks_SI_IW([],[],'SLC2IFG',miesar_para)); 
+                    else
+                        set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'Text','Continue to generate StripMap IFG stack.');
+                        set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'ButtonPushedFcn',@(src,evt,arg1,arg2) conversionstacks_SI_SM([],[],'SLC2IFG',miesar_para,[])); 
+                    end
 
             end
         end

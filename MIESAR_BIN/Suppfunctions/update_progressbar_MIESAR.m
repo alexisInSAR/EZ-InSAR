@@ -6,13 +6,18 @@ function update_progressbar_MIESAR(src,evt,miesar_para,action)
 %       [miesar_para]   : user parameters (struct.)
 %
 %       Function to manage the progress bar of EZ-InSAR.
-%          
+%
 %       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
 %
 %   -------------------------------------------------------
 %   Alexis Hrysiewicz, UCD / iCRAG
 %   Version: 1.0.0 Beta
 %   Date: 30/11/2021
+%
+%   -------------------------------------------------------
+%   Modified:
+%           - Alexis Hrysiewicz, UCD / iCRAG, 07/07/2022: bug with cla()
+%
 %
 %   -------------------------------------------------------
 %   Version history:
@@ -101,7 +106,7 @@ switch action
         end
         set(findobj(gcf,'Tag','maintextoutput'),'Value',si,'FontColor','blue');
 
-   case 'stampsMERGED'
+    case 'stampsMERGED'
         fi = fopen([miesar_para.WK,'/stampsdirectory.log'],'r');
         pathstampsprocessing = textscan(fi,'%s'); fclose(fi); pathstampsprocessing = pathstampsprocessing{1}{1};
 
@@ -121,11 +126,11 @@ switch action
             si = sprintf('StaMPS MERGED processing detected: %d/%d.\nThe last done step is: %s. Please continue the processing with %s',a,b,logstack{1}{(a+2)},logstack{1}{(a)+2+1});
         end
         set(findobj(gcf,'Tag','maintextoutput'),'Value',si,'FontColor','blue');
-       
-       case 'defaut'
-       	ratio = src;
-       	b = 1; 
-       	a = ratio;      
+
+    case 'defaut'
+        ratio = src;
+        b = 1;
+        a = ratio;
 end
 
 %% Update the progress bar
@@ -133,8 +138,8 @@ if strcmp(action,'defaut')
     axitmp = evt;
 else
     axitmp = findobj(gcf,'Tag','progressbar');
-end 
-cla(axitmp)
+end
+% cla(axitmp)
 axitmp.XLim = [0 100];
 axitmp.YLim = [0 1];
 plot(axitmp,[0 100 100 0 0],[0 0 1 1 0],'-k','LineWidth',2)

@@ -20,10 +20,14 @@ function stampsprocessing(src,evt,action,miesar_para)
 %   -------------------------------------------------------
 %   Modified:
 %           - Xiaowen Wang, UCD, 12/02/2022: bug fix
+%           - Alexis Hrysiewicz, UCD / iCRAG, 13/07/2022: StripMap
+%           implementation
 %
 %   -------------------------------------------------------
 %   Version history:
 %           1.0.0 Beta: Initial (unreleased)
+%           2.0.0 Alpha: Initial (unreleased)
+
 
 switch action
     case 'cropping'
@@ -64,13 +68,18 @@ switch action
 
     case 'singlemasterstack'
         %% Preparation of the Single-reference stack for StaMPS
-        
+        paramslc = load([miesar_para.WK,'/parmsSLC.mat']);
+
         % Load the work directory and the log 
-        fi = fopen([miesar_para.WK,'/commandstack.log'],'r')
+        fi = fopen([miesar_para.WK,'/commandstack.log'],'r');
         b = textscan(fi,'%s'); fclose(fi); b = b{1};
         
         % Find the refer date 
-        IndexC = strfind(b,['-m']);
+        if strcmp(paramslc.mode,'S1_IW') == 1
+            IndexC = strfind(b,['-m']);
+        else
+            IndexC = strfind(b,['--reference_date']);
+        end 
         Index = find(not(cellfun('isempty',IndexC)));
         datem = b{Index+1};
         
@@ -80,7 +89,7 @@ switch action
         if isempty(Index) == 0
             rlooks = b{Index+1};
         else
-            rlooks = '8';
+            rlooks = '2';
         end
         
         % Find the azi looks
@@ -99,7 +108,15 @@ switch action
         prompt = {'Enter the lambda [m]:'};
         dlgtitle = 'Input';
         dims = [1 35];
-        definput = {'0.055465760'};
+
+        if strcmp(paramslc.mode,'S1_IW') == 1 | strcmp(paramslc.mode,'S1_SM') == 1
+            definput = {'0.055465760'};
+        elseif strcmp(paramslc.mode,'TSX_SM') == 1 | strcmp(paramslc.mode,'TSX_SPT') == 1 | strcmp(paramslc.mode,'PAZ_SM') == 1 | strcmp(paramslc.mode,'PAZ_SPT') == 1
+            definput = {'0.0311'};
+        elseif strcmp(paramslc.mode,'CSK_SM') == 1 | strcmp(paramslc.mode,'CSK_SPT') == 1 
+            definput = {'0.0311'};
+        end 
+
         answer = inputdlg(prompt,dlgtitle,dims,definput);
         lw = answer{1};
         
@@ -166,8 +183,14 @@ switch action
         fprintf(fi,'azimuth_looks %s\n',zlooks);
         fprintf(fi,'aspect_ratio %s\n\n',aspratio);
         fprintf(fi,'lambda %s\n',lw);
-        fprintf(fi,'slc_suffix %s\n','.full');
-        fprintf(fi,'geom_suffix %s\n','.full');
+
+        if strcmp(paramslc.mode,'S1_IW') == 1 
+            fprintf(fi,'slc_suffix %s\n','.full');
+            fprintf(fi,'geom_suffix %s\n','.full');
+        else
+            fprintf(fi,'slc_suffix %s\n','');
+            fprintf(fi,'geom_suffix %s\n','');
+        end 
         
         % Write the script for evaluation
         scripttoeval = ['scripttoeval_',miesar_para.id,'.sh'];

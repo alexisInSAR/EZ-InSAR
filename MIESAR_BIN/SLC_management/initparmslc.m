@@ -6,7 +6,7 @@ function initparmslc(WK)
 %          
 %       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
 %
-%   See also manageparamaterSLC, initparmslc, readxmlannotationS1, downloaderSLC.
+%   See also createlistSLC, GUIpathdirectory, displayextensionS1, initparmslc, readxmlannotationS1, displayextensionTSXPAZ, manageparamaterSLC, downloaderSLC, manageSLC.
 %
 %   -------------------------------------------------------
 %   Alexis Hrysiewicz, UCD / iCRAG
@@ -14,19 +14,26 @@ function initparmslc(WK)
 %   Date: 29/11/2021
 %
 %   -------------------------------------------------------
+%   Modified:
+%           - Alexis Hrysiewicz, UCD / iCRAG, 07/07/2022: StripMap
+%           implementation
+%
+%   -------------------------------------------------------
 %   Version history:
 %           1.0.0 Beta: Initial (unreleased)
+%           2.0.0 Alpha: Initial (unreleased)
 
 %% Initialisation 
-pathSLC ='NONE';
-pathorbit ='NONE'; 
-pathaux ='NONE'; 
+pathSLC = [WK,'/slc'];
+pathorbit =[WK,'/orbits']; 
+pathaux = [WK,'/file_aux']; 
 date1 ='2015-01-01'; 
 date2 ='2022-01-01'; 
 sat ='AB'; 
-mode ='IW'; 
+mode ='S1_IW'; 
 track ='001'; 
 pass ='Desc'; 
 WK=WK;
+
 %% Save on the work directory
 save([WK,'/parmsSLC.mat'],'WK','pathSLC','pathorbit','pathaux','date1','date2','sat','mode','track','pass'); 

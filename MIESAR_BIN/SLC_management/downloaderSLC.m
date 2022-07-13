@@ -6,7 +6,7 @@ function downloaderSLC(miesar_para)
 %          
 %       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
 %
-%   See also manageparamaterSLC, initparmslc, readxmlannotationS1, downloaderSLC.
+%   See also createlistSLC, GUIpathdirectory, displayextensionS1, initparmslc, readxmlannotationS1, displayextensionTSXPAZ, manageparamaterSLC, downloaderSLC, manageSLC.
 %
 %   -------------------------------------------------------
 %   Alexis Hrysiewicz, UCD / iCRAG
@@ -14,8 +14,14 @@ function downloaderSLC(miesar_para)
 %   Date: 16/02/2022
 %
 %   -------------------------------------------------------
+%   Modified:
+%           - Alexis Hrysiewicz, UCD / iCRAG, 07/07/2022: StripMap
+%           implementation
+%
+%   -------------------------------------------------------
 %   Version history:
 %           1.0.0 Beta: Initial (unreleased)
+%           2.0.0 Alpha: Initial (unreleased)
 
 
 %% Initialisation of variables
@@ -37,7 +43,7 @@ else
 end
 
 %% Open the figure
-figapidownloader = uifigure('Position',[300 100 1200 900],'Name','Sentinel-1 IW Downloader');
+figapidownloader = uifigure('Position',[300 100 1200 900],'Name','Sentinel-1 SLC Downloader');
 glapidownloader = uigridlayout(figapidownloader,[20 5]);
 
 titleapidownloader = uilabel(glapidownloader,'Text','Sentinel-1 IW Downloader','HorizontalAlignment','center','VerticalAlignment','center','FontSize',30,'FontWeight','bold');

@@ -2,6 +2,7 @@
 
 **List of scripts:**
 - coarse_Sentinel_1_baselines.py	
+- coarse_TSX_PAZ_baselines.py
 - sb_find_mod.m
 - readpathinformation.m		
 - string2hash.m

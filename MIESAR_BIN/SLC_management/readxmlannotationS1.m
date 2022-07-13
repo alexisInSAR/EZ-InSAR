@@ -1,4 +1,4 @@
-function [burst_coordinates, nb_burst] = readxmlannotationS1(pathxml)
+function [burst_coordinates, nb_burst] = readxmlannotationS1(pathxml,mode)
 %   readxmlannotationS1(pathxml)
 %       [pathxml]           : path of S1 .xml annotation files. 
 %
@@ -6,7 +6,7 @@ function [burst_coordinates, nb_burst] = readxmlannotationS1(pathxml)
 %          
 %       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
 %
-%   See also manageparamaterSLC, initparmslc, readxmlannotationS1, downloaderSLC.
+%   See also createlistSLC, GUIpathdirectory, displayextensionS1, initparmslc, readxmlannotationS1, displayextensionTSXPAZ, manageparamaterSLC, downloaderSLC, manageSLC.
 %
 %   -------------------------------------------------------
 %   Alexis Hrysiewicz, UCD / iCRAG
@@ -14,8 +14,15 @@ function [burst_coordinates, nb_burst] = readxmlannotationS1(pathxml)
 %   Date: 29/11/2021
 %
 %   -------------------------------------------------------
+%   Modified:
+%           - Alexis Hrysiewicz, UCD / iCRAG, 07/07/2022: StripMap
+%           implementation
+%
+%   -------------------------------------------------------
 %   Version history:
 %           1.0.0 Beta: Initial (unreleased)
+%           2.0.0 Alpha: Initial (unreleased)
+
 
 %% Read the parameters
 % For the lines
@@ -67,14 +74,22 @@ for i1 = 1 : length(c)
 end 
 
 %% Extraction of coordinates 
-burst_coordinates = struct('longitude',[],'latitude',[]); 
-unique_lines = unique(lines);
-nb_burst = length(unique_lines)-1; 
-for i1 = 1 : nb_burst
-    posi1 = find(unique_lines(i1) == lines); 
-    posi2 = find(unique_lines(i1+1) == lines); 
-    loni = [longitude(posi1); flipud(longitude(posi2)); longitude(posi1(1))]; 
-    lati = [latitude(posi1); flipud(latitude(posi2)); latitude(posi1(1))]; 
-    burst_coordinates(i1).longitude = loni; 
-    burst_coordinates(i1).latitude = lati; 
+switch mode 
+    case 'S1_IW'
+        burst_coordinates = struct('longitude',[],'latitude',[]); 
+        unique_lines = unique(lines);
+        nb_burst = length(unique_lines)-1; 
+        for i1 = 1 : nb_burst
+            posi1 = find(unique_lines(i1) == lines); 
+            posi2 = find(unique_lines(i1+1) == lines); 
+            loni = [longitude(posi1); flipud(longitude(posi2)); longitude(posi1(1))]; 
+            lati = [latitude(posi1); flipud(latitude(posi2)); latitude(posi1(1))]; 
+            burst_coordinates(i1).longitude = loni; 
+            burst_coordinates(i1).latitude = lati; 
+        end 
+    case 'S1_SM'
+        nb_burst = 1;  
+        k = convhull(longitude,latitude); 
+        burst_coordinates(1).longitude = longitude(k); 
+        burst_coordinates(1).latitude = latitude(k); 
 end 
