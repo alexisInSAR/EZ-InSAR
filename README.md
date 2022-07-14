@@ -12,8 +12,8 @@ The spirit of **EZ-InSAR** is minimizing the work of user in downloading, parame
 **Sensors:**
 | Satellite | Mode | EZ-InSAR | SLC format |
 |---|---|---|---|
-|Sentinel-1|IW|Ready|.zip or .SAFE|
-|Sentinel-1|StripMap|Ready|.zip or .SAFE|
+|Sentinel-1|IW|Ready|.zip or .SAFE in the slc directory|
+|Sentinel-1|StripMap|Ready|.zip or .SAFE in the slc directory|
 |PAZ|StripMap|Ready|Unzipped PAZ1_* directory in the slc directory|
 |PAZ|Spotlight|Ready but ISCE should be fixed|Unzipped PAZ1_* directory in the slc directory|
 |TerraSAR-X|StripMap|Ready|Unzipped TSX1_* directory in the slc directory|
