@@ -103,20 +103,8 @@ switch action
             mode = 'PAZ_SPT';
         elseif strcmp(get(findobj(gcf,'Tag','mainpopmode'),'Value'),'TSX_SM') == 1 
             mode = 'TSX_SM'; 
-
-            si = ['This sensor is not implemented yet.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
-            error(si); 
-
         elseif strcmp(get(findobj(gcf,'Tag','mainpopmode'),'Value'),'TSX_SPT') == 1 
             mode = 'TSX_SPT';
-
-            si = ['This sensor is not implemented yet.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
-            error(si); 
-
         elseif strcmp(get(findobj(gcf,'Tag','mainpopmode'),'Value'),'CSK_SM') == 1 
             mode = 'CSK_SM'; 
 
