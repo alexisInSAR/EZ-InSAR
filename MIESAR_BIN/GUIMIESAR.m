@@ -696,12 +696,35 @@ pg_figopen.Message = 'Check some files...';
 
 % For unpackFrame_PAZ.py
 [a,pathezinsar] = system('which unpackFrame_PAZ.py'); pathezinsar = strip(pathezinsar);
-[a,pathisce] = system('which stackSentinel.py'); pathisce = strip(pathisce);
-pathisce = strrep(pathisce,'/contrib/stack/topsStack/stackSentinel.py','/contrib/stack/stripmapStack/unpackFrame_PAZ.py');
-if exist(pathisce) == 0
+[a,pathisce1] = system('which stackSentinel.py'); pathisce1 = strip(pathisce1);
+pathisce1 = strrep(pathisce1,'/contrib/stack/topsStack/stackSentinel.py','/contrib/stack/stripmapStack/unpackFrame_PAZ.py');
+[a,pathisce2] = system('which stackStripMap.py'); pathisce2 = strip(pathisce2);
+pathisce2 = strrep(pathisce2,'/contrib/stack/stripmapStack/stackStripMap.py','/contrib/stack/stripmapStack/unpackFrame_PAZ.py');
+if exist(pathisce1) == 0 & exist(pathisce2) == 0
     disp('Please copy and paste the script unpackFrame_PAZ.py')
     disp('In a Linux terminal')
-    disp(['sudo cp ',pathezinsar,' ',pathisce])
+    if isempty(pathisce1) == 0
+        disp(['sudo cp ',pathezinsar,' ',pathisce1])
+    else
+        disp(['sudo cp ',pathezinsar,' ',pathisce2])
+    end 
+    error('Missing script...'); 
+end 
+
+% For unpackFrame_TSX_ezinsar.py
+[a,pathezinsar] = system('which unpackFrame_TSX_ezinsar.py'); pathezinsar = strip(pathezinsar);
+[a,pathisce1] = system('which stackSentinel.py'); pathisce1 = strip(pathisce1);
+pathisce1 = strrep(pathisce1,'/contrib/stack/topsStack/stackSentinel.py','/contrib/stack/stripmapStack/unpackFrame_TSX_ezinsar.py');
+[a,pathisce2] = system('which stackStripMap.py'); pathisce2 = strip(pathisce2);
+pathisce2 = strrep(pathisce2,'/contrib/stack/stripmapStack/stackStripMap.py','/contrib/stack/stripmapStack/unpackFrame_TSX_ezinsar.py');
+if exist(pathisce1) == 0 & exist(pathisce2) == 0
+    disp('Please copy and paste the script unpackFrame_TSX_ezinsar.py')
+    disp('In a Linux terminal')
+    if isempty(pathisce1) == 0
+        disp(['sudo cp ',pathezinsar,' ',pathisce1])
+    else
+        disp(['sudo cp ',pathezinsar,' ',pathisce2])
+    end 
     error('Missing script...'); 
 end 
 
