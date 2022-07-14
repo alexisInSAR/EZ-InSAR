@@ -67,6 +67,14 @@ for i1 = 1 : length(list{1})
             cmdi = ['unpackFrame_PAZ.py -i ',pathinput,' -o ',[pathout,'/',di]];
             cmd = [cmd,sprintf('%s\n',cmdi)];
         end
+
+    elseif strcmp(paramslc.mode,'TSX_SM') == 1 | strcmp(paramslc.mode,'TSX_SPT') == 1
+        if exist([paramslc.pathSLC,'/',list{1}{i1}]) == 7
+            pathinput = [paramslc.pathSLC,'/',list{1}{i1}];
+
+            cmdi = ['unpackFrame_TSX_ezinsar.py -i ',pathinput,' -o ',[pathout,'/',di]];
+            cmd = [cmd,sprintf('%s\n',cmdi)];
+        end
     end
 end
 
@@ -153,10 +161,21 @@ switch modestack
             error('The wrong mode has been selected.');
         end
 
+        prompt = {'Time Threshold','Baseline Threshold'};
+        dlgtitle = 'Network parameters';
+        dims = [1 35];
+        definput = {'90','5000'};
+        answer = inputdlg(prompt,dlgtitle,dims,definput);
+        th1 = answer{1};
+        th2 = answer{2};
+        if isempty(str2num(th1))==1 | isempty(str2num(th2))==1
+            error('The number of looks must be numbers...');
+        end
         para_stack{6,1} = '--time_threshold';
-        para_stack{6,2} = '10000';
+        para_stack{6,2} = th1;
         para_stack{7,1} = '--baseline_threshold';
-        para_stack{7,2} = '5000';
+        para_stack{7,2} = th2;
+
         para_stack{8,1} = '--azimuth_looks';
         para_stack{8,2} = '1';
         para_stack{9,1} = '--range_looks';
