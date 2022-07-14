@@ -14,10 +14,10 @@ The spirit of **EZ-InSAR** is minimizing the work of user in downloading, parame
 |---|---|---|---|
 |Sentinel-1|IW|Ready|.zip or .SAFE|
 |Sentinel-1|StripMap|Ready|.zip or .SAFE|
-|PAZ|StripMap|Ready|Unzipped PAZ1-* directory in the slc directory|
-|PAZ|Spotlight|Ready but ISCE should be fixed|Unzipped PAZ1-* directory in the slc directory|
-|TerraSAR-X|StripMap|No|NE|
-|TerraSAR-X|Spotlight|No|NE|
+|PAZ|StripMap|Ready|Unzipped PAZ1_* directory in the slc directory|
+|PAZ|Spotlight|Ready but ISCE should be fixed|Unzipped PAZ1_* directory in the slc directory|
+|TerraSAR-X|StripMap|Ready|Unzipped TSX1_* directory in the slc directory|
+|TerraSAR-X|Spotlight|Ready but ISCE should be fixed|Unzipped TSX1_* directory in the slc directory|
 |Cosmo-SkyMed|StripMap|No|NE|
 |Cosmo-SkyMed|Spotlight|No|NE|
 |ALOS2|StripMap|No|NE|
