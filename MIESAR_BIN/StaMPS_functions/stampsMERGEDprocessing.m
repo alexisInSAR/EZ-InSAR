@@ -18,6 +18,11 @@ function stampsMERGEDprocessing(src,evt,action,miesar_para)
 %   Date: 30/11/2021
 %
 %   -------------------------------------------------------
+%   Modified:
+%           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2022: modification of
+%           text information
+%
+%   -------------------------------------------------------
 %   Version history:
 %           1.0.0 Beta: Initial (unreleased)
 
@@ -29,12 +34,10 @@ switch action
         % Check the directories
         if exist([miesar_para.WK,'/stampsdirectory.log'])
             si = ['The PS/SBAS processing will be done...'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','black');
+            update_textinformation([],[],[],si,'information');
         else
             si = ['The preparation of StaMPS stack is not detected.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red'); 
+            update_textinformation([],[],[],si,'error');
             error(si);
         end 
         
@@ -106,8 +109,7 @@ switch action
             end
         else
             si = ['It is not possible to run the merging of PS/SBAS points because the PS/SBAS processing are not finished.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red'); 
+            update_textinformation([],[],[],si,'error');
             error(si)
         end
 
@@ -120,12 +122,10 @@ switch action
         % Check the log 
         if exist([miesar_para.WK,'/stampsdirectory.log'])
             si = ['Please select the parameters for the MERGED approach.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','black');
+            update_textinformation([],[],[],si,'information');
         else
             si = ['The preparation of StaMPS stack is not detected.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red'); 
+            update_textinformation([],[],[],si,'error');
             error(si);
         end 
        
@@ -135,8 +135,7 @@ switch action
         
         if exist([pathstampsprocessing,'/MERGED'])==0
             si = ['The PS/SBAS are not merged. Please, merge the results.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red'); 
+            update_textinformation([],[],[],si,'error'); 
             error(si); 
         end 
         
@@ -162,12 +161,10 @@ switch action
         % Check the directory
         if exist([miesar_para.WK,'/stampsdirectory.log'])
             si = ['The MERGED processing will be done...'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','black');
+            update_textinformation([],[],[],si,'information');
         else
             si = ['The preparation of StaMPS stack is not detected.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red'); 
+            update_textinformation([],[],[],si,'error');
             error(si);
         end 
         
@@ -208,8 +205,7 @@ switch action
             step2 = str2num(answer{2});
             if step1<6 | step2 < 6
                 si = ['The processing with MERGED approach does not allow the step inferior to 6.'];
-                set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-                set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red'); 
+                update_textinformation([],[],[],si,'error');
                 error(si);
             end 
             cur = cd;

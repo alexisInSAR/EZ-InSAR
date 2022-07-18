@@ -22,6 +22,8 @@ function stampsprocessing(src,evt,action,miesar_para)
 %           - Xiaowen Wang, UCD, 12/02/2022: bug fix
 %           - Alexis Hrysiewicz, UCD / iCRAG, 13/07/2022: StripMap
 %           implementation
+%           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2022: modification of
+%           text information
 %
 %   -------------------------------------------------------
 %   Version history:
@@ -36,8 +38,7 @@ switch action
         % Check the available results and create the crop command
         if exist([miesar_para.WK,'/merged'])==0
             si = ['The merged directory does seems presented.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
+            update_textinformation([],[],[],si,'error');
             error(si);
         else
             [lon,lat] = read_kml([miesar_para.WK,'/area.kml']);
@@ -46,8 +47,7 @@ switch action
         end
         
         si = ['Running of SLC-stack cropping...'];
-        set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-        set(findobj(gcf,'Tag','maintextoutput'),'FontColor','black');
+        update_textinformation([],[],[],si,'information');
         
         % Write the script
         scripttoeval = ['scripttoeval_',miesar_para.id,'.sh'];
@@ -154,8 +154,7 @@ switch action
         end
         if rep == 0
             si = ['The preparation has been cancelled.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'String',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'ForegroundColor','red');
+            update_textinformation([],[],[],si,'error');
             error(si);
         end 
         

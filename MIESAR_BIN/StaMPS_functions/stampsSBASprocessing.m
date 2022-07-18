@@ -17,6 +17,11 @@ function stampsSBASprocessing(src,evt,action,miesar_para)
 %   Date: 30/11/2021
 %
 %   -------------------------------------------------------
+%   Modified:
+%           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2022: modification of
+%           text information
+%
+%   -------------------------------------------------------
 %   Version history:
 %           1.0.0 Beta: Initial (unreleased)
 
@@ -27,12 +32,10 @@ switch action
         % Check the directory
         if exist([miesar_para.WK,'/stampsdirectory.log'])
             si = ['Opening of SBAS-Network tool...'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','black');
+            update_textinformation([],[],[],si,'information');
         else
             si = ['The preparation of StaMPS stack is not detected.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red'); 
+            update_textinformation([],[],[],si,'error');
             error(si);
         end 
         
@@ -86,12 +89,10 @@ switch action
         % Check the directory
         if exist([pathstampsprocessing{1}{2},'/small_baselines.list'])
             si = ['The computation fof SBAS interferograms will be done...'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','black');
+            update_textinformation([],[],[],si,'information');
         else
             si = ['The network file is not detected.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'Fontcolor','red'); 
+            update_textinformation([],[],[],si,'error'); 
             error(si);
         end 
         
@@ -166,12 +167,10 @@ switch action
         % Check the directory
         if exist([miesar_para.WK,'/stampsdirectory.log'])
             si = ['Please select the parameters for the SBAS approach.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','black');
+            update_textinformation([],[],[],si,'information');
         else
             si = ['The preparation of StaMPS stack is SBAS detected.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red'); 
+            update_textinformation([],[],[],si,'error');
             error(si);
         end 
         
@@ -199,12 +198,10 @@ switch action
         % Check the directory
         if exist([miesar_para.WK,'/stampsdirectory.log'])
             si = ['The SBAS processing will be done...'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','black');
+            update_textinformation([],[],[],si,'information');
         else
             si = ['The preparation of StaMPS stack is not detected.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red'); 
+            update_textinformation([],[],[],si,'error');
             error(si);
         end 
         update_progressbar_MIESAR([],[],miesar_para,'stampsSBAS'); 
