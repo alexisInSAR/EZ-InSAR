@@ -18,6 +18,11 @@ function mintpy_allstep(src,evt,action,figstep,miesar_para)
 %   Date: 17/02/2022
 %
 %   -------------------------------------------------------
+%   Modified:
+%           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2022: modification of
+%           text information
+%
+%   -------------------------------------------------------
 %   Version history:
 %           1.0.0 Beta: Initiale (unreleased)
 
@@ -100,8 +105,7 @@ switch action
         else
             %Check if at least one step is selected
             si = ['Please, select at least one step to run.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
+            update_textinformation([],[],[],si,'error');
             error(si);
         end
 end

@@ -19,6 +19,8 @@ function mintpy_processing(src,evt,action,miesar_para)
 %   -------------------------------------------------------
 %   Modified:
 %           - Xiaowen Wang, UCD, 10/03/2022: bug fix
+%           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2022: modification of
+%           text information
 %
 %   -------------------------------------------------------
 %   Version history:
@@ -142,8 +144,7 @@ switch action
         else
             %Check if the previous step is done before the selected step
             si = ['The previous step is not done. Please, run the previous step before the selected step.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
+            update_textinformation([],[],[],si,'error');
             error(si);
         end
 

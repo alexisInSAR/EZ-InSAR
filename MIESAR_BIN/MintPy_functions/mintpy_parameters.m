@@ -21,6 +21,8 @@ function mintpy_parameters(src,evt,action,miesar_para)
 %           - Xiaowen Wang, UCD, 10/03/2022: bug fix
 %           - Alexis Hrysiewicz, UCD / iCRAG, 13/07/2022: StripMap
 %           implementation
+%           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2022: modification of
+%           text information
 %
 %   -------------------------------------------------------
 %   Version history:
@@ -73,8 +75,7 @@ switch action
         % Check the directory
         if exist([miesar_para.WK,'/mintpydirectory.log']) == 0
             si = ['The preparation of Mintpy stack is not detected.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
+            update_textinformation([],[],[],si,'error');
             error(si);
         end
 
@@ -122,8 +123,7 @@ switch action
         % Check the directory
         if exist([miesar_para.WK,'/mintpydirectory.log']) == 0
             si = ['The preparation of Mintpy stack is not detected.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
+            update_textinformation([],[],[],si,'error');
             error(si);
         end
 
@@ -162,8 +162,7 @@ switch action
         % Check the directory
         if exist([miesar_para.WK,'/mintpydirectory.log']) == 0
             si = ['The preparation of Mintpy stack is not detected.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
+            update_textinformation([],[],[],si,'error');
             error(si);
         end
 
