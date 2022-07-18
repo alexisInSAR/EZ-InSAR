@@ -17,6 +17,11 @@ function isce_preprocessing_S1_IW(src,evt,action,miesar_para)
 %   Date: 11/07/2022
 %
 %   -------------------------------------------------------
+%   Modified:
+%           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2022: modifcation of
+%           text information
+%
+%   -------------------------------------------------------
 %   Version history:
 %           2.0.0 Alpha: Initial (unreleased)
 
@@ -39,8 +44,7 @@ if exist([miesar_para.WK,'/DEM_files.txt'])
     fid = fopen([miesar_para.WK,'/DEM_files.txt'],'r'); pathdem = textscan(fid,'%s'); fclose(fid); pathdem = cell2mat(pathdem{1});
 else
     si = ['The DEM files are not detected.'];
-    set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-    set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
+    update_textinformation([],[],[],si,'error');
     error(si);
 end
 
@@ -64,14 +68,12 @@ if exist([miesar_para.WK,'/SLC.list'])
     list = textscan(fid,['%s %s %s %s %s %s %s %s']); fclose(fid);
 else
     si = ['The SLC list is not detected.'];
-    set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-    set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
+    update_textinformation([],[],[],si,'error');
     error(si);
 end
 
 si = ['The files are detected.'];
-set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-set(findobj(gcf,'Tag','maintextoutput'),'FontColor','green');
+update_textinformation([],[],[],si,'information');
 
 datei = [];
 for i1 = 1 : length(list{1})

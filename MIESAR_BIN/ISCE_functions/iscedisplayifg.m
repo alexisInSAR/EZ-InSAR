@@ -18,6 +18,11 @@ function iscedisplayifg(src,evt,action,miesar_para)
 %   Date: 17/02/2020
 %
 %   -------------------------------------------------------
+%   Modified:
+%           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2022: modifcation of
+%           text information
+%
+%   -------------------------------------------------------
 %   Version history:
 %           1.0.0 Beta: Initial (unreleased)
 
@@ -25,17 +30,14 @@ function iscedisplayifg(src,evt,action,miesar_para)
 if exist([miesar_para.WK,'/merged/interferograms'])
     pathifg = [miesar_para.WK,'/merged/interferograms']; 
     si = ['Interferograms directory: OK.'];
-    set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-    set(findobj(gcf,'Tag','maintextoutput'),'FontColor','black');
+    update_textinformation([],[],[],si,'information');
 elseif exist([miesar_para.WK,'/merged_mintpy/interferograms'])
     pathifg = [miesar_para.WK,'/merged_mintpy/interferograms']; 
     si = ['Interferograms directory: OK.'];
-    set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-    set(findobj(gcf,'Tag','maintextoutput'),'FontColor','black');
+    update_textinformation([],[],[],si,'information');
 else
     si = ['Error: no directory with interferograms'];
-    set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-    set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
+    update_textinformation([],[],[],si,'error');
     error(['Error: no directory with interferograms']); 
 end 
 

@@ -20,6 +20,8 @@ function isceprocessing(src,evt,action,miesar_para)
 %   Modified:
 %           - Alexis Hrysiewicz, UCD / iCRAG, 07/07/2022: StripMap
 %           implementation
+%           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2022: modifcation of
+%           text information
 %
 %   -------------------------------------------------------
 %   Version history:
@@ -36,8 +38,7 @@ switch action
             paramslc = load([miesar_para.WK,'/parmsSLC.mat']);
         else
             si = ['The SLC parameters do seems existed.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'String',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'ForegroundColor','red');
+            update_textinformation([],[],[],si,'error');
             f = errordlg('The SLC parameters do seems existed.','ERROR');
         end
 
@@ -78,7 +79,7 @@ switch action
         end
 
         si = ['The IPF versions have been checked.'];
-        set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
+        update_textinformation([],[],[],si,'information');
 
         %Display the results of IPF with messages
         figi = figure('name','Version of IPF','numbertitle','off');
@@ -100,8 +101,7 @@ switch action
         paramslc = load([miesar_para.WK,'/parmsSLC.mat']);
 
         si = ['Please, select the directory of the DEM or the dowload option.'];
-        set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-        set(findobj(gcf,'Tag','maintextoutput'),'fontColor','black');
+        update_textinformation([],[],[],si,'information');
 
         %Question Dialog
         answer = questdlg('What is the used DEM?', ...
@@ -138,14 +138,12 @@ switch action
                 end
                 if testDEM == 1 & testvrt == 1 & testxml == 1
                     si = ['The selection of the DEM is finished.'];
-                    set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-                    set(findobj(gcf,'Tag','maintextoutput'),'FontColor','black');
+                    update_textinformation([],[],[],si,'information');
                     f = msgbox('All DEM files have been detected.','DEM files');
                     fid = fopen([miesar_para.WK,'/DEM_files.txt'],'w'); fprintf(fid,'%s',[selpath,'/',namedem]); fclose(fid);
                 else
                     si = ['The selection of the DEM is not finished.'];
-                    set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-                    set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
+                    update_textinformation([],[],[],si,'error');
                     f = msgbox('DEM files have not been detected.','DEM files','error');
                 end
 
@@ -207,14 +205,12 @@ switch action
         % For the DEM files
         if exist([miesar_para.WK,'/DEM_files.txt'])==0
             si = ['There are not the DEM files.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
+            update_textinformation([],[],[],si,'error');
 
             error(si);
         else
             si = ['The DEM files are detected.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','green');
+            update_textinformation([],[],[],si,'success');
         end
 
         set(findobj(gcf,'Tag','name_progressbar'),'Text','Displaying of DEM');
@@ -273,8 +269,7 @@ switch action
         shadedrelief = 255 .* ((cosd(90 - elev) .* cosd(slope)) + (sind(90 - elev) .* sind(slope) .* cosd(azimuth - aspect)));
 
         si = ['Opening of the figure'];
-        set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-        set(findobj(gcf,'Tag','maintextoutput'),'Fontcolor','black');
+        update_textinformation([],[],[],si,'information');
 
         set(findobj(gcf,'Tag','name_progressbar'),'Text','Opening of the DEM visualisation');
         %         set(findobj(gcf,'Tag','progressbar'),'Value',(7/7).*100); drawnow;
@@ -330,13 +325,11 @@ switch action
         % Check if the preparation of stack was done
         if exist([miesar_para.WK,'/run_files']) == 0
             si = ['The run_files directory is not detected. Please run the preparation of the ISCE stack.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
+            update_textinformation([],[],[],si,'error');
             error(si);
         else
             si = ['The run_files directory is detected. The steps are updated.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','black');
+            update_textinformation([],[],[],si,'information');
         end
 
         % Update the steps and update the menu
@@ -400,13 +393,11 @@ switch action
 
         if isempty(strfind(namestep,'run'))==1
             si = ['Please, update the popmenu to run a selected step.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'Fontcolor','red');
+            update_textinformation([],[],[],si,'error');
             error(si);
         else
             si = [''];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'Fontcolor','black');
+            update_textinformation([],[],[],si,'information');
         end
 
         % Identification of the parallelization option
@@ -458,17 +449,17 @@ switch action
                     %                     system('./runmacterminal.sh');
                 else
                     si = ['ISCE processing ',namestep, ' : IN PROGRESS'];
-                    set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-                    set(findobj(gcf,'Tag','maintextoutput'),'FontColor','blue'); drawnow; pause(0.00001);
+                    update_textinformation([],[],[],si,'progress');
+                    drawnow; pause(0.00001);
                     status = system(['./',scripttoeval]);
                     if status == 0
                         si = ['ISCE processing ',namestep, ' : COMPLETE'];
-                        set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-                        set(findobj(gcf,'Tag','maintextoutput'),'FontColor','green'); drawnow; pause(0.00001);
+                        update_textinformation([],[],[],si,'success');
+                        drawnow; pause(0.00001);
                     else
                         si = ['ISCE processing ',namestep, ' : ERROR'];
-                        set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-                        set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red'); drawnow; pause(0.00001);
+                        update_textinformation([],[],[],si,'error');
+                        drawnow; pause(0.00001);
                     end
 
 
@@ -487,8 +478,7 @@ switch action
         else
             %Check if the previous step is done before the selected step
             si = ['The previous step is not done. Please, run the previous step before the selected step.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
+            update_textinformation([],[],[],si,'error');
             error(si);
         end
 
@@ -508,8 +498,7 @@ switch action
         paramslc = load([miesar_para.WK,'/parmsSLC.mat']);
 
         si = ['Coarse computation of interferogram network: in progress.'];
-        set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-        set(findobj(gcf,'Tag','maintextoutput'),'FontColor','black');
+        update_textinformation([],[],[],si,'progress');
 
         prompt = {'Orbit MODE [None or POD (for S1)]','Potentiel Refence date [None or YYYYMMDD]'};
         dlgtitle = 'Pre-Computation of interferogram network';
@@ -567,8 +556,7 @@ switch action
         imshow(im);
 
         si = ['Coarse computation of interferogram network: DONE. Please use the best potential reference data for the next processing.'];
-        set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-        set(findobj(gcf,'Tag','maintextoutput'),'FontColor','black');
+        update_textinformation([],[],[],si,'information');
 
 end
 

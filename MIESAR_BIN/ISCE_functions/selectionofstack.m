@@ -21,6 +21,8 @@ function selectionofstack(src,evt,action,miesar_para)
 %   Modified:
 %           - Alexis Hrysiewicz, UCD / iCRAG, 07/07/2022: StripMap
 %           implementation
+%           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2022: modifcation of
+%           text information
 %
 %   -------------------------------------------------------
 %   Version history:
@@ -73,8 +75,7 @@ end
 %% Switch as a function of input
 if strcmp(mode,'No_processing') == 1 & strcmp(action,'disp_tab') == 1
     si = ['Please, run a stack before that.'];
-    set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-    set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
+    update_textinformation([],[],[],si,'error');
 elseif strcmp(mode,'No_processing') == 0   & strcmp(action,'disp_tab') == 1
     tab_selected = get(findobj(gcf,'Tag','tab_disp'),'SelectedTab');
     tab_selected = tab_selected.Title;
@@ -87,12 +88,10 @@ elseif strcmp(mode,'No_processing') == 0   & strcmp(action,'disp_tab') == 1
                 end
                 system(['ln -s ',miesar_para.WK,'/merged_stamps ',miesar_para.WK,'/merged']);
                 si = ['Mode: StaMPS stack.'];
-                set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-                set(findobj(gcf,'Tag','maintextoutput'),'FontColor','black')
+                update_textinformation([],[],[],si,'information');
             else
                 si = ['Please, run a StaMPS stack.'];
-                set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-                set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
+                update_textinformation([],[],[],si,'information');
             end
         case 'MintPy Processing'
             if exist([miesar_para.WK,'/merged_mintpy']) == 7
@@ -101,12 +100,10 @@ elseif strcmp(mode,'No_processing') == 0   & strcmp(action,'disp_tab') == 1
                 end
                 system(['ln -s ',miesar_para.WK,'/merged_mintpy ',miesar_para.WK,'/merged']);
                 si = ['Mode: MintPy stack.'];
-                set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-                set(findobj(gcf,'Tag','maintextoutput'),'FontColor','black');
+                update_textinformation([],[],[],si,'information');
             else
                 si = ['Please, run a MintPy stack.'];
-                set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-                set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
+                update_textinformation([],[],[],si,'error');
             end
     end
 end
@@ -126,16 +123,14 @@ if strcmp(action,'modestack') == 1 & exist([miesar_para.WK,'/run_files']) == 7
         %Modify the GUI
         if strcmp(mode_stack,get(findobj(gcf,'Tag','radiobuttonISCEstack'),'Value'))
             si = ['Please, continue the processing.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','black');
+            update_textinformation([],[],[],si,'information');
             
             set(findobj(gcf,'Tag','bt_prerun_isceprocessing'),'Enable','on','Visible','on');
             set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'Enable','off','Visible','off');
             set(findobj(gcf,'Tag','stepsiscepanel'),'Enable','on');
         else
             si = ['Please, continue the other processing or remove the correct directories, and rerun a new processing.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
+            update_textinformation([],[],[],si,'error');
             
             set(findobj(gcf,'Tag','bt_prerun_isceprocessing'),'Enable','off','Visible','on');
             set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'Enable','off','Visible','off');
@@ -145,8 +140,7 @@ if strcmp(action,'modestack') == 1 & exist([miesar_para.WK,'/run_files']) == 7
     else
         if strcmp(mode_stack,get(findobj(gcf,'Tag','radiobuttonISCEstack'),'Value'))
             si = ['Please, rerun the processing or run a new stack.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','black');
+            update_textinformation([],[],[],si,'information');
             
             set(findobj(gcf,'Tag','bt_prerun_isceprocessing'),'Enable','on','Visible','on');
             set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'Enable','off','Visible','off');
@@ -174,8 +168,8 @@ if strcmp(action,'modestack') == 1 & exist([miesar_para.WK,'/run_files']) == 7
             switch get(findobj(gcf,'Tag','radiobuttonISCEstack'),'Value')
                 case 'SLC stack'
                     si = ['You can convert the IFG stack to SLC stack.'];
-                    set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-                    set(findobj(gcf,'Tag','maintextoutput'),'FontColor','blue');
+                    update_textinformation([],[],[],si,'information');
+
                     set(findobj(gcf,'Tag','bt_prerun_isceprocessing'),'Enable','off','Visible','off');
                     set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'Enable','on','Visible','on');
                     set(findobj(gcf,'Tag','stepsiscepanel'),'Enable','off');
@@ -183,16 +177,16 @@ if strcmp(action,'modestack') == 1 & exist([miesar_para.WK,'/run_files']) == 7
                     paramslc = load([miesar_para.WK,'/parmsSLC.mat']);
                     if strcmp(paramslc.mode,'S1_IW') == 1 
                         set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'Text','Retrieve the S1 IW SLC stack.');
-                        set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'ButtonPushedFcn',@(src,evt,arg1,arg2) conversionstacks_SI_IW([],[],'IF2SLC',miesar_para)); 
+                        set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'ButtonPushedFcn',@(src,evt,arg1,arg2) conversionstacks_S1_IW([],[],'IF2SLC',miesar_para)); 
                     else
                         set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'Text','Retrieve the StripMap SLC stack.');
-                        set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'ButtonPushedFcn',@(src,evt,arg1,arg2) conversionstacks_SI_SM([],[],'IF2SLC',miesar_para,[])); 
+                        set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'ButtonPushedFcn',@(src,evt,arg1,arg2) conversionstacks_SM([],[],'IF2SLC',miesar_para,[])); 
                     end 
                     
                 case 'Interferogram stack'
                     si = ['You can convert the SLC stack to IFG stack.'];
-                    set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-                    set(findobj(gcf,'Tag','maintextoutput'),'FontColor','blue');
+                    update_textinformation([],[],[],si,'information');
+                    
                     set(findobj(gcf,'Tag','bt_prerun_isceprocessing'),'Enable','off','Visible','off');
                     set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'Enable','on','Visible','on');
                     set(findobj(gcf,'Tag','stepsiscepanel'),'Enable','off');
@@ -200,10 +194,10 @@ if strcmp(action,'modestack') == 1 & exist([miesar_para.WK,'/run_files']) == 7
                     paramslc = load([miesar_para.WK,'/parmsSLC.mat']);
                     if strcmp(paramslc.mode,'S1_IW') == 1 
                         set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'Text','Continue to generate S1 IW IFG stack.');
-                        set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'ButtonPushedFcn',@(src,evt,arg1,arg2) conversionstacks_SI_IW([],[],'SLC2IFG',miesar_para)); 
+                        set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'ButtonPushedFcn',@(src,evt,arg1,arg2) conversionstacks_S1_IW([],[],'SLC2IFG',miesar_para)); 
                     else
                         set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'Text','Continue to generate StripMap IFG stack.');
-                        set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'ButtonPushedFcn',@(src,evt,arg1,arg2) conversionstacks_SI_SM([],[],'SLC2IFG',miesar_para,[])); 
+                        set(findobj(gcf,'Tag','bt_convert_isceprocessing'),'ButtonPushedFcn',@(src,evt,arg1,arg2) conversionstacks_SM([],[],'SLC2IFG',miesar_para,[])); 
                     end
 
             end
