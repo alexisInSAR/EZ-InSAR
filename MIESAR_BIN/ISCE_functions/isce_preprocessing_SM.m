@@ -20,6 +20,8 @@ function isce_preprocessing_SM(src,evt,action,miesar_para)
 %   Modified:
 %           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2022: modifcation of
 %           text information
+%           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2022: optimal network
+%           option
 %
 %   -------------------------------------------------------
 %   Version history:
@@ -200,7 +202,7 @@ switch modestack
             error('The wrong mode has been selected.');
         end
 
-        prompt = {'Time Threshold','Baseline Threshold'};
+        prompt = {'Time Threshold [days or auto]','Baseline Threshold [days or auto]'};
         dlgtitle = 'Network parameters';
         dims = [1 35];
         definput = {'90','5000'};
