@@ -10,6 +10,7 @@
 - update_progressbar_MIESAR.m
 - run_SLCcropStack_mod.csh
 - run_download_DEM.sh
+- update_textinformation.m
 
 The sb_find_mod.m script is provided by StaMPS: https://github.com/dbekaert/StaMPS/releases/tag/v4.1-beta / Author: Andy Hooper, June 2007
 
