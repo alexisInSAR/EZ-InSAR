@@ -22,7 +22,7 @@ set(findobj(gcf,'Tag','maintextoutput'),'Value',message);
 switch type 
     case 'error'
         set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
-    case 'sucess'
+    case 'success'
         set(findobj(gcf,'Tag','maintextoutput'),'FontColor','green');
     case 'information'
         set(findobj(gcf,'Tag','maintextoutput'),'FontColor','black');
