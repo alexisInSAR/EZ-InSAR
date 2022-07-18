@@ -23,6 +23,8 @@ function MIESAR(src,evt,action,miesar_para)
 %           - Alexis Hrysiewicz, UCD / iCRAG, 07/07/2022: 
 %                   Modication of the function to display the GUI selection path. 
 %                   Modification of the function for displaying the extension.
+%           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2022: modifcation of
+%           text information
 %
 %   -------------------------------------------------------
 %   Version history:
@@ -62,8 +64,7 @@ switch action
         % Information about paths
         if exist([miesar_para.cur,'pathinformation.txt'])==0
             si = ['The file pathinformation.txt do not exist...'];
-            set(findobj(hmain,'Tag','maintextoutput'),'String',si);
-            set(findobj(hmain,'Tag','maintextoutput'),'ForegroundColor','red');
+            update_textinformation([],[],miesar_para,si,'error')
         else
             [configpath] = readpathinformation([miesar_para.cur,'pathinformation.txt']);
             h = 0;
@@ -72,9 +73,8 @@ switch action
         
         %% Information about the work directory
         hdl = findobj(hmain,'Tag','mainbutWKpath');
-        si = ['The work directory is not defined... Click on the Work Directory button.'];
-        set(findobj(hmain,'Tag','maintextoutput'),'Value',si);
-        set(findobj(hmain,'Tag','maintextoutput'),'FontColor','black');        
+        si = ['The work directory is not defined... Click on the Work Directory button.'];   
+        update_textinformation([],[],miesar_para,si,'information')
         
     case 'defineWK'
 
@@ -83,8 +83,7 @@ switch action
         miesar_para.WK = uigetdir(miesar_para.cur,'Select your work directory');   
         if miesar_para.WK == 0
             si = ['Please select a good folder. =)'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red'); 
+            update_textinformation([],[],miesar_para,si,'error');   
             error(si);
         end 
         
@@ -117,8 +116,7 @@ switch action
             set(findobj(gcf,'Tag','mainuipaneldispprocess'),'Visible','on');
             
             si = ['MIESAR is initialised and ready to run.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','black');
+            update_textinformation([],[],miesar_para,si,'success');  
             
             %Activation of bar menu
     %         set(findobj(gcf,'Tag','barmenu12'),'Enable','on');
@@ -141,8 +139,7 @@ switch action
             selectionofstack(src,evt,'modestack',miesar_para);
         else 
             si = ['Please select the REAL TRUE GOOD AND ACTIVE FOLDER. =)'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red'); 
+            update_textinformation([],[],miesar_para,si,'error');  
             error(si)
         end   
 
@@ -152,6 +149,8 @@ switch action
 
     case 'Selectionzone'
         %% Selection of study area
+        si = ['Selection of the study area:...'];
+        update_textinformation([],[],miesar_para,si,'information'); 
 
         %Check if the target file exists
         if exist([miesar_para.WK,'/target.kml'])==0
@@ -190,8 +189,7 @@ switch action
         wmline(lata,lonta,'OverlayName','Area','Color','red');
         
         si = ['The WMS is opened.'];
-        set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-        set(findobj(gcf,'Tag','maintextoutput'),'FontColor','green');
+        update_textinformation([],[],miesar_para,si,'success'); 
 
     case 'information'
         %% Display information
@@ -216,8 +214,7 @@ switch action
                 fh=findall(0,'type','figure');
                 for i1 = 1 : length(fh)
                     close(fh(i1)); 
-                end 
-                
+                end  
         end
 
     case 'close'
