@@ -17,6 +17,8 @@ function hdl = GUIMIESAR(miesar_para)
 %           - Xiaowen Wang, UCD, 10/03/2022: bug fix
 %           - Alexis Hrysiewicz, UCD / iCRAG, 07/07/2022: StripMap
 %           implementation
+%           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2022: check the
+%           versions of tools
 %
 %   -------------------------------------------------------
 %   Version history:
@@ -635,6 +637,8 @@ quit_menubar = uimenu(figmiesar,'Text','Quit');
 %Level -1
 help_help_menubar = uimenu(help_menubar,'Text','Help','Tag','dede');
 % help_help_menubar.ButtonPushedFcn = @(src,event,action) MIESAR(src,event,'defineWK');
+check_versions_menubar = uimenu(help_menubar,'Text','Check the versions','Tag','dede');
+check_versions_menubar.MenuSelectedFcn = @(src,evt,arg1,arg2) check_tool_versions(src,evt,[],[]);
 
 about_help_menubar = uimenu(help_menubar,'Text','About','Tag','dede');
 about_help_menubar.MenuSelectedFcn = @(src,evt,arg1,arg2) MIESAR(src,evt,'information',figmiesar.UserData);
