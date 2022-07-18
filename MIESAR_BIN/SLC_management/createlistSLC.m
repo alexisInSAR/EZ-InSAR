@@ -18,6 +18,11 @@ function createlistSLC(src,evt,action,miesar_para)
 %   Date: 07/07/2022
 %
 %   -------------------------------------------------------
+%   Modified:
+%           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2022: modifcation of
+%           text information
+%
+%   -------------------------------------------------------
 %   Version history:
 %           2.0.0 Alpha: Initial (unreleased)
 
@@ -62,36 +67,28 @@ if strcmp(paramslc.mode,'S1_IW') == 1 | strcmp(paramslc.mode,'S1_SM')
         switch paramslc.mode
             case 'S1_IW'
                 % Connection to ASF server
-                si = ['Connection to the ASF server ...'];
-                set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-                set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
-
                 key_mode = 'IW';
                 cmd1 = ['curl https://api.daac.asf.alaska.edu/services/search/param?platform=',key_sat,'\&beamMode=',key_mode,'\&bbox=',box,'\&start=',date1str,'\&end=',date2str,'\&relativeOrbit=',paramslc.track,'\&flightDirection=',Porb,'\&processingLevel=SLC\&maxResults=10000\&output=csv > tmp_list_SLC.csv'];
                 system(cmd1);
 
             case 'S1_SM'
                 % Connection to ASF server
-                si = ['Connection to the ASF server ...'];
-                set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-                set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
-
-                key_mode = 'S1'
+                key_mode = 'S1';
                 cmd1 = ['curl https://api.daac.asf.alaska.edu/services/search/param?platform=',key_sat,'\&beamMode=',key_mode,'\&bbox=',box,'\&start=',date1str,'\&end=',date2str,'\&relativeOrbit=',paramslc.track,'\&flightDirection=',Porb,'\&processingLevel=SLC\&maxResults=10000\&output=csv > tmp_list_SLC.csv'];
                 system(cmd1);
-                key_mode = 'S2'
+                key_mode = 'S2';
                 cmd1 = ['curl https://api.daac.asf.alaska.edu/services/search/param?platform=',key_sat,'\&beamMode=',key_mode,'\&bbox=',box,'\&start=',date1str,'\&end=',date2str,'\&relativeOrbit=',paramslc.track,'\&flightDirection=',Porb,'\&processingLevel=SLC\&maxResults=10000\&output=csv >> tmp_list_SLC.csv'];
                 system(cmd1);
-                key_mode = 'S3'
+                key_mode = 'S3';
                 cmd1 = ['curl https://api.daac.asf.alaska.edu/services/search/param?platform=',key_sat,'\&beamMode=',key_mode,'\&bbox=',box,'\&start=',date1str,'\&end=',date2str,'\&relativeOrbit=',paramslc.track,'\&flightDirection=',Porb,'\&processingLevel=SLC\&maxResults=10000\&output=csv >> tmp_list_SLC.csv'];
                 system(cmd1);
-                key_mode = 'S4'
+                key_mode = 'S4';
                 cmd1 = ['curl https://api.daac.asf.alaska.edu/services/search/param?platform=',key_sat,'\&beamMode=',key_mode,'\&bbox=',box,'\&start=',date1str,'\&end=',date2str,'\&relativeOrbit=',paramslc.track,'\&flightDirection=',Porb,'\&processingLevel=SLC\&maxResults=10000\&output=csv >> tmp_list_SLC.csv'];
                 system(cmd1);
-                key_mode = 'S5'
+                key_mode = 'S5';
                 cmd1 = ['curl https://api.daac.asf.alaska.edu/services/search/param?platform=',key_sat,'\&beamMode=',key_mode,'\&bbox=',box,'\&start=',date1str,'\&end=',date2str,'\&relativeOrbit=',paramslc.track,'\&flightDirection=',Porb,'\&processingLevel=SLC\&maxResults=10000\&output=csv >> tmp_list_SLC.csv'];
                 system(cmd1);
-                key_mode = 'S6'
+                key_mode = 'S6';
                 cmd1 = ['curl https://api.daac.asf.alaska.edu/services/search/param?platform=',key_sat,'\&beamMode=',key_mode,'\&bbox=',box,'\&start=',date1str,'\&end=',date2str,'\&relativeOrbit=',paramslc.track,'\&flightDirection=',Porb,'\&processingLevel=SLC\&maxResults=10000\&output=csv >> tmp_list_SLC.csv'];
                 system(cmd1);
         end  
@@ -127,17 +124,10 @@ if strcmp(paramslc.mode,'S1_IW') == 1 | strcmp(paramslc.mode,'S1_SM')
         
         % Finalisation and information
         system('rm tmp_list_SLC.csv');
-        si = ['List of SLCs created'];
-        set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-        set(findobj(gcf,'Tag','maintextoutput'),'FontColor','green');
 
 %% For the PAZ and TSX data
 elseif strcmp(paramslc.mode,'PAZ_SM') == 1 | strcmp(paramslc.mode,'PAZ_SPT') == 1 | strcmp(paramslc.mode,'TSX_SM') == 1 | strcmp(paramslc.mode,'TSX_SPT') == 1
 
-    si = ['List of SLCs: reading...'];
-    set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-    set(findobj(gcf,'Tag','maintextoutput'),'FontColor','black');
-    
     if strcmp(paramslc.mode,'PAZ_SM') == 1 | strcmp(paramslc.mode,'PAZ_SPT') == 1 
         key_name = 'PAZ1';
     else
@@ -174,10 +164,6 @@ elseif strcmp(paramslc.mode,'PAZ_SM') == 1 | strcmp(paramslc.mode,'PAZ_SPT') == 
         update_progressbar_MIESAR(i1./length(list_dir),findobj(gcf,'Tag','progressbar'),miesar_para,'defaut'); drawnow; pause(0.00001); 
     end
     fclose(fres);
-
-    si = ['List of SLCs created'];
-    set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-    set(findobj(gcf,'Tag','maintextoutput'),'FontColor','green');
 
 end 
 

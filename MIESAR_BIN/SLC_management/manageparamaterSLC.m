@@ -21,6 +21,8 @@ function manageparamaterSLC(src,evt,action,miesar_para)
 %   Modified:
 %           - Alexis Hrysiewicz, UCD / iCRAG, 07/07/2022: StripMap
 %           implementation
+%           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2022: modifcation of
+%           text information
 %
 %   -------------------------------------------------------
 %   Version history:
@@ -176,8 +178,7 @@ switch action
 
             % Display some information
             si = ['The parameters of SLCs are saved.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','black')
+            update_textinformation([],[],[],si,'information'); 
 
         else
 
@@ -190,8 +191,7 @@ switch action
 
             % Display some information
             si = ['The SLCs should be already donwloaded and stored in the slc directory.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','black');
+            update_textinformation([],[],[],si,'information'); 
 
         end
 

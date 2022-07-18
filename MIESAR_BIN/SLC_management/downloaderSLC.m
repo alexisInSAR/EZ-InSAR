@@ -17,7 +17,8 @@ function downloaderSLC(miesar_para)
 %   Modified:
 %           - Alexis Hrysiewicz, UCD / iCRAG, 07/07/2022: StripMap
 %           implementation
-%
+%           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2022: modification of
+%           text information
 %   -------------------------------------------------------
 %   Version history:
 %           1.0.0 Beta: Initial (unreleased)
@@ -37,8 +38,7 @@ if exist([miesar_para.WK,'/SLC.list'])
     list = textscan(fid,['%s %s %s %s %s %s %s %s']); fclose(fid);
 else
     si = ['The SLC list is not present.'];
-    set(findobj(gcf,'Tag','maintextoutput'),'String',si);
-    set(findobj(gcf,'Tag','maintextoutput'),'ForegroundColor','red');
+    update_textinformation([],[],[],si,'error'); 
     error('The SLC list is not present.');
 end
 

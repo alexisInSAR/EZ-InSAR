@@ -21,6 +21,8 @@ function manageSLC(src,evt,action,miesar_para)
 %           - Xiaowen Wang, UCD, 02/03/2022: bug fix
 %           - Alexis Hrysiewicz, UCD / iCRAG, 07/07/2022: StripMap
 %           implementation
+%           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2022: modifcation of
+%           text information
 %
 %   -------------------------------------------------------
 %   Version history:
@@ -31,7 +33,13 @@ switch action
     
     case 'checking'
         %% Check the available SLCs 
-        createlistSLC([],[],[],miesar_para)
+        si = ['Create the SLC list:... '];
+        update_textinformation([],[],[],si,'information');
+
+        createlistSLC([],[],[],miesar_para);
+
+        si = ['Create the SLC list: OKAY '];
+        update_textinformation([],[],[],si,'success');
 
     case 'opening'
         %% Open the list of SLCs
@@ -45,8 +53,7 @@ switch action
             list = textscan(fid,['%s %s %s %s %s %s %s %s']); fclose(fid);
         else
             si = ['The SLC list is not present.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'Fontcolor','red');
+            update_textinformation([],[],[],si,'error')
             error('The SLC list is not present.');
         end
         
@@ -66,8 +73,7 @@ switch action
         
         % Display the table using a new GUI
         si = ['The SLC list is displayed.'];
-        set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-        set(findobj(gcf,'Tag','maintextoutput'),'FontColor','green');
+        update_textinformation([],[],[],si,'success'); 
         figi = figure('name','List of available SLCs','numbertitle','off','MenuBar', 'none','ToolBar','none');
         figi.Position = [111 147 891 651];
         uicontrol('Style','list', 'Position',[29 18 840 617], 'String',rescell);
@@ -75,6 +81,9 @@ switch action
     case 'extension'
         %% Display the SLC extension
         if exist([miesar_para.WK,'/SLC.list'])
+
+            si = ['Display the extension of SLCs ...'];
+            update_textinformation([],[],[],si,'information'); 
 
             paramslc = load([miesar_para.WK,'/parmsSLC.mat']); fid = fopen([miesar_para.WK,'/SLC.list'],'r');
 
@@ -86,12 +95,14 @@ switch action
                 displayextensionTSXPAZ(src,evt,[],miesar_para)
             end 
 
+            si = ['Display the extension of SLCs: OKAY'];
+            update_textinformation([],[],[],si,'success'); 
+
         else
 
             % Information
             si = ['Please, checking the available SLC ...'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
+            update_textinformation([],[],[],si,'error'); 
 
         end
         
