@@ -19,12 +19,15 @@ function iscedisplayifg(src,evt,action,miesar_para)
 %
 %   -------------------------------------------------------
 %   Modified:
-%           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2022: modifcation of
+%           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2022: modification of
 %           text information
+%           - Alexis Hrysiewic, UCD / iCRAG, 19/07/2022: StripMap
+%           implementation
 %
 %   -------------------------------------------------------
 %   Version history:
 %           1.0.0 Beta: Initial (unreleased)
+%           2.0.0 Alpha: Initial (unreleased)
 
 %% Check the directories
 if exist([miesar_para.WK,'/merged/interferograms'])
@@ -121,12 +124,12 @@ buttonapiiscedisp.Layout.Column = [1 5];
         else
             mode_cor_filt.Enable = 'off';
         end
-        if exist([pathi,'/filt_fine.unw'])
+        if exist([pathi,'/filt_fine.unw']) | exist([pathi,'/filt_fine_snaphu.unw'])
             mode_unw.Enable = 'on';
         else
             mode_unw.Enable = 'off';
         end
-        if exist([pathi,'/filt_fine.unw.conncomp'])
+        if exist([pathi,'/filt_fine.unw.conncomp']) | exist([pathi,'/filt_fine_snaphu.unw.conncomp'])
             mode_unw_conn.Enable = 'on';
         else
             mode_unw_conn.Enable = 'off';
@@ -153,10 +156,18 @@ buttonapiiscedisp.Layout.Column = [1 5];
                 cmd = [cmd,pathi,'/filt_fine.cor ']; 
             end 
             if mode_unw.Value == 1 & strcmp(mode_unw.Enable,'on') == 1
-                cmd = [cmd,pathi,'/filt_fine.unw ']; 
+                if exist([pathi,'/filt_fine.unw'])
+                    cmd = [cmd,pathi,'/filt_fine.unw ']; 
+                else
+                    cmd = [cmd,pathi,'/filt_fine_snaphu.unw ']; 
+                end
             end 
             if mode_unw_conn.Value == 1 & strcmp(mode_unw_conn.Enable,'on') == 1
-                cmd = [cmd,pathi,'/filt_fine.unw.conncomp ']; 
+                if exist([pathi,'/filt_fine.unw.conncomp'])
+                    cmd = [cmd,pathi,'/filt_fine.unw.conncomp ']; 
+                else
+                    cmd = [cmd,pathi,'/filt_fine_snaphu.unw.conncomp ']; 
+                end
             end 
             cmd = [cmd,'&']; 
 
