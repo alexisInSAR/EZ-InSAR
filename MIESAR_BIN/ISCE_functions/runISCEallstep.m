@@ -25,6 +25,8 @@ function runISCEallstep(action,modepara,figstep,miesar_para)
 %   Version history:
 %           1.0.0 Beta: Initiale (unreleased)
 
+isce_switch_stackfunctions(src,evt,[],miesar_para)
+
 switch action
     
     case 'init'

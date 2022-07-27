@@ -33,7 +33,9 @@ function conversionstacks_SI_SM(src,evt,action,miesar_para,para_stack)
 %
 %   -------------------------------------------------------
 %   Version history:
-%           2.0.0 Alpha: Initial (unreleased)
+%           2.0.0 Beta: Initial (unreleased)
+
+isce_switch_stackfunctions(src,evt,[],miesar_para)
 
 switch action
     case 'laststep_IFG_stack'

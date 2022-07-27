@@ -27,7 +27,7 @@ function iscedisplayifg(src,evt,action,miesar_para)
 %   -------------------------------------------------------
 %   Version history:
 %           1.0.0 Beta: Initial (unreleased)
-%           2.0.0 Alpha: Initial (unreleased)
+%           2.0.0 Beta: Initial (unreleased)
 
 %% Check the directories
 if exist([miesar_para.WK,'/merged/interferograms'])

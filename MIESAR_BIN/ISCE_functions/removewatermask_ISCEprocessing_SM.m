@@ -19,7 +19,7 @@ function removewatermask_ISCEprocessing_SM(src,evt,action,miesar_para)
 %
 %   -------------------------------------------------------
 %   Version history:
-%           2.0.0 Alpha: Initial (unreleased)
+%           2.0.0 Beta: Initial (unreleased)
 
 %% Check the run file
 file = dir([miesar_para.WK,'/configs/config_reference_*']); 

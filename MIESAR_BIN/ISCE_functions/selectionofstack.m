@@ -27,7 +27,7 @@ function selectionofstack(src,evt,action,miesar_para)
 %   -------------------------------------------------------
 %   Version history:
 %           1.0.0 Beta: Initial (unreleased)
-%           2.0.0 Alpha: Initial (unreleased)
+%           2.0.0 Beta: Initial (unreleased)
 
 %% Firstly we need to detect the states of processing
 if exist([miesar_para.WK,'/merged']) == 0 & ...

@@ -28,7 +28,9 @@ function conversionstacks_SI_IW(src,evt,action,miesar_para)
 %   -------------------------------------------------------
 %   Version history:
 %           1.0.0 Beta: Initial (unreleased)
-%           2.0.0 Alpha: Initial (unreleased)
+%           2.0.0 Beta: Initial (unreleased)
+
+isce_switch_stackfunctions(src,evt,[],miesar_para)
 
 switch action
     case 'IF2SLC'

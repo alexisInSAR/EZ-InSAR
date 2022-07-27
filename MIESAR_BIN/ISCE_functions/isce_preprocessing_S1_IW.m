@@ -23,7 +23,9 @@ function isce_preprocessing_S1_IW(src,evt,action,miesar_para)
 %
 %   -------------------------------------------------------
 %   Version history:
-%           2.0.0 Alpha: Initial (unreleased)
+%           2.0.0 Beta: Initial (unreleased)
+
+isce_switch_stackfunctions(src,evt,[],miesar_para)
 
 % Detection of the stack type
 if strcmp(get(findobj(gcf,'Tag','radiobuttonISCEstack'),'Value'),'SLC stack') == 1

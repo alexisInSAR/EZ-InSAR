@@ -20,7 +20,7 @@ function dem_region=dem_box_cal(lonta,lata,box_burst)
 %   -------------------------------------------------------
 %   Version history:
 %           1.0.0 Beta: Initial (unreleased)
-%           2.0.0 Alpha: Initial (unreleased)
+%           2.0.0 Beta: Initial (unreleased)
 
 poly_aoi=polyshape([min(lonta) max(lonta) max(lonta) min(lonta)],[min(lata) min(lata) max(lata) max(lata)]);
 burst_overlap=[];

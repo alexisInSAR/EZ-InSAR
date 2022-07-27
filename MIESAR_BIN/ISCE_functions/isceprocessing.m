@@ -26,7 +26,7 @@ function isceprocessing(src,evt,action,miesar_para)
 %   -------------------------------------------------------
 %   Version history:
 %           1.0.0 Beta: Initial (unreleased)
-%           2.0.0 Alpha: Initial (unreleased)
+%           2.0.0 Beta: Initial (unreleased)
 switch action
 
     case 'IPFchecking'
@@ -294,19 +294,26 @@ switch action
     case 'prerunstack'
         %% Preparation of the ISCE stack
         paramslc = load([miesar_para.WK,'/parmsSLC.mat']);
-    
+
         isce_switch_stackfunctions(src,evt,[],miesar_para)
 
-        % For Sentinel-1 IW
-        if strcmp(paramslc.mode,'S1_IW') == 1 
+        if strcmp(paramslc.mode,'S1_IW') == 1
             isce_preprocessing_S1_IW(src,evt,[],miesar_para)
-        elseif strcmp(paramslc.mode,'S1_SM') == 1 
+        elseif strcmp(paramslc.mode,'S1_SM') == 1
             isce_preprocessing_SM(src,evt,[],miesar_para)
-        elseif strcmp(paramslc.mode,'PAZ_SPT') == 1 
+        elseif strcmp(paramslc.mode,'TSX_SM') == 1
             isce_preprocessing_SM(src,evt,[],miesar_para)
-        end  
-
-
+        elseif strcmp(paramslc.mode,'TSX_SPT') == 1
+            isce_preprocessing_SM(src,evt,[],miesar_para)
+        elseif strcmp(paramslc.mode,'PAZ_SM') == 1
+            isce_preprocessing_SM(src,evt,[],miesar_para)
+        elseif strcmp(paramslc.mode,'PAZ_SPT') == 1
+            isce_preprocessing_SM(src,evt,[],miesar_para)
+        elseif strcmp(paramslc.mode,'CSK_SM') == 1
+            isce_preprocessing_SM(src,evt,[],miesar_para)
+        elseif strcmp(paramslc.mode,'CSK_SPT') == 1
+            isce_preprocessing_SM(src,evt,[],miesar_para)
+        end
 
     case 'updatepopmenustep'
         %% Update the popup menu concerning the ISCE steps
@@ -336,7 +343,7 @@ switch action
         cd([miesar_para.WK,'/run_files']);
         system('chmod a+x run_*');
         ls
-        [a,b] = system('ls run* | grep -v ''para'''); 
+        [a,b] = system('ls run* | grep -v ''para''');
         b = strsplit(b);
         b = b(1:end-1);
         cd(cur)
@@ -530,6 +537,24 @@ switch action
             % For TSX and PAZ
         elseif strcmp(paramslc.mode,'TSX_SM') == 1 | strcmp(paramslc.mode,'TSX_SPT') == 1 | strcmp(paramslc.mode,'PAZ_SM') == 1 | strcmp(paramslc.mode,'PAZ_SPT') == 1
             cmd = ['python3 ',miesar_para.cur,'/Suppfunctions/coarse_TSX_PAZ_baselines.py -d',miesar_para.WK,' -r vv -e DEM'];
+
+            if strcmp(answer{1},'None')
+                cmd = [cmd,' -f no'];
+            elseif strcmp(answer{1},'POD')
+                % None
+            else
+                error('Bad parameters...')
+            end
+            if strcmp(answer{2},'None')
+                cmd  = cmd;
+            elseif length(answer{2}) == 8
+                cmd = [cmd,' -a ',answer{2}];
+            else
+                error('Bad parameters...');
+            end
+            % FOR CSK
+        elseif strcmp(paramslc.mode,'CSK_SM') == 1 | strcmp(paramslc.mode,'CSK_SPT') == 1
+            cmd = ['python3 ',miesar_para.cur,'/Suppfunctions/coarse_CSK_baselines.py -d',miesar_para.WK,' -r vv -e DEM'];
 
             if strcmp(answer{1},'None')
                 cmd = [cmd,' -f no'];

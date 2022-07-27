@@ -18,7 +18,7 @@ function isce_switch_stackfunctions(src,evt,action,miesar_para)
 %
 %   -------------------------------------------------------
 %   Version history:
-%           2.0.0 Alpha: Initial (unreleased)
+%           2.0.0 Beta: Initial (unreleased)
 
 paramslc = load([miesar_para.WK,'/parmsSLC.mat']);
 % For security test of path ISCE

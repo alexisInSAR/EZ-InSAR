@@ -25,7 +25,9 @@ function isce_preprocessing_SM(src,evt,action,miesar_para)
 %
 %   -------------------------------------------------------
 %   Version history:
-%           2.0.0 Alpha: Initial (unreleased)
+%           2.0.0 Beta: Initial (unreleased)
+
+isce_switch_stackfunctions(src,evt,[],miesar_para)
 
 % For the SLC parameters
 paramslc = load([miesar_para.WK,'/parmsSLC.mat']);
@@ -79,6 +81,13 @@ for i1 = 1 : length(list{1})
             pathinput = [paramslc.pathSLC,'/',list{1}{i1}];
 
             cmdi = ['unpackFrame_TSX_ezinsar.py -i ',pathinput,' -o ',[pathout,'/',di]];
+            cmd = [cmd,sprintf('%s\n',cmdi)];
+        end
+    elseif strcmp(paramslc.mode,'CSK_SM') == 1 | strcmp(paramslc.mode,'CSK_SPT') == 1
+        if exist([paramslc.pathSLC,'/',list{1}{i1}]) == 7
+            pathinput = [paramslc.pathSLC,'/',list{1}{i1}];
+
+            cmdi = ['unpackFrame_CSK.py -i ',pathinput,' -o ',[pathout,'/',di]];
             cmd = [cmd,sprintf('%s\n',cmdi)];
         end
     end
@@ -188,13 +197,13 @@ switch modestack
         para_stack{10,1} = '--workflow';
         para_stack{10,2} = 'slc';
 
-%         prompt = {'Use zero doppler geometry for processing:'};
-%         dlgtitle = 'Zero Doppler';
-%         dims = [1 35];
-%         definput = {'No'};
-%         answer = inputdlg(prompt,dlgtitle,dims,definput);
-%         para_stack{11,1} = '--zero';
-%         para_stack{11,2} = answer{1};
+        %         prompt = {'Use zero doppler geometry for processing:'};
+        %         dlgtitle = 'Zero Doppler';
+        %         dims = [1 35];
+        %         definput = {'No'};
+        %         answer = inputdlg(prompt,dlgtitle,dims,definput);
+        para_stack{11,1} = '--zero';
+        para_stack{11,2} = '';
 
     case 'ifg' % if the stack type is IFG
         answer = questdlg('The IFG stack has been selected.','Stacking Mode','YES','NO','YES');
@@ -250,16 +259,16 @@ switch modestack
         para_stack{12,1} = '--workflow';
 
         % Here we do not use the workflow named "interferogram" to write
-        % the files in the good path. 
+        % the files in the good path.
         para_stack{12,2} = 'slc';
 
-%         prompt = {'Use zero doppler geometry for processing:'};
-%         dlgtitle = 'Zero Doppler';
-%         dims = [1 35];
-%         definput = {'No'};
-%         answer = inputdlg(prompt,dlgtitle,dims,definput);
-%         para_stack{13,1} = '--zero';
-%         para_stack{13,2} = answer{1};
+        %         prompt = {'Use zero doppler geometry for processing:'};
+        %         dlgtitle = 'Zero Doppler';
+        %         dims = [1 35];
+        %         definput = {'No'};
+        %         answer = inputdlg(prompt,dlgtitle,dims,definput);
+        para_stack{13,1} = '--zero';
+        para_stack{13,2} = '';
 
 end
 
@@ -267,7 +276,7 @@ cmdpre = ['stackStripMap.py'];
 for i1 = 1 : size(para_stack,1)
     cmdpre = [cmdpre,' ',para_stack{i1,1},' ',para_stack{i1,2}];
 end
-cmdpre = [cmdpre, ' --nofocus']; 
+cmdpre = [cmdpre, ' --nofocus'];
 
 % Save the command in a log file
 fi = fopen([miesar_para.WK,'/commandstack.log'],'w'); fprintf(fi,'%s',cmdpre); fclose(fi);
@@ -298,8 +307,8 @@ switch answer
 
         if strcmp(modestack,'ifg') == 1
             %% Here we add the last step to compute the interferogram
-             conversionstacks_SI_SM(src,evt,'laststep_IFG_stack',miesar_para,para_stack)
-        end 
+            conversionstacks_SI_SM(src,evt,'laststep_IFG_stack',miesar_para,para_stack)
+        end
 
         removewatermask_ISCEprocessing_SM(src,evt,[],miesar_para); %temporary fix
         isceprocessing([],[],'updatepopmenustep',miesar_para)
