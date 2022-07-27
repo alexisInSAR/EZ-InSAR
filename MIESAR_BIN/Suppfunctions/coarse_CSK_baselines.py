@@ -5,26 +5,27 @@
 # Header information 
 ###########################################################################
 
-"""coarse_TSX_PAZ_baselines.py: Script to compute the coarse network of interferograms and isolate the best candidate for the super single master"""
+"""coarse_CSK_baselines.py: Script to compute the coarse network of interferograms and isolate the best candidate for the super single master"""
 
 __author__ = "Alexis Hrysiewicz"
-__copyright__ = "coarse_TSX_PAZ_baselines.py is part of EZ-InSAR toolbox"
+__copyright__ = "coarse_CSK_baselines.py is part of EZ-InSAR toolbox"
 __credits__ = ["Alexis Hrysiewicz"]
 __license__ = "GPLV3"
 __version__ = "1.0.0 Beta"
 __maintainer__ = "Alexis Hrysiewicz"
 __email__ = "alexis.hrysiewicz@ucd.ie"
 __status__ = "Production"
-__date__ = "Mar. 2022"
+__date__ = "Jul. 2022"
 
 print("****************************************************************************************************************************")
-print("coarse_TSX_PAZ_baselines.py: Script to compute the coarse network of interferograms and isolate the best candidate for the super single master using TerraSAR-X and PAZ data")
+print("coarse_CSK_baselines.py: Script to compute the coarse network of interferograms and isolate the best candidate for the super single master using COSMO-SkyMed data")
 print("****************************************************************************************************************************")
 
 ###########################################################################
 # Python packages
 ###########################################################################
 
+from cmath import pi
 import sys
 import os
 import os.path
@@ -43,6 +44,7 @@ import scipy.io
 from scipy import interpolate
 from scipy.interpolate import LinearNDInterpolator
 import glob
+import h5py
 
 ###########################################################################
 class OptionParser (optparse.OptionParser):
@@ -69,7 +71,7 @@ if '-h' in sys.argv or '--help' in sys.argv:
 
 if len(sys.argv) < 8:
     prog = os.path.basename(sys.argv[0])
-    print("example: python3 %s -d ./work_directory -r vv -e DEM -m None -u XXXXXX -p XXXXXX -o ./orbits -f yes [-a YYYYMMDD]" %
+    print("example: python3 %s -d ./work_directory -r vv -e DEM -f yes [-a YYYYMMDD]" %
           sys.argv[0])
     print("or\nexample: python3 %s -d ./work_directory -r vv -e DEM -f yes [-a YYYYMMDD]" %
           sys.argv[0])
@@ -180,98 +182,65 @@ para_sat = {'dates' : [],'Xsat' : [], 'Ysat' : [], 'Zsat' : [], 'incsat' : [], '
 
 print('Extraction of satellites parameters from the header files:')
 
-list_dir = glob.glob(path_SLC+'/*_SAR_*')
+with open(path_WK+'/SLC.list','r') as listslc:
+    for fi in listslc:
+        pathh5 = path_SLC + '/' + fi.split()[0] + '/' + fi.split()[3]
 
-for direci in list_dir:
-    pathxml = glob.glob(direci+'/*_SAR_*.xml')[0]
-    xmlfileslc = ET.parse(pathxml)
+        f = h5py.File(pathh5, 'r')
 
-    # Read the date
-    date_slc = xmlfileslc.findall('.//sceneInfo/start/timeUTC')[0].text.split('Z')[0]
-    
-    # Read the central point
-    lon_cent = float(xmlfileslc.findall('.//sceneInfo/sceneCenterCoord/lon')[0].text)
-    lat_cent = float(xmlfileslc.findall('.//sceneInfo/sceneCenterCoord/lat')[0].text)
-    inc_cent = float(xmlfileslc.findall('.//sceneInfo/sceneCenterCoord/incidenceAngle')[0].text)
-    time_cent = xmlfileslc.findall('.//sceneInfo/sceneCenterCoord/azimuthTimeUTC')[0].text.split('Z')[0]
+        # Read the date
+        date_slc = f['/'].attrs['Scene Sensing Start UTC'].decode("utf-8")
+        print(date_slc)
 
-    # Read the edge points
-    lon = []
-    for nodes in xmlfileslc.findall('.//sceneInfo/sceneCornerCoord/lon'):
-        lon.append(float(nodes.text))
-    lon = lon + [lon_cent]
-    
-    lat = []
-    for nodes in xmlfileslc.findall('.//sceneInfo/sceneCornerCoord/lat'):
-        lat.append(float(nodes.text))
-    lat = lat + [lat_cent]
+        # Read the edge points
+        tmp1 = f['/S01/SBI'].attrs['Bottom Left Geodetic Coordinates']
+        tmp2 = f['/S01/SBI'].attrs['Bottom Right Geodetic Coordinates']
+        tmp3 = f['/S01/SBI'].attrs['Top Left Geodetic Coordinates']
+        tmp4 = f['/S01/SBI'].attrs['Top Right Geodetic Coordinates']
 
-    inc = []
-    for nodes in xmlfileslc.findall('.//sceneInfo/sceneCornerCoord/incidenceAngle'):
-        inc.append(float(nodes.text))
-    inc = inc + [inc_cent]
+        lon = [tmp1[1],tmp2[1], tmp3[1], tmp4[1]]
+        lat = [tmp1[0],tmp2[0], tmp3[0], tmp4[0]]
 
-    times = []
-    for nodes in xmlfileslc.findall('.//sceneInfo/sceneCornerCoord/azimuthTimeUTC'):
-        times.append(nodes.text.split('Z')[0])
-    times = times + [time_cent]
+        t1 = f['/S01/SBI'].attrs['Zero Doppler Azimuth First Time']
+        t2 = f['/S01/SBI'].attrs['Zero Doppler Azimuth Last Time']
 
-    # Interpolation of time for the target point
-    azimuthTimestamp = []
-    for di in times:
-        azimuthTimestamp.append(datetime.datetime.strptime(di,"%Y-%m-%dT%H:%M:%S.%f").timestamp())
-    interp = LinearNDInterpolator(list(zip(lon, lat)), azimuthTimestamp)
-    azimuthTimestamp_target = interp(lon_target,lat_target)
+        times = [t2,t2,t1,t1]
 
-    # Read the orbits
-    data_orbits = dict()
-    data_orbits['time'] = []
-    data_orbits['orb_X_int'] = []
-    data_orbits['orb_Y_int'] = []
-    data_orbits['orb_Z_int'] = []
-    data_orbits['orb_VX_int'] = []
-    data_orbits['orb_VY_int'] = []
-    data_orbits['orb_VZ_int'] = []
+        # Interpolation of time for the target point
+        interp = LinearNDInterpolator(list(zip(lon,lat)), times)
+        azimuthTimestamp_target = interp(lon_target,lat_target)
+        # print(azimuthTimestamp_target)
 
-    for nodes in xmlfileslc.findall('.//orbit/stateVec/timeUTC'): 
-        data_orbits['time'].append(nodes.text)
-    for nodes in xmlfileslc.findall('.//orbit/stateVec/posX'): 
-        data_orbits['orb_X_int'].append(float(nodes.text))
-    for nodes in xmlfileslc.findall('.//orbit/stateVec/posY'): 
-        data_orbits['orb_Y_int'].append(float(nodes.text))
-    for nodes in xmlfileslc.findall('.//orbit/stateVec/posZ'): 
-        data_orbits['orb_Z_int'].append(float(nodes.text))
-    for nodes in xmlfileslc.findall('.//orbit/stateVec/velX'): 
-        data_orbits['orb_VX_int'].append(float(nodes.text))
-    for nodes in xmlfileslc.findall('.//orbit/stateVec/velY'): 
-        data_orbits['orb_VY_int'].append(float(nodes.text))
-    for nodes in xmlfileslc.findall('.//orbit/stateVec/velZ'): 
-        data_orbits['orb_VZ_int'].append(float(nodes.text))
+        # Read the orbits
+        data_orbits = dict()
+        data_orbits['time'] = f['/'].attrs['State Vectors Times']
+        tmp = f['/'].attrs['ECEF Satellite Position']
 
-    # Interpolation of orbits 
-    azimuthTimestamp_orbit = [] 
-    for di in data_orbits['time']:
-        azimuthTimestamp_orbit.append(datetime.datetime.strptime(di,"%Y-%m-%dT%H:%M:%S.%f").timestamp())
+        data_orbits['orb_X_int'] = [i[0] for i in tmp]
+        data_orbits['orb_Y_int'] = [i[1] for i in tmp]
+        data_orbits['orb_Z_int'] = [i[2] for i in tmp]
 
-    fi = interpolate.PchipInterpolator(azimuthTimestamp_orbit, data_orbits['orb_X_int'])
-    x_sat_target = fi(azimuthTimestamp_target)
-    # print(x_sat_target)
-    fi = interpolate.PchipInterpolator(azimuthTimestamp_orbit, data_orbits['orb_Y_int'])
-    y_sat_target = fi(azimuthTimestamp_target)
-    # print(y_sat_target)
-    fi = interpolate.PchipInterpolator(azimuthTimestamp_orbit, data_orbits['orb_Z_int'])
-    z_sat_target = fi(azimuthTimestamp_target)
-    # print(z_sat_target)
+        # Interpolation of orbits 
+        azimuthTimestamp_orbit = data_orbits['time']
 
-    # Save
-    para_sat['dates'].append(datetime.datetime.strptime(datetime.datetime.strftime(datetime.datetime.strptime(time_cent,"%Y-%m-%dT%H:%M:%S.%f"),'%Y-%m-%d'),"%Y-%m-%d"))
-    para_sat['Xsat'].append(x_sat_target)
-    para_sat['Ysat'].append(y_sat_target)
-    para_sat['Zsat'].append(z_sat_target)
-    para_sat['incsat'].append(inc_cent)
-    para_sat['Xtarget'].append(x_target)
-    para_sat['Ytarget'].append(y_target)
-    para_sat['Ztarget'].append(z_target)
+        fi = interpolate.PchipInterpolator(azimuthTimestamp_orbit, data_orbits['orb_X_int'])
+        x_sat_target = fi(azimuthTimestamp_target)
+        # print(x_sat_target)
+        fi = interpolate.PchipInterpolator(azimuthTimestamp_orbit, data_orbits['orb_Y_int'])
+        y_sat_target = fi(azimuthTimestamp_target)
+        # print(y_sat_target)
+        fi = interpolate.PchipInterpolator(azimuthTimestamp_orbit, data_orbits['orb_Z_int'])
+        z_sat_target = fi(azimuthTimestamp_target)
+        # print(z_sat_target)
+
+        # Save
+        para_sat['dates'].append(datetime.datetime.strptime(datetime.datetime.strftime(datetime.datetime.strptime(date_slc[:-3],"%Y-%m-%d %H:%M:%S.%f"),'%Y-%m-%d'),"%Y-%m-%d"))
+        para_sat['Xsat'].append(x_sat_target)
+        para_sat['Ysat'].append(y_sat_target)
+        para_sat['Zsat'].append(z_sat_target)
+        para_sat['Xtarget'].append(x_target)
+        para_sat['Ytarget'].append(y_target)
+        para_sat['Ztarget'].append(z_target)
 
 print('\t\t\tDone')
 

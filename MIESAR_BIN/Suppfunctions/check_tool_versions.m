@@ -11,12 +11,12 @@ function check_tool_versions(src,evt,action,miesar_para)
 %
 %   -------------------------------------------------------
 %   Alexis Hrysiewicz, UCD / iCRAG
-%   Version: 2.0.0 Alpha
+%   Version: 2.0.0 Beta
 %   Date: 18/07/2022
 %
 %   -------------------------------------------------------
 %   Version history:
-%           2.0.0 Alpha: Initial (unreleased)
+%           2.0.0 Beta: Initial (unreleased)
 
 text = []; 
 test = 0; 
