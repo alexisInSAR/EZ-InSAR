@@ -29,7 +29,7 @@ function MIESAR(src,evt,action,miesar_para)
 %   -------------------------------------------------------
 %   Version history:
 %           1.0.0 Beta: Initial (unreleased)
-%           2.0.0 Alpha: Initial (unreleased)
+%           2.0.0 Beta: Initial (unreleased)
 
 %% If the function is ran without input 
 warning('off')
@@ -177,7 +177,7 @@ switch action
             ext = 0;
             lata = [min(latt)-ext.*(max(latt)-min(latt)) min(latt)-ext.*(max(latt)-min(latt)) ...
                 max(latt)+ext.*(max(latt)-min(latt)) max(latt)+ext.*(max(latt)-min(latt)) ...
-                min(latt)-ext.*(max(latt)-min(latt))]
+                min(latt)-ext.*(max(latt)-min(latt))];
             lonta = [min(lont)-ext.*(max(lont)-min(lont)) max(lont)+ext.*(max(lont)-min(lont)) ...
                 max(lont)+ext.*(max(lont)-min(lont)) min(lont)-ext.*(max(lont)-min(lont)) ...
                 min(lont)-ext.*(max(lont)-min(lont))];
