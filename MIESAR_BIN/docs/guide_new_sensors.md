@@ -16,10 +16,9 @@
 
 ### 3. In ISCE_functions:
 
-1. Add the command for unpacking in isce_preprocessing_SM.m. If you have scripted your own unpacking scripts, add it in 3rdparty directory, and modify the line 694 of GUIMIESAR.m. 
-2. Script a function like coarse_TSX_PAZ_baselines.py. and add it in *open_coarse_network_check* case in isceprocessing.m 
-3. prerunstack
-
+1. Script a function like coarse_TSX_PAZ_baselines.py. and add it in *open_coarse_network_check* case in isceprocessing.m 
+2. Add the command for unpacking in isce_preprocessing_SM.m. If you have scripted your own unpacking scripts, add it in 3rdparty directory, and modify the line 694 of GUIMIESAR.m. 
+3. Modify the *prerunstack* case in isceprocessing.m 
 
 ## If the sensor is in TOPSARS 
 
