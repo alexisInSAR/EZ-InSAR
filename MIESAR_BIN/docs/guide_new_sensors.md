@@ -1,7 +1,7 @@
 # Some guidelines to add a new sensors
 ***
 
-## If the sensors is in Spotlight or StripMap (and different than ALOS2)
+## If the sensor is in Spotlight or StripMap (and different than ALOS2)
 
 ### 1. In GUIMIESAR.m
 
@@ -20,10 +20,10 @@
 2. Script a function like coarse_TSX_PAZ_baselines.py. and add it in *open_coarse_network_check* case in isceprocessing.m 
 
 
-## If the sensors is in TOPSARS 
+## If the sensor is in TOPSARS 
 
 Please send an email to the authors. 
 
-## If the sensors is ALOS2 
+## If the sensor is ALOS2 
 
 Please send an email to the authors.
