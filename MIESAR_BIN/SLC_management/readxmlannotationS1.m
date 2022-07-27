@@ -21,7 +21,7 @@ function [burst_coordinates, nb_burst] = readxmlannotationS1(pathxml,mode)
 %   -------------------------------------------------------
 %   Version history:
 %           1.0.0 Beta: Initial (unreleased)
-%           2.0.0 Alpha: Initial (unreleased)
+%           2.0.0 Beta: Initial (unreleased)
 
 
 %% Read the parameters

@@ -27,7 +27,7 @@ function manageSLC(src,evt,action,miesar_para)
 %   -------------------------------------------------------
 %   Version history:
 %           1.0.0 Beta: Initial (unreleased)
-%           2.0.0 Alpha: Initial (unreleased)
+%           2.0.0 Beta: Initial (unreleased)
 
 switch action
     
@@ -93,6 +93,8 @@ switch action
                 displayextensionS1(src,evt,'S1_SM',miesar_para)
             elseif strcmp(paramslc.mode,'TSX_SM') == 1 | strcmp(paramslc.mode,'TSX_SPT') == 1 | strcmp(paramslc.mode,'PAZ_SM') == 1 | strcmp(paramslc.mode,'PAZ_SPT') == 1
                 displayextensionTSXPAZ(src,evt,[],miesar_para)
+            elseif strcmp(paramslc.mode,'CSK_SM') == 1 | strcmp(paramslc.mode,'CSM_SPT') == 1
+                displayextensionCSK(src,evt,[],miesar_para)
             end 
 
             si = ['Display the extension of SLCs: OKAY'];

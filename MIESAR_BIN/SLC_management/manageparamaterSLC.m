@@ -27,7 +27,7 @@ function manageparamaterSLC(src,evt,action,miesar_para)
 %   -------------------------------------------------------
 %   Version history:
 %           1.0.0 Beta: Initial (unreleased)
-%           2.0.0 Alpha: Initial (unreleased)
+%           2.0.0 Beta: Initial (unreleased)
 
 %% Action from user inputs
 switch action
@@ -109,20 +109,8 @@ switch action
             mode = 'TSX_SPT';
         elseif strcmp(get(findobj(gcf,'Tag','mainpopmode'),'Value'),'CSK_SM') == 1 
             mode = 'CSK_SM'; 
-
-            si = ['This sensor is not implemented yet.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
-            error(si); 
-
         elseif strcmp(get(findobj(gcf,'Tag','mainpopmode'),'Value'),'CSK_SPT') == 1 
             mode = 'CSK_SPT';
-
-            si = ['This sensor is not implemented yet.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
-            error(si); 
-
         elseif strcmp(get(findobj(gcf,'Tag','mainpopmode'),'Value'),'ALOS2_SM') == 1 
             mode = 'ALOS2_SM';
 

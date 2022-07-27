@@ -1,11 +1,11 @@
-function displayextensionTSXPAZ(src,evt,action,miesar_para)
-%   displayextensionTSXPAZ(src,evt,action,miesar_para)
+function displayextensionCSK(src,evt,action,miesar_para)
+%   displayextensionCSK(src,evt,action,miesar_para)
 %       [src]           : callback value
 %       [evt]           : callback value
 %       [action]        : name of the action to perform (string value)
 %       [miesar_para]   : user parameters (struct.)
 %
-%       Function to plot the extension of TerraSAR-X and PAZ data
+%       Function to plot the extension of COSMO-SkyMed data
 %
 %       Script from EZ-InSAR toolbox: https://github.com/alexisInSAR/EZ-InSAR
 %
@@ -14,7 +14,7 @@ function displayextensionTSXPAZ(src,evt,action,miesar_para)
 %   -------------------------------------------------------
 %   Alexis Hrysiewicz, UCD / iCRAG
 %   Version: 2.0.0 Beta
-%   Date: 07/07/2022
+%   Date: 27/07/2022
 %
 %   -------------------------------------------------------
 %   Version history:
@@ -37,39 +37,21 @@ for i1 = 1 : length(list{1})
     update_progressbar_MIESAR(i1./length(list{1}),findobj(gcf,'Tag','progressbar'),miesar_para,'defaut'); drawnow; pause(0.01);
 
     % Identification of xml
-    pathxml = [paramslc.pathSLC,'/',list{1}{i1},'/',list{1}{i1},'.xml'];
+    path_h5 = [paramslc.pathSLC,'/',list{1}{i1},'/',list{4}{i1}];
 
     % Read the date from the lilst
     di = strsplit(list{2}{i1},'.');
     burst_extension(i1).Date = datetime(di{1},'InputFormat','yyyy-MM-dd''T''HH:mm:ss');
 
-    % For the latitude
-    latitude = [];
-    [a,b] = system(['grep "<lat>" ',pathxml]); c = strsplit(b,'\n');
-    for i2 = 1 : length(c)
-        if contains(c{i2},'<lat>')
-            ci = strsplit(c{i2},'<lat>');
-            ci = strsplit(ci{end},'</lat>');
-            ci = str2num(ci{1});
-            latitude = [latitude; ci];
-        end
-    end
+    Top_Left = h5readatt(path_h5,'/S01/SBI/','Top Left Geodetic Coordinates');
+    Top_Right = h5readatt(path_h5,'/S01/SBI/','Top Right Geodetic Coordinates'); 
+    Bottom_Left = h5readatt(path_h5,'/S01/SBI/','Bottom Left Geodetic Coordinates'); 
+    Bottom_Right = h5readatt(path_h5,'/S01/SBI/','Bottom Right Geodetic Coordinates'); 
 
-    % For the longitude
-    longitude = [];
-    [a,b] = system(['grep "<lon>" ',pathxml]); c = strsplit(b,'\n');
-    for i2 = 1 : length(c)
-        if contains(c{i2},'<lon>')
-            ci = strsplit(c{i2},'<lon>');
-            ci = strsplit(ci{end},'</lon>');
-            ci = str2num(ci{1});
-            longitude = [longitude; ci];
-        end
-    end
 
     % correction to the center point
-    burst_coordinates.longitude = [longitude(2);longitude(3);longitude(5);longitude(4);longitude(2)]; 
-    burst_coordinates.latitude = [latitude(2);latitude(3);latitude(5);latitude(4);latitude(2)]; 
+    burst_coordinates.longitude = [Bottom_Left(2);Bottom_Right(2);Top_Right(2);Top_Left(2);Bottom_Left(2)]; 
+    burst_coordinates.latitude = [Bottom_Left(1);Bottom_Right(1);Top_Right(1);Top_Left(1);Bottom_Left(1)]; 
     
     burst_extension(i1).Ext.nb_burst = 1;
     burst_extension(i1).Ext.burst_coordinates = burst_coordinates;

@@ -13,12 +13,12 @@ function displayextensionS1(src,evt,action,miesar_para)
 %
 %   -------------------------------------------------------
 %   Alexis Hrysiewicz, UCD / iCRAG
-%   Version: 2.0.0 Alpha
+%   Version: 2.0.0 Beta
 %   Date: 07/07/2022
 %
 %   -------------------------------------------------------
 %   Version history:
-%           2.0.0 Alpha: Initial (unreleased)
+%           2.0.0 Beta: Initial (unreleased)
 
 % Open the variables
 paramslc = load([miesar_para.WK,'/parmsSLC.mat']); fid = fopen([miesar_para.WK,'/SLC.list'],'r');
