@@ -18,8 +18,8 @@ The spirit of **EZ-InSAR** is minimizing the work of user in downloading, parame
 |PAZ|Spotlight|Ready but ISCE should be fixed|Unzipped PAZ1_* directory in the slc directory|
 |TerraSAR-X|StripMap|Ready|Unzipped TSX1_* directory in the slc directory|
 |TerraSAR-X|Spotlight|Ready but ISCE should be fixed|Unzipped TSX1_* directory in the slc directory|
-|Cosmo-SkyMed|StripMap|Ready|*/CSK*.h5 in the slc directory|
-|Cosmo-SkyMed|Spotlight|Ready but ISCE should be fixed|*/CSK*.h5 in the slc directory|
+|Cosmo-SkyMed|StripMap|Ready|[directory of the acquisition]/CSK*.h5 in the slc directory|
+|Cosmo-SkyMed|Spotlight|Ready but ISCE should be fixed|[directory of the acquisition]/CSK*.h5 in the slc directory|
 |ALOS2|StripMap|No|NE|
 |ALOS2|Spotlight|No|NE|
 
