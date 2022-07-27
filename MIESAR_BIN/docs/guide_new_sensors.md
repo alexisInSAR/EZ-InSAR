@@ -10,8 +10,8 @@
 ### 2. In SLC_management
 
 1. Add your sensor is createlistSLC.m.
-2. Script a function like displayextensionTSXPAZ.py.
-3. In manageSLC.m, in *extension* case, add your sensor and the python script.
+2. Script a function like displayextensionTSXPAZ.m.
+3. In manageSLC.m, in *extension* case, add your sensor and the MATLAB script.
 4. In manageparameterSLC.m, add your sensors in *save* and *update* cases. 
 
 ### 3. In ISCE_functions:
