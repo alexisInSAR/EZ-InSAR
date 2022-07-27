@@ -23,6 +23,8 @@ The spirit of **EZ-InSAR** is minimizing the work of user in downloading, parame
 |ALOS2|StripMap|No|NE|
 |ALOS2|Spotlight|No|NE|
 
+For the Spotlight data, EZ-InSAR can manage this data but the processing with ISCE should be modified. 
+
 Please check the guidelines to add a new sensor: [here](https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_0_Beta/MIESAR_BIN/docs/guide_new_sensors.md). 
 
 ## 1. Dependencies & Installation 
