@@ -15,15 +15,11 @@ The spirit of **EZ-InSAR** is minimizing the work of user in downloading, parame
 |Sentinel-1|IW|Ready|.zip or .SAFE in the slc directory|
 |Sentinel-1|StripMap|Ready|.zip or .SAFE in the slc directory|
 |PAZ|StripMap|Ready|Unzipped PAZ1_* directory in the slc directory|
-|PAZ|Spotlight|Ready but ISCE should be fixed|Unzipped PAZ1_* directory in the slc directory|
 |TerraSAR-X|StripMap|Ready|Unzipped TSX1_* directory in the slc directory|
-|TerraSAR-X|Spotlight|Ready but ISCE should be fixed|Unzipped TSX1_* directory in the slc directory|
 |Cosmo-SkyMed|StripMap|Ready|[directory of the acquisition]/CSK*.h5 in the slc directory|
-|Cosmo-SkyMed|Spotlight|Ready but ISCE should be fixed|[directory of the acquisition]/CSK*.h5 in the slc directory|
 |ALOS2|StripMap|No|NE|
-|ALOS2|Spotlight|No|NE|
 
-For the Spotlight data, EZ-InSAR can manage this data but the processing with ISCE should be modified. 
+For the Spotlight data, EZ-InSAR can manage the data similar to StripMap but the processing with ISCE should be modified. 
 
 Please check the guidelines to add a new sensor: [here](https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_0_Beta/MIESAR_BIN/docs/guide_new_sensors.md). 
 
