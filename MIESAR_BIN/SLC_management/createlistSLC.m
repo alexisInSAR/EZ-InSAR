@@ -174,7 +174,7 @@ elseif strcmp(paramslc.mode,'PAZ_SM') == 1 | strcmp(paramslc.mode,'PAZ_SPT') == 
     % Save
     fres = fopen([miesar_para.WK,'/SLC.list'],'w');
     for i1 = 1 : size(date_tmp,1)
-        fprintf(fres,'%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n',tmp(idx(i1)).name,tmp(idx(i1)).d1,tmp(idx(i1)).d2,tmp(idx(i1)).name_h5,strtrim(tmp(idx(i1)).orb),strtrim(tmp(idx(i1)).pol),tmp(idx(i1)).sat_id,'Stored');
+        fprintf(fres,'%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n',tmp(idx(i1)).name,tmp(idx(i1)).d1,tmp(idx(i1)).d2,tmp(idx(i1)).relorbit,tmp(idx(i1)).absorbit,tmp(idx(i1)).pol1,tmp(idx(i1)).pol1,'Stored');
     end
     fclose(fres);
 
