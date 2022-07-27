@@ -18,12 +18,12 @@ The spirit of **EZ-InSAR** is minimizing the work of user in downloading, parame
 |PAZ|Spotlight|Ready but ISCE should be fixed|Unzipped PAZ1_* directory in the slc directory|
 |TerraSAR-X|StripMap|Ready|Unzipped TSX1_* directory in the slc directory|
 |TerraSAR-X|Spotlight|Ready but ISCE should be fixed|Unzipped TSX1_* directory in the slc directory|
-|Cosmo-SkyMed|StripMap|No|NE|
-|Cosmo-SkyMed|Spotlight|No|NE|
+|Cosmo-SkyMed|StripMap|Ready|*/CSK*.h5 in the slc directory|
+|Cosmo-SkyMed|Spotlight|Ready but ISCE should be fixed|*/CSK*.h5 in the slc directory|
 |ALOS2|StripMap|No|NE|
 |ALOS2|Spotlight|No|NE|
 
-Please check the guidelines to add a new sensor: [here](https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_0_alpha/MIESAR_BIN/docs/guide_new_sensors.md). 
+Please check the guidelines to add a new sensor: [here](https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_0_Beta/MIESAR_BIN/docs/guide_new_sensors.md). 
 
 ## 1. Dependencies & Installation 
 
