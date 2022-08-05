@@ -1,0 +1,56 @@
+# vim: set filetype=sh:
+# root directory
+export MIESAR_HOME=/usr/local                              #Modify this to your own install path
+
+export tools_insar=$MIESAR_HOME/tools_insar
+export TOOL_DIR=$tools_insar/proc_insar
+export DATA_DIR=$tools_insar/data             		       #put the wheather model data (ERA5)
+echo "source $tools_insar/config_InSARenv.rc"
+##########################################################################
+if [ -z ${PYTHONPATH+x} ]; then export PYTHONPATH=""; fi
+
+##-------------- MintPy -------------------------------##
+export MINTPY_HOME=${TOOL_DIR}/MintPy
+export WEATHER_DIR=${DATA_DIR}/aux
+export PYTHONPATH=${PYTHONPATH}:${MINTPY_HOME}
+export PATH=${PATH}:${MINTPY_HOME}/mintpy
+
+##-------------- ISCE2 --------------------------------##
+# ISCE_HOME/STACK are set by conda
+export PATH=${PATH}:${ISCE_HOME}/bin:${ISCE_HOME}/applications
+#echo "load ISCE-2 core modules installed by conda at "$ISCE_HOME
+
+# common settings (source stack processors and PyCuAmpcor)
+export ISCE_STACK=${TOOL_DIR}/isce2/contrib/stack                     #set ISCE_STACK to the dev version
+export PATH=${PATH}:${TOOL_DIR}/isce2/contrib/PyCuAmpcor/examples     #for cuDenseOffsets
+export PYTHONPATH=${PYTHONPATH}:${ISCE_STACK}                         #import tops/stripmapStack as python modules
+export DEMDB=${DATA_DIR}/aux/DEM
+export PATH=${PATH}:${ISCE_STACK}/topsStack
+
+##---------------------- Miscellaneous ----------------##
+export VRT_SHARED_SOURCE=0
+export HDF5_DISABLE_VERSION_CHECK=2    # 0 for abort; 1 for printout warning message; 2 for supress the warning message
+export HDF5_USE_FILE_LOCKING=FALSE
+export OMP_NUM_THREADS=60
+
+##---------------------StaMPS--------------------------##
+#source ${TOOL_DIR}/StaMPS/StaMPS_CONFIG.bash
+export STAMPS=${TOOL_DIR}/StaMPS
+export SNAPHU_BIN=${TOOL_DIR}/snaphu/bin
+export TRIANGLE_BIN=${TOOL_DIR}/StaMPS/triangle/bin
+export ISCE_StaMPS_BIN=${TOOL_DIR}/isce2/contrib/timeseries/prepStackToStaMPS/bin
+source ${TOOL_DIR}/TRAIN/APS_CONFIG.sh
+#####################################
+# shouldn't need to change below here
+#####################################
+export MATLABPATH=$STAMPS/matlab:`echo $MATLABPATH`
+### use points not commas for decimals, and give dates in US english
+export LC_NUMERIC="en_US.UTF-8"
+export LC_TIME="en_US.UTF-8"
+export PATH=${PATH}:$STAMPS/bin:$TRIANGLE_BIN:$SNAPHU_BIN:$ISCE_StaMPS_BIN
+
+##########################################################################
+##----------------MIESAR----------------##
+export MATLABPATH=$MATLABPATH:$tools_insar/MIESAR
+export MIESAR_BIN="$tools_insar/MIESAR/MIESAR_BIN/"
+
