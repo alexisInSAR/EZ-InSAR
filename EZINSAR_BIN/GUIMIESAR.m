@@ -42,7 +42,7 @@ figmiesar = uifigure('Position',[19 15 1620 900],'Name','EZ-InSAR Application','
 gridfigmiesar = uigridlayout(figmiesar,[28 15]);
 figmiesar.UserData = miesar_para; 
 
-figmiesar.DeleteFcn = @(src,evt,arg1,arg2) MIESAR(src,evt,'close',figmiesar.UserData);
+figmiesar.DeleteFcn = @(src,evt,arg1,arg2) EZ_InSAR(src,evt,'close',figmiesar.UserData);
 
 %% Logos 
 % UCD 
@@ -106,7 +106,7 @@ gridpathpanel = uigridlayout(pathpanel,[1 3]);
 
 % For Work directory
 btworkdirectory = uibutton(gridpathpanel,'Text','Set work directory','Tag','mainbutWKpath','Backgroundcolor','red'); 
-btworkdirectory.ButtonPushedFcn = @(src,evt,arg1,arg2) MIESAR(src,evt,'defineWK',figmiesar.UserData);
+btworkdirectory.ButtonPushedFcn = @(src,evt,arg1,arg2) EZ_InSAR(src,evt,'defineWK',figmiesar.UserData);
 btworkdirectory.Layout.Row = [1];
 btworkdirectory.Layout.Column = [1];
 btworkdirectory.Tooltip = 'Click to select the work directory';
@@ -125,14 +125,14 @@ gridslcpanel = uigridlayout(slcpanel,[10 2]);
 
 %Button SLC management
 btslcmanage = uibutton(gridslcpanel,'Text','Manage data directory','Tag','mainbutmanageSLC'); 
-btslcmanage.ButtonPushedFcn = @(src,evt,arg1,arg2) MIESAR(src,evt,'SLCmanager',figmiesar.UserData);
+btslcmanage.ButtonPushedFcn = @(src,evt,arg1,arg2) EZ_InSAR(src,evt,'SLCmanager',figmiesar.UserData);
 btslcmanage.Layout.Row = [1];
 btslcmanage.Layout.Column = [1 2];
 btslcmanage.Tooltip = 'Click to select the SLCs, orbits abd Aux. directories.';
 
 %Button area
 btarea = uibutton(gridslcpanel,'Text','Selection of study area','Tag','mainbutselectionarea'); 
-btarea.ButtonPushedFcn = @(src,evt,arg1,arg2) MIESAR(src,evt,'Selectionzone',figmiesar.UserData);
+btarea.ButtonPushedFcn = @(src,evt,arg1,arg2) EZ_InSAR(src,evt,'Selectionzone',figmiesar.UserData);
 btarea.Layout.Row = [2];
 btarea.Layout.Column = [1 2];
 btarea.Tooltip = 'Click to select the study area.';
@@ -636,14 +636,14 @@ quit_menubar = uimenu(figmiesar,'Text','Quit');
 
 %Level -1
 help_help_menubar = uimenu(help_menubar,'Text','Help','Tag','dede');
-% help_help_menubar.ButtonPushedFcn = @(src,event,action) MIESAR(src,event,'defineWK');
+% help_help_menubar.ButtonPushedFcn = @(src,event,action) EZ_InSAR(src,event,'defineWK');
 check_versions_menubar = uimenu(help_menubar,'Text','Check the versions','Tag','dede');
 check_versions_menubar.MenuSelectedFcn = @(src,evt,arg1,arg2) check_tool_versions(src,evt,[],[]);
 
 about_help_menubar = uimenu(help_menubar,'Text','About','Tag','dede');
-about_help_menubar.MenuSelectedFcn = @(src,evt,arg1,arg2) MIESAR(src,evt,'information',figmiesar.UserData);
+about_help_menubar.MenuSelectedFcn = @(src,evt,arg1,arg2) EZ_InSAR(src,evt,'information',figmiesar.UserData);
 
-quit_menubar.MenuSelectedFcn = @(src,evt,arg1,arg2) MIESAR(src,evt,'quit',figmiesar.UserData);
+quit_menubar.MenuSelectedFcn = @(src,evt,arg1,arg2) EZ_InSAR(src,evt,'quit',figmiesar.UserData);
 
 %% Progress bar
 title_progressbar = uilabel(gridfigmiesar,'Text','Processing in progress:','HorizontalAlignment','left','VerticalAlignment','center','FontSize',15,'FontWeight','bold');

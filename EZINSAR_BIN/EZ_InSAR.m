@@ -1,5 +1,5 @@
-function MIESAR(src,evt,action,miesar_para)
-%   MIESAR(src,evt,action,miesar_para)
+function EZ_InSAR(src,evt,action,miesar_para)
+%   EZ_InSAR(src,evt,action,miesar_para)
 %       [src]           : callback value
 %       [evt]           : callback value
 %       [action]        : name of the action to perform (string value)
