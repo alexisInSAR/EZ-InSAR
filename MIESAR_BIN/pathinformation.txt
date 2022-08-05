@@ -1,2 +1,0 @@
-ASFID             xxx
-ASFPWD            xxx
