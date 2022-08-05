@@ -54,7 +54,7 @@ switch action
     case 'initialisation'
         %% Initialisation 
         %Save important information
-    	miesar_para.cur = which('MIESAR'); n = find(miesar_para.cur=='/'); miesar_para.cur = miesar_para.cur(1:n(end)); 
+    	miesar_para.cur = which('EZ_InSAR'); n = find(miesar_para.cur=='/'); miesar_para.cur = miesar_para.cur(1:n(end)); 
     	miesar_para.date = datestr(datetime); 
     	miesar_para.id = string2hash([miesar_para.cur, miesar_para.date]); 
     	
