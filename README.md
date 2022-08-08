@@ -45,7 +45,7 @@ See [**Installation**](./MIESAR/docs/MIESAR-tutorial-Part-II.md) to install and 
 
 After the installation and configuration, lunch "Matlab" through a terminal, and then type "EZ-InSAR". 
 
-![EZ-InSAR Interface](./MIESAR_BIN/docs/MIESAR_interface.bmp)
+![EZ-InSAR Interface](./EZINSAR_BIN/docs/MIESAR_interface.bmp)
 
 ​																						   **Figure 1.** The snapshot of the interface of EZ-InSAR.
 
