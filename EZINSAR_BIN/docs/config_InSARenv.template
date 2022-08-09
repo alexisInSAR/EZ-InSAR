@@ -1,8 +1,8 @@
 # vim: set filetype=sh:
 # root directory
-export MIESAR_HOME=/usr/local                              #Modify this to your own install path
+export EZINSAR_HOME="$HOME"                              #Modify this to your own install path, e.g., "/local"
 
-export tools_insar=$MIESAR_HOME/tools_insar
+export tools_insar=$EZINSAR_HOME/tools_insar
 export TOOL_DIR=$tools_insar/proc_insar
 export DATA_DIR=$tools_insar/data             		       #put the wheather model data (ERA5)
 echo "source $tools_insar/config_InSARenv.rc"
@@ -50,7 +50,8 @@ export LC_TIME="en_US.UTF-8"
 export PATH=${PATH}:$STAMPS/bin:$TRIANGLE_BIN:$SNAPHU_BIN:$ISCE_StaMPS_BIN
 
 ##########################################################################
-##----------------MIESAR----------------##
-export MATLABPATH=$MATLABPATH:$tools_insar/MIESAR
-export MIESAR_BIN="$tools_insar/MIESAR/MIESAR_BIN/"
+##----------------EZINSAR----------------##
+export MATLABPATH=$MATLABPATH:$tools_insar/EZINSAR
+export EZINSAR_BIN="$tools_insar/EZINSAR/EZINSAR_BIN/"
+export PATH=${PATH}:"$EZINSAR_BIN/Suppfunctions/":"$EZINSAR_BIN/3rdparty/"
 
