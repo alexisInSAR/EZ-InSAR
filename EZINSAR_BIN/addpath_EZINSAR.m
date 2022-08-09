@@ -6,7 +6,7 @@
 %%
 
 disp('Added to path: EZ-InSAR Version 1.0.0 Beta')
-libdir = [ getenv('MIESAR_BIN') filesep '.'  ];  
+libdir = [ getenv('EZINSAR_BIN') filesep '.'  ];  
 addpath(genpath(libdir),'-end'); 
 
 
