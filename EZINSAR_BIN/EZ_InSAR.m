@@ -145,7 +145,7 @@ switch action
 
     case 'SLCmanager'
         %% GUI SLC manager
-        GUIpathdirectory(src,evt,'open',miesar_para)
+        GUIpathdirectory(src,evt,'open',miesar_para,[],[]); 
 
     case 'Selectionzone'
         %% Selection of study area
