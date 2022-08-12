@@ -27,7 +27,8 @@ endif
     
 # getting the crop extend
 cd $data_path/geom_reference
-crop_rdr.py -b '$4 $5 $6 $7' > $proc_dir/crop_log.txt
+set cmd=`echo "crop_rdr.py -b '"$4" "$5" "$6" "$7"' > $proc_dir/crop_log.txt"`
+eval $cmd
 
 #### NO changes required below ######
 
