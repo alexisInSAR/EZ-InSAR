@@ -62,7 +62,7 @@ logoicrag.Tooltip = 'Go to www.icrag-centre.org';
 % Interreg
 logointerreg = uiimage(gridfigmiesar,'ImageSource','private/atlanticarealogo.png');
 logointerreg.Layout.Row = [1 3];
-logointerreg.Layout.Column = [12 13];
+logointerreg.Layout.Column = [11 13];
 logointerreg.ImageClickedFcn = @(src,event) linklogo(src,'interreg');
 logointerreg.Tooltip = 'Go to www.atlanticarea.eu';
 
@@ -95,7 +95,7 @@ maintitle.Layout.Column = [6 10];
 
 logoezinsar = uiimage(gridfigmiesar,'ImageSource','private/EZ_InSAR_logo.gif');
 logoezinsar.Layout.Row = [1 3];
-logoezinsar.Layout.Column = [10 ];
+logoezinsar.Layout.Column = [6];
 
 %% Path panel 
 pathpanel = uipanel(gridfigmiesar,'Title','EZ-InSAR Paths','FontSize',20,'FontWeight','bold'); 
