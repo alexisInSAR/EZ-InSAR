@@ -51,8 +51,6 @@ Basically, the interface contains three independent modules shown as the "Data p
 
 A **tutorial** on the use of the toolbox can be downloaded from [**here**](xxxxx).
 
-
-
 ## 1.3 Developers & Contact
 
 Based on original idea and development from Alexis Hrysiewicz, EZ-InSAR is developed and maintained by the **Natural Hazard Research** group lead by **[Eoghan Holohan](https://people.ucd.ie/eoghan.holohan)** at School of Earth Sciences, ***University College Dublin*** (UCD). The people developing and documenting the toolbox are acknowledged below: 
