@@ -1,4 +1,4 @@
-<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_1_0_0/MIESAR_BIN/private/EZ_InSAR_logo.gif" alt="Girl in a jacket" width="250"> 
+<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_0_Beta/MIESAR_BIN/private/EZ_InSAR_logo.gif" alt="Girl in a jacket" width="250"> 
 
 # EZ-InSAR 
 
