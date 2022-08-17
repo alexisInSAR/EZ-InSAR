@@ -37,9 +37,7 @@ Some additional dependencies are needed to run the above InSAR processors or enh
 
 **EZ-InSAR** is developed on a Linux platform currently. The commercial software MATLAB is needed to run **EZ-InSAR**. 
 
-See [**Installation**](./MIESAR/docs/MIESAR-tutorial-Part-II.md) to install and configure the depended codes and software. 
-
-
+See [**Installation**](./EZINSAR_BIN/docs/MIESAR-tutorial-Part-II.md) to install and configure the depended codes and software. 
 
 ## 1.2 Running the toolbox 
 
@@ -66,20 +64,15 @@ Based on original idea and development from Alexis Hrysiewicz, EZ-InSAR is devel
 - *Xiaowen Wang*, Research Scientist, School of Earth Sciences, UCD 
 
   Email: xiaowen.wang@ucd.ie
-
   
-
 ## 1.4  Acknowledgement
 
 We acknowledge that the open-source InSAR processing software and code used by EZ-InSAR are cited properly. EZ-InSAR is distributed for free under the GPLV3 License.
 
 ## 1.5 Partners
 
-|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_1_0_0/MIESAR_BIN/private/AGEO-transparent.png" alt="AGEO" width="150pix">|[**AGEO**](https://ageoatlantic.eu/)|
+|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_0_Beta/EZINSAR_BIN/private/AGEO-transparent.png" alt="AGEO" width="150pix">|[**AGEO**](https://ageoatlantic.eu/)|
 |---|---|
-|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_1_0_0/MIESAR_BIN/private/atlanticarealogo.png" alt="Interreg Atlantic Area" width="150pix"> |[**Interreg Atlantic Area**](https://www.atlanticarea.eu/)|
-|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_1_0_0/MIESAR_BIN/private/icrag-logo.png" alt="iCRAG" height="50pix"> | [**iCRAG**](https://www.icrag-centre.org/)|
-|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_1_0_0/MIESAR_BIN/private/UCDlogo.png" alt="UCD" height="100pix"> | [**University College Dublin**](https://www.ucd.ie/)|
-
-
-
+|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_0_Beta/EZINSAR_BIN/private/atlanticarealogo.png" alt="Interreg Atlantic Area" width="150pix"> |[**Interreg Atlantic Area**](https://www.atlanticarea.eu/)|
+|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_0_Beta/EZINSAR_BIN/private/icrag-logo.png" alt="iCRAG" height="50pix"> | [**iCRAG**](https://www.icrag-centre.org/)|
+|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_0_Beta/EZINSAR_BIN/private/UCDlogo.png" alt="UCD" height="100pix"> | [**University College Dublin**](https://www.ucd.ie/)|
