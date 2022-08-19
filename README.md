@@ -2,7 +2,7 @@
 
 # EZ-InSAR 
 
-**EZ-InSAR (formerly called MIESAR for Matlab Interface for Easy InSAR)** is a toolbox written in MATLAB to conduct Interferometric Synthetic Aperture Radar (InSAR) data processing with the open-source software (ISCE+StaMPS/MintPy) within a easy-to-use Graphic-User-Interface (GUI). The toolbox now can generate SAR interferograms using ISCE and conduct displacement time series analysis with either Persistent Scatters (**PS**) or Small-Baselines (**SBAS**) approaches using StaMPS or MintPy. 
+**EZ-InSAR (formerly called MIESAR for Matlab Interface for Easy InSAR)** is a toolbox written in MATLAB to conduct Interferometric Synthetic Aperture Radar (InSAR) data processing using the open-source software packages (ISCE+StaMPS/MintPy) within a easy-to-use Graphic-User-Interface (GUI). The toolbox now can generate SAR interferograms using ISCE and conduct displacement time series analysis with either Persistent Scatters (**PS**) or Small-Baselines (**SBAS**) approaches using StaMPS or MintPy. 
 
 **EZ-InSAR** minimizes the work of user in downloading, parametrizing, and processing the SAR data, so enabling these who are not familiar with InSAR but can also produce and analyze ground surface displacements by themselves. **EZ-InSAR** is also a contribution to the Platform for Atlantic Geohazard Risk Management (AGEO) project, which is funded by Interreg Atlantic Area Programme through the *European* Regional Development Fund.
 
@@ -25,6 +25,8 @@ Please check the guidelines to add a new sensor: [here](https://github.com/alexi
 
 ## 1. Dependencies & Installation 
 
+See [**Installation**](./EZINSAR_BIN/docs/MIESAR-tutorial-Part-II.md) to install and configure the depended codes and software. 
+
 **EZ-InSAR** incorporates several the most popular open source InSAR processors to perform SAR interferometry and displacement time series analysis. These processors are: 
 
 ·         **[ISCE](https://github.com/isce-framework/isce2)** - Interferometric synthetic aperture radar Scientific Computing Environment (ISCE)
@@ -37,8 +39,6 @@ Some additional dependencies are needed to run the above InSAR processors or enh
 
 **EZ-InSAR** is developed on a Linux platform currently. The commercial software MATLAB is needed to run **EZ-InSAR**. 
 
-See [**Installation**](./EZINSAR_BIN/docs/MIESAR-tutorial-Part-II.md) to install and configure the depended codes and software. 
-
 ## 1.2 Running the toolbox 
 
 After the installation and configuration, lunch "Matlab" through a terminal, and then type "EZ_InSAR". 
@@ -49,7 +49,7 @@ After the installation and configuration, lunch "Matlab" through a terminal, and
 
 Basically, the interface contains three independent modules shown as the "Data preparation module", "ISCE InSAR processing module", and "InSAR time series analysis module". The “EZ-InSAR Paths” button allows the user to define the work path for processing the data. The StaMPS and MintPy processors can be activated by clicking the corresponding tables in the "InSAR time series analysis module" module, respectively. Also, there is a progress bar showing the running progress of each step and an information box showing the useful tip during data processing at the bottom of the interface. 
 
-A **tutorial** on the use of the toolbox can be downloaded from [**here**](xxxxx).
+A **tutorial** on the use of the toolbox can be downloaded from [**here**](https://github.com/insarwxw/EZ-InSAR/blob/main/EZINSAR_BIN/docs/EZ-InSAR_manual-v2.0.0_Beta.pdf).
 
 ## 1.3 Developers & Contact
 
