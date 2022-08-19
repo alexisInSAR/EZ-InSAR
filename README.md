@@ -43,7 +43,7 @@ Some additional dependencies are needed to run the above InSAR processors or enh
 
 After the installation and configuration, lunch "Matlab" through a terminal, and then type "EZ_InSAR". 
 
-![EZ-InSAR Interface](./EZINSAR_BIN/docs/MIESAR_interface.bmp)
+![EZ-InSAR Interface](./EZINSAR_BIN/docs/GUI_full.pdf)
 
 ​																						   **Figure 1.** The snapshot of the interface of EZ-InSAR.
 
