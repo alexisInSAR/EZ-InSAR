@@ -2,12 +2,12 @@
 
 # EZ-InSAR 
 
-**EZ-InSAR (formerly called MIESAR for Matlab Interface for Easy InSAR)** is a toolbox written in MATLAB to conduct Interferometric Synthetic Aperture Radar (InSAR) data processing with the open-source software (ISCE+StaMPS/MintPy) under a user-friendly Graphic-User-Interface (GUI). The toolbox now can generate SAR interferograms using ISCE and conduct displacement time series analysis with either Persistent Scatters (**PS**) or Small-Baselines (**SBAS**) approaches using StaMPS or MintPy. 
+**EZ-InSAR (formerly called MIESAR for Matlab Interface for Easy InSAR)** is a toolbox written in MATLAB to conduct Interferometric Synthetic Aperture Radar (InSAR) data processing with the open-source software (ISCE+StaMPS/MintPy) within a easy-to-use Graphic-User-Interface (GUI). The toolbox now can generate SAR interferograms using ISCE and conduct displacement time series analysis with either Persistent Scatters (**PS**) or Small-Baselines (**SBAS**) approaches using StaMPS or MintPy. 
 
-The spirit of **EZ-InSAR** is minimizing the work of user in downloading, parametrizing, and processing the SAR data, so enabling these who are not familiar with InSAR but can also produce and analyze ground surface displacements by themselves. **EZ-InSAR** is also a contribution to the Platform for Atlantic Geohazard Risk Management (AGEO) project, which is funded by Interreg Atlantic Area Programme through the *European* Regional Development Fund.
+**EZ-InSAR** minimizes the work of user in downloading, parametrizing, and processing the SAR data, so enabling these who are not familiar with InSAR but can also produce and analyze ground surface displacements by themselves. **EZ-InSAR** is also a contribution to the Platform for Atlantic Geohazard Risk Management (AGEO) project, which is funded by Interreg Atlantic Area Programme through the *European* Regional Development Fund.
 
 
-**Release info**: Version 2.0.0 Beta, July 27, 2022
+**Release info**: Version 2.0.0 Beta, August 19, 2022
 
 **Sensors:**
 | Satellite | Mode | EZ-InSAR | SLC format |
@@ -41,31 +41,31 @@ See [**Installation**](./EZINSAR_BIN/docs/MIESAR-tutorial-Part-II.md) to install
 
 ## 1.2 Running the toolbox 
 
-After the installation and configuration, lunch "Matlab" through a terminal, and then type "EZ-InSAR". 
+After the installation and configuration, lunch "Matlab" through a terminal, and then type "EZ_InSAR". 
 
 ![EZ-InSAR Interface](./EZINSAR_BIN/docs/MIESAR_interface.bmp)
 
 ​																						   **Figure 1.** The snapshot of the interface of EZ-InSAR.
 
-Basically, the interface contains three independent modules shown as the "Data preparation module", "ISCE InSAR processing module", and "InSAR time series analysis module". The “EZ-InSAR Paths” button allow the user to define the work path for processing the data. The StaMPS and MintPy processors can be activated by clicking the corresponding tables in the "InSAR time series analysis module" module, respectively. Also, there are a progress bar showing the running progress of each step and an information box showing the useful tip during data processing at the bottom of the interface. 
+Basically, the interface contains three independent modules shown as the "Data preparation module", "ISCE InSAR processing module", and "InSAR time series analysis module". The “EZ-InSAR Paths” button allows the user to define the work path for processing the data. The StaMPS and MintPy processors can be activated by clicking the corresponding tables in the "InSAR time series analysis module" module, respectively. Also, there is a progress bar showing the running progress of each step and an information box showing the useful tip during data processing at the bottom of the interface. 
 
 A **tutorial** on the use of the toolbox can be downloaded from [**here**](xxxxx).
 
 ## 1.3 Developers & Contact
 
-Based on original idea and development from Alexis Hrysiewicz, EZ-InSAR is developed and maintained by the **Natural Hazard Research** group lead by **[Eoghan Holohan](https://people.ucd.ie/eoghan.holohan)** at School of Earth Sciences, ***University College Dublin*** (UCD). The people developing and documenting the toolbox are acknowledged below: 
+Based on original idea and development from Alexis Hrysiewicz, EZ-InSAR is developed and maintained by the **Natural Hazard Research** group lead by **[Eoghan Holohan](https://people.ucd.ie/eoghan.holohan)** at School of Earth Sciences, ***University College Dublin*** (UCD). The people who develop and document the toolbox are acknowledged below: 
 
 - *Alexis Hrysiewicz,* Postdoctoral Researcher, School of Earth Sciences, UCD
 
   Email: alexis.hrysiewicz@ucd.ie 
 
-- *Xiaowen Wang*, Research Scientist, School of Earth Sciences, UCD 
+- *Xiaowen Wang*, Research Scientist, School of Earth Sciences, UCD & Southwest Jiaotong University 
 
-  Email: xiaowen.wang@ucd.ie
+  Email: xiaowen.wang@ucd.ie; insarswxw@swjtu.edu.cn
   
 ## 1.4  Acknowledgement
 
-We acknowledge that the open-source InSAR processing software and code used by EZ-InSAR are cited properly. EZ-InSAR is distributed for free under the GPLV3 License.
+We acknowledge that the open-source InSAR processing software and code used by EZ-InSAR are cited properly. EZ-InSAR is distributed for free under the [GPLV3 License] (https://www.gnu.org/licenses/gpl-3.0.html).
 
 ## 1.5 Partners
 
