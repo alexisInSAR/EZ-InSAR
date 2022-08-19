@@ -25,6 +25,8 @@ Please check the guidelines to add a new sensor: [here](https://github.com/alexi
 
 ## 1. Dependencies & Installation 
 
+See [**Installation**](./EZINSAR_BIN/docs/MIESAR-tutorial-Part-II.md) to install and configure the depended codes and software. 
+
 **EZ-InSAR** incorporates several the most popular open source InSAR processors to perform SAR interferometry and displacement time series analysis. These processors are: 
 
 ·         **[ISCE](https://github.com/isce-framework/isce2)** - Interferometric synthetic aperture radar Scientific Computing Environment (ISCE)
@@ -36,8 +38,6 @@ Please check the guidelines to add a new sensor: [here](https://github.com/alexi
 Some additional dependencies are needed to run the above InSAR processors or enhancing the functions of the code. For example, you may need the TRAIN package to correct for tropospheric errors in SAR interferograms when using StaMPS, and in MintPy you may need PyAPS to do the similar work. Some toolboxes of MATLAB are also needed for successfully running the SAR processing code, which will be descripted in detail in **Part II** of the help document. 
 
 **EZ-InSAR** is developed on a Linux platform currently. The commercial software MATLAB is needed to run **EZ-InSAR**. 
-
-See [**Installation**](./EZINSAR_BIN/docs/MIESAR-tutorial-Part-II.md) to install and configure the depended codes and software. 
 
 ## 1.2 Running the toolbox 
 
