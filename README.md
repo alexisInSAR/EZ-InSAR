@@ -65,7 +65,7 @@ Based on original idea and development from Alexis Hrysiewicz, EZ-InSAR is devel
   
 ## 1.4  Acknowledgement
 
-We acknowledge that the open-source InSAR processing software and code used by EZ-InSAR are cited properly. EZ-InSAR is distributed for free under the [GPLV3 License] (https://www.gnu.org/licenses/gpl-3.0.html).
+We acknowledge that the open-source InSAR processing software and code used by EZ-InSAR are cited properly. EZ-InSAR is distributed for free under the [**GPLV3 License**](https://www.gnu.org/licenses/gpl-3.0.html).
 
 ## 1.5 Partners
 
