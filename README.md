@@ -74,3 +74,4 @@ We acknowledge that the open-source InSAR processing software and code used by E
 |<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_0_Beta/EZINSAR_BIN/private/atlanticarealogo.png" alt="Interreg Atlantic Area" width="150pix">|[**Interreg Atlantic Area**](https://www.atlanticarea.eu/)|
 |<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_0_Beta/EZINSAR_BIN/private/icrag-logo.png" alt="iCRAG" height="50pix">|[**iCRAG**](https://www.icrag-centre.org/)|
 |<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_0_Beta/EZINSAR_BIN/private/UCDlogo.png" alt="UCD" height="100pix"> |[**University College Dublin**](https://www.ucd.ie/)|
+|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_0_Beta/EZINSAR_BIN/private/SWJTUlogo.png" alt="SWJTU" height="100pix"> |[**Southwest Jiaotong University**](https://en.swjtu.edu.cn/)|
