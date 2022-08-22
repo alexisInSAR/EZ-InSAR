@@ -781,6 +781,12 @@ dist = np.sqrt( (a - ab)**2 + (b - bb)**2 )
 idx_best_ref = np.nanargmin(dist)
 
 ###########################################################################
+with open("Time_Berp.txt", "w+") as fi:
+	fi.write('Network using %s as reference data.\n' %(datetime.datetime.strftime(para_sat['dates'][idx_ref],'%Y-%m-%d')))
+	for idxdi in np.arange(len(para_sat['dates'])):
+    		print(idxdi)
+    		fi.write('%s %f\n' %(datetime.datetime.strftime(para_sat['dates'][idxdi],'%Y-%m-%d'),Bperp[idxdi]) )
+###########################################################################
 # Display the results
 ###########################################################################
 print('-------------------------------------------')
