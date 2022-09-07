@@ -36,8 +36,8 @@ export OMP_NUM_THREADS=60
 ##---------------------StaMPS--------------------------##
 #source ${TOOL_DIR}/StaMPS/StaMPS_CONFIG.bash
 export STAMPS=${TOOL_DIR}/StaMPS
-export SNAPHU_BIN=${TOOL_DIR}/snaphu/bin
-export TRIANGLE_BIN=${TOOL_DIR}/StaMPS/triangle/bin
+export SNAPHU_BIN=/usr/bin
+export TRIANGLE_BIN=/usr/bin
 export ISCE_StaMPS_BIN=${TOOL_DIR}/isce2/contrib/timeseries/prepStackToStaMPS/bin
 source ${TOOL_DIR}/StaMPS/TRAIN/APS_CONFIG.sh
 #####################################
@@ -54,4 +54,3 @@ export PATH=${PATH}:$STAMPS/bin:$TRIANGLE_BIN:$SNAPHU_BIN:$ISCE_StaMPS_BIN
 export MATLABPATH=$MATLABPATH:$tools_insar/EZINSAR
 export EZINSAR_BIN="$tools_insar/EZINSAR/EZINSAR_BIN/"
 export PATH=${PATH}:"$EZINSAR_BIN/Suppfunctions/":"$EZINSAR_BIN/3rdparty/"
-
