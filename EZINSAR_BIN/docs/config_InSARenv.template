@@ -39,7 +39,7 @@ export STAMPS=${TOOL_DIR}/StaMPS
 export SNAPHU_BIN=${TOOL_DIR}/snaphu/bin
 export TRIANGLE_BIN=${TOOL_DIR}/StaMPS/triangle/bin
 export ISCE_StaMPS_BIN=${TOOL_DIR}/isce2/contrib/timeseries/prepStackToStaMPS/bin
-source ${TOOL_DIR}/TRAIN/APS_CONFIG.sh
+source ${TOOL_DIR}/StaMPS/TRAIN/APS_CONFIG.sh
 #####################################
 # shouldn't need to change below here
 #####################################
