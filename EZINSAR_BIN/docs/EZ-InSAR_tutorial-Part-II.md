@@ -104,7 +104,7 @@ tool_DIR=$tools_insar/proc_insar
 sudo mkdir -p $tool_DIR
 
 # B. Download the source code (EZ-InSAR, ISCE, MintPy, StaMPS, TRAIN)
-## Download EZ-InSAR source file from github, and put the unzipped EZ-InSAR into the "EZINSAR" directory.
+## Download EZ-InSAR source file, and put the unzipped EZ-InSAR into the "EZINSAR" directory in $tool_insar.
 
 sudo git clone https://github.com/alexisInSAR/EZ-InSAR.git $tools_insar/EZ-InSAR
 sudo mv $tools_insar/EZ-InSAR $tools_insar/EZINSAR
