@@ -121,7 +121,7 @@ sudo git clone https://github.com/dbekaert/TRAIN.git       $tool_DIR/StaMPS/TRAI
 ##    - Check and replace the Path varialbe $APS_toolbox in TRAIN 
 ##    - The other variables do not need to be modified if you strictly follow this install instruciton.
 
-sudo cp $tools_insar/EZInSAR/EZINSAR_BIN/docs/config_InSARenv.template $tools_insar/config_InSARenv.rc
+sudo cp $tools_insar/EZINSAR/EZINSAR_BIN/docs/config_InSARenv.template $tools_insar/config_InSARenv.rc
 
 sudo sed -i "/EZINSAR_HOME=/c\EZINSAR_HOME=$EZINSAR_HOME"  $tools_insar/config_InSARenv.rc
 sudo sed -i "/APS_toolbox=/c\APS_toolbox=$tool_DIR/StaMPS/TRAIN" $tool_DIR/StaMPS/TRAIN/APS_CONFIG.sh
