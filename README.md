@@ -62,6 +62,7 @@ Based on original idea and development from Alexis Hrysiewicz, EZ-InSAR is devel
   Email: alexis.hrysiewicz@ucd.ie 
 
 - *Xiaowen Wang*
+
   Research Scientist, School of Earth Sciences, UCD (2021.09-2022.08)
   
   Associate Professor,Faculty of Geosciences and Environmental Engineering (FGEE), Southwest Jiaotong University
