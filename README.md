@@ -56,13 +56,16 @@ A **tutorial** on the use of the toolbox can be downloaded from [**here**](./EZI
 Based on original idea and development from Alexis Hrysiewicz, EZ-InSAR is developed and maintained by the **Natural Hazard Research** group lead by **[Eoghan Holohan](https://people.ucd.ie/eoghan.holohan)** at School of Earth Sciences, ***University College Dublin*** (UCD). The people who develop and document the toolbox are acknowledged below: 
 
 - *Alexis Hrysiewicz,* 
+  
   Postdoctoral Researcher, School of Earth Sciences, UCD
+  
   Email: alexis.hrysiewicz@ucd.ie 
 
 - *Xiaowen Wang*
   Research Scientist, School of Earth Sciences, UCD (2021.09-2022.08)
   
   Associate Professor,Faculty of Geosciences and Environmental Engineering (FGEE), Southwest Jiaotong University
+  
   Email: insarswxw@swjtu.edu.cn
   
 ## 1.4  Acknowledgement
