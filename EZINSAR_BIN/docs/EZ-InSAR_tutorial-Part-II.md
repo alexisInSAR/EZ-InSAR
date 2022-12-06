@@ -154,7 +154,8 @@ MintPy is written purely in Python. So, the use of MintPy just needs the install
 ```bash
 # A. Install the mintpy requirements 
 cd $tool_DIR
-conda install -c conda-forge --file MintPy/requirements.txt
+conda install -c conda-forge --file ./MintPy/requirements.txt
+python -m pip install -e ./MintPy
 
 # B. Install dependencies not available from conda
 sudo ln -s ${CONDA_PREFIX}/bin/cython ${CONDA_PREFIX}/bin/cython3
@@ -204,7 +205,7 @@ sudo apt install triangle-bin
 - Install the dependencies of some python script required by EZ-InSAR to your InSARenv.
 
 ```bash
-conda install fiona geopandas rasterio 
+conda install fiona geopandas rasterio
 ```
 
 - EZ-InSAR uses "[aws](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)" to download the NASADEM or Copernicus DEM. Using the following commands to install it. 
