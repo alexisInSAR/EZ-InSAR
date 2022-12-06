@@ -147,20 +147,13 @@ conda install -c conda-forge isce2
 
 ### 2.2.3 Install MintPy
 
-MintPy is written purely in Python. So, the use of MintPy just needs the installation of dependent python packages and then setup the environment variables properly. 
-
-**[Note]**: You can change the PATH variables for MintPy in `config_InSARenv.templte`.
+MintPy is written purely in Python. So, the use of MintPy just needs the installation of dependent python packages and then setup the environment variables properly. Please also refer the newest help information of [**MintPy installation**](https://github.com/insarlab/MintPy/blob/main/docs/installation.md).
 
 ```bash
-# A. Install the mintpy requirements 
+# Install the mintpy requirements first and then the source code.
 cd $tool_DIR
 conda install -c conda-forge --file ./MintPy/requirements.txt
 python -m pip install -e ./MintPy
-
-# B. Install dependencies not available from conda
-sudo ln -s ${CONDA_PREFIX}/bin/cython ${CONDA_PREFIX}/bin/cython3
-$CONDA_PREFIX/bin/pip install scalene      # CPU, GPU and memory profiler
-$CONDA_PREFIX/bin/pip install ipynb        # import functions from ipynb files
 ```
 
 ### 2.2.4 Install StaMPS
