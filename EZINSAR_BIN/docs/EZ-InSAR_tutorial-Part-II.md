@@ -151,6 +151,7 @@ MintPy is written purely in Python. So, the use of MintPy just needs the install
 
 ```bash
 # Install the mintpy requirements first and then the source code.
+# **NOTE** You may need to fix the python version to a lower version (e.g., python 3.8) since the incompatiable error when using isce2 (see [isce2 error for python > 3.10 ](https://github.com/isce-framework/isce2/issues/458)). 
 cd $tool_DIR
 conda install -c conda-forge --file ./MintPy/requirements.txt
 
