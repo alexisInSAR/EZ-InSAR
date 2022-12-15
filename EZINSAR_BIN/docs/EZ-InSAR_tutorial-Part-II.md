@@ -153,6 +153,8 @@ MintPy is written purely in Python. So, the use of MintPy just needs the install
 # Install the mintpy requirements first and then the source code.
 cd $tool_DIR
 conda install -c conda-forge --file ./MintPy/requirements.txt
+
+#Close and restart the shell for changes to take effect
 python -m pip install -e ./MintPy
 ```
 
