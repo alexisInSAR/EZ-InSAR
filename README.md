@@ -1,4 +1,4 @@
-<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_0_Beta/EZINSAR_BIN/private/EZ_InSAR_logo.gif" alt="Logo EZ-InSAR" width="250"> 
+<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_1_Beta/EZINSAR_BIN/private/EZ_InSAR_logo.gif" alt="Logo EZ-InSAR" width="250"> 
 
 # EZ-InSAR 
 
