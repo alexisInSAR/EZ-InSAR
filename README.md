@@ -49,7 +49,7 @@ After the installation and configuration, open a terminal, load the EZ-InSAR env
 
 Basically, the interface contains three independent modules shown as the "Data preparation module", "ISCE InSAR processing module", and "InSAR time series analysis module". The “EZ-InSAR Paths” button allows the user to define the work path for processing the data. The StaMPS and MintPy processors can be activated by clicking the corresponding tables in the "InSAR time series analysis module" module, respectively. Also, there is a progress bar showing the running progress of each step and an information box showing the useful tip during data processing at the bottom of the interface. 
 
-A **tutorial** on the use of the toolbox can be downloaded from [**here**](./EZINSAR_BIN/docs/EZ_InSAR_manual_v2_0_0_beta.pdf).
+A **tutorial** on the use of the toolbox can be downloaded from [**here**](./EZINSAR_BIN/docs/EZ_InSAR_manual_v2_0_1_beta.pdf).
 
 ## 1.3 Developers & Contact
 
