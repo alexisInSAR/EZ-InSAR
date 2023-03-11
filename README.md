@@ -74,8 +74,8 @@ Based on original idea and development from Alexis Hrysiewicz, EZ-InSAR is devel
 We acknowledge that the open-source InSAR processing software and code used by EZ-InSAR are cited properly. EZ-InSAR is distributed for free under the [**GPLV3 License**](https://www.gnu.org/licenses/gpl-3.0.html).
 
 ## 1.5 Partners
-|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_0_Beta/EZINSAR_BIN/private/UCDlogo.png" alt="UCD" height="100pix"> |[**University College Dublin**](https://www.ucd.ie/)|
+|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_1_Beta/EZINSAR_BIN/private/UCDlogo.png" alt="UCD" height="100pix"> |[**University College Dublin**](https://www.ucd.ie/)|
 |---|---|
-|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_0_Beta/EZINSAR_BIN/private/icrag-logo.png" alt="iCRAG" height="50pix">|[**iCRAG**](https://www.icrag-centre.org/)|
-|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_0_Beta/EZINSAR_BIN/private/AGEO-transparent.png" alt="AGEO" width="150pix">|[**AGEO**](https://ageoatlantic.eu/)|
-|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_0_Beta/EZINSAR_BIN/private/atlanticarealogo.png" alt="Interreg Atlantic Area" width="150pix">|[**Interreg Atlantic Area**](https://www.atlanticarea.eu/)|
+|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_1_Beta/EZINSAR_BIN/private/icrag-logo.png" alt="iCRAG" height="50pix">|[**iCRAG**](https://www.icrag-centre.org/)|
+|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_1_Beta/EZINSAR_BIN/private/AGEO-transparent.png" alt="AGEO" width="150pix">|[**AGEO**](https://ageoatlantic.eu/)|
+|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_1_Beta/EZINSAR_BIN/private/atlanticarealogo.png" alt="Interreg Atlantic Area" width="150pix">|[**Interreg Atlantic Area**](https://www.atlanticarea.eu/)|
