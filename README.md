@@ -14,7 +14,7 @@
 | Satellite | Mode | EZ-InSAR | SLC format |
 |---|---|---|---|
 |Sentinel-1|IW|Ready|.zip or .SAFE in the slc directory|
-|Sentinel-1|Stripmap|To be tested|.zip or .SAFE in the slc directory|
+|Sentinel-1|Stripmap|Ready|.zip or .SAFE in the slc directory|
 |TerraSAR-X or PAZ|StripMap|To be tested|Unzipped PAZ1_* or TSX1_* directory in the slc directory|
 |Cosmo-SkyMed|Stripmap|To be tested|[directory of the acquisition]/CSK*.h5 in the slc directory|
 |ALOS2|StripMap|No|NE|
