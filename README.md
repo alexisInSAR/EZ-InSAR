@@ -19,7 +19,7 @@
 |Cosmo-SkyMed|Stripmap|Ready|[directory of the acquisition]/CSK*.h5 in the slc directory|
 |ALOS2|StripMap|No|NE|
 
-Please note that the processing with the Stripmap data (other than Sentinel-1) has not been fully tested: only the preparation of data has been tested. However, the InSAR processors are compatible with them. For the Spotlight data, EZ-InSAR can manage the data similar to StripMap but the processing with ISCE should be modified. 
+Please note that the processing with the Stripmap data (other than Sentinel-1) has not been fully tested: only the data preparation has been tested. However, the InSAR processors are compatible with these data. For the Spotlight data, EZ-InSAR can manage the data similar to StripMap but the processing with ISCE should be modified. 
 
 Please check the guidelines to add a new sensor: [here](https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_1_Beta/EZINSAR_BIN/docs/guide_new_sensors.md). 
 
