@@ -685,7 +685,7 @@ dvpt_info.Tag = 'dede';
 dvpt_info.Layout.Row = [26];
 dvpt_info.Layout.Column = [11 15];
 
-version_info = uilabel(gridfigmiesar,'Text','Release: 2.0.0 Beta','HorizontalAlignment','right','VerticalAlignment','center','FontSize',10,'FontWeight','bold');
+version_info = uilabel(gridfigmiesar,'Text','Release: 2.0.1 Beta','HorizontalAlignment','right','VerticalAlignment','center','FontSize',10,'FontWeight','bold');
 version_info.Tag = 'dede'; 
 version_info.Layout.Row = [27];
 version_info.Layout.Column = [11 15];
