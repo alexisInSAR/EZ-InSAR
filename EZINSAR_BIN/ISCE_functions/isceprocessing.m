@@ -22,6 +22,7 @@ function isceprocessing(src,evt,action,miesar_para)
 %           implementation
 %           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2022: modifcation of
 %           text information
+%           - Alexis Hrysiewicz, UCD / iCRAG, 27/04/2023: fix for visualising the DEM 
 %
 %   -------------------------------------------------------
 %   Version history:
@@ -230,13 +231,17 @@ switch action
         update_progressbar_MIESAR(2/7,axiprogress,miesar_para,'defaut'); drawnow; pause(0.001);
 
         xmldem = xml2struct([pathdem,'.vrt']);
-        geo = strsplit(xmldem.VRTDataset.GeoTransform.Text,','); geo = cellfun(@str2num,geo);
-        datatype = xmldem.VRTDataset.VRTRasterBand.Attributes.dataType;
-        nbc = str2num(xmldem.VRTDataset.Attributes.rasterXSize);
-        nbl = str2num(xmldem.VRTDataset.Attributes.rasterYSize);
-        lat = geo(4) + (nbl-1) .* geo(6) : -geo(6) : geo(4);
-        lon = geo(1) : geo(2) : geo(1) + (nbc-1).* geo(2);
-
+        try     % Old version 
+                geo = strsplit(xmldem.VRTDataset.GeoTransform.Text,','); geo = cellfun(@str2num,geo);
+                datatype = xmldem.VRTDataset.VRTRasterBand.Attributes.dataType;
+                nbc = str2num(xmldem.VRTDataset.Attributes.rasterXSize);
+                nbl = str2num(xmldem.VRTDataset.Attributes.rasterYSize);
+        catch   % New version (linked to GDAL version or MATLAB version ???)
+                datatype = xmldem.Children(6).Attributes(2).Value; 
+                geo = strsplit(xmldem.Children(4).Children.Data,','); geo = cellfun(@str2num,geo);
+                nbc = str2num(xmldem.Attributes(1).Value);
+                nbl = str2num(xmldem.Attributes(2).Value);
+        end
         % Open the binary file
         set(findobj(gcf,'Tag','name_progressbar'),'Text','Opening of binary files...');
         %         set(findobj(gcf,'Tag','progressbar'),'Value',(3/7).*100); drawnow;
