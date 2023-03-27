@@ -242,6 +242,9 @@ switch action
                 nbc = str2num(xmldem.Attributes(1).Value);
                 nbl = str2num(xmldem.Attributes(2).Value);
         end
+        lat = geo(4) + (nbl-1) .* geo(6) : -geo(6) : geo(4);
+        lon = geo(1) : geo(2) : geo(1) + (nbc-1).* geo(2);
+        
         % Open the binary file
         set(findobj(gcf,'Tag','name_progressbar'),'Text','Opening of binary files...');
         %         set(findobj(gcf,'Tag','progressbar'),'Value',(3/7).*100); drawnow;
