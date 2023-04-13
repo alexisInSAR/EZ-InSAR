@@ -73,6 +73,8 @@ Based on original idea and development from Alexis Hrysiewicz, EZ-InSAR is devel
 
 We acknowledge that the open-source InSAR processing software and code used by EZ-InSAR are cited properly. EZ-InSAR is distributed for free under the [**GPLV3 License**](https://www.gnu.org/licenses/gpl-3.0.html).
 
+Hrysiewicz, A., Wang, X. & Holohan, E.P. EZ-InSAR: An easy-to-use open-source toolbox for mapping ground surface deformation using satellite interferometric synthetic aperture radar. Earth Sci Inform (2023). https://doi.org/10.1007/s12145-023-00973-1
+
 ## 1.5 Partners
 |<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_1_Beta/EZINSAR_BIN/private/UCDlogo.png" alt="UCD" height="100pix"> |[**University College Dublin**](https://www.ucd.ie/)|
 |---|---|
