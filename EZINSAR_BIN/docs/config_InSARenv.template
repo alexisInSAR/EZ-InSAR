@@ -10,10 +10,10 @@ echo "source $tools_insar/config_InSARenv.rc"
 if [ -z ${PYTHONPATH+x} ]; then export PYTHONPATH=""; fi
 
 ##-------------- MintPy -------------------------------##
-export MINTPY_HOME=${TOOL_DIR}/MintPy
+#export MINTPY_HOME=${TOOL_DIR}/MintPy
 export WEATHER_DIR=${DATA_DIR}/aux
-export PYTHONPATH=${PYTHONPATH}:${MINTPY_HOME}/src
-export PATH=${PATH}:${MINTPY_HOME}/src/mintpy/cli
+#export PYTHONPATH=${PYTHONPATH}:${MINTPY_HOME}
+#export PATH=${PATH}:${MINTPY_HOME}/mintpy
 
 ##-------------- ISCE2 --------------------------------##
 # ISCE_HOME/STACK are set by conda
