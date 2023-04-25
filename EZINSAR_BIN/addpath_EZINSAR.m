@@ -5,7 +5,7 @@
 % run( [ getenv('EZINSAR_HOME') filesep 'addpath_EZINSAR'] )
 %%
 
-disp('Added to path: EZ-InSAR Version 2.0.1 Beta')
+disp('Added to path: EZ-InSAR Version 2.0.2 Beta')
 libdir = [ getenv('EZINSAR_BIN') filesep '.'  ];  
 addpath(genpath(libdir),'-end'); 
 
