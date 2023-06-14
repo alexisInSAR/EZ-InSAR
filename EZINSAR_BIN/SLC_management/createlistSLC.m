@@ -72,6 +72,7 @@ if strcmp(paramslc.mode,'S1_IW') == 1 | strcmp(paramslc.mode,'S1_SM')
             % Connection to ASF server
             key_mode = 'IW';
             cmd1 = ['curl https://api.daac.asf.alaska.edu/services/search/param?platform=',key_sat,'\&beamMode=',key_mode,'\&bbox=',box,'\&start=',date1str,'\&end=',date2str,'\&relativeOrbit=',paramslc.track,'\&flightDirection=',Porb,'\&processingLevel=SLC\&maxResults=10000\&output=csv > tmp_list_SLC.csv'];
+            cmd1
             system(cmd1);
 
         case 'S1_SM'
