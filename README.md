@@ -8,7 +8,7 @@
 
 **If you have any questions or problems, please feel free to use the *Discussions* section.**
 
-**Release info**: Version 2.0.2 Beta, April, 2023
+**Release info**: Version 2.0.3 Beta, July, 2023
 
 **Sensors:**
 | Satellite | Mode | EZ-InSAR | SLC format |
@@ -21,7 +21,7 @@
 
 Please note that the processing with the Stripmap data (other than Sentinel-1) has not been fully tested: only the data preparation has been tested. However, the InSAR processors are compatible with these data. For the Spotlight data, EZ-InSAR can manage the data similar to StripMap but the processing with ISCE should be modified. 
 
-Please check the guidelines to add a new sensor: [here](https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_2_Beta/EZINSAR_BIN/docs/guide_new_sensors.md). 
+Please check the guidelines to add a new sensor: [here](https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_3_Beta/EZINSAR_BIN/docs/guide_new_sensors.md). 
 
 ## 1. Dependencies & Installation 
 
@@ -76,8 +76,8 @@ We acknowledge that the open-source InSAR processing software and code used by E
 Hrysiewicz, A., Wang, X. & Holohan, E.P. EZ-InSAR: An easy-to-use open-source toolbox for mapping ground surface deformation using satellite interferometric synthetic aperture radar. Earth Sci Inform (2023). https://doi.org/10.1007/s12145-023-00973-1
 
 ## 1.5 Partners
-|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_2_Beta/EZINSAR_BIN/private/UCDlogo.png" alt="UCD" height="100pix"> |[**University College Dublin**](https://www.ucd.ie/)|
+|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_3_Beta/EZINSAR_BIN/private/UCDlogo.png" alt="UCD" height="100pix"> |[**University College Dublin**](https://www.ucd.ie/)|
 |---|---|
-|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_2_Beta/EZINSAR_BIN/private/icrag-logo.png" alt="iCRAG" height="50pix">|[**iCRAG**](https://www.icrag-centre.org/)|
-|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_2_Beta/EZINSAR_BIN/private/AGEO-transparent.png" alt="AGEO" width="150pix">|[**AGEO**](https://ageoatlantic.eu/)|
-|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_2_Beta/EZINSAR_BIN/private/atlanticarealogo.png" alt="Interreg Atlantic Area" width="150pix">|[**Interreg Atlantic Area**](https://www.atlanticarea.eu/)|
+|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_3_Beta/EZINSAR_BIN/private/icrag-logo.png" alt="iCRAG" height="50pix">|[**iCRAG**](https://www.icrag-centre.org/)|
+|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_3_Beta/EZINSAR_BIN/private/AGEO-transparent.png" alt="AGEO" width="150pix">|[**AGEO**](https://ageoatlantic.eu/)|
+|<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_0_3_Beta/EZINSAR_BIN/private/atlanticarealogo.png" alt="Interreg Atlantic Area" width="150pix">|[**Interreg Atlantic Area**](https://www.atlanticarea.eu/)|
