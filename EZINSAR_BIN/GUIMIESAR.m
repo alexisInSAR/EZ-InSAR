@@ -9,7 +9,7 @@ function hdl = GUIMIESAR(miesar_para)
 %
 %   -------------------------------------------------------
 %   Alexis Hrysiewicz, UCD / iCRAG
-%   Version: 2.0.2 Beta
+%   Version: 2.0.3 Beta
 %   Date: 23/02/2022
 %
 %   -------------------------------------------------------
@@ -28,6 +28,7 @@ function hdl = GUIMIESAR(miesar_para)
 %           2.0.0 Beta: Initial (unreleased)
 %           2.0.1 Beta: Initial (unreleased)
 %           2.0.2 Beta: Initial (unreleased)
+%           2.0.3 Beta: Initial (unreleased)
 
 %% Creation of GUI for MIESAR
 % To keep the gcf command, we need to create the figure using matlab
@@ -688,7 +689,7 @@ dvpt_info.Tag = 'dede';
 dvpt_info.Layout.Row = [26];
 dvpt_info.Layout.Column = [11 15];
 
-version_info = uilabel(gridfigmiesar,'Text','Release: 2.0.2 Beta','HorizontalAlignment','right','VerticalAlignment','center','FontSize',10,'FontWeight','bold');
+version_info = uilabel(gridfigmiesar,'Text','Release: 2.0.3 Beta','HorizontalAlignment','right','VerticalAlignment','center','FontSize',10,'FontWeight','bold');
 version_info.Tag = 'dede'; 
 version_info.Layout.Row = [27];
 version_info.Layout.Column = [11 15];
@@ -716,7 +717,7 @@ disp(sprintf('\tMatlab Interface for Easy InSAR'))
 disp(sprintf('---------------------------------------------------------'))
 disp(sprintf('---------------------------------------------------------'))
 disp(sprintf('Open source application of bridge between ISCE/StaMPS/MintPy'))
-disp(sprintf('Version 2.0.2 Beta'))
+disp(sprintf('Version 2.0.3 Beta'))
 disp(sprintf('Developed by an UCD team.'))
 
 %% Extraction of handle

@@ -14,7 +14,7 @@ function createlistSLC(src,evt,action,miesar_para)
 %
 %   -------------------------------------------------------
 %   Alexis Hrysiewicz, UCD / iCRAG
-%   Version: 2.0.1 Beta
+%   Version: 2.0.3 Beta
 %   Date: 07/07/2022
 %
 %   -------------------------------------------------------
@@ -23,11 +23,14 @@ function createlistSLC(src,evt,action,miesar_para)
 %           text information
 %           - Alexis Hrysiewicz, UCD / iCRAG, 15/02/2023: fix regarding the
 %           Sentinel-1 API from ASF service
+%           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2023: fix regarding the
+%           Sentinel-1 API from ASF service
 %
 %   -------------------------------------------------------
 %   Version history:
 %           2.0.0 Beta: Initial (unreleased)
 %           2.0.1 Beta: Initial (unreleased)
+%           2.0.3 Beta: Initial (unreleased)
 
 %% Open the variables
 % For the path information
@@ -107,6 +110,19 @@ if strcmp(paramslc.mode,'S1_IW') == 1 | strcmp(paramslc.mode,'S1_SM')
         delete tmp_list_SLC.csv.orig;
         M = readtable('tmp_list_SLC.csv');
     end 
+    
+    %%%%%%%%%%%%%%%%%%
+    % Fix regarding the issue from the ASF API (to remove the UTC zone in the dates)
+    M = readtable(['tmp_list_SLC.csv'],'DatetimeType','text');
+    a = cellfun(@(rep) strrep(M.AcquisitionDate,'Z',rep), {''}, 'UniformOutput', false);
+    b = cellfun(@(rep) strrep(M.ProcessingDate,'Z',rep), {''}, 'UniformOutput', false);
+    c = cellfun(@(rep) strrep(M.StartTime,'Z',rep), {''}, 'UniformOutput', false);
+    d = cellfun(@(rep) strrep(M.EndTime,'Z',rep), {''}, 'UniformOutput', false);
+    M.AcquisitionDate = datetime(a{1,1},'InputFormat','yyyy-MM-dd''T''HH:mm:ss.SSSSSS','Format','yyyy-MM-dd''T''HH:mm:ss.SSS');
+    M.ProcessingDate = datetime(b{1,1},'InputFormat','yyyy-MM-dd''T''HH:mm:ss.SSSSSS','Format','yyyy-MM-dd''T''HH:mm:ss.SSS');
+    M.StartTime = datetime(c{1,1},'InputFormat','yyyy-MM-dd''T''HH:mm:ss.SSSSSS','Format','yyyy-MM-dd''T''HH:mm:ss.SSS');
+    M.EndTime = datetime(d{1,1},'InputFormat','yyyy-MM-dd''T''HH:mm:ss.SSSSSS','Format','yyyy-MM-dd''T''HH:mm:ss.SSS');
+    %%%%%%%%%%%%%%%%%%
     
     listStart = M.StartTime;
     for i1 = 1 : length(listStart)
