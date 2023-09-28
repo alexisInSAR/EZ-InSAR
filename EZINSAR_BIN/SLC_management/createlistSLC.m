@@ -25,12 +25,15 @@ function createlistSLC(src,evt,action,miesar_para)
 %           Sentinel-1 API from ASF service
 %           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2023: fix regarding the
 %           Sentinel-1 API from ASF service
+%           - Alexis Hrysiewicz, UCD / iCRAG, 28/09/2023: implementation of
+%           the DUAL polarisation for TSX/PAZ data
 %
 %   -------------------------------------------------------
 %   Version history:
 %           2.0.0 Beta: Initial (unreleased)
 %           2.0.1 Beta: Initial (unreleased)
 %           2.0.3 Beta: Initial (unreleased)
+%           2.1.0 Beta: Initial (unreleased)
 
 %% Open the variables
 % For the path information
@@ -157,6 +160,8 @@ if strcmp(paramslc.mode,'S1_IW') == 1 | strcmp(paramslc.mode,'S1_SM')
     %% For the PAZ and TSX data
 elseif strcmp(paramslc.mode,'PAZ_SM') == 1 | strcmp(paramslc.mode,'PAZ_SPT') == 1 | strcmp(paramslc.mode,'TSX_SM') == 1 | strcmp(paramslc.mode,'TSX_SPT') == 1
 
+    test_dual = 0;
+    
     if strcmp(paramslc.mode,'PAZ_SM') == 1 | strcmp(paramslc.mode,'PAZ_SPT') == 1
         key_name = 'PAZ1';
     else
@@ -169,7 +174,7 @@ elseif strcmp(paramslc.mode,'PAZ_SM') == 1 | strcmp(paramslc.mode,'PAZ_SPT') == 
     h = 1;
     for i1 = 1 : length(list_dir)
         % Read the .xml
-        path_xml = dir([paramslc.pathSLC,'/',list_dir(i1).name,'/',key_name,'*.xml']);
+        path_xml = dir([paramslc.pathSLC,'/',list_dir(i1).name,'/',key_name,'*.xml']); 
         path_xml = [paramslc.pathSLC,'/',list_dir(i1).name,'/',path_xml(1).name];
 
         data_xml = xml2struct(path_xml);
@@ -186,6 +191,10 @@ elseif strcmp(paramslc.mode,'PAZ_SM') == 1 | strcmp(paramslc.mode,'PAZ_SPT') == 
         if strcmp(data_xml.level1Product.productInfo.acquisitionInfo.polarisationMode.Text,'SINGLE') == 1
             tmp(i1).pol1 = data_xml.level1Product.productInfo.acquisitionInfo.polarisationList.polLayer.Text;
             tmp(i1).pol2 = 'None';
+        elseif strcmp(data_xml.level1Product.productInfo.acquisitionInfo.polarisationMode.Text,'DUAL') == 1
+            tmp(i1).pol1 = data_xml.level1Product.productInfo.acquisitionInfo.polarisationList.polLayer{1}.Text;
+            tmp(i1).pol2 = data_xml.level1Product.productInfo.acquisitionInfo.polarisationList.polLayer{2}.Text;
+            test_dual = 1; 
         end
 
         update_progressbar_MIESAR(i1./length(list_dir),findobj(gcf,'Tag','progressbar'),miesar_para,'defaut'); drawnow; pause(0.00001);
@@ -203,9 +212,14 @@ elseif strcmp(paramslc.mode,'PAZ_SM') == 1 | strcmp(paramslc.mode,'PAZ_SPT') == 
     % Save
     fres = fopen([miesar_para.WK,'/SLC.list'],'w');
     for i1 = 1 : size(date_tmp,1)
-        fprintf(fres,'%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n',tmp(idx(i1)).name,tmp(idx(i1)).d1,tmp(idx(i1)).d2,tmp(idx(i1)).relorbit,tmp(idx(i1)).absorbit,tmp(idx(i1)).pol1,tmp(idx(i1)).pol1,'Stored');
+        fprintf(fres,'%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n',tmp(idx(i1)).name,tmp(idx(i1)).d1,tmp(idx(i1)).d2,tmp(idx(i1)).relorbit,tmp(idx(i1)).absorbit,tmp(idx(i1)).pol1,tmp(idx(i1)).pol2,'Stored');
     end
     fclose(fres);
+
+    % Management of the DUAL-pol. images
+    if test_dual == 1
+        managePOLTSXPAZ([],[],'init',miesar_para); 
+    end 
 
     %% For the PAZ and TSX data
 elseif strcmp(paramslc.mode,'CSK_SM') == 1 | strcmp(paramslc.mode,'CSK_SPT') == 1
