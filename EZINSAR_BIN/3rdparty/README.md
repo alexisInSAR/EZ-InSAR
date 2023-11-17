@@ -18,6 +18,12 @@
 - https://uk.mathworks.com/matlabcentral/fileexchange/28518-xml2struct
 - Copyright (c) 2010, Wouter Falkena 
 
+**struct2xml.m**: 
+- Convert MATLAB structure into a xml file
+- W. Falkena, ASTI, TUDelft
+- https://uk.mathworks.com/matlabcentral/fileexchange/28639-struct2xml
+- Copyright (c) 2010, Wouter Falkena 
+
 ***No modification have been made.***
 
 In addition, the next scripts: 

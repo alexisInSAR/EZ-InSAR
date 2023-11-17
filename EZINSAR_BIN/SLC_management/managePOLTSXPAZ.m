@@ -143,7 +143,10 @@ switch action
             end 
             system(['ln -s ',[paramslc.pathSLC,'/',list{1}{i1},'/SUPPORT/*'],' ',[pathfileslinked,'/',list{1}{i1},'/SUPPORT/.']]);
 
-            system(['ln -s ',[paramslc.pathSLC,'/',list{1}{i1},'/*.xml'],' ',[pathfileslinked,'/',list{1}{i1},'/.']]);
+            % system(['ln -s ',[paramslc.pathSLC,'/',list{1}{i1},'/*.xml'],' ',[pathfileslinked,'/',list{1}{i1},'/.']]);
+
+            listxml = dir([paramslc.pathSLC,'/',list{1}{i1},'/*1_SAR_*.xml']); 
+            splitTSXPAZdualpolheader([paramslc.pathSLC,'/',list{1}{i1},'/',listxml(1).name],[pathfileslinked,'/',list{1}{i1},'/',listxml(1).name],upper(poltag))
 
         end 
 

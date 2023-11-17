@@ -22,10 +22,12 @@ function isce_preprocessing_SM(src,evt,action,miesar_para)
 %           text information
 %           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2022: optimal network
 %           option
+%           - Alexis Hrysiewicz, UCD / iCRAG, 16/10/2023: fix
 %
 %   -------------------------------------------------------
 %   Version history:
 %           2.0.0 Beta: Initial (unreleased)
+%           2.1.1 Beta: Initial (unreleased)
 
 isce_switch_stackfunctions(src,evt,[],miesar_para)
 
@@ -307,7 +309,7 @@ switch answer
 
         if strcmp(modestack,'ifg') == 1
             %% Here we add the last step to compute the interferogram
-            conversionstacks_SI_SM(src,evt,'laststep_IFG_stack',miesar_para,para_stack)
+            conversionstacks_SM(src,evt,'laststep_IFG_stack',miesar_para,para_stack)
         end
 
         removewatermask_ISCEprocessing_SM(src,evt,[],miesar_para); %temporary fix
