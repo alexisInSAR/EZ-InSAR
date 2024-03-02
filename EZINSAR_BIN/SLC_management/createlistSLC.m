@@ -113,7 +113,7 @@ if strcmp(paramslc.mode,'S1_IW') == 1 | strcmp(paramslc.mode,'S1_SM')
         newheader = '"Granule Name","Platform","Sensor","Beam Mode","Beam Mode Description","Orbit","Path Number","Frame Number","Acquisition Date","Processing Date","Processing Level","Start Time","End Time","Center Lat","Center Lon","Near Start Lat","Near Start Lon","Far Start Lat","Far Start Lon","Near End Lat","Near End Lon","Far End Lat","Far End Lon","Faraday Rotation","Ascending or Descending?","URL","Size (MB)","Off Nadir Angle","Stack Size","Doppler","GroupID","Pointing Angle"'; 
         newheader = strrep(newheader,'"','\"');
         system(['sed -i.orig "1 s/.*/',newheader,'/" tmp_list_SLC.csv']);
-        % delete tmp_list_SLC.csv.orig;
+        delete tmp_list_SLC.csv.orig;
         M = readtable('tmp_list_SLC.csv','Delimiter',',');
     end 
     

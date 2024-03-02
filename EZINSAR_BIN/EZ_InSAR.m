@@ -14,7 +14,7 @@ function EZ_InSAR(src,evt,action,miesar_para)
 %
 %   -------------------------------------------------------
 %   Alexis Hrysiewicz, UCD / iCRAG
-%   Version: 2.2.0 Beta
+%   Version: 2.2.1 Beta
 %   Date: 29/11/2021 
 %
 %   -------------------------------------------------------
@@ -37,6 +37,8 @@ function EZ_InSAR(src,evt,action,miesar_para)
 %           2.0.3 Beta: Initial (unreleased)
 %           2.1.0 Beta: Initial (unreleased)
 %           2.2.0 Beta: Initial (unreleased)
+%           2.2.1 Beta: Initial (unreleased)
+%           2.2.2 Beta: Initial (unreleased)
 
 %% If the function is ran without input 
 warning('off')
@@ -207,7 +209,7 @@ switch action
             sprintf('The EZ-InSAR is a Matlab toolbox that make a link between the ISCE processor, StaMPS and MintPy. It allows to compute the displacements from Sentinel-1 data.\n'),...
             sprintf('\n'), ...
             sprintf('It is developed by Alexis Hrysiewicz (alexis.hrysiewicz@ucd.ie) and Xiaowen Wang.\n'), ...
-            sprintf('\n\t\t Alpha Version 2.2.0 (2023).\n')];
+            sprintf('\n\t\t Alpha Version 2.2.2 (2023).\n')];
         fi = msgbox(si,'About');
         
     case 'quit'
