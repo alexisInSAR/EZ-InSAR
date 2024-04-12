@@ -1,10 +1,13 @@
 # Change-log of EZ-InSAR 
 
+**Version 2.2.3 Beta** (April, 2024):
+
+* Fix regarding the detection of the reference date for StaMPS stack (StripMap data)
+
 **Version 2.2.2 Beta** (March, 2024):
 
 * Modification of the orbit-server server (ASF -> Copernicus Data Space)
 * Add a change-log document in the main directory
-
 
 **Version 2.2.1 Beta** (January, 2024):
 

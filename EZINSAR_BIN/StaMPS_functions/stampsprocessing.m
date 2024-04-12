@@ -84,7 +84,11 @@ switch action
         datem = b{Index+1};
         
         % Find the range looks
-        IndexC = strfind(b,['-r']);
+        if strcmp(paramslc.mode,'S1_IW') == 1
+            IndexC = strfind(b,['-r']);
+        else
+            IndexC = strfind(b,['--range_looks']);
+        end 
         Index = find(not(cellfun('isempty',IndexC)));
         if isempty(Index) == 0
             rlooks = b{Index+1};
@@ -93,7 +97,11 @@ switch action
         end
         
         % Find the azi looks
-        IndexC = strfind(b,['-z']);
+        if strcmp(paramslc.mode,'S1_IW') == 1
+            IndexC = strfind(b,['-z']);
+        else
+            IndexC = strfind(b,['--azimuth_looks']);
+        end
         Index = find(not(cellfun('isempty',IndexC)));
         if isempty(Index) == 0
             zlooks = b{Index+1};
