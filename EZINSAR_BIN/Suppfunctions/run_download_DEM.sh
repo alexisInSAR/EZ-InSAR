@@ -268,7 +268,7 @@ if [ $proc_flag == 0 ];then
   
   mv dem_merged.tif dem_merged.tmp0.tif
   gdal_calc.py -A dem_merged.tmp0.tif --outfile=dem_merged.tmp1.tif --calc="numpy.where(A==0,nan,A)"
-  gdalwarp -s_srs "+proj=longlat +datum=WGS84 +no_defs +geoidgrids=./egm96-15.gtx" -t_srs "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs" dem_merged.tmp1.tif dem_merged.tmp2.tif
+  gdalwarp -s_srs "+proj=longlat +datum=WGS84 +no_defs +geoidgrids=./egm96_15.gtx" -t_srs "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs" dem_merged.tmp1.tif dem_merged.tmp2.tif
   gdal_calc.py -A dem_merged.tmp2.tif --outfile=dem_merged.tif --calc="numpy.nan_to_num(A,nan=0)"
   rm dem_merged.tmp*.tif
 

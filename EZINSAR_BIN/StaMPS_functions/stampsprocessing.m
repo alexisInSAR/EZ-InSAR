@@ -24,12 +24,14 @@ function stampsprocessing(src,evt,action,miesar_para)
 %           implementation
 %           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2022: modification of
 %           text information
+%           - Alexis Hrysiewicz, UCD / iCRAG, 26/08/2024: add ALOS2
+%           StripMap data
 %
 %   -------------------------------------------------------
 %   Version history:
 %           1.0.0 Beta: Initial (unreleased)
 %           2.0.0 Beta: Initial (unreleased)
-
+%           2.3.0 Alpha: Initial (unreleased)
 
 switch action
     case 'cropping'
@@ -123,6 +125,8 @@ switch action
             definput = {'0.0311'};
         elseif strcmp(paramslc.mode,'CSK_SM') == 1 | strcmp(paramslc.mode,'CSK_SPT') == 1 
             definput = {'0.0311'};
+        elseif strcmp(paramslc.mode,'ALOS2_SM') == 1 
+            definput = {'0.229'};
         end 
 
         answer = inputdlg(prompt,dlgtitle,dims,definput);

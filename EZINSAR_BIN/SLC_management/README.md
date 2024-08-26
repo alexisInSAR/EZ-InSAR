@@ -12,6 +12,7 @@
   - manageparamaterSLC.m
   - downloaderSLC.m		  
   - manageSLC.m	
+  - displayextensionALOS2SM.m
 - MATLAB file:
   - parmsSLC.mat (dumpy file to save the parmSLC.mat)
 

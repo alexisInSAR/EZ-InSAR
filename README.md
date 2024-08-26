@@ -8,7 +8,7 @@
 
 **If you have any questions or problems, please feel free to use the *Discussions* section.**
 
-**Release info**: Version 2.2.4 Beta, April, 2024
+**Release info**: Version 2.3.0 Alpha, August, 2024
 
 **Sensors:**
 | Satellite | Mode | EZ-InSAR | SLC format |
@@ -17,7 +17,7 @@
 |Sentinel-1|Stripmap|Ready|.zip or .SAFE in the slc directory|
 |TerraSAR-X or PAZ|StripMap|Ready|Unzipped PAZ1_* or TSX1_* directory in the slc directory|
 |Cosmo-SkyMed|Stripmap|Ready|[directory of the acquisition]/CSK*.h5 in the slc directory|
-|ALOS2|StripMap|No|NE|
+|ALOS2|StripMap|Testing| ALOS-2 directory (containing IMG, VOL, LED, etc. files) in the slc directory. The JAXA format is required.|
 
 Please note that the processing with the Stripmap data (other than Sentinel-1) has not been fully tested: only the data preparation has been tested. However, the InSAR processors are compatible with these data. For the Spotlight data, EZ-InSAR can manage the data similar to StripMap but the processing with ISCE should be modified. 
 

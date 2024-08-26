@@ -23,11 +23,13 @@ function isce_preprocessing_SM(src,evt,action,miesar_para)
 %           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2022: optimal network
 %           option
 %           - Alexis Hrysiewicz, UCD / iCRAG, 16/10/2023: fix
-%
+%           - Alexis Hrysiewicz, UCD / iCRAG, 26/08/2024: add ALOS2
+%           StripMap data
 %   -------------------------------------------------------
 %   Version history:
 %           2.0.0 Beta: Initial (unreleased)
 %           2.1.1 Beta: Initial (unreleased)
+%           2.3.0 Alpha: Initial (unreleased)
 
 isce_switch_stackfunctions(src,evt,[],miesar_para)
 
@@ -90,6 +92,28 @@ for i1 = 1 : length(list{1})
             pathinput = [paramslc.pathSLC,'/',list{1}{i1}];
 
             cmdi = ['unpackFrame_CSK.py -i ',pathinput,' -o ',[pathout,'/',di]];
+            cmd = [cmd,sprintf('%s\n',cmdi)];
+        end
+    elseif strcmp(paramslc.mode,'ALOS2_SM') == 1 
+        if exist([paramslc.pathSLC]) == 7
+            pathinput = [list{1}{i1}];
+
+            if i1 == 1
+                list_pol = cell(1); 
+                
+                if strcmp(list{5}{i1},'NE') == 0
+                    list_pol{1} = list{5}{i1}; 
+                end 
+                if strcmp(list{6}{i1},'NE') == 0
+                    list_pol{2} = list{6}{i1};
+                end 
+    
+                [indx,tf] = listdlg('PromptString',{'Please select the polarisation for InSAR computation',...
+                'Only polarisation can be selected at a time.',''},...
+                'SelectionMode','single','ListString',list_pol);
+            end 
+
+            cmdi = ['unpackFrame_ALOS2.py -i ',pathinput,' -o ',[pathout,'/',di],' -p ',list_pol{indx}];
             cmd = [cmd,sprintf('%s\n',cmdi)];
         end
     end

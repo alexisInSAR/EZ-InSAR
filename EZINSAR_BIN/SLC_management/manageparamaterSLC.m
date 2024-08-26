@@ -23,11 +23,14 @@ function manageparamaterSLC(src,evt,action,miesar_para)
 %           implementation
 %           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2022: modifcation of
 %           text information
+%           - Alexis Hrysiewicz, UCD / iCRAG, 26/08/2024: add ALOS2
+%           StripMap data
 %
 %   -------------------------------------------------------
 %   Version history:
 %           1.0.0 Beta: Initial (unreleased)
 %           2.0.0 Beta: Initial (unreleased)
+%           2.3.0 Alpha: Initial (unreleased)
 
 %% Action from user inputs
 switch action
@@ -53,6 +56,8 @@ switch action
                 set(findobj(gcf,'Tag','mainpopmode'),'Value','CSK_SM');
             case 'CSK_SPT' 
                 set(findobj(gcf,'Tag','mainpopmode'),'Value','CSK_SPT');
+            case 'ALOS2_SM' 
+                set(findobj(gcf,'Tag','mainpopmode'),'Value','ALOS2_SM');
         end
 
         % Mode for Sentinel-1 data
@@ -113,12 +118,6 @@ switch action
             mode = 'CSK_SPT';
         elseif strcmp(get(findobj(gcf,'Tag','mainpopmode'),'Value'),'ALOS2_SM') == 1 
             mode = 'ALOS2_SM';
-
-            si = ['This sensor is not implemented yet.'];
-            set(findobj(gcf,'Tag','maintextoutput'),'Value',si);
-            set(findobj(gcf,'Tag','maintextoutput'),'FontColor','red');
-            error(si);
-
         elseif strcmp(get(findobj(gcf,'Tag','mainpopmode'),'Value'),'ALOS2_SPT') == 1 
             mode = 'ALOS2_SPT';
 

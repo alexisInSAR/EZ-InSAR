@@ -23,11 +23,13 @@ function isceprocessing(src,evt,action,miesar_para)
 %           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2022: modifcation of
 %           text information
 %           - Alexis Hrysiewicz, UCD / iCRAG, 27/04/2023: fix for visualising the DEM 
-%
+%           - Alexis Hrysiewicz, UCD / iCRAG, 26/08/2024: add ALOS2
+%           StripMap data
 %   -------------------------------------------------------
 %   Version history:
 %           1.0.0 Beta: Initial (unreleased)
 %           2.0.0 Beta: Initial (unreleased)
+%           2.3.0 Alpha: Initial (unreleased)
 
 switch action
 
@@ -96,7 +98,6 @@ switch action
             hold on; plot(date_IPF(find(IPF_version <= 2.36)),IPF_version(find(IPF_version <= 2.36)),'*r'); hold off;
             f = msgbox('Some acquisitions have a version inferior to 2.36 (in red). The Aux files must be used. See https://aux.sentinel1.eo.esa.int ', 'IPF Sentinel','warn');
         end
-
 
     case 'selectionDEM'
         %% Select the DEM
@@ -322,6 +323,8 @@ switch action
             isce_preprocessing_SM(src,evt,[],miesar_para)
         elseif strcmp(paramslc.mode,'CSK_SPT') == 1
             isce_preprocessing_SM(src,evt,[],miesar_para)
+        elseif strcmp(paramslc.mode,'ALOS2_SM') == 1
+            isce_preprocessing_SM(src,evt,[],miesar_para)
         end
 
     case 'updatepopmenustep'
@@ -478,8 +481,6 @@ switch action
                         drawnow; pause(0.00001);
                     end
 
-
-
                 end
                 try
                     delete(scripttoeval)
@@ -579,7 +580,10 @@ switch action
             else
                 error('Bad parameters...');
             end
-        end
+        elseif strcmp(paramslc.mode,'ALOS2_SM') == 1
+            f = msgbox("This function is not available for ALOS-2 StripMap.","Error","error");
+            error("This function is not available for ALOS-2 StripMap.")
+        end 
 
         system(cmd);
 

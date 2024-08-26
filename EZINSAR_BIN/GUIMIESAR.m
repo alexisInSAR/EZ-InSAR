@@ -34,6 +34,7 @@ function hdl = GUIMIESAR(miesar_para)
 %           2.2.2 Beta: Initial (unreleased)
 %           2.2.3 Beta: Initial (unreleased)
 %           2.2.4 Beta: Initial (unreleased)
+%           2.3.0 Alpha: Initial (unreleased)
 
 %% Creation of GUI for MIESAR
 % To keep the gcf command, we need to create the figure using matlab
@@ -181,7 +182,7 @@ mode_controlslcparameter = uidropdown(gridslcparameterpanel,'Tag','mainpopmode',
 mode_controlslcparameter.ValueChangedFcn = @(src,evt,arg1,arg2) manageparamaterSLC(src,evt,'save',figmiesar.UserData);
 mode_controlslcparameter.Layout.Row = [1];
 mode_controlslcparameter.Layout.Column = [2 3];
-mode_controlslcparameter.Items = {'S1_IW','S1_SM','TSX_SM','TSX_SPT','PAZ_SM','PAZ_SPT','CSK_SM','CSK_SPT'};
+mode_controlslcparameter.Items = {'S1_IW','S1_SM','TSX_SM','TSX_SPT','PAZ_SM','PAZ_SPT','CSK_SM','CSK_SPT','ALOS2_SM'};
 mode_controlslcparameter.Value = {'S1_IW'};
 mode_controlslcparameter.Tooltip = 'Click to select the mode of acquisition of data.';
 
@@ -694,7 +695,7 @@ dvpt_info.Tag = 'dede';
 dvpt_info.Layout.Row = [26];
 dvpt_info.Layout.Column = [11 15];
 
-version_info = uilabel(gridfigmiesar,'Text','Release: 2.2.4 Beta','HorizontalAlignment','right','VerticalAlignment','center','FontSize',10,'FontWeight','bold');
+version_info = uilabel(gridfigmiesar,'Text','Release: 2.3.0 Alpha','HorizontalAlignment','right','VerticalAlignment','center','FontSize',10,'FontWeight','bold');
 version_info.Tag = 'dede'; 
 version_info.Layout.Row = [27];
 version_info.Layout.Column = [11 15];
@@ -722,7 +723,7 @@ disp(sprintf('\tMatlab Interface for Easy InSAR'))
 disp(sprintf('---------------------------------------------------------'))
 disp(sprintf('---------------------------------------------------------'))
 disp(sprintf('Open source application of bridge between ISCE/StaMPS/MintPy'))
-disp(sprintf('Version 2.2.4 Beta'))
+disp(sprintf('Version 2.3.0 Alpha'))
 disp(sprintf('Developed by an UCD team.'))
 
 %% Extraction of handle
