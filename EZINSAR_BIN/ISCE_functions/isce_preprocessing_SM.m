@@ -113,7 +113,7 @@ for i1 = 1 : length(list{1})
                 'SelectionMode','single','ListString',list_pol);
             end 
 
-            cmdi = ['unpackFrame_ALOS2.py -i ',pathinput,' -o ',[pathout,'/',di],' -p ',list_pol{indx}];
+            cmdi = ['unpackFrame_ALOS2_ezinsar.py -i ',pathinput,' -o ',[pathout,'/',di],' -p ',list_pol{indx}];
             cmd = [cmd,sprintf('%s\n',cmdi)];
         end
     end
