@@ -10,6 +10,8 @@ from isceobj.Planet.AstronomicalHandbook import Const
 import os
 import numpy as np
 
+## Modification TSX -> PAZ by Alexis Hrysiewicz, UCD / iCRAG, August 19, 2022
+
 def cmdLineParse():
     '''
     Command line parser.
@@ -29,8 +31,8 @@ def unpack(hdf5, slcname):
     Unpack HDF5 to binary SLC file.
     '''
 
-    print(os.path.join(hdf5,'PAZ1*.xml'))
-    fname = glob.glob(os.path.join(hdf5,'PAZ1*.xml'))[0]
+    print(os.path.join(hdf5,'PAZ1*.xml')) ## TSX to PAZ Alexis Hrysiewicz 
+    fname = glob.glob(os.path.join(hdf5,'PAZ1*.xml'))[0] ## TSX to PAZ Alexis Hrysiewicz 
     if not os.path.isdir(slcname):
         os.mkdir(slcname)
 

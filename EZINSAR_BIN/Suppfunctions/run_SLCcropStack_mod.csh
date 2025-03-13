@@ -16,9 +16,11 @@
 #           - Alexis Hrysiewicz, UCD / iCRAG
 
 
+######################## Modifications
 set overwrite = $1
 set data_path = $2
 set proc_dir = $3
+######################## End of modifications
 
 # check if the procesing dir already exists
 if (! -e $proc_dir) then
@@ -27,7 +29,9 @@ endif
     
 # getting the crop extend
 cd $data_path/geom_reference
+######################## Modifications
 set cmd=`echo "crop_rdr.py -b '"$4" "$5" "$6" "$7"' > $proc_dir/crop_log.txt"`
+######################## End of modifications
 eval $cmd
 
 #### NO changes required below ######

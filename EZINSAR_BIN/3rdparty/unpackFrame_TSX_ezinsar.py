@@ -10,6 +10,9 @@ from isceobj.Planet.AstronomicalHandbook import Const
 import os
 import numpy as np
 
+## Modification "TSX-1.SAR.L1B/*/TSX1*.xml" -> TSX1*.xml" by Alexis Hrysiewicz, UCD / iCRAG, August 19, 2022
+
+
 def cmdLineParse():
     '''
     Command line parser.
@@ -29,8 +32,8 @@ def unpack(hdf5, slcname):
     Unpack HDF5 to binary SLC file.
     '''
 
-    print(os.path.join(hdf5,'TSX1*.xml'))
-    fname = glob.glob(os.path.join(hdf5,'TSX1*.xml'))[0]
+    print(os.path.join(hdf5,'TSX1*.xml')) # "TSX-1.SAR.L1B/*/TSX1*.xml" -> TSX1*.xml" by Alexis Hrysiewicz
+    fname = glob.glob(os.path.join(hdf5,'TSX1*.xml'))[0] # "TSX-1.SAR.L1B/*/TSX1*.xml" -> TSX1*.xml" by Alexis Hrysiewicz
     if not os.path.isdir(slcname):
         os.mkdir(slcname)
 
