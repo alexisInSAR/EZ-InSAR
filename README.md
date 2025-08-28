@@ -8,7 +8,7 @@
 
 **If you have any questions or problems, please feel free to use the *Discussions* section.**
 
-**Release info**: Version 2.3.0 Alpha, August, 2024
+**Release info**: Version 2.3.1 Beta, August, 2025
 
 **Sensors:**
 | Satellite | Mode | EZ-InSAR | SLC format |

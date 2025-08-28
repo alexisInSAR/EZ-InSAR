@@ -1,5 +1,9 @@
 # Change-log of EZ-InSAR 
 
+**Version 2.3.1 Beta** (August, 2025):
+
+* Fix for the ASF API
+
 **Version 2.3.0 Alpha** (August, 2024):
 
 * Fix for the egm96-15 file (only for the NASADEM).

@@ -19,6 +19,8 @@ function createlistSLC(src,evt,action,miesar_para)
 %
 %   -------------------------------------------------------
 %   Modified:
+%           - Alexis Hrysiewicz, UCD / iCRAG, 28/08/2025: modification of
+%           the table reading
 %           - Alexis Hrysiewicz, UCD / iCRAG, 18/07/2022: modifcation of
 %           text information
 %           - Alexis Hrysiewicz, UCD / iCRAG, 15/02/2023: fix regarding the
@@ -29,8 +31,6 @@ function createlistSLC(src,evt,action,miesar_para)
 %           the DUAL polarisation for TSX/PAZ data
 %           - Alexis Hrysiewicz, UCD / iCRAG, 22/11/2023: add the delimiter
 %           option for reading the list from ASF server
-%           - Alexis Hrysiewicz, UCD / iCRAG, 26/08/2024: add ALOS2
-%           StripMap data
 %
 %   -------------------------------------------------------
 %   Version history:
@@ -39,7 +39,8 @@ function createlistSLC(src,evt,action,miesar_para)
 %           2.0.3 Beta: Initial (unreleased)
 %           2.1.0 Beta: Initial (unreleased)
 %           2.2.0 Beta: Initial (unreleased)
-%           2.3.0 Alpha: Initial (unreleased)
+%           2.3.1 Beta: Initial (unreleased)
+%           
 
 %% Open the variables
 % For the path information
@@ -107,32 +108,17 @@ if strcmp(paramslc.mode,'S1_IW') == 1 | strcmp(paramslc.mode,'S1_SM')
             cmd1 = ['curl https://api.daac.asf.alaska.edu/services/search/param?platform=',key_sat,'\&beamMode=',key_mode,'\&bbox=',box,'\&start=',date1str,'\&end=',date2str,'\&relativeOrbit=',paramslc.track,'\&flightDirection=',Porb,'\&processingLevel=SLC\&maxResults=10000\&output=csv >> tmp_list_SLC.csv'];
             system(cmd1);
     end
-    
+
     % Read the SLC table
-    try 
-        M = readtable('tmp_list_SLC.csv');
-        tmp = M.StartTime;
-    catch % Fix regarding the issue from the ASF API 
-        newheader = '"Granule Name","Platform","Sensor","Beam Mode","Beam Mode Description","Orbit","Path Number","Frame Number","Acquisition Date","Processing Date","Processing Level","Start Time","End Time","Center Lat","Center Lon","Near Start Lat","Near Start Lon","Far Start Lat","Far Start Lon","Near End Lat","Near End Lon","Far End Lat","Far End Lon","Faraday Rotation","Ascending or Descending?","URL","Size (MB)","Off Nadir Angle","Stack Size","Doppler","GroupID","Pointing Angle"'; 
-        newheader = strrep(newheader,'"','\"');
-        system(['sed -i.orig "1 s/.*/',newheader,'/" tmp_list_SLC.csv']);
-        delete tmp_list_SLC.csv.orig;
-        M = readtable('tmp_list_SLC.csv','Delimiter',',');
-    end 
+    M = readtable(['tmp_list_SLC.csv'],'Delimiter',',');
+    M(1,:) = [];
     
+    M.AcquisitionDate = datemodlist(M.AcquisitionDate); 
+    M.ProcessingDate = datemodlist(M.ProcessingDate); 
+    M.StartTime = datemodlist(M.StartTime); 
+    M.EndTime = datemodlist(M.EndTime); 
+
     %%%%%%%%%%%%%%%%%%
-    % Fix regarding the issue from the ASF API (to remove the UTC zone in the dates)
-    M = readtable(['tmp_list_SLC.csv'],'DatetimeType','text','Delimiter',',');
-    a = cellfun(@(rep) strrep(M.AcquisitionDate,'Z',rep), {''}, 'UniformOutput', false);
-    b = cellfun(@(rep) strrep(M.ProcessingDate,'Z',rep), {''}, 'UniformOutput', false);
-    c = cellfun(@(rep) strrep(M.StartTime,'Z',rep), {''}, 'UniformOutput', false);
-    d = cellfun(@(rep) strrep(M.EndTime,'Z',rep), {''}, 'UniformOutput', false);
-    M.AcquisitionDate = datetime(a{1,1},'InputFormat','yyyy-MM-dd''T''HH:mm:ss.SSSSSS','Format','yyyy-MM-dd''T''HH:mm:ss.SSS');
-    M.ProcessingDate = datetime(b{1,1},'InputFormat','yyyy-MM-dd''T''HH:mm:ss.SSSSSS','Format','yyyy-MM-dd''T''HH:mm:ss.SSS');
-    M.StartTime = datetime(c{1,1},'InputFormat','yyyy-MM-dd''T''HH:mm:ss.SSSSSS','Format','yyyy-MM-dd''T''HH:mm:ss.SSS');
-    M.EndTime = datetime(d{1,1},'InputFormat','yyyy-MM-dd''T''HH:mm:ss.SSSSSS','Format','yyyy-MM-dd''T''HH:mm:ss.SSS');
-    %%%%%%%%%%%%%%%%%%
-    
     listStart = M.StartTime;
     for i1 = 1 : length(listStart)
         di1(i1) = listStart(i1);
@@ -140,7 +126,6 @@ if strcmp(paramslc.mode,'S1_IW') == 1 | strcmp(paramslc.mode,'S1_SM')
     [D,idx]=sort(di1);
     listStart = M.StartTime(idx);
     listEnd = M.EndTime(idx);
-    M = readtable('tmp_list_SLC.csv',"TextType","string",'DatetimeType',"Text",'Delimiter',',');
     listnName = M.GranuleName(idx);
     listOrbit = M.Orbit(idx);
     listPath = M.PathNumber(idx);
@@ -270,70 +255,6 @@ elseif strcmp(paramslc.mode,'CSK_SM') == 1 | strcmp(paramslc.mode,'CSK_SPT') == 
         fprintf(fres,'%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n',tmp(idx(i1)).name,tmp(idx(i1)).d1,tmp(idx(i1)).d2,tmp(idx(i1)).name_h5,strtrim(tmp(idx(i1)).orb),strtrim(tmp(idx(i1)).pol),tmp(idx(i1)).sat_id,'Stored');
     end
     fclose(fres);
-
-    %% For ALOS2 data
-elseif strcmp(paramslc.mode,'ALOS2_SM') == 1
-    list_dir_vol = dir([paramslc.pathSLC,'/*/VOL-*']);
-
-
-    tmp = struct([]);
-    h = 1;
-    for i1 = 1 : length(list_dir_vol)
-
-        % Read the .h5
-        if strcmp(list_dir_vol(i1).name,'.') == 0 & strcmp(list_dir_vol(i1).name,'..') == 0
-
-            file_LED = dir([list_dir_vol(i1).folder,'/LED*'])
-            file_VOL = dir([list_dir_vol(i1).folder,'/VOL*'])
-            file_IMG = dir([list_dir_vol(i1).folder,'/IMG*'])
-            file_SUM = dir([list_dir_vol(i1).folder,'/summary*'])
-           
-            tmp(h).name = list_dir_vol(i1).folder;
-
-            [a,d1] = system(['grep ''SceneStartDateTime'' ',[file_SUM(1).folder,'/',file_SUM(1).name],'']); d1 = strtrim(d1);
-            d1 = strsplit(d1,'='); d1 = d1{2}; d1 = strrep(d1,'"',''); 
-            tmp(h).d1 = sprintf('%s-%s-%sT%s:%s:%s.%s000',d1(1:4),d1(5:6),d1(7:8),d1(10:11),d1(13:14),d1(16:17),d1(19:21))
-
-            [a,d2] = system(['grep ''SceneEndDateTime'' ',[file_SUM(1).folder,'/',file_SUM(1).name],'']); d2 = strtrim(d2);
-            d2 = strsplit(d2,'='); d2 = d2{2}; d2 = strrep(d2,'"',''); 
-            tmp(h).d2 = sprintf('%s-%s-%sT%s:%s:%s.%s000',d2(1:4),d2(5:6),d2(7:8),d2(10:11),d2(13:14),d2(16:17),d2(19:21))
-
-            % For the orbit
-            fi = fopen([file_LED(1).folder,'/',file_LED(1).name],'rb');
-            fseek(fi,720+444,0);
-            a=textscan(fi,'%c',4)
-            fclose(fi); 
-            tmp(h).orb = a{1}; 
-
-            pol = {'NE','NE'};
-            for i1 = 1 : length(file_IMG)
-                a = strsplit(file_IMG(i1).name,'-');
-                pol{i1} = a{2};
-            end 
-
-            tmp(h).sat_id = 'ALOS-2';
-
-            date_tmp = [];
-            for i1 = 1 : length(tmp)
-                di = strsplit(tmp(i1).d1,'.');
-                date_tmp = [date_tmp; datetime(di{1},'InputFormat','yyyy-MM-dd''T''HH:mm:ss')];
-            end
-            [date_tmp,idx] = sort(date_tmp);
-                
-            % Save
-            fres = fopen([miesar_para.WK,'/SLC.list'],'w');
-            for i1 = 1 : size(date_tmp,1)
-                fprintf(fres,'%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n',...
-                    tmp(idx(i1)).name,tmp(idx(i1)).d1,tmp(idx(i1)).d2,strtrim(tmp(idx(i1)).orb),strtrim(pol{1}),strtrim(pol{2}),tmp(idx(i1)).sat_id,'Stored');
-            end
-            fclose(fres);
-
-            update_progressbar_MIESAR(i1./length(list_dir_vol),findobj(gcf,'Tag','progressbar'),miesar_para,'defaut'); drawnow; pause(0.00001);
-
-            h = h + 1;
-        end
-
-    end
 
 end
 
