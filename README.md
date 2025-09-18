@@ -1,4 +1,4 @@
-**The new version of EZ-InSAR on Python is available in the branch XXX-2025.X. Please use it. 
+**The new version of EZ-InSAR on Python is available in the branch XXX-2025.X. Please use it.**
 
 <img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_1_0_Beta/EZINSAR_BIN/private/EZ_InSAR_logo.gif" alt="Logo EZ-InSAR" width="250"> 
 
@@ -83,4 +83,5 @@ Hrysiewicz, A., Wang, X. & Holohan, E.P. EZ-InSAR: An easy-to-use open-source to
 |<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_1_0_Beta/EZINSAR_BIN/private/icrag-logo.png" alt="iCRAG" height="50pix">|[**iCRAG**](https://www.icrag-centre.org/)|
 |<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_1_0_Beta/EZINSAR_BIN/private/AGEO-transparent.png" alt="AGEO" width="150pix">|[**AGEO**](https://ageoatlantic.eu/)|
 |<img src="https://github.com/alexisInSAR/EZ-InSAR/blob/Version_2_1_0_Beta/EZINSAR_BIN/private/atlanticarealogo.png" alt="Interreg Atlantic Area" width="150pix">|[**Interreg Atlantic Area**](https://www.atlanticarea.eu/)|
+
 
