@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation &mdash; EZ-InSAR  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation of SAR/InSAR processors" href="installationprocessor.html" />
+    <link rel="prev" title="SAR and InSAR processors and sensors" href="proc_sensors.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            EZ-InSAR
+              <img src="_static/EZ_InSAR_logo_whiteback.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.3.1 Dec. 2025
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Content of the documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">EZ-InSAR’s Read-Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proc_sensors.html">SAR and InSAR processors and sensors</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#python-3">Python 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gdal">GDAL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amazon-command-line-interface">Amazon Command Line Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#git">git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker">Docker</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-of-ez-insar">Installation of EZ-InSAR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-of-ez-insar-modules">Installation of EZ-InSAR modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#supplementary-for-the-experts">Supplementary for the experts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-with-docker">Installation with Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-on-windows">Installation on Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installationprocessor.html">Installation of SAR/InSAR processors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optmodules.html">EZ-InSAR optional Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dem.html">Digital Elevation Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use/index.html">Run EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clihelp.html">Command-line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technical.html">Technical information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subprograms/index.html">EZ-InSAR supplementary tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contrib.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html#satellite-data">Satellite data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html#partners">Partners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Change-log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dvptplan.html">Development plan of EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue_tracker.html">Issue tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licenses.html">Licenses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">EZ-InSAR-scripts documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/alexisInSAR/EZ-InSAR-3">EZ-InSAR's GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.ucd.ie">University College Dublin</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.icrag-centre.org">iCRAG</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">EZ-InSAR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
+<div class="warning admonition">
+<p class="admonition-title">Experimental</p>
+<p>Binary installers will be available <a class="reference external" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/installer">here</a> They can be used after installations of the requirements.</p>
+<p>However, we recommend using the sources because installers are experimental.</p>
+<p>After downloading EZ-InSAR from Github:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>EZ-InSAR/installer
+pip3<span class="w"> </span>install<span class="w"> </span>pyqt5
+pip3<span class="w"> </span>install<span class="w"> </span>requests
+python3<span class="w"> </span>./EZInSAR_Installer.py
+</pre></div>
+</div>
+<p><strong>Use the parent directory of the EZ-InSAR as an installation directory. At contrary, the installer will download the packages.</strong></p>
+</div>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h2>
+<p><strong>First, EZ-InSAR needs several requirements.</strong></p>
+<section id="python-3">
+<h3>Python 3<a class="headerlink" href="#python-3" title="Link to this heading"></a></h3>
+<p>The version of Python requires to be &gt;= 3.8 and &lt;=3.11. We recommend using 3.10.XX. miniconda3 also needs to be installed and ready for <strong>EZ-InSAR</strong>. all information can be found <a class="reference external" href="https://www.anaconda.com/docs/getting-started/miniconda/install">here</a>. Of course, manual installation can be performed.</p>
+</section>
+<section id="gdal">
+<h3>GDAL<a class="headerlink" href="#gdal" title="Link to this heading"></a></h3>
+<p><strong>EZ-InSAR</strong> uses GDAL for various purproses: binary and Python binding. All information can be found <a class="reference external" href="https://gdal.org/en/stable/">here</a>. There is not required version but versions &gt;3.8 should be preferred.</p>
+<div class="warning admonition">
+<p class="admonition-title">Difficulty</p>
+<p>It can be very difficult to install GDAL. Please take care that the Python API and the GDAL library have the same version. conda can be used to easily install all the packages.</p>
+</div>
+</section>
+<section id="amazon-command-line-interface">
+<h3>Amazon Command Line Interface<a class="headerlink" href="#amazon-command-line-interface" title="Link to this heading"></a></h3>
+<p>aws-cli program is use by <strong>EZ-InSAR</strong> for Digital Elevation Model donwloading. All information can be found <a class="reference external" href="https://aws.amazon.com/cli/">here</a>.</p>
+</section>
+<section id="git">
+<h3>git<a class="headerlink" href="#git" title="Link to this heading"></a></h3>
+<p>git tool can be required by <strong>EZ-InSAR</strong> to manage the different modules and updates. In this case, the .my-credential or .git-credential files are required. The .my-credential or .git-credential files can be created by:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>config<span class="w"> </span>credential.helper<span class="w"> </span>store
++<span class="w"> </span>any<span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>or<span class="w"> </span>pull
+</pre></div>
+</div>
+</section>
+<section id="docker">
+<h3>Docker<a class="headerlink" href="#docker" title="Link to this heading"></a></h3>
+<p>For Windows, Docker is mandatory such as the EZ-InSAR image.</p>
+</section>
+</section>
+<section id="installation-of-ez-insar">
+<h2>Installation of EZ-InSAR<a class="headerlink" href="#installation-of-ez-insar" title="Link to this heading"></a></h2>
+<div class="note admonition">
+<p class="admonition-title">Installation directory</p>
+<p>We recommend having this directory structure:</p>
+<ul>
+<li><p>&lt;Installation directory&gt;</p>
+<blockquote>
+<div><p>-&gt; EZ-InSAR</p>
+<p>-&gt; EZ-InSAR-Module-&lt;Name of the module 1&gt;</p>
+<p>-&gt; EZ-InSAR-Module-&lt;Name of the module 2&gt;</p>
+<p>-&gt; EZ-InSAR-Module-&lt;Name of the module 3&gt;</p>
+<p>-&gt; …</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<p>The Python-based packages required by <strong>EZ-InSAR</strong> are given with the <em>requirements</em> file. <strong>The users should be aware that the GDAL python and GDAL library must be compatible regarding their versions.</strong> <strong>It is recommended to create</strong> a <em>conda</em> environment for <strong>EZ-InSAR</strong>:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">EZ</span><span class="o">-</span><span class="n">InSAR</span><span class="o">-</span><span class="mi">3</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.10</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">h5py</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">libgdal</span><span class="o">==</span><span class="mf">3.10</span> <span class="c1"># Can be required for Windows</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">gdal</span><span class="o">==</span><span class="mf">3.10</span>
+</pre></div>
+</div>
+<p>However, several 3rd-party software can be required for each SAR/InSAR processors: i.e., snaphu and triangle software are required for most of InSAR processor. For example, their installations can be done with (for Linux systems):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">snaphu</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">triangle</span><span class="o">-</span><span class="nb">bin</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Docker file can be used to identify the required installations for Ubuntu Linux-based system.</p>
+</div>
+<p><strong>pip manager is used for EZ-InSAR installation:</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">&lt;</span><span class="n">path</span> <span class="n">of</span> <span class="n">EZ</span><span class="o">-</span><span class="n">InSAR</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span> <span class="c1"># for the required packages</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirementsdocs</span><span class="o">.</span><span class="n">txt</span> <span class="c1"># for the required packages for docs compilation (optional)</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span> <span class="c1"># install EZ-InSAR</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>We strongly recommend installing EZ-InSAR with “-e .” because of the editable mode of pip3 manager. This will unlock some features of EZ-InSAR and allow a better bug tracking.</strong></p>
+</div>
+<p><strong>In order to configure EZ-InSAR, users can use to the following command</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>toolkit<span class="w"> </span>configfile
+ezinsar<span class="w"> </span>toolkit<span class="w"> </span>shortcut<span class="w"> </span><span class="c1"># Create the desktop shortcuts of EZ-InSAR</span>
+</pre></div>
+</div>
+</section>
+<section id="installation-of-ez-insar-modules">
+<h2>Installation of EZ-InSAR modules<a class="headerlink" href="#installation-of-ez-insar-modules" title="Link to this heading"></a></h2>
+<p>If EZ-InSAR is downloaded from the public release, some optional modules of EZ-InSAR are offered. Please move the module directories into your EZ-InSAR toolkit directory:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">EZ</span><span class="o">-</span><span class="n">InSAR</span><span class="o">/</span><span class="n">modules</span>
+<span class="n">mv</span> <span class="n">EZ</span><span class="o">-</span><span class="n">InSAR</span><span class="o">-</span><span class="n">Module</span><span class="o">-*</span> <span class="o">../../</span>
+</pre></div>
+</div>
+<p><strong>EZ-InSAR</strong> modules can be installed using <em>pip3</em>:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">EZ</span><span class="o">-</span><span class="n">InSAR</span><span class="o">-</span><span class="n">Module</span><span class="o">-&lt;</span><span class="n">Name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">EZ</span><span class="o">-</span><span class="n">InSAR</span> <span class="n">module</span><span class="o">&gt;</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<section id="supplementary-for-the-experts">
+<h2>Supplementary for the experts<a class="headerlink" href="#supplementary-for-the-experts" title="Link to this heading"></a></h2>
+<p>Users can modify the variables in the <em>constants.py</em> file of <strong>EZ-InSAR</strong>. Be carefull, these parameters can change the beahviour of <strong>EZ-InSAR</strong>.</p>
+</section>
+<section id="installation-with-docker">
+<h2>Installation with Docker<a class="headerlink" href="#installation-with-docker" title="Link to this heading"></a></h2>
+<p>For the non-Linux system, <strong>EZ-InSAR</strong> is provided with a Docker Makefile, which can be used to create a Docker Container in order to run <strong>EZ-InSAR</strong> on other operating system. However, only the open-source - and no MATLAB-based - processor will be installed (<strong>ISCE2 and MintPy</strong>). <strong>Please follow the installation steps:</strong></p>
+<ol class="arabic">
+<li><p>Installation of Docker in the local machine. We recommend installing the Docker Hub software.</p></li>
+<li><p>The option <em>Allow the default Docker socket to be used (requires password)</em> could be enabled (e.g., it was required for a MacOS installation).</p></li>
+<li><p>Go to the <strong>EZ-InSAR</strong> directory in order to build the Docker image. Here we ask Docker to install an AMD64 version of Linux. This option can be required for installation on MacOS Silicon-based system.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">build</span> <span class="o">--</span><span class="n">platform</span> <span class="n">linux</span><span class="o">/</span><span class="n">amd64</span> <span class="o">-</span><span class="n">t</span> <span class="n">ezinsar</span> <span class="o">-</span><span class="n">f</span> <span class="n">docker</span><span class="o">/</span><span class="n">dockerfile</span> <span class="o">.</span>
+</pre></div>
+</div>
+</li>
+<li><p>The <strong>EZ-InSAR</strong> image is now ready. A container can be launched (by a Docker command OR by an <strong>EZ-InSAR</strong> command):</p>
+<blockquote>
+<div><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">name</span> <span class="n">ezinsar0</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8050</span><span class="p">:</span><span class="mi">8050</span> <span class="o">-</span><span class="n">it</span> <span class="n">ezinsar</span> <span class="p">[</span><span class="o">+</span> <span class="nb">any</span> <span class="n">options</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>In addtion, <strong>EZ-InSAR</strong> has a command for running the Docker container. Users can easly mount the external work directory onto the Docker container.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ezinsar</span> <span class="n">docker</span> <span class="o">-</span><span class="n">v</span> <span class="o">&lt;</span><span class="n">pathofworkdirectory</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>EZ-InSAR Graphical User Interface is able to deal with the docker container but the image needs to be created and available. Please run the previous steps: 1, 2 and 3.</p>
+</div>
+</section>
+<section id="installation-on-windows">
+<h2>Installation on Windows<a class="headerlink" href="#installation-on-windows" title="Link to this heading"></a></h2>
+<p>From the version 3.2.0, EZ-InSAR offers the support of SAR/InSAR processing on Windows. For the installation:</p>
+<ol class="arabic simple">
+<li><p>install the EZ-InSAR toolkit, with the similar way of Linux users, but only the SNAP processor should be installed;</p></li>
+<li><p>create the Docker image;</p></li>
+<li><p>The user needs to make sure that the PYTHONPATH is available (set PYTHONPATH=”” in the Windows terminal)</p></li>
+<li><p><strong>ALL the directories (ie., SLC, orbits, etc.) must be in the work directory, if Docker is used.</strong></p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="proc_sensors.html" class="btn btn-neutral float-left" title="SAR and InSAR processors and sensors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="installationprocessor.html" class="btn btn-neutral float-right" title="Installation of SAR/InSAR processors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright  2025, EZ-InSAR / UCD / iCRAG.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

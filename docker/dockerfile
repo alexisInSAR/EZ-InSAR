@@ -1,0 +1,281 @@
+# syntax=docker/dockerfile:1
+## Alexis Hrysiewicz, Jun. 2025
+
+## Command to build the image
+# docker build --platform linux/amd64 -t ezinsar -f docker/dockerfile . 
+
+## Command to run the image
+# docker run --rm --name ezinsar1 -p 8050:8050 -it ezinsar
+
+# Allow the default Docker socket to be used (requires password) (advanced setting)
+
+# docker run --rm --name ezinsar0 -it ezinsar /bin/bash -c 'cd /root; source .bashrc; export PATH=$PATH:/miniconda3/bin; ezinsarapp_run -h'
+
+########################################
+## Builder for ISCE-2 (from the docker information provided by ISCE-2)
+## Create the python in 3.12.2 
+########################################
+FROM ubuntu:latest as builder
+ARG DEBIAN_FRONTEND=noninteractive
+
+# Compile Python
+RUN set -ex \
+ && apt-get update \
+ && apt-get install -y build-essential checkinstall libreadline-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev wget
+ #libreadline-gplv2-dev
+
+RUN cd /usr/src && wget https://www.python.org/ftp/python/3.12.2/Python-3.12.2.tgz && tar xzf Python-3.12.2.tgz
+
+RUN cd /usr/src/Python-3.12.2 && ./configure prefix=/usr && make install 
+
+# Install packages
+RUN set -ex \
+ && apt-get update \
+ && apt-get install -y cmake cython3 git libfftw3-dev libgdal-dev libhdf4-alt-dev libhdf5-dev libopencv-dev ninja-build python3-gdal python3-h5py python3-numpy python3-scipy gdal-bin libproj-dev 
+
+RUN cd /home && git clone https://github.com/isce-framework/isce2.git
+
+RUN apt-get -y install gfortran
+
+# Compile ISCE
+RUN set -ex \
+ && cd /home/isce2 \
+ && mkdir build && cd build \
+ && cmake .. \
+        -DPYTHON_MODULE_DIR="$(python3 -c 'import site; print(site.getsitepackages()[-1])')" \
+        -DCMAKE_INSTALL_PREFIX=install \
+ && make -j8 install \
+ && cpack -G DEB \
+ && cp isce*.deb /tmp/
+
+## End of the builder
+
+########################################
+## Base image (Ubuntu 24.04)
+########################################
+FROM ubuntu:latest
+
+########################################
+# Install the required packages for Ubuntu 
+########################################
+RUN apt-get update && apt-get install -y python3-dev python3-pip gfortran gcc g++ libeccodes-dev pkg-config libsuitesparse-dev libopenblas-dev libgsl0-dev libfftw3-dev libglpk-dev libdsdp-dev 
+RUN apt-get update && apt-get install -y liblapack-dev libatlas-base-dev libblas-dev libsqlite3-dev build-essential curl wget git ffmpeg libsm6 libxext6 tcsh make unzip cmake wget proj-bin libfftw3-bin libhdf4-0 libhdf5-103-1 python3-h5py python3-numpy python3-scipy libopencv-dev
+
+SHELL ["/bin/bash", "-c"]
+
+########################################
+# Install Python with the desired version of Python
+########################################
+RUN arch=$(uname -m) && \
+    if [ "$arch" = "x86_64" ]; then \
+    MINICONDA_URL="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"; \
+    elif [ "$arch" = "aarch64" ]; then \
+    MINICONDA_URL="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh"; \
+    else \
+    echo "Unsupported architecture: $arch"; \
+    exit 1; \
+    fi && \
+    wget $MINICONDA_URL -O miniconda.sh && \
+    mkdir -p .conda && \
+    bash miniconda.sh -b -p miniconda3 && \
+    rm -f miniconda.sh
+
+RUN cd 
+
+########################################
+# Create a Conda environment with the desired version of Python
+########################################
+# RUN /miniconda3/bin/conda init --all && bash ~/.bashrc && . ~/.bashrc && /miniconda3/bin/conda install python=3.12.2
+
+RUN bash -c "source ~/.bashrc /miniconda3/bin/conda init --all" 
+ENV conda /miniconda3/bin/conda
+ENV bashrc /root/.bashrc
+ENV CONDA_PLUGINS_AUTO_ACCEPT_TOS=yes
+
+RUN $conda install python=3.12.2
+
+########################################
+# Install GDAL dependencies
+########################################
+RUN apt-get update && apt-get install -y libgdal-dev g++ --no-install-recommends && \
+    apt-get clean -y
+RUN apt-get update && apt-get install -y gdal-bin 
+
+## Update C env vars so compiler can find gdal
+ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
+ENV C_INCLUDE_PATH=/usr/include/gdal
+ENV PYTHONPATH=''
+
+## Install other dependencies
+RUN apt-get install -y gmt 
+RUN apt-get install -y snaphu 
+RUN apt-get install -y triangle-bin 
+
+RUN cd /home &&  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+RUN cd /home && unzip awscliv2.zip && rm awscliv2.zip
+RUN cd /home/aws && ./install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update
+
+RUN /miniconda3/bin/python -m pip install GDAL==$(gdal-config --version | awk -F'[.]' '{print $1"."$2}') 
+RUN /miniconda3/bin/conda install -c conda-forge GDAL==$(gdal-config --version | awk -F'[.]' '{print $1"."$2}') 
+## https://stackoverflow.com/questions/38630474/error-while-installing-gdal
+
+RUN /miniconda3/bin/python -m pip install opencv-python
+
+########################################
+# Install EZ-InSAR packages (base version)
+########################################
+## Install EZ-InSAR (we need the files already downloaded and well structured)
+# RUN git clone https://github.com/alexisInSAR/EZ-InSAR-3.git
+RUN mkdir /home/EZ-InSAR-3
+COPY . /home/EZ-InSAR-3
+
+## Install the EZ-InSAR package (better to use pip)
+RUN cd /home/EZ-InSAR-3 && /miniconda3/bin/conda init --all && . $bashrc &&  /miniconda3/bin/python -m pip install -e . --break-system-packages
+
+# RUN mkdir /home/EZ-InSAR-Module-Desktop
+# COPY modules/EZ-InSAR-Module-Desktop/. /home/EZ-InSAR-Module-Desktop
+# RUN cd /home/EZ-InSAR-Module-Desktop && /miniconda3/bin/conda init --all && . $bashrc &&  /miniconda3/bin/python -m pip install -e . --break-system-packages
+
+# RUN mkdir /home/EZ-InSAR-Module-TSDisplayer
+# COPY modules/EZ-InSAR-Module-TSDisplayer/. /home/EZ-InSAR-Module-TSDisplayer
+# RUN cd /home/EZ-InSAR-Module-TSDisplayer && /miniconda3/bin/conda init --all && . $bashrc &&  /miniconda3/bin/python -m pip install -e . --break-system-packages
+
+########################################
+# Install ISCE-2 packages 
+########################################
+## Install ISCE-2
+COPY --from=builder /tmp/isce*.deb /tmp/isce2.deb
+
+RUN dpkg -i /tmp/isce2.deb
+
+RUN cd /home && git clone https://github.com/isce-framework/isce2.git
+
+# RUN cd /home && git clone https://github.com/isce-framework/isce2.git
+# RUN /miniconda3/bin/conda install -c conda-forge opencv
+# RUN mkdir /home/isce2/tmp 
+# COPY docker/MakefileISCE2/SConfigISCE /home/isce2/tmp/SConfigISCE
+# RUN cd /home/isce2 && \
+#     export SCONS_CONFIG_DIR=/home/isce2/tmp && \
+#     scons install --skipcheck && \
+#     rm -rf home/isce2/tmp/*
+# RUN cd /home/isce2 && /miniconda3/bin/conda install -c conda-forge isce2==2.6.1 # Broken 
+
+ENV PYTHONPATH /usr/lib/python3.12/dist-packages:$PYTHONPATH
+
+ENV PATH /usr/lib/python3.12/dist-packages/isce/applications:$PATH
+ENV PATH /usr/lib/python3.12/dist-packages/isce/components:$PATH
+ENV PATH /usr/lib/python3.12/dist-packages/isce/defaults:$PATH
+ENV PATH /usr/lib/python3.12/dist-packages/isce/helper:$PATH
+ENV PATH /usr/lib/python3.12/dist-packages/isce/library:$PATH
+
+RUN cp -r /usr/lib/python3.12/dist-packages/isce2/ /usr/lib/python3.12/dist-packages/isce/
+
+########################################
+# Install Doris package (version 5 for StripMap data and Sentinel-1 IW)
+########################################
+## !! Doris will be installed in /usr/local/bin
+
+## Install FFTW with the last version of the compilers
+RUN mkdir /home/fftw
+RUN cd /home/fftw && wget http://www.fftw.org/fftw-3.3.10.tar.gz 
+RUN cd /home/fftw && tar -xvf fftw-3.3.10.tar.gz 
+RUN cd /home/fftw/fftw-3.3.10 && ./configure --prefix=`pwd` --enable-float
+RUN cd /home/fftw/fftw-3.3.10 && make && make install 
+
+## Download Doris 5
+RUN cd /home && wget https://github.com/TUDelftGeodesy/Doris/archive/refs/tags/v5.0.3Beta.tar.gz 
+RUN cd /home && tar -xvf v5.0.3Beta.tar.gz && rm v5.0.3Beta.tar.gz 
+
+## Modification of the compiler versions 
+RUN echo 'deb http://dk.archive.ubuntu.com/ubuntu/ xenial main' >> /etc/apt/sources.list
+RUN echo 'deb http://dk.archive.ubuntu.com/ubuntu/ xenial universe' >> /etc/apt/sources.list
+# RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3B4FE6ACC0B21F32 40976EAF437D05B5
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3B4FE6ACC0B21F32 40976EAF437D05B5
+
+RUN apt update 
+RUN apt-get install -y gcc-4.7 g++-4.7
+RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.7 4
+RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.7 4
+
+RUN mkdir /home/Doris
+
+## For Doris Core
+# RUN cd /home/Doris-5.0.3Beta/doris_core && ./configure
+COPY docker/MakefileDoris/doriscoreMakefile /home/Doris-5.0.3Beta/doris_core/Makefile
+RUN cd /home/Doris-5.0.3Beta/doris_core && make && make install 
+
+## For Doris UTILITIES
+COPY docker/MakefileDoris/dorisutilMakefile /home/Doris-5.0.3Beta/sar_tools/Makefile
+RUN cd /home/Doris-5.0.3Beta/sar_tools && make && make install 
+
+## For Doris envisat_tools 
+#NONE
+
+## For Doris EXTERNAL SOFTWARE 
+#getorb: NONE
+#snaphu: already installed
+
+COPY docker/MakefileDoris/setupDORIS.py setup.py
+RUN cd /home/Doris-5.0.3Beta && /miniconda3/bin/conda init --all && . $bashrc &&  /miniconda3/bin/python -m pip install -e . --break-system-packages
+
+########################################
+# Install StaMPS
+########################################
+RUN cd /home/ && git clone https://github.com/dbekaert/StaMPS.git
+COPY docker/MakefileStaMPS/Makefilesrc /home/StaMPS/src/Makefile
+RUN cd /home/StaMPS/src && make && make install
+
+########################################
+# Finalisation (1)
+########################################
+ENV LD_LIBRARY_PATH=/miniconda3/lib
+
+########################################
+# Rechange the compiler versions
+########################################
+RUN cd /usr/bin/ && rm gcc g++ && ln -s gcc-13 gcc && ln -s g++-13 g++
+
+########################################
+# Install MintPy / MiaplPy / SARvey
+########################################
+RUN /miniconda3/bin/conda init --all && . $bashrc &&  /miniconda3/bin/python -m pip install mintpy
+
+RUN cd /home && git clone https://github.com/insarlab/MiaplPy.git
+RUN cd /home/MiaplPy && /miniconda3/bin/conda init --all && . $bashrc &&  /miniconda3/bin/python -m pip install . 
+
+RUN cd /home && git clone https://github.com/luhipi/sarvey
+RUN cd /home/sarvey && /miniconda3/bin/conda init --all && . $bashrc &&  /miniconda3/bin/python -m pip install . 
+
+########################################
+# Finalisation (2)
+########################################
+
+RUN cd /home/EZ-InSAR-3 && /miniconda3/bin/conda init --all && . $bashrc &&  /miniconda3/bin/conda run ezinsar toolkit configfile --nointeractive --nolicensecheck
+
+RUN echo 'username::xxxxxxx' > /root/.ezinsar/config/user.config
+RUN echo 'password::xxxxxxx' >> /root/.ezinsar/config/user.config
+RUN echo 'tokenM2M::none' >> /root/.ezinsar/config/user.config
+RUN echo 'cache::/root/.ezinsar/cache' >> /root/.ezinsar/config/user.config
+RUN echo 'pathisce2::/home/isce2' >> /root/.ezinsar/config/user.config
+RUN echo 'pathsnappy::/home/.snap/snap-python' >> /root/.ezinsar/config/user.config
+RUN echo 'pathsnapgpt::/usr/local/bin' >> /root/.ezinsar/config/user.config
+RUN echo 'pathdoris::/usr/local/bin' >> /root/.ezinsar/config/user.config
+RUN echo 'pathstamps::/home/StaMPS' >> /root/.ezinsar/config/user.config
+RUN echo 'pathlicsbas::/usr/local/bin' >> /root/.ezinsar/config/user.config
+RUN echo 'pathserverdatabase::/root/.ezinsar/config/server.config' >> /root/.ezinsar/config/user.config
+RUN echo 'ISCE2modesymlink::True' >> /root/.ezinsar/config/user.config
+RUN echo 'SNAPcachemax::5000' >> /root/.ezinsar/config/user.config
+RUN echo 'SNAPcacheclean::True' >> /root/.ezinsar/config/user.config
+RUN echo 'SNAPwrapper::gpt' >> /root/.ezinsar/config/user.config
+RUN echo 'defautprocessor::isce2' >> /root/.ezinsar/config/user.config
+RUN echo 'S1server::Copernicus' >> /root/.ezinsar/config/user.config
+RUN echo 'loggingmode::INFO' >> /root/.ezinsar/config/user.config
+RUN echo 'nameDockerImage::ezinsar' >> /root/.ezinsar/config/user.config
+RUN echo 'wgetlimit::auto' >> /root/.ezinsar/config/user.config
+RUN echo 'wgetlimitmin::12.5m' >> /root/.ezinsar/config/user.config
+RUN echo 'wgetlimitmax::50.0m' >> /root/.ezinsar/config/user.config
+RUN echo 'chunksize::8192' >> /root/.ezinsar/config/user.config
+RUN echo 'SLCdownloader::python' >> /root/.ezinsar/config/user.config
+RUN echo 'sleepSLCdownload::2' >> /root/.ezinsar/config/user.config
+
+EXPOSE 8050

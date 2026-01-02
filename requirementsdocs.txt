@@ -1,0 +1,14 @@
+myst-parser
+pydoctor
+pyenchant
+python-docs-theme
+nbsphinx
+notebook
+renku-sphinx-theme
+sphinx
+sphinx-argparse
+sphinx-gallery
+sphinx_rtd_theme
+sphinxcontrib-spelling
+sphinxemoji
+sphinx-tabs

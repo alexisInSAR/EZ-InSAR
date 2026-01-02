@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EZ-InSAR’s documentation &mdash; EZ-InSAR  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="EZ-InSAR’s Read-Me" href="readme.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            EZ-InSAR
+              <img src="_static/EZ_InSAR_logo_whiteback.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.3.1 Dec. 2025
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Content of the documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="readme.html">EZ-InSAR’s Read-Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proc_sensors.html">SAR and InSAR processors and sensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installationprocessor.html">Installation of SAR/InSAR processors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optmodules.html">EZ-InSAR optional Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dem.html">Digital Elevation Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use/index.html">Run EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clihelp.html">Command-line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technical.html">Technical information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subprograms/index.html">EZ-InSAR supplementary tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contrib.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html#satellite-data">Satellite data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html#partners">Partners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Change-log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dvptplan.html">Development plan of EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue_tracker.html">Issue tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licenses.html">Licenses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">EZ-InSAR-scripts documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/alexisInSAR/EZ-InSAR-3">EZ-InSAR's GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.ucd.ie">University College Dublin</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.icrag-centre.org">iCRAG</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">EZ-InSAR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">EZ-InSAR’s documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ez-insar-s-documentation">
+<h1>EZ-InSAR’s documentation<a class="headerlink" href="#ez-insar-s-documentation" title="Link to this heading"></a></h1>
+<div class="danger admonition">
+<p class="admonition-title">MATLAB version</p>
+<p><strong>This new version is in Python (from the version 3). The MATLAB version is now depreciated.</strong> Of course, it still is available from the associated GitHub branch.</p>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">EZ-InSAR</p>
+<p><strong>EZ-InSAR</strong> is still under development and tests. The current version is Beta, meaning that some bugs and uncomplete scripts/functions can be found. Please carefully read the changelog file to know/follow the main changes.</p>
+<p><strong>This program comes with ABSOLUTELY NO WARRANTY. This is free software, and you are welcome to redistribute it under certain conditions.</strong></p>
+<p><strong>EZ-InSAR will manipulate directories and files in order to optimise the storage space required by heavy SAR/InSAR computations. Please ensure that all directory paths (.ie., working directory, SLC directory, orbit directory, etc.) are PERFECTLY defined, and ONLY USED by EZ-InSAR: i.e., directories do not exist, as EZ-InSAR will have to be able to delete them.</strong></p>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Documentaton</p>
+<p>The EZ-InSAR’s Documentaton is still being written.</p>
+</div>
+<p>Welcome to <strong>EZ-InSAR</strong>’s documentation!</p>
+<p><strong>EZ-InSAR</strong> is a toolbox written in Python to conduct Interferometric Synthetic Aperture Radar (InSAR) data processing using the software packages within Python script or an easy-to-use Graphic-User-Interface (GUI). The toolbox now can generate SAR and InSAR products and conduct displacement time series analysis. <strong>EZ-InSAR</strong> offers a bridge between SAR/InSAR processors.</p>
+<p>Nowadays, InSAR has been widely used in measuring ground surface deformation induced by either by tectonic processes (e.g., earthquakes, volcanoes) or anthroponomic activities (e.g., mining, ground water pumping). Most of the open source InSAR code are implemented in a UNIX environment, meaning that the operator not only needs expertise in the theoretical background of InSAR, but also the UNIX system itself.</p>
+<p>The original purpose of the development of EZ-InSAR is creating a user-friendly SAR data processing chain for ones who are not familiar with InSAR but also interested in producing and analyzing ground displacement products by themselves. The spirit of EZ-InSAR is thus minimising the work of user in downloading, parametrising, and processing SAR data and visualising the results.</p>
+<p>The initial version of <strong>EZ-InSAR</strong> was a contribution to the Platform for Atlantic Geohazard Risk Management (AGEO) project, which is funded by Interreg Atlantic Area Programme through the European Regional Development Fund. AGEO aims launching several Citizens’ Observatory pilots on geohazards according too regional priorities. The project also aims engaging with local communities to actively participate in risk preparedness and monitoring, and incorporate local capacities into risk management systems.</p>
+<p><strong>EZ-InSAR</strong> is currently developed on a Linux platform. The toolbox can generate SAR interferograms and conduct displacement time series analysis. EZ-InSAR can save the results in several popular formats, which can be then imported into the other platforms such as QGIS, GMT, and Google Earth for visualization and post-analysis.</p>
+<p><strong>EZ-InSAR</strong> is still under development by the Geohazard group at School of Earth Sciences, University College Dublin (UCD).</p>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Content of the documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="readme.html">EZ-InSAR’s Read-Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proc_sensors.html">SAR and InSAR processors and sensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installationprocessor.html">Installation of SAR/InSAR processors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optmodules.html">EZ-InSAR optional Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dem.html">Digital Elevation Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use/index.html">Run EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clihelp.html">Command-line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technical.html">Technical information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subprograms/index.html">EZ-InSAR supplementary tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contrib.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html#satellite-data">Satellite data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html#partners">Partners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Change-log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dvptplan.html">Development plan of EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue_tracker.html">Issue tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licenses.html">Licenses</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Quick links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">EZ-InSAR-scripts documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/alexisInSAR/EZ-InSAR-3">EZ-InSAR's GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.ucd.ie">University College Dublin</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.icrag-centre.org">iCRAG</a></li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="readme.html" class="btn btn-neutral float-right" title="EZ-InSAR’s Read-Me" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright  2025, EZ-InSAR / UCD / iCRAG.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

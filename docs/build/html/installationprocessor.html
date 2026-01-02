@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation of SAR/InSAR processors &mdash; EZ-InSAR  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="EZ-InSAR optional Modules" href="optmodules.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            EZ-InSAR
+              <img src="_static/EZ_InSAR_logo_whiteback.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.3.1 Dec. 2025
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Content of the documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">EZ-InSAR’s Read-Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proc_sensors.html">SAR and InSAR processors and sensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation of SAR/InSAR processors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#for-isce-2">For ISCE-2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#for-snap">For SNAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#for-doris">For Doris</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#for-mintpy">For MintPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#for-stamps">For StaMPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#for-licsbas">For LiCSBAS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="optmodules.html">EZ-InSAR optional Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dem.html">Digital Elevation Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use/index.html">Run EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clihelp.html">Command-line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technical.html">Technical information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subprograms/index.html">EZ-InSAR supplementary tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contrib.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html#satellite-data">Satellite data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html#partners">Partners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Change-log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dvptplan.html">Development plan of EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue_tracker.html">Issue tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licenses.html">Licenses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">EZ-InSAR-scripts documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/alexisInSAR/EZ-InSAR-3">EZ-InSAR's GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.ucd.ie">University College Dublin</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.icrag-centre.org">iCRAG</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">EZ-InSAR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installation of SAR/InSAR processors</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/installationprocessor.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation-of-sar-insar-processors">
+<h1>Installation of SAR/InSAR processors<a class="headerlink" href="#installation-of-sar-insar-processors" title="Link to this heading"></a></h1>
+<div class="warning admonition">
+<p class="admonition-title">Warning</p>
+<p>The <em>installation</em> page is not completed and we are actively working on this page in order to provide accurate guidelines for SAR/InSAR-processor installations.</p>
+<p><strong>We recommend using the installation instructions of EZ-InSAR-2 to install ISCE-2, StaMPS and MintPy.</strong> The .pdf document can be found in GitHub.</p>
+</div>
+<p><strong>Each SAR and InSAR processor needs to be installed by user.</strong></p>
+<div class="warning admonition">
+<p class="admonition-title">Warning</p>
+<p>After installation of a processor, please update your EZ-InSAR configuration file:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ezinsar</span> <span class="n">toolkit</span> <span class="n">configfile</span>
+</pre></div>
+</div>
+</div>
+<section id="for-isce-2">
+<h2>For ISCE-2<a class="headerlink" href="#for-isce-2" title="Link to this heading"></a></h2>
+<p>ISCE-2 is installed by <em>conda</em>:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">isce2</span>
+</pre></div>
+</div>
+<p>However, <strong>EZ-InSAR</strong> will use the <em>contrib</em> scripts. The user should clone the GitHub repository.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">isce</span><span class="o">-</span><span class="n">framework</span><span class="o">/</span><span class="n">isce2</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>We recommend installing ISCE-2 after <strong>EZ-InSAR</strong> in order to keep the same conda environment.</p>
+</section>
+<section id="for-snap">
+<h2>For SNAP<a class="headerlink" href="#for-snap" title="Link to this heading"></a></h2>
+<p>SNAP should be installed and “linked” to your Python environment (see <a class="reference external" href="https://step.esa.int/main/download/snap-download/">https://step.esa.int/main/download/snap-download/</a>).</p>
+<p>The version 11 is required following the correction of critical bugs, however the installation of snappy is not automatic. Please see <a class="reference external" href="https://senbox.atlassian.net/wiki/spaces/SNAP/pages/2499051521/Configure+Python+to+use+the+new+SNAP-Python+esa_snappy+interface+SNAP+version+10">https://senbox.atlassian.net/wiki/spaces/SNAP/pages/2499051521/Configure+Python+to+use+the+new+SNAP-Python+esa_snappy+interface+SNAP+version+10</a> to order to install the Python wrapper.</p>
+<p><strong>We recommend using GPT with EZ-InSAR-3, however some parts of coregistration processing can be carried out with snappy.</strong></p>
+</section>
+<section id="for-doris">
+<h2>For Doris<a class="headerlink" href="#for-doris" title="Link to this heading"></a></h2>
+<p>The most recent version of Doris can be clone by using git:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">TUDelftGeodesy</span><span class="o">/</span><span class="n">Doris</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>The Doris’ authors provides guidelines for its installation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>gcc and g++ in version lower than 5 are required for Doris.</p>
+</div>
+<p><strong>It is mandatory to install Doris AND StaMPS.</strong></p>
+</section>
+<section id="for-mintpy">
+<h2>For MintPy<a class="headerlink" href="#for-mintpy" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">mintpy</span>
+</pre></div>
+</div>
+</section>
+<section id="for-stamps">
+<h2>For StaMPS<a class="headerlink" href="#for-stamps" title="Link to this heading"></a></h2>
+<p>The most recent version of StaMPS can be clone by using git:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">dbekaert</span><span class="o">/</span><span class="n">StaMPS</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>The StaMPS’ authors provides guidelines for its installation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>However, please find some important notes about the StaMPS’ installation:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Users need to have their MATLAB version installed, and the <em>matlab.engine</em> ready under Python.</p></li>
+<li><p>The installation of Doris requires the installation of StaMPS.</p></li>
+<li><p><strong>EZ-InSAR</strong> will not install the <em>matlab.engine</em> Python package to avoid creating any conflicts between MATLAB and Python. Please install it.</p></li>
+</ul>
+</div></blockquote>
+</div>
+</section>
+<section id="for-licsbas">
+<h2>For LiCSBAS<a class="headerlink" href="#for-licsbas" title="Link to this heading"></a></h2>
+<p>EZ-InSAR requires several LiCSAR and LiCSBAS Python packages. We clone the GitHub repositories in the same directories (i.e., LiCSBAS_packages):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">comet</span><span class="o">-</span><span class="n">licsar</span><span class="o">/</span><span class="n">LiCSBAS</span><span class="o">.</span><span class="n">git</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">comet</span><span class="o">-</span><span class="n">licsar</span><span class="o">/</span><span class="n">licsar_proc</span><span class="o">.</span><span class="n">git</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">comet</span><span class="o">-</span><span class="n">licsar</span><span class="o">/</span><span class="n">licsar_extra</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>Then, users can install the package using pip manager:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">LiCSBAS</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
+
+<span class="n">cd</span> <span class="n">licsar_proc</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
+
+<span class="n">cd</span> <span class="n">licsar_extra</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="optmodules.html" class="btn btn-neutral float-right" title="EZ-InSAR optional Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright  2025, EZ-InSAR / UCD / iCRAG.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

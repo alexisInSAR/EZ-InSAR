@@ -1,0 +1,15 @@
+Name,License,Comment
+renku-sphinx-theme,Apache License Version 2.0,Installed
+sphinx,BSD-2-Clause,Installed
+sphinxcontrib-spelling,BSD-2-Clause,Installed
+notebook,BSD-3-Clause,Installed
+sphinx-gallery,BSD-3-Clause,Installed
+sphinxemoji,BSD-3-Clause,Installed
+pyenchant,GNU Lesser General Public License v3,Installed
+myst-parser,MIT License,Installed
+pydoctor,MIT License,Installed
+nbsphinx,MIT License,Installed
+sphinx-argparse,MIT License,Installed
+sphinx_rtd_theme,MIT License,Installed
+sphinx-tabs,MIT License,Installed
+python-docs-theme,Python Software Foundation License,Installed

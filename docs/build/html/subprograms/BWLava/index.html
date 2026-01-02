@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BWLava: InSAR coherence-based lava-flow outlines &mdash; EZ-InSAR  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="EGMS toolkit" href="../egmstoolkit.html" />
+    <link rel="prev" title="EZ-InSAR supplementary tools" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            EZ-InSAR
+              <img src="../../_static/EZ_InSAR_logo_whiteback.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.3.1 Dec. 2025
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Content of the documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">EZ-InSAR’s Read-Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proc_sensors.html">SAR and InSAR processors and sensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installationprocessor.html">Installation of SAR/InSAR processors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../optmodules.html">EZ-InSAR optional Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dem.html">Digital Elevation Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../use/index.html">Run EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../clihelp.html">Command-line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical.html">Technical information</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">EZ-InSAR supplementary tools</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">BWLava: InSAR coherence-based lava-flow outlines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use">Use</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#opening">Opening</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#main-menu">Main menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#definition-of-the-region-of-interest">Definition of the Region of Interest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selection-of-the-region-of-interest-for-segmentation">Selection of the Region of Interest for segmentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lava-flow-detection">Lava-flow detection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#save-the-results">Save the results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../egmstoolkit.html">EGMS toolkit</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contrib.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../acknowledgments.html#satellite-data">Satellite data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../acknowledgments.html#partners">Partners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Change-log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dvptplan.html">Development plan of EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../issue_tracker.html">Issue tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../licenses.html">Licenses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">EZ-InSAR-scripts documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/alexisInSAR/EZ-InSAR-3">EZ-InSAR's GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.ucd.ie">University College Dublin</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.icrag-centre.org">iCRAG</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">EZ-InSAR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">EZ-InSAR supplementary tools</a></li>
+      <li class="breadcrumb-item active">BWLava: InSAR coherence-based lava-flow outlines</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/subprograms/BWLava/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="bwlava-insar-coherence-based-lava-flow-outlines">
+<h1>BWLava: InSAR coherence-based lava-flow outlines<a class="headerlink" href="#bwlava-insar-coherence-based-lava-flow-outlines" title="Link to this heading"></a></h1>
+<img alt="https://img.shields.io/badge/MATLAB-blue" src="https://img.shields.io/badge/MATLAB-blue" />
+<div class="warning admonition">
+<p class="admonition-title">Warning</p>
+<p><strong>BWLava</strong> is under development and tests. Some bugs and uncomplete scripts/functions can be found.</p>
+<p><strong>BWLava</strong> is a part of <strong>EZ-InSAR</strong> and cannot be redistributed outside the <strong>EZ-InSAR</strong> Python package.</p>
+</div>
+<p>BWLava is a short application to extract the lava-flow outlines from InSAR coherence images. It uses the contrast between lava flows (low InSAR coherence) and background (high InSAR coherence).</p>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Alexis Hrysiewicz. InSAR characterisation of lava-flow displacements at Piton de la Fournaise. Université  Clermont Auvergne, 2019. French.</p></li>
+<li><p>Andrew J.L. Harris, Magdalena Oryaëlle Chevrel, Diego Coppola,  Michael Ramsey, Alexis Hrysiewicz, et al.. Validation of an integrated  satellite-data-driven response to an effusive crisis: the April-May 2018 eruption of Piton de la Fournaise. Annals of Geophysics, Istituto  Nazionale di Geofisica e Vulcanologia (INGV), 2019, 61 (Vol 61 (2018)),  ⟨10.4401/ag-7972⟩. ⟨hal-02150627⟩</p></li>
+</ul>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>No particular installation is required. However, the MATLAB functions for ENVI files can be required, please download these scripts from <a class="reference external" href="https://fr.mathworks.com/matlabcentral/fileexchange/27172-envi-file-reader-writer">https://fr.mathworks.com/matlabcentral/fileexchange/27172-envi-file-reader-writer</a> into the 3rd party directory.</p>
+</section>
+<section id="use">
+<h2>Use<a class="headerlink" href="#use" title="Link to this heading"></a></h2>
+<section id="opening">
+<h3>Opening<a class="headerlink" href="#opening" title="Link to this heading"></a></h3>
+<p>BWLava can be directly opened from <strong>EZ-InSAR</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>program<span class="w"> </span>BWLava
+</pre></div>
+</div>
+<p>or from a MATLAB terminal (according to the current directory contains the scripts):</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">BWLava</span>
+</pre></div>
+</div>
+</section>
+<section id="main-menu">
+<h3>Main menu<a class="headerlink" href="#main-menu" title="Link to this heading"></a></h3>
+<p>After opening the application, the main menu of BWLava is be displayed.</p>
+<img alt="../../_images/BWLava_fig1.png" src="../../_images/BWLava_fig1.png" />
+<p>After the selection of InSAR coherence images, the data table will be updated and displayed. Multiple selection is possible. The processing therefore will be the same for all selected coherence images.</p>
+<img alt="../../_images/BWLava_fig2.png" src="../../_images/BWLava_fig2.png" />
+<p>The user should be able to open the BWLava Displayer by clicking of the button <em>Open the BWLava Displayer</em>.</p>
+<img alt="../../_images/BWLava_fig3.png" src="../../_images/BWLava_fig3.png" />
+<p>The Displayer is the main part of the appliction. Indeed, all interactions will be carried out from this windows. The user can change the displayed images by using the dropdown list, and see the different results.</p>
+</section>
+<section id="definition-of-the-region-of-interest">
+<h3>Definition of the Region of Interest<a class="headerlink" href="#definition-of-the-region-of-interest" title="Link to this heading"></a></h3>
+<p>The first step is the definition of the Region of Interest. Using the button <em>Step 1</em>. The user will be able to trace the desired ROI. Double-click is required to valide the ROI.</p>
+<img alt="../../_images/BWLava_fig4.png" src="../../_images/BWLava_fig4.png" />
+</section>
+<section id="selection-of-the-region-of-interest-for-segmentation">
+<h3>Selection of the Region of Interest for segmentation<a class="headerlink" href="#selection-of-the-region-of-interest-for-segmentation" title="Link to this heading"></a></h3>
+<p>As the definition of the Region of Intersect, the user should define another ROI for the segmentation.</p>
+<img alt="../../_images/BWLava_fig5.png" src="../../_images/BWLava_fig5.png" />
+<p>The threshold value is now in the data table of the main menu. In addition, this cell is modifiable if the user wants to define the threshold value. From this process, the initial mask will be produced.</p>
+<img alt="../../_images/BWLava_fig6.png" src="../../_images/BWLava_fig6.png" />
+<p>Unfortunately, this mask requires some post-processing, that will be done with the next steps.</p>
+</section>
+<section id="lava-flow-detection">
+<h3>Lava-flow detection<a class="headerlink" href="#lava-flow-detection" title="Link to this heading"></a></h3>
+<p>By clicking on the third button of the main menu, the Lava Detector will be opened. This window contains all tools to define the lava-flow parts, and masks in order to post-process the initial mask. A enhanced post-processing can be also enabled in the Lava-Detector window. At the minimun, one lava-flow part requires to be defined.</p>
+<img alt="../../_images/BWLava_fig7.png" src="../../_images/BWLava_fig7.png" />
+<p>By interaction with the BWLava Displayer, the user can easily defined the polygons for the lava-flow parts and masks. The BWLava displayer will show all defined polygons.</p>
+<img alt="../../_images/BWLava_fig8.png" src="../../_images/BWLava_fig8.png" />
+<p>After clicking on the “Computation” button, the BWLava displayer will show the post-processed mask.</p>
+<img alt="../../_images/BWLava_fig9.png" src="../../_images/BWLava_fig9.png" />
+<p>At this stage, the user will be able to close the Lava Detector and display the lava-flow outlines by using the dropdown list in the BWLava Displayer.</p>
+<img alt="../../_images/BWLava_fig10.png" src="../../_images/BWLava_fig10.png" />
+</section>
+<section id="save-the-results">
+<h3>Save the results<a class="headerlink" href="#save-the-results" title="Link to this heading"></a></h3>
+<p>Finally, the last button of the main menu named <em>Step 4 Save the results</em> can be used to save the results.</p>
+<img alt="../../_images/BWLava_fig11.png" src="../../_images/BWLava_fig11.png" />
+<p>Two products can be exported:</p>
+<ul class="simple">
+<li><p>the lava-flow mask in GeoTIFF format;</p></li>
+<li><p>the lava-flow outlines (pixel centres or edges).</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="EZ-InSAR supplementary tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../egmstoolkit.html" class="btn btn-neutral float-right" title="EGMS toolkit" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright  2025, EZ-InSAR / UCD / iCRAG.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

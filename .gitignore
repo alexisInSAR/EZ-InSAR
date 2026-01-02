@@ -1,0 +1,14 @@
+.DS_Store
+__pycache__
+S1_burstid_20220530
+.egg-info
+WK_test
+.vscode
+users.db
+cache
+.tif
+egm08_25.gtx
+egm96_15.gtx
+dep_France.geojson
+log.out
+EZ_InSAR.egg-info

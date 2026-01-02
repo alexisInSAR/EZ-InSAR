@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use EZ-InSAR and/or its optional modules, please cite it as below (or use the paper citation)."
+authors:
+- family-names: "Hrysiewicz"
+  given-names: "Alexis"
+  affiliation: University College Dublin, iCRAG
+license: GNU GENERAL PUBLIC LICENSE Version 3
+# doi: None
+repository-code: "https://github.com/alexisInSAR/EZ-InSAR"
+preferred-citation:
+  type: article
+  authors:
+  - family-names: "Hrysiewicz"
+    given-names: "Alexis"
+    affiliation: University College Dublin, iCRAG
+  - family-names: "Wang"
+    given-names: "Xiaowen"
+    affiliation: Faculty of Geosciences and Environmental Engineering, Southwest Jiaotong University
+  - family-names: "Holohan"
+    given-names: "Eoghan, P."
+    affiliation: University College Dublin, iCRAG
+  date-published: 2025-03-31
+  doi: 10.1007/s12145-023-00973-1
+  journal: Earth Sci Inform
+  publisher:
+    name: Springer
+  start: 1929
+  title: "EZ-InSAR: An easy-to-use open-source toolbox for mapping ground surface deformation using satellite interferometric synthetic aperture radar"
+  type: article
+  volume: 16
+title: "EZ-InSAR: An easy-to-use open-source toolbox for mapping ground surface deformation using satellite interferometric synthetic aperture radar"

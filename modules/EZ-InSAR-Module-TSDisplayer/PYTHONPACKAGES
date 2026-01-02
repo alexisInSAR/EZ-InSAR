@@ -1,0 +1,19 @@
+Name,License,Comment 
+anywidget,MIT License,Installed package
+base64,BSD-2-Clause,Python Standard Library
+dash,MIT License,Installed package
+dash_bootstrap_components,Apache License Version 2.0,Installed package
+docopt,MIT License,Installed package
+ezinsar,GNU General Public License (GPL) version 3,Installed package
+glob,MIT License,Python Standard Library
+logging,MIT License,Python Standard Library
+numpy,BSD-3-Clause,Installed package
+plotly,MIT License,Installed package
+pyproj,MIT License,Installed package
+PyQt5,GNU General Public License (GPL) version 3,Installed package
+PyQt5-sip,BSD-2-Clause,Installed package
+PyQtWebEngine,GNU General Public License (GPL) version 3,Installed package
+scipy,BSD-3-Clause,Installed package
+setuptools,MIT License,Python Standard Library
+sys,MIT License,Python Standard Library
+time,MIT License,Python Standard Library

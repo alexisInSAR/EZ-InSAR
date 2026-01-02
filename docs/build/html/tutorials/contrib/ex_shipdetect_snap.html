@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ship detection from Sentinel-1 GRD images using SNAP &mdash; EZ-InSAR  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Technical information" href="../../technical.html" />
+    <link rel="prev" title="Computation of a Sentinel-1 IW time series with LiCSBAS" href="../theme_computation/example3/notebook_example3.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            EZ-InSAR
+              <img src="../../_static/EZ_InSAR_logo_whiteback.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.3.1 Dec. 2025
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Content of the documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">EZ-InSAR’s Read-Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../proc_sensors.html">SAR and InSAR processors and sensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installationprocessor.html">Installation of SAR/InSAR processors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../optmodules.html">EZ-InSAR optional Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dem.html">Digital Elevation Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../use/index.html">Run EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../clihelp.html">Command-line Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../theme_preparation/example1/notebook_example1.html">Management of Sentinel-1 images via Python scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../theme_computation/example2/notebook_example2.html">Computation of a Sentinel-1 StripMap single interferogram via CLI of EZ-InSAR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../theme_computation/example3/notebook_example3.html">Computation of a Sentinel-1 IW time series with LiCSBAS</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Ship detection from Sentinel-1 GRD images using SNAP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#import-the-required-packages-ez-insar-and-others">Import the required packages (EZ-InSAR and others)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creation-of-the-ez-insar-job">Creation of the EZ-InSAR job</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#definition-of-the-region-of-interest">Definition of the Region of Interest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#detection-of-the-available-images">Detection of the available images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#computation-of-the-ship-locations-using-snap">Computation of the ship locations using SNAP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wrapper-for-automatic-detection-from-all-the-sentinel-1-grd-images">Wrapper for automatic detection from all the Sentinel-1 GRD images</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical.html">Technical information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../subprograms/index.html">EZ-InSAR supplementary tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contrib.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../acknowledgments.html#satellite-data">Satellite data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../acknowledgments.html#partners">Partners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Change-log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dvptplan.html">Development plan of EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../issue_tracker.html">Issue tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../licenses.html">Licenses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">EZ-InSAR-scripts documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/alexisInSAR/EZ-InSAR-3">EZ-InSAR's GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.ucd.ie">University College Dublin</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.icrag-centre.org">iCRAG</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">EZ-InSAR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Tutorials</a></li>
+      <li class="breadcrumb-item active">Ship detection from Sentinel-1 GRD images using SNAP</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/tutorials/contrib/ex_shipdetect_snap.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ship-detection-from-sentinel-1-grd-images-using-snap">
+<h1>Ship detection from Sentinel-1 GRD images using SNAP<a class="headerlink" href="#ship-detection-from-sentinel-1-grd-images-using-snap" title="Link to this heading"></a></h1>
+<p><strong>By Alexis Hrysiewicz, Sep. 2025</strong></p>
+<p>Here the goal is the detection of objects over sea (i.e., ship detection) based on Sentinel-1 GRD images and the tools prodived by SNAP.</p>
+<p><strong>Outcomes</strong>:</p>
+<ul class="simple">
+<li><p>Demonstration of the manipulation of Sentinel-1 GRD images with EZ-InSAR;</p></li>
+<li><p>Demonstration of the wrapper of SNAP;</p></li>
+<li><p>Demonstration of the use of EZ-InSAR via Python scripts.</p></li>
+</ul>
+<section id="import-the-required-packages-ez-insar-and-others">
+<h2>Import the required packages (EZ-InSAR and others)<a class="headerlink" href="#import-the-required-packages-ez-insar-and-others" title="Link to this heading"></a></h2>
+<p>The first step is the import of Python packages from EZ-InSAR:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">ezinsar.job</span> <span class="k">as</span> <span class="nn">ez</span>
+<span class="kn">from</span> <span class="nn">ezinsar.api</span> <span class="kn">import</span> <span class="n">Copernicusapi</span>
+</pre></div>
+</div>
+<p>In addition, the contribution module needs to be imported:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ezinsar.contrib.python</span> <span class="kn">import</span> <span class="n">snapShipDectection</span>
+</pre></div>
+</div>
+</section>
+<section id="creation-of-the-ez-insar-job">
+<h2>Creation of the EZ-InSAR job<a class="headerlink" href="#creation-of-the-ez-insar-job" title="Link to this heading"></a></h2>
+<p>The module will use an EZ-InSAR job, the job can be easily created:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">job</span> <span class="o">=</span> <span class="n">ez</span><span class="o">.</span><span class="n">EIjob</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+      <span class="n">polarisation</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;VV&#39;</span><span class="p">],</span>
+      <span class="n">workdirectory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;WK&#39;</span><span class="p">),</span>
+      <span class="n">pathSLC</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;GRD_files&#39;</span><span class="p">),</span>
+      <span class="n">pathorbit</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;Orbits&#39;</span><span class="p">),</span>
+      <span class="n">pathaux</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;File_aux&#39;</span><span class="p">),</span>
+      <span class="n">pathDEM</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;DEM&#39;</span><span class="p">),</span>
+      <span class="p">)</span>
+</pre></div>
+</div>
+<p>Each required directory can be created by the associated methods:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="definition-of-the-region-of-interest">
+<h2>Definition of the Region of Interest<a class="headerlink" href="#definition-of-the-region-of-interest" title="Link to this heading"></a></h2>
+<p>The next step is the selection of the Region of Interest. The ROI can be imported into the EZ-InSAR job:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">importroi</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">6.8508</span><span class="p">,</span><span class="mf">53.0384</span><span class="p">,</span><span class="o">-</span><span class="mf">5.4063</span><span class="p">,</span><span class="mf">53.6729</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>The computation will be performed on the Dublin bay.</p>
+</section>
+<section id="detection-of-the-available-images">
+<h2>Detection of the available images<a class="headerlink" href="#detection-of-the-available-images" title="Link to this heading"></a></h2>
+<p>Due to the GRD levels, the list of images should be created by using the Copernicus API:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">SLClist</span> <span class="o">=</span> <span class="n">Copernicusapi</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s1">&#39;S1&#39;</span><span class="p">,</span>
+   <span class="n">job</span><span class="o">.</span><span class="n">roi</span><span class="p">,</span>
+   <span class="n">date1</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s1">&#39;2014-01-01T00:00:00.000000Z&#39;</span><span class="p">,</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%S.</span><span class="si">%f</span><span class="s1">Z&#39;</span><span class="p">),</span>
+   <span class="n">date2</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s1">&#39;2025-08-31T00:00:00.000000Z&#39;</span><span class="p">,</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%S.</span><span class="si">%f</span><span class="s1">Z&#39;</span><span class="p">),</span>
+   <span class="n">level</span> <span class="o">=</span> <span class="s1">&#39;GRD&#39;</span><span class="p">,</span>
+   <span class="n">relorbit</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+   <span class="n">satpass</span> <span class="o">=</span> <span class="s1">&#39;ASCENDING&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We recommend defining the satellite parameters and dates here, EZ-InSAR will modify the EZ-InSAR job according to the selection parameters.</p>
+</div>
+<p>EZ-InSAR now can check the list and propagate the satellite parameters into the job:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">checkSLClist</span><span class="p">()</span>
+<span class="n">job</span><span class="o">.</span><span class="n">printSLClist</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All functions/methods available for the SLC images are also available with the GRD images.</p>
+</div>
+<p>Finally, the images can be downloaded:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">downloadSLC</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="computation-of-the-ship-locations-using-snap">
+<h2>Computation of the ship locations using SNAP<a class="headerlink" href="#computation-of-the-ship-locations-using-snap" title="Link to this heading"></a></h2>
+<p>The computation is based on a new method provided by the contrib script:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">jobShip</span> <span class="o">=</span> <span class="n">snapShipDectection</span><span class="o">.</span><span class="n">jobsnapSD</span><span class="p">(</span><span class="n">job</span><span class="p">)</span> <span class="c1"># Here the job is required</span>
+</pre></div>
+</div>
+<p>Then the processing steps can be launched. The first step is the import of images for SNAP:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">jobShip</span><span class="o">.</span><span class="n">importGRD</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Due to the complexity of coastlines, it can be better to use a vector file in order to mask lands. The vector file will be injected (in-place) into the SNAP images. However, this step is optional.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">jobShip</span><span class="o">.</span><span class="n">importVector</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;Irish_DEM/shorelineIE.shp&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The dem module can be used to generate the vector files.</p>
+</div>
+<p>Then, the detection can be carried out. Whereas the SNAP tool (in the Desktop application) corresponds to a single tool, EZ-InSAR will process the following steps:</p>
+<ol class="arabic simple">
+<li><p><em>Land-Sea-Mask</em> operator;</p></li>
+<li><p><em>Calibration</em> operator;</p></li>
+<li><p><em>AdaptiveThresholding</em> operator;</p></li>
+<li><p><em>Object-Discrimination</em> operator.</p></li>
+</ol>
+<p>This step can similar than the tools provided by SNAP, but a single tool - available with the Desktop application - is not implemented with the GPT wrapper. In order to run the detection, the method is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jobSP</span><span class="o">.</span><span class="n">detection</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Finally, the conversion of the .csv vector file from SNAP to a .shp file can be done:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jobSP</span><span class="o">.</span><span class="n">extractposition</span><span class="p">(</span><span class="n">output_directory</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;results&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="wrapper-for-automatic-detection-from-all-the-sentinel-1-grd-images">
+<h2>Wrapper for automatic detection from all the Sentinel-1 GRD images<a class="headerlink" href="#wrapper-for-automatic-detection-from-all-the-sentinel-1-grd-images" title="Link to this heading"></a></h2>
+<p>The following script proposes an example for the full wrapper for the ship detection optimising the storage space:</p>
+<ol class="arabic simple">
+<li><p>Definition of parameters.</p></li>
+<li><p>Loop of processing: (1) Download the GRD image(s) for a date; (2) Detection; and (3) Cleaning.</p></li>
+<li><p>Post-processing of data: computation of a density map.</p></li>
+</ol>
+<p>The example is over Dublin Bay and uses the Sentinel-1 IW001 images. There are two options in order to display the detection with a raster:</p>
+<ul class="simple">
+<li><p>via a computation of detection numbers per pixel;</p></li>
+<li><p>via a probability computation with gaussian kernels.</p></li>
+</ul>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env python3</span>
+<span class="c1"># -*- coding: iso-8859-1 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Example for a wrapper in order to detect ships based on Sentinel-1 IW GRD images</span>
+
+<span class="sd">The module contains an example for a wrapper in order to detect ships based on Sentinel-1 IW GRD images. The targeted area is Dublin Bay.</span>
+
+<span class="sd">Notes:</span>
+<span class="sd">      Each date is processed independently in order save storage spaces.</span>
+
+<span class="sd">Changelog:</span>
+<span class="sd">      * 1.0.0: Initial version, Sep. 2025</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Alexis Hrysiewicz (UCD / iCRAG)&#39;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright 2025, EZ-InSAR / UCD / iCRAG&quot;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span>
+
+<span class="c1">######################################################################</span>
+<span class="c1">## Import Python packages</span>
+
+<span class="kn">import</span> <span class="nn">ezinsar.job</span> <span class="k">as</span> <span class="nn">ez</span>
+<span class="kn">from</span> <span class="nn">ezinsar.api</span> <span class="kn">import</span> <span class="n">Copernicusapi</span>
+<span class="kn">from</span> <span class="nn">ezinsar.eicomponents.demmodule</span> <span class="kn">import</span> <span class="n">demfunctions</span>
+
+<span class="kn">from</span> <span class="nn">ezinsar.contrib.python</span> <span class="kn">import</span> <span class="n">snapShipDectection</span>
+
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="kn">from</span> <span class="nn">osgeo</span> <span class="kn">import</span> <span class="n">gdal</span><span class="p">,</span> <span class="n">osr</span>
+<span class="kn">from</span> <span class="nn">pyproj</span> <span class="kn">import</span> <span class="n">Transformer</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">st</span>
+
+<span class="c1">######################################################################</span>
+<span class="c1">## Create the EZ-InSAR job for processing</span>
+<span class="n">job</span> <span class="o">=</span> <span class="n">ez</span><span class="o">.</span><span class="n">EIjob</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+               <span class="n">polarisation</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;VV&#39;</span><span class="p">],</span>
+               <span class="n">workdirectory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;IW1/WK&#39;</span><span class="p">),</span>
+               <span class="n">pathSLC</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;IW1/GRD_files&#39;</span><span class="p">),</span>
+               <span class="n">pathorbit</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;IW1/Orbits&#39;</span><span class="p">),</span>
+               <span class="n">pathaux</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;IW1/File_aux&#39;</span><span class="p">),</span>
+               <span class="n">pathDEM</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;IW1/DEM&#39;</span><span class="p">),</span>
+               <span class="p">)</span>
+
+<span class="c1">## Import the Region of Interest</span>
+<span class="n">job</span><span class="o">.</span><span class="n">importroi</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">6.8508</span><span class="p">,</span><span class="mf">53.0384</span><span class="p">,</span><span class="o">-</span><span class="mf">5.4063</span><span class="p">,</span><span class="mf">53.6729</span><span class="p">])</span>
+
+<span class="c1">## Detect the images available from the online server</span>
+<span class="n">job</span><span class="o">.</span><span class="n">SLClist</span> <span class="o">=</span> <span class="n">Copernicusapi</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s1">&#39;S1&#39;</span><span class="p">,</span>
+      <span class="n">job</span><span class="o">.</span><span class="n">roi</span><span class="p">,</span>
+      <span class="n">date1</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s1">&#39;2014-01-01T00:00:00.000000Z&#39;</span><span class="p">,</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%S.</span><span class="si">%f</span><span class="s1">Z&#39;</span><span class="p">),</span>
+      <span class="n">date2</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s1">&#39;2025-12-31T00:00:00.000000Z&#39;</span><span class="p">,</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%S.</span><span class="si">%f</span><span class="s1">Z&#39;</span><span class="p">),</span>
+      <span class="n">level</span> <span class="o">=</span> <span class="s1">&#39;GRD&#39;</span><span class="p">,</span>
+      <span class="n">relorbit</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="n">satpass</span> <span class="o">=</span> <span class="s1">&#39;ASCENDING&#39;</span><span class="p">)</span>
+
+<span class="n">job</span><span class="o">.</span><span class="n">checkSLClist</span><span class="p">()</span>
+<span class="n">job</span><span class="o">.</span><span class="n">printSLClist</span><span class="p">()</span>
+
+<span class="c1">## Create the directories</span>
+<span class="n">job</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span>
+
+<span class="c1">## Create the date list</span>
+<span class="n">dates</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">datei</span> <span class="ow">in</span> <span class="n">job</span><span class="o">.</span><span class="n">SLClist</span><span class="p">[</span><span class="s1">&#39;Date1&#39;</span><span class="p">]:</span>
+      <span class="n">dates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">datei</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">dates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">dates</span><span class="p">)</span>
+
+<span class="c1">## Reverse the index of dates in order to run the computation from recent dates to old dates.</span>
+<span class="n">listidx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dates</span><span class="p">))[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1">######################################################################</span>
+<span class="c1">## Loop of processing</span>
+<span class="k">for</span> <span class="n">diidx</span> <span class="ow">in</span> <span class="n">listidx</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="n">dates</span><span class="p">[</span><span class="n">diidx</span><span class="p">])</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;IW1/results&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="s1">&#39;shipDetection_</span><span class="si">%s</span><span class="s1">_</span><span class="si">%s</span><span class="s1">_</span><span class="si">%s</span><span class="s1">_</span><span class="si">%s</span><span class="s1">_</span><span class="si">%s</span><span class="s1">.shp&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="s1">&#39;S1&#39;</span><span class="p">,</span>
+               <span class="n">job</span><span class="o">.</span><span class="n">satmode</span><span class="p">,</span>
+               <span class="n">job</span><span class="o">.</span><span class="n">satpass</span><span class="p">,</span>
+               <span class="n">job</span><span class="o">.</span><span class="n">relorbit</span><span class="p">,</span>
+               <span class="n">dates</span><span class="p">[</span><span class="n">diidx</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">),</span>
+               <span class="p">)):</span>
+
+               <span class="c1">## Downlaod the image(s)</span>
+               <span class="n">job</span><span class="o">.</span><span class="n">downloadSLC</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="n">diidx</span><span class="p">])</span>
+
+               <span class="c1">## Import the class from the contrib package</span>
+               <span class="n">jobSP</span> <span class="o">=</span> <span class="n">snapShipDectection</span><span class="o">.</span><span class="n">jobsnapSD</span><span class="p">(</span><span class="n">job</span><span class="p">)</span>
+
+               <span class="c1">## Import the GRD image</span>
+               <span class="n">jobSP</span><span class="o">.</span><span class="n">importGRD</span><span class="p">()</span>
+
+               <span class="c1">## Import the vector files</span>
+               <span class="n">jobSP</span><span class="o">.</span><span class="n">importVector</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;Irish_DEM/shorelineIE.shp&#39;</span><span class="p">))</span>
+
+               <span class="c1">## Do the detection</span>
+               <span class="n">jobSP</span><span class="o">.</span><span class="n">detection</span><span class="p">()</span>
+
+               <span class="c1">## Convert the results into a shapefile</span>
+               <span class="n">jobSP</span><span class="o">.</span><span class="n">extractposition</span><span class="p">(</span><span class="n">output_directory</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;IW1/results&#39;</span><span class="p">))</span>
+
+               <span class="c1">## Cleaning</span>
+               <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">workdirectory</span><span class="p">):</span>
+                        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">workdirectory</span><span class="p">)</span>
+               <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">pathSLC</span><span class="p">):</span>
+                        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">pathSLC</span><span class="p">)</span>
+               <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">pathorbit</span><span class="p">):</span>
+                        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">pathorbit</span><span class="p">)</span>
+               <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">pathaux</span><span class="p">):</span>
+                        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">pathaux</span><span class="p">)</span>
+               <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">pathDEM</span><span class="p">):</span>
+                        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">pathDEM</span><span class="p">)</span>
+               <span class="n">job</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span>
+
+<span class="c1">######################################################################</span>
+<span class="c1">## Post-processing: creation of a density map (in GTiff)</span>
+<span class="c1">######################################################################</span>
+<span class="k">def</span> <span class="nf">centres_to_edges</span><span class="p">(</span><span class="n">centres</span><span class="p">):</span>
+<span class="w">   </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Function to convert pixel centres to edges</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="n">edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">centres</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+   <span class="n">edges</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">centres</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">centres</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">/</span> <span class="mi">2</span>
+   <span class="n">edges</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">centres</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">edges</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">centres</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+   <span class="n">edges</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">centres</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">centres</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">edges</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+   <span class="k">return</span> <span class="n">edges</span>
+
+<span class="c1">## The EPSG:3035 will be used</span>
+<span class="n">transformer</span> <span class="o">=</span> <span class="n">Transformer</span><span class="o">.</span><span class="n">from_crs</span><span class="p">(</span><span class="s2">&quot;epsg:4326&quot;</span><span class="p">,</span> <span class="s2">&quot;epsg:3035&quot;</span><span class="p">,</span> <span class="n">always_xy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1">## Compute the grid extent</span>
+<span class="n">lon</span><span class="p">,</span><span class="n">lat</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">roi</span><span class="o">.</span><span class="n">exterior</span><span class="o">.</span><span class="n">xy</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span><span class="n">radians</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1">## Spatial resolution in metre</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="mi">500</span>
+
+<span class="n">xmin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span>
+<span class="n">xmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span>
+<span class="n">ymin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span>
+<span class="n">ymax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span>
+
+<span class="c1">## Extract the point locations from the .shp files</span>
+<span class="n">Xpts</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">Ypts</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">filei</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;results/*.shp&#39;</span><span class="p">):</span>
+   <span class="n">data</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">filei</span><span class="p">)</span>
+   <span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]:</span>
+      <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">li</span><span class="o">.</span><span class="n">y</span><span class="p">,</span><span class="n">radians</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+      <span class="n">Xpts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+      <span class="n">Ypts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># ########################################################</span>
+<span class="c1"># ## Compute the number of detection per pixels</span>
+<span class="c1"># ########################################################</span>
+<span class="c1"># ## Compute the pixel centres</span>
+<span class="c1"># x_centres = np.arange(xmin,xmax,dx)</span>
+<span class="c1"># y_centres = np.arange(ymin,ymax,dx)</span>
+
+<span class="c1"># ## Compute the density map</span>
+<span class="c1"># x_edges = centres_to_edges(x_centres)</span>
+<span class="c1"># y_edges = centres_to_edges(y_centres)</span>
+<span class="c1"># H, _, _ = np.histogram2d(Xpts, Ypts, bins=[x_edges, y_edges])</span>
+<span class="c1"># H = np.flipud(H.T) ## It requires</span>
+
+<span class="c1">########################################################</span>
+<span class="c1">## Compute the probability function via gaussian kernel</span>
+<span class="c1">########################################################</span>
+<span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[</span><span class="n">xmin</span><span class="p">:</span><span class="n">xmax</span><span class="p">:</span><span class="n">dx</span><span class="p">,</span> <span class="n">ymin</span><span class="p">:</span><span class="n">ymax</span><span class="p">:</span><span class="n">dx</span><span class="p">]</span>
+<span class="n">positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">xx</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">yy</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">Xpts</span><span class="p">,</span> <span class="n">Ypts</span><span class="p">])</span>
+<span class="n">kernel</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">gaussian_kde</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">kernel</span><span class="p">(</span><span class="n">positions</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">xx</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">H</span> <span class="o">=</span> <span class="p">(</span><span class="n">H</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">H</span><span class="p">))</span><span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">H</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">H</span><span class="p">))</span> <span class="c1"># normalisation</span>
+
+<span class="c1">## Export a temporary GTiff</span>
+<span class="n">nx</span> <span class="o">=</span> <span class="n">H</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ny</span> <span class="o">=</span> <span class="n">H</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">xres</span> <span class="o">=</span> <span class="p">(</span><span class="n">xmax</span> <span class="o">-</span> <span class="n">xmin</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">ny</span><span class="p">)</span>
+<span class="n">yres</span> <span class="o">=</span> <span class="p">(</span><span class="n">ymax</span> <span class="o">-</span> <span class="n">ymin</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">nx</span><span class="p">)</span>
+<span class="n">geotransform</span> <span class="o">=</span> <span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xres</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">yres</span><span class="p">)</span>
+
+<span class="n">dst_ds</span> <span class="o">=</span> <span class="n">gdal</span><span class="o">.</span><span class="n">GetDriverByName</span><span class="p">(</span><span class="s1">&#39;GTiff&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Create</span><span class="p">(</span><span class="s1">&#39;tmp.tif&#39;</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">gdal</span><span class="o">.</span><span class="n">GDT_Float32</span><span class="p">)</span>
+<span class="n">dst_ds</span><span class="o">.</span><span class="n">SetGeoTransform</span><span class="p">(</span><span class="n">geotransform</span><span class="p">)</span>
+<span class="n">srs</span> <span class="o">=</span> <span class="n">osr</span><span class="o">.</span><span class="n">SpatialReference</span><span class="p">()</span>
+<span class="n">srs</span><span class="o">.</span><span class="n">ImportFromEPSG</span><span class="p">(</span><span class="mi">3035</span><span class="p">)</span>
+<span class="n">dst_ds</span><span class="o">.</span><span class="n">SetProjection</span><span class="p">(</span><span class="n">srs</span><span class="o">.</span><span class="n">ExportToWkt</span><span class="p">())</span>
+<span class="n">dst_ds</span><span class="o">.</span><span class="n">GetRasterBand</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">WriteArray</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+<span class="n">dst_ds</span><span class="o">.</span><span class="n">GetRasterBand</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">SetNoDataValue</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">dst_ds</span><span class="o">.</span><span class="n">SetMetadata</span><span class="p">({</span><span class="s2">&quot;AREA_OR_POINT&quot;</span><span class="p">:</span> <span class="s2">&quot;Point&quot;</span><span class="p">})</span>
+<span class="n">dst_ds</span><span class="o">.</span><span class="n">FlushCache</span><span class="p">()</span>
+<span class="n">dst_ds</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="c1">## Masking based on the vector file</span>
+<span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;ogr2ogr -t_srs &quot;EPSG:3035&quot; tmp.shp Irish_DEM/shorelineIE.shp&#39;</span><span class="p">)</span> <span class="c1">## Convert to EPSG:3035; temporary file</span>
+
+<span class="c1">## Apply the vector file to the results by using the EZ-InSAR dem module (the naming will be performed here)</span>
+<span class="n">demfunctions</span><span class="o">.</span><span class="n">applymask</span><span class="p">(</span><span class="s1">&#39;tmp.tif&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;shipDetection_</span><span class="si">%s</span><span class="s1">_</span><span class="si">%s</span><span class="s1">_</span><span class="si">%s</span><span class="s1">_</span><span class="si">%s</span><span class="s1">.tif&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="s1">&#39;S1&#39;</span><span class="p">,</span>
+               <span class="n">job</span><span class="o">.</span><span class="n">satmode</span><span class="p">,</span>
+               <span class="n">job</span><span class="o">.</span><span class="n">satpass</span><span class="p">,</span>
+               <span class="n">job</span><span class="o">.</span><span class="n">relorbit</span><span class="p">,</span>
+      <span class="p">),</span>
+      <span class="s1">&#39;tmp.shp&#39;</span><span class="p">,</span>
+      <span class="n">invert</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+      <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1">## Cleaning</span>
+<span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;tmp.*&#39;</span><span class="p">):</span>
+   <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../theme_computation/example3/notebook_example3.html" class="btn btn-neutral float-left" title="Computation of a Sentinel-1 IW time series with LiCSBAS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../technical.html" class="btn btn-neutral float-right" title="Technical information" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright  2025, EZ-InSAR / UCD / iCRAG.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

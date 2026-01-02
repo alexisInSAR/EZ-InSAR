@@ -1,0 +1,8 @@
+anywidget
+dash
+dash_core_components
+dash_bootstrap_components
+plotly
+PyQt5
+PyQt5-sip
+PyQtWebEngine

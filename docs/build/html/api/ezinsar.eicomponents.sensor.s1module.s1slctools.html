@@ -1,0 +1,853 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ezinsar.eicomponents.sensor.s1module.s1slctools</title>
+    <meta name="generator" content="pydoctor 24.3.3"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="readthedocstheme.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          <a href="../index.html" class="projecthome">EZ-InSAR</a> <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+    
+        <!-- Side navigation -->
+      <div class="sidebarcontainer">
+        <nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="ezinsar.eicomponents.sensor.s1module.s1slctools.html" class="internal-link" title="This module">s1slctools</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#createS1listonfile" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.s1slctools.createS1listonfile">create<wbr></wbr>S1listonfile</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#createS1listonline" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.s1slctools.createS1listonline">create<wbr></wbr>S1listonline</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#detection_S1burst_fromROI" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.s1slctools.detection_S1burst_fromROI">detection_<wbr></wbr>S1burst_from<wbr></wbr>ROI</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#detectionS1IW" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.s1slctools.detectionS1IW">detection<wbr></wbr>S1<wbr></wbr>IW</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#detectS1annoatationfromxml" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.s1slctools.detectS1annoatationfromxml">detect<wbr></wbr>S1annoatationfromxml</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#initiateSLC" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.s1slctools.initiateSLC">initiate<wbr></wbr>SLC</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#listnewS1acquisition" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.s1slctools.listnewS1acquisition">listnew<wbr></wbr>S1acquisition</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#read_precise_restitued_xml" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.s1slctools.read_precise_restitued_xml">read<wbr></wbr>_precise<wbr></wbr>_restitued<wbr></wbr>_xml</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#read_S1annotation_xml" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.s1slctools.read_S1annotation_xml">read_<wbr></wbr>S1annotation_xml</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__timeout_ASF__" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.s1slctools.__timeout_ASF__">__timeout_<wbr></wbr>ASF__</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="ezinsar.eicomponents.sensor.s1module.html" class="internal-link" title="The parent of this module">s1module</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ezinsar.eicomponents.sensor.s1module.s1ETAD.html" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.s1ETAD">s1<wbr></wbr>ETAD</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ezinsar.eicomponents.sensor.s1module.s1grdtools.html" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.s1grdtools">s1grdtools</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ezinsar.eicomponents.sensor.s1module.s1iwburstIDapp.html" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.s1iwburstIDapp">s1iwburst<wbr></wbr>IDapp</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ezinsar.eicomponents.sensor.s1module.s1orbits.html" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.s1orbits">s1orbits</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ezinsar.eicomponents.sensor.s1module.s1slctools.html" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.s1slctools">s1slctools</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ezinsar.eicomponents.sensor.s1module.s1stacktools.html" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.s1stacktools">s1stacktools</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ezinsar.eicomponents.sensor.s1module.html#__authorPackage__" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.__authorPackage__">__author<wbr></wbr>Package__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ezinsar.eicomponents.sensor.s1module.html#__copyrightPackage__" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.__copyrightPackage__">__copyright<wbr></wbr>Package__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ezinsar.eicomponents.sensor.s1module.html#__namePackage__" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.__namePackage__">__name<wbr></wbr>Package__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ezinsar.eicomponents.sensor.s1module.html#__versionPackage__" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.__versionPackage__">__version<wbr></wbr>Package__</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        <!-- No sidebar toggle for read the docs theme, the sidebar is always
+          visible when the screen is width enough.
+        -->
+      </div>
+
+    </nav>
+    
+    <div class="container-fluid">
+
+      <div id="main" class="">
+        
+
+        
+
+        <div id="search-results-container" style="display: none;">
+        
+          <div id="search-buttons">
+            <span class="label label-default" id="search-docstrings-button">
+            <label class="checkbox-inline">
+              <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+                search in docstrings
+              </input>
+            </label>
+            </span>
+            
+          </div>
+          
+          <noscript>
+              <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+          </noscript>
+  
+          <div class="hint" id="search-help-box">
+            <p class="rst-last">
+        
+              Search bar offers the following options:
+              <ul>   
+                  <li>
+                    <strong>Term presence.</strong> The below example searches for documents that 
+                      must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                  </li> 
+  
+                  <li>
+                    <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                  </li> 
+  
+                  <li>
+                    <strong>Search in specific fields.</strong> The following search matches all objects 
+                    in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+  
+                    <p>
+                      Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                      Last two fields are only applicable if "search in docstrings" is enabled.
+                    </p>
+                  </li>
+  
+                  <li>
+                    <strong>Fuzzy matches.</strong> The following search matches all documents 
+                    that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                  </li>
+              </ul>
+  
+            </p>
+          </div>
+  
+          <div id="search-status"> </div>
+  
+          <div class="warning" id="search-warn-box" style="display: none;">
+            <p class="rst-last"><span id="search-warn"></span></p>
+          </div>
+  
+          <table id="search-results">
+            <!-- Filled dynamically by JS -->
+          </table>
+          
+          <div style="margin-top: 8px;">
+            <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+          </div>
+        </div>
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="index.html" class="internal-link">ezinsar</a></code><wbr></wbr>.<code><a href="ezinsar.eicomponents.html" class="internal-link" title="ezinsar.eicomponents">eicomponents</a></code><wbr></wbr>.<code><a href="ezinsar.eicomponents.sensor.html" class="internal-link" title="ezinsar.eicomponents.sensor">sensor</a></code><wbr></wbr>.<code><a href="ezinsar.eicomponents.sensor.s1module.html" class="internal-link" title="ezinsar.eicomponents.sensor.s1module">s1module</a></code><wbr></wbr>.<code><a href="ezinsar.eicomponents.sensor.s1module.s1slctools.html" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.s1slctools">s1slctools</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <a href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/sensor/s1module/s1slctools.py" class="sourceLink">(source)</a>
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Module to manage Sentinel-1 SLC for EZ-InSAR</p>
+<p>The module allows to manage Sentinel-1 SLC in .zip and .SAFE format for an <code><a href="ezinsar.ezinsarprocessor.EIjob.html" class="internal-link" title="ezinsar.ezinsarprocessor.EIjob">EIjob</a></code></p>
+<blockquote>
+(From <code><a href="index.html" class="internal-link">ezinsar</a></code> package)</blockquote>
+<dl class="rst-docutils">
+<dt>Changelog:</dt>
+<dd><ul class="rst-simple rst-first rst-last">
+<li>3.3.1: Bug fix with SM data, Dec. 2025, Alexis Hrysiewicz</li>
+<li>3.2.2: Delete the support of wget, Alexis Hrysiewicz, Sep. 2025</li>
+<li><dl class="rst-docutils rst-first">
+<dt>1.2.0: Various changes, Aug. 2025, Alexis Hrysiewicz</dt>
+<dd><ul class="rst-first rst-last">
+<li>Delete the orbit managemenent for harmonisation</li>
+<li>Server name in lowercase</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="rst-docutils rst-first">
+<dt>1.1.0: Various changes, Feb. 2025, Alexis Hrysiewicz</dt>
+<dd><ul class="rst-first rst-last">
+<li>Start the migration of scripts into the APIs</li>
+<li>Start the implementation of Sentinel-1 C and D</li>
+<li>Some optimisations</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>1.0.0: Initial version, Dec. 2024</li>
+</ul>
+</dd>
+</dl>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id170">
+  
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#createS1listonfile" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.s1slctools.createS1listonfile">create<wbr></wbr>S1listonfile</a></code></td>
+    <td>Create the S1 SLC list with the <strong>onfile</strong> mode</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#createS1listonline" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.s1slctools.createS1listonline">create<wbr></wbr>S1listonline</a></code></td>
+    <td>Create the S1 SLC list with the <strong>online</strong> mode</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#detection_S1burst_fromROI" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.s1slctools.detection_S1burst_fromROI">detection_<wbr></wbr>S1burst_from<wbr></wbr>ROI</a></code></td>
+    <td>Detect the burst from a ROI</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#detectionS1IW" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.s1slctools.detectionS1IW">detection<wbr></wbr>S1<wbr></wbr>IW</a></code></td>
+    <td>Detect the IW file available in .zip or .SAFE file</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#detectS1annoatationfromxml" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.s1slctools.detectS1annoatationfromxml">detect<wbr></wbr>S1annoatationfromxml</a></code></td>
+    <td>Detect and read the annonation files from S1 .zip and .SAFE file</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#initiateSLC" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.s1slctools.initiateSLC">initiate<wbr></wbr>SLC</a></code></td>
+    <td>Initialise the S1 SLC list</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#listnewS1acquisition" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.s1slctools.listnewS1acquisition">listnew<wbr></wbr>S1acquisition</a></code></td>
+    <td>List the next and planned acquisitions of Sentinel-1 from an EZ-InSAR job</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#read_precise_restitued_xml" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.s1slctools.read_precise_restitued_xml">read<wbr></wbr>_precise<wbr></wbr>_restitued<wbr></wbr>_xml</a></code></td>
+    <td>Read the S1 precise and restitued orbit files</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#read_S1annotation_xml" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.s1slctools.read_S1annotation_xml">read_<wbr></wbr>S1annotation_xml</a></code></td>
+    <td>Read the annonation files from the S1 .xml files</td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#__timeout_ASF__" class="internal-link" title="ezinsar.eicomponents.sensor.s1module.s1slctools.__timeout_ASF__">__timeout_<wbr></wbr>ASF__</a></code></td>
+    <td>Time out in seconds for feching orbit files from the ASF server</td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="ezinsar.eicomponents.sensor.s1module.s1slctools.createS1listonfile">
+    
+  </a>
+  <a name="createS1listonfile">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">createS1listonfile</span><span class="function-signature">(job, verbose)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/sensor/s1module/s1slctools.py#L220">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#createS1listonfile" title="ezinsar.eicomponents.sensor.s1module.s1slctools.createS1listonfile">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Create the S1 SLC list with the <strong>onfile</strong> mode</p>
+<p>The function initialise the S1 SLC for an <tt class="rst-docutils rst-literal">EIjob</tt>, with the <strong>onfile</strong> mode.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">job:</span><code><a href="ezinsar.ezinsarprocessor.EIjob.html" class="internal-link" title="ezinsar.ezinsarprocessor.EIjob">EIjob</a></code></td><td class="fieldArgDesc">EZ-InSAR job</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">verbose</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="ezinsar.ezinsarprocessor.EIjob.html" class="internal-link" title="ezinsar.ezinsarprocessor.EIjob">EIjob</a></code></td><td class="fieldArgDesc">Return an EZ-InSAR class</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ezinsar.eicomponents.sensor.s1module.s1slctools.createS1listonline">
+    
+  </a>
+  <a name="createS1listonline">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">createS1listonline</span><span class="function-signature">(job, verbose, server, satellite)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/sensor/s1module/s1slctools.py#L141">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#createS1listonline" title="ezinsar.eicomponents.sensor.s1module.s1slctools.createS1listonline">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Create the S1 SLC list with the <strong>online</strong> mode</p>
+<p>The function initialise the S1 SLC for an <tt class="rst-docutils rst-literal">EIjob</tt>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">job:</span><code><a href="ezinsar.ezinsarprocessor.EIjob.html" class="internal-link" title="ezinsar.ezinsarprocessor.EIjob">EIjob</a></code></td><td class="fieldArgDesc">EZ-InSAR job</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">verbose</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">server:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">Server for the 'online' mode</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">satellite:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">Satellite</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="ezinsar.ezinsarprocessor.EIjob.html" class="internal-link" title="ezinsar.ezinsarprocessor.EIjob">EIjob</a></code></td><td class="fieldArgDesc">Return an EZ-InSAR class</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ezinsar.eicomponents.sensor.s1module.s1slctools.detection_S1burst_fromROI">
+    
+  </a>
+  <a name="detection_S1burst_fromROI">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">detection_S1burst_fromROI</span><span class="function-signature">(roi, S1annoresults)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/sensor/s1module/s1slctools.py#L660">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#detection_S1burst_fromROI" title="ezinsar.eicomponents.sensor.s1module.s1slctools.detection_S1burst_fromROI">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Detect the burst from a ROI</p>
+<p>The function detects the cooresponding bursts from a ROI</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">roi:</span><code><a href="https://docs.python.org/3/library/functions.html#any" class="intersphinx-link">any</a></code></td><td class="fieldArgDesc">ROI</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg"><wbr></wbr>S1annoresults:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code></td><td class="fieldArgDesc">Dict of S1 annotations</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code></td><td class="fieldArgDesc">Dict of Sentinel-1 bursts</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ezinsar.eicomponents.sensor.s1module.s1slctools.detectionS1IW">
+    
+  </a>
+  <a name="detectionS1IW">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">detectionS1IW</span><span class="function-signature">(file)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/sensor/s1module/s1slctools.py#L699">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#detectionS1IW" title="ezinsar.eicomponents.sensor.s1module.s1slctools.detectionS1IW">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Detect the IW file available in .zip or .SAFE file</p>
+<p>The function detects the IW.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">file:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">Path of the file</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">IW1, IW2, IW3 (bool)</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ezinsar.eicomponents.sensor.s1module.s1slctools.detectS1annoatationfromxml">
+    
+  </a>
+  <a name="detectS1annoatationfromxml">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">detectS1annoatationfromxml</span><span class="function-signature">(file, pol)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/sensor/s1module/s1slctools.py#L353">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#detectS1annoatationfromxml" title="ezinsar.eicomponents.sensor.s1module.s1slctools.detectS1annoatationfromxml">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Detect and read the annonation files from S1 .zip and .SAFE file</p>
+<p>The function detects and reads the annonation files from S1 .zip and .SAFE file</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">file:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">Fullpath of the S1 file</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">pol:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">Selected polarisation (e.g., 'VV')</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code></td><td class="fieldArgDesc">Dict of Sentinel-1 annotations</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ezinsar.eicomponents.sensor.s1module.s1slctools.initiateSLC">
+    
+  </a>
+  <a name="initiateSLC">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">initiateSLC</span><span class="function-signature">(job, verbose: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, mode: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <span class="rst-variable-quote">'</span><span class="rst-variable-string">online</span><span class="rst-variable-quote">'</span>, server: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="ezinsar.constants.html#__S1server__" class="internal-link" title="ezinsar.constants.__S1server__">constants.__S1server__</a>, satellite: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <span class="rst-variable-quote">'</span><span class="rst-variable-string">S1</span><span class="rst-variable-quote">'</span>)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/sensor/s1module/s1slctools.py#L69">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#initiateSLC" title="ezinsar.eicomponents.sensor.s1module.s1slctools.initiateSLC">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Initialise the S1 SLC list</p>
+<p>The function initialise the S1 SLC for an <tt class="rst-docutils rst-literal">EIjob</tt>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">job:</span><code><a href="ezinsar.ezinsarprocessor.EIjob.html" class="internal-link" title="ezinsar.ezinsarprocessor.EIjob">EIjob</a></code></td><td class="fieldArgDesc">EZ-InSAR job</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">verbose [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]. If <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>, the function will use the value from the <code><a href="ezinsar.ezinsarprocessor.EIjob.html" class="internal-link" title="ezinsar.ezinsarprocessor.EIjob">EIjob</a></code> job.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">mode:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">Mode for the list creation [Default: 'online']. Can be 'online' or 'list' or 'onfile'</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">server:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">Server for the 'online' mode [Default: 'Copernicus']. Can be 'Copernicus' or 'ASF'.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">satellite:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">Satellite [Default: 'S1']. Can be 'S1', 'Sentinel-1A' or 'Sentinel-1B'.</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="ezinsar.ezinsarprocessor.EIjob.html" class="internal-link" title="ezinsar.ezinsarprocessor.EIjob">EIjob</a></code></td><td class="fieldArgDesc">Return an EZ-InSAR class</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ezinsar.eicomponents.sensor.s1module.s1slctools.listnewS1acquisition">
+    
+  </a>
+  <a name="listnewS1acquisition">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">listnewS1acquisition</span><span class="function-signature">(job, verbose=<a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a>)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/sensor/s1module/s1slctools.py#L738">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#listnewS1acquisition" title="ezinsar.eicomponents.sensor.s1module.s1slctools.listnewS1acquisition">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>List the next and planned acquisitions of Sentinel-1 from an EZ-InSAR job</p>
+<p>The function lists the next and planned acquisitions of Sentinel-1 from an EZ-InSAR job</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">job:</span><code><a href="ezinsar.ezinsarprocessor.EIjob.html" class="internal-link" title="ezinsar.ezinsarprocessor.EIjob">EIjob</a></code></td><td class="fieldArgDesc">EZ-InSAR job</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">verbose</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/stdtypes.html#list" class="intersphinx-link">list</a></code></td><td class="fieldArgDesc">List of data in EZ-InSAR format</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ezinsar.eicomponents.sensor.s1module.s1slctools.read_precise_restitued_xml">
+    
+  </a>
+  <a name="read_precise_restitued_xml">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">read_precise_restitued_xml</span><span class="function-signature">(path_xml)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/sensor/s1module/s1slctools.py#L618">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#read_precise_restitued_xml" title="ezinsar.eicomponents.sensor.s1module.s1slctools.read_precise_restitued_xml">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Read the S1 precise and restitued orbit files</p>
+<p>The function reads the S1 precise and restitued orbit files</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">path<wbr></wbr>_xml:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">Fullpath of the .EOF files</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code></td><td class="fieldArgDesc">Dict of Sentinel-1 annotations per subswath
+dict: Dict of S1 orbit per subswath</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ezinsar.eicomponents.sensor.s1module.s1slctools.read_S1annotation_xml">
+    
+  </a>
+  <a name="read_S1annotation_xml">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">read_S1annotation_xml</span><span class="function-signature">(path_xml)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/sensor/s1module/s1slctools.py#L466">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#read_S1annotation_xml" title="ezinsar.eicomponents.sensor.s1module.s1slctools.read_S1annotation_xml">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Read the annonation files from the S1 .xml files</p>
+<p>The function reads the annonation files from S1 .xml files</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">path<wbr></wbr>_xml:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">Fullpath of the .xml files</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code></td><td class="fieldArgDesc">Dict of Sentinel-1 annotations per subswath
+dict: Dict of S1 orbit per subswath</td></tr></table></div>
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ezinsar.eicomponents.sensor.s1module.s1slctools.__timeout_ASF__">
+    
+  </a>
+  <a name="__timeout_ASF__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">__timeout_ASF__</span>: <code><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a></code> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/sensor/s1module/s1slctools.py#L62">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#__timeout_ASF__" title="ezinsar.eicomponents.sensor.s1module.s1slctools.__timeout_ASF__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>Time out in seconds for feching orbit files from the ASF server</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+    <hr />
+    
+    
+    <div class="container">
+      <a href="index.html">API Documentation</a> for <a href="../index.html" class="projecthome">EZ-InSAR</a>,
+    generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+      24.3.3 at 2026-01-02 23:43:35.
+    </div>
+    
+    <script src="ajax.js" type="text/javascript"></script>
+    <script src="searchlib.js" type="text/javascript"></script>
+    <script src="search.js" type="text/javascript"></script>
+  
+  </footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

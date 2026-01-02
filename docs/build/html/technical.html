@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technical information &mdash; EZ-InSAR  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="EZ-InSAR supplementary tools" href="subprograms/index.html" />
+    <link rel="prev" title="Ship detection from Sentinel-1 GRD images using SNAP" href="tutorials/contrib/ex_shipdetect_snap.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            EZ-InSAR
+              <img src="_static/EZ_InSAR_logo_whiteback.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.3.1 Dec. 2025
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Content of the documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">EZ-InSAR’s Read-Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proc_sensors.html">SAR and InSAR processors and sensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installationprocessor.html">Installation of SAR/InSAR processors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optmodules.html">EZ-InSAR optional Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dem.html">Digital Elevation Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use/index.html">Run EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clihelp.html">Command-line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Technical information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#on-the-sar-insar-processor">On the SAR/InSAR processor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#for-doris">For Doris</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for-isce-2">For ISCE-2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for-stamps">For StaMPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for-mintpy">For MintPy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for-licsbas">For LiCSBAS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for-snap">For SNAP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#on-the-archive-creation">On the archive creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notes-on-the-ez-insar-configuration-file">Notes on the EZ-InSAR configuration file</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="subprograms/index.html">EZ-InSAR supplementary tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contrib.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html#satellite-data">Satellite data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html#partners">Partners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Change-log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dvptplan.html">Development plan of EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue_tracker.html">Issue tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licenses.html">Licenses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">EZ-InSAR-scripts documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/alexisInSAR/EZ-InSAR-3">EZ-InSAR's GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.ucd.ie">University College Dublin</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.icrag-centre.org">iCRAG</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">EZ-InSAR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Technical information</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/technical.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="technical-information">
+<h1>Technical information<a class="headerlink" href="#technical-information" title="Link to this heading"></a></h1>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
+<p><strong>EZ-InSAR</strong> processing job works with two levels of parameters:</p>
+<ul>
+<li><p>the <strong>super parameters</strong>, i.e.,</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">coregistration</span><span class="o">.</span><span class="n">mlran</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># Multilook factor in range</span>
+<span class="n">job</span><span class="o">.</span><span class="n">coregistration</span><span class="o">.</span><span class="n">mlazi</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># Multillok factor in azimut</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The EZ-InSAR job contains only <strong>super parameters</strong>.</p>
+</div>
+<ul>
+<li><p>the <strong>processing parameters</strong>, defined by a dictionary. The <strong>EZ-InSAR</strong> sub-job contains super parameters and processing parameters.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">ifgstack</span><span class="o">.</span><span class="n">ifggeocoding</span><span class="p">[</span><span class="s1">&#39;process&#39;</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>Here, <em>ifgstack</em> corresponds to the name of the processing job, and <em>ifggeocoding</em> is the processing step. <em>Process</em> is therefore the name of the parameter.</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>EZ-InSAR</strong> checks the compatabilities of parameters between various <strong>EZ-InSAR</strong> versions:</p>
+<ul class="simple">
+<li><p>if a <strong>processing parameter</strong> is not still available in <strong>EZ-InSAR</strong>, a warning message will be deplayed;</p></li>
+<li><p>if a new <strong>processing parameter</strong> is available in <strong>EZ-InSAR</strong> but not in the .ei job file, a default value will be used.</p></li>
+<li><p>if a <strong>super parameter</strong> is not available in <strong>EZ-InSAR</strong>, a error will be occured;</p></li>
+<li><p>if a <strong>super parameter</strong> is available in <strong>EZ-InSAR</strong> but not in the .ei job file, a default value will be used.</p></li>
+</ul>
+</div>
+</section>
+<section id="on-the-sar-insar-processor">
+<h2>On the SAR/InSAR processor<a class="headerlink" href="#on-the-sar-insar-processor" title="Link to this heading"></a></h2>
+<section id="for-doris">
+<h3>For Doris<a class="headerlink" href="#for-doris" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Interface: Python (writing of input cards) -&gt; Bash command -&gt; Doris</p></li>
+<li><p>Multi-threading: need to be confirmed</p></li>
+<li><p>Parallelisation: Yes</p></li>
+<li><p>Graphical-User-Interface integration: Yes</p></li>
+<li><p>Testing: for single interferometric computation</p></li>
+</ul>
+</section>
+<section id="for-isce-2">
+<h3>For ISCE-2<a class="headerlink" href="#for-isce-2" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Interface: Python -&gt; Bash command -&gt; ISCE-2</p></li>
+<li><p>Multi-threading: Yes</p></li>
+<li><p>Parallelisation: need to be fully tested</p></li>
+<li><p>Graphical-User-Interface integration: Yes</p></li>
+<li><p>Testing: Yes</p></li>
+</ul>
+</section>
+<section id="for-stamps">
+<h3>For StaMPS<a class="headerlink" href="#for-stamps" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Interface: Python -&gt; MATLAB engine-&gt; StaMPS</p></li>
+<li><p>Multi-threading: Yes</p></li>
+<li><p>Parallelisation: Yes</p></li>
+<li><p>Graphical-User-Interface integration: under testing</p></li>
+<li><p>Testing: Yes</p></li>
+</ul>
+</section>
+<section id="for-mintpy">
+<h3>For MintPy<a class="headerlink" href="#for-mintpy" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Interface: Python -&gt; Python -&gt; MintPy</p></li>
+<li><p>Multi-threading: Yes (see MintPy’s docs)</p></li>
+<li><p>Parallelisation: Yes (see MintPy’s docs)</p></li>
+<li><p>Graphical-User-Interface integration: Yes</p></li>
+<li><p>Testing: Yes</p></li>
+</ul>
+</section>
+<section id="for-licsbas">
+<h3>For LiCSBAS<a class="headerlink" href="#for-licsbas" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Interface: Python -&gt; Bash command -&gt; LiCSBAS</p></li>
+<li><p>Multi-threading: Yes (see LiCSBAS’s docs)</p></li>
+<li><p>Parallelisation: Yes (see LiCSBAS’s docs)</p></li>
+<li><p>Graphical-User-Interface integration: Under testing</p></li>
+<li><p>Testing: Yes</p></li>
+</ul>
+</section>
+<section id="for-snap">
+<h3>For SNAP<a class="headerlink" href="#for-snap" title="Link to this heading"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are two options for SNAP implementation:</p>
+<ol class="arabic simple">
+<li><p>snappy <strong>but</strong> snappy has several problems with the memory usage.</p></li>
+<li><p>GPT.</p></li>
+</ol>
+<p><strong>EZ-InSAR</strong> uses GPT but some function parts are compatible with snappy. <strong>We recommend using GPT.</strong></p>
+</div>
+<ul class="simple">
+<li><p>Interface (1): Python with snappy</p></li>
+<li><p>Interface (2): Python -&gt; Writing of .xml input card -&gt; gpt -&gt; SNAP</p></li>
+<li><p>Multi-threading: Yes</p></li>
+<li><p>Parallelisation: No??</p></li>
+<li><p>Graphical-User-Interface integration: Under testing</p></li>
+<li><p>Testing: No</p></li>
+</ul>
+</section>
+</section>
+<section id="on-the-archive-creation">
+<h2>On the archive creation<a class="headerlink" href="#on-the-archive-creation" title="Link to this heading"></a></h2>
+<p>SAR/InSAR data generate very large volume of data, which can be issues for backup. Indeed, duplicating data/results can be impossible because of the space storage. <strong>EZ-InSAR</strong> tries to address this challenge by providing a way to “archive” the SAR/InSAR results.</p>
+<p><strong>The following tables shows the compatibility of this function with SAR/InSAR processors.</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Processor</p></th>
+<th class="head"><p>Coregistration</p></th>
+<th class="head"><p>Interferometric stack</p></th>
+<th class="head"><p>Time-Series analysis</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>GAMMA</strong></p></td>
+<td><p>O</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Only one argument is required:</strong></p>
+<ul class="simple">
+<li><p><em>file</em>: an <strong>EZ-InSAR</strong> job. All active sub-jobs will be processed by default.</p></li>
+</ul>
+<p><strong>The full list of options is:</strong></p>
+<ul class="simple">
+<li><p><em>description</em>: Description of the processor/project. The user can write a text in order to descript the work.</p></li>
+<li><p><em>project</em>: Name of the work/project.</p></li>
+<li><p><em>imageill</em>: Image used for illustration in the report. If None is used, a map of the region of interest will be used.</p></li>
+<li><p><em>suppfile</em>: List of supplementary files which need to be added into the archive.</p></li>
+<li><p><em>blockreport</em>: Block the report creation.</p></li>
+<li><p><em>logo</em>: Logo file can be used in the report.</p></li>
+<li><p><em>unmasksensible</em>: Disable the masking of sensible information (i.e., path).</p></li>
+<li><p><em>compression</em>: Define the compression algorithm.</p></li>
+<li><p><em>encryption</em>: Enable the encryption of the archive.</p></li>
+<li><p><em>key</em>: Path of the user <strong>public</strong> key used by the encryption.</p></li>
+<li><p><em>bypassuser</em>: Bypass the user confirmation.</p></li>
+<li><p><em>noclean</em>: Block the removal of temporary files.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>archive<span class="w"> </span>-f<span class="w"> </span>&lt;EZ-InSAR<span class="w"> </span>job<span class="w"> </span>file&gt;<span class="w">  </span><span class="c1"># Create the archive</span>
+</pre></div>
+</div>
+<p>If the archive is encrypted, <strong>EZ-InSAR</strong> should be used to decrypt it. <strong>EZ-InSAR</strong> also proposes a command for this.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>archive_decrypt<span class="w"> </span>-f<span class="w"> </span>&lt;EZ-InSAR<span class="w"> </span>archive&gt;<span class="w"> </span>-k<span class="w"> </span>&lt;key&gt;<span class="w"> </span><span class="c1"># Unzip the archive</span>
+</pre></div>
+</div>
+<p>Only two options are required:</p>
+<ul class="simple">
+<li><p><em>file</em>: The EZ-InSAR encrypted archive.</p></li>
+<li><p><em>key</em>: Path of the user <strong>private</strong> key.</p></li>
+</ul>
+<p><strong>The following images shows an example of the archive report.</strong></p>
+<img alt="_images/template_report_1.jpg" src="_images/template_report_1.jpg" />
+<img alt="_images/template_report_2.jpg" src="_images/template_report_2.jpg" />
+</section>
+<section id="notes-on-the-ez-insar-configuration-file">
+<h2>Notes on the EZ-InSAR configuration file<a class="headerlink" href="#notes-on-the-ez-insar-configuration-file" title="Link to this heading"></a></h2>
+<p>The .EZInSARconf file includes numerous variables which users can changed to personalise EZ-InSAR. Default values are for Unix systems. It is not required to have a full .EZInSARconf file.</p>
+<p><strong>username</strong>: The username for the favourite Sentinel-1 server. Default: <em>username</em></p>
+<p><strong>password</strong>: The password for the favourite Sentinel-1 server. Default: <em>password</em></p>
+<p><strong>tokenM2M</strong>: Not used in the current version.</p>
+<p><strong>cache</strong>: The cache directory of EZ-InSAR, which will be used to store temporary files. Default: <em>home_dir/.EZInSARcache</em></p>
+<p><strong>pathisce2</strong>: The root directory of ISCE-2, containing all the files and directories. Default: <em>/usr/local/bin</em></p>
+<p><strong>pathsnappy</strong>: The directory of the snappy wrapper of SNAP, containing the <em>esa_snappy</em> directory (e.g., /home/&lt;user&gt;/.snap/snap-python for Linux). Default: <em>/usr/local/bin</em></p>
+<p><strong>pathsnapgpt</strong>: The directory of the GPT wrapper of SNAP, containing the <em>gpt</em> executable file. Default: <em>/usr/local/bin</em></p>
+<p><strong>pathdoris</strong>: The root directory of Doris, containing all the files and directories. Default: <em>/usr/local/bin</em></p>
+<p><strong>pathstamps</strong>: The root directory of StaMPS, containing all the files and directories. Default: <em>/usr/local/bin</em></p>
+<p><strong>pathlicsbas</strong>: The root directory of LicSBAS, containing all the files and directories. Default: <em>/usr/local/bin</em></p>
+<p><strong>pathserverdatabase</strong>: Not used in the current version.</p>
+<p><strong>licenseagreements</strong>: Depreciated.</p>
+<p><strong>ISCE2modesymlink</strong>: Enable the creation of links (instead of to copy and paste) the stacks from ISCE-2. Can be True or False. Default: <em>True</em></p>
+<p><strong>SNAPcachemax</strong>: Max. cache value before cleaning in MB for SNAP. Default: <em>5000</em></p>
+<p><strong>SNAPcacheclean</strong>: Enable the cleaning of the SNAP cache. Can be True or False. Default: <em>True</em></p>
+<p><strong>SNAPwrapper</strong>: SNAP python wrapper. Can be snappy or gpt. Default: <em>gpt</em></p>
+<p><strong>defautprocessor</strong>: Default SAR/InSAR processor used by EZ-InSAR. Default: <em>isce2</em></p>
+<p><strong>S1server</strong>: Default Sentinel-1 server used by EZ-InSAR. Default: <em>Copernicus</em></p>
+<p><strong>loggingmode</strong>: Logging mode of EZ-InSAR. Default: <em>INFO</em></p>
+<p><strong>nameDockerImage</strong>: Name of the Docker image used by EZ-InSA, if Docker is used. Default: <em>ezinsar</em></p>
+<p><strong>wgetlimit</strong>: Mode of the downloading with wget: if <em>auto</em>, the bandwidth limit will be variable according day and night hours, if <em>XXm</em>, XX must be a number to define the limit in mB/s, the limit will be fixed. Default: <em>auto</em></p>
+<p><strong>wgetlimitmin</strong>: Min. bandwidth limit used by wget mB/s (during the day hours). Default: <em>12.5m</em></p>
+<p><strong>wgetlimitmax</strong>: Max. bandwidth limit used by wget mB/s (during the night hours). Default: <em>50.0m</em></p>
+<p><strong>chunksize</strong>: Chunk size used by the python downloader. Default: <em>8192</em></p>
+<p><strong>SLCdownloader</strong>: Selected downloader for the SLCs. Can be python or wget. Default: <em>python</em></p>
+<p><strong>sleepSLCdownload</strong>: Sleeping ime between two SLC downloading in seconds. Default: <em>2</em></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tutorials/contrib/ex_shipdetect_snap.html" class="btn btn-neutral float-left" title="Ship detection from Sentinel-1 GRD images using SNAP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="subprograms/index.html" class="btn btn-neutral float-right" title="EZ-InSAR supplementary tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright  2025, EZ-InSAR / UCD / iCRAG.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

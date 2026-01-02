@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Computation of a Sentinel-1 StripMap single interferogram via CLI of EZ-InSAR &mdash; EZ-InSAR  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Computation of a Sentinel-1 IW time series with LiCSBAS" href="../example3/notebook_example3.html" />
+    <link rel="prev" title="Management of Sentinel-1 images via Python scripts" href="../../theme_preparation/example1/notebook_example1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            EZ-InSAR
+              <img src="../../../_static/EZ_InSAR_logo_whiteback.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.3.1 Dec. 2025
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Content of the documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../readme.html">EZ-InSAR’s Read-Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../proc_sensors.html">SAR and InSAR processors and sensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installationprocessor.html">Installation of SAR/InSAR processors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../optmodules.html">EZ-InSAR optional Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dem.html">Digital Elevation Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../use/index.html">Run EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../clihelp.html">Command-line Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../theme_preparation/example1/notebook_example1.html">Management of Sentinel-1 images via Python scripts</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Computation of a Sentinel-1 StripMap single interferogram via CLI of EZ-InSAR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#preparation-of-ez-insar">0 Preparation of EZ-InSAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#initialiation-of-the-ez-insar-job">1 Initialiation of the EZ-InSAR job</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#download-the-sentinel-1-data-slc-and-orbits">2 Download the Sentinel-1 data (SLC and orbits)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#download-the-dem">3 Download the DEM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coregistration">4 Coregistration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interferometric-computation">5 Interferometric computation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../example3/notebook_example3.html">Computation of a Sentinel-1 IW time series with LiCSBAS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contrib/ex_shipdetect_snap.html">Ship detection from Sentinel-1 GRD images using SNAP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../technical.html">Technical information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../subprograms/index.html">EZ-InSAR supplementary tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contrib.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../acknowledgments.html#satellite-data">Satellite data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../acknowledgments.html#partners">Partners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Change-log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dvptplan.html">Development plan of EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../issue_tracker.html">Issue tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../licenses.html">Licenses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">EZ-InSAR-scripts documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/alexisInSAR/EZ-InSAR-3">EZ-InSAR's GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.ucd.ie">University College Dublin</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.icrag-centre.org">iCRAG</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">EZ-InSAR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Tutorials</a></li>
+      <li class="breadcrumb-item active">Computation of a Sentinel-1 StripMap single interferogram via CLI of EZ-InSAR</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/tutorials/theme_computation/example2/notebook_example2.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="computation-of-a-sentinel-1-stripmap-single-interferogram-via-cli-of-ez-insar">
+<h1>Computation of a Sentinel-1 StripMap single interferogram via CLI of EZ-InSAR<a class="headerlink" href="#computation-of-a-sentinel-1-stripmap-single-interferogram-via-cli-of-ez-insar" title="Link to this heading"></a></h1>
+<p>By Alexis Hrysiewicz, Oct. 2024</p>
+<p>Here the goal is the computation of an single interferogram spanning an eruption of the Piton de la Fournaise. We will use Sentinel-1 StripMap data, and the Doris processor.</p>
+<p>Also we will use EZ-InSAR in Python and by command-line interface.</p>
+<section id="preparation-of-ez-insar">
+<h2>0 Preparation of EZ-InSAR<a class="headerlink" href="#preparation-of-ez-insar" title="Link to this heading"></a></h2>
+<p><strong>EZ-InSAR</strong> needs to be installed and ready. The Windows’ users can used the Docker version of <strong>EZ-InSAR</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>docker<span class="w"> </span>-v<span class="w"> </span>&lt;pathofworkdirectory&gt;
+</pre></div>
+</div>
+</section>
+<section id="initialiation-of-the-ez-insar-job">
+<h2>1 Initialiation of the EZ-InSAR job<a class="headerlink" href="#initialiation-of-the-ez-insar-job" title="Link to this heading"></a></h2>
+<p>The first step is an initialiation of an EZ-InSAR job. Of course, it is possible to define some parameters:</p>
+<ul class="simple">
+<li><p>we want to use ONE polarisations available with Sentinel-1 data: <strong>VV</strong>;</p></li>
+<li><p>we decide to use the no-default acquisition mode of Sentinel-1: <strong>SM</strong>;</p></li>
+<li><p>we decide to active the <strong>verbose</strong>;</p></li>
+<li><p>and we also decide to save the log into the <em>ezinsarexample.log</em> <strong>file</strong>.</p></li>
+</ul>
+<p><strong>The Sentinel-1 satellites are selected by default.</strong></p>
+<p>However, we need to modified some parameters: i.e., <strong>the different directory paths and the dates</strong>.</p>
+<p>Because this is the easiest option, we can use Python to initialise our job. In your python terminal:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## Import the required Python packages</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">ezinsar.job</span> <span class="k">as</span> <span class="nn">ez</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1">## Initialise the job</span>
+<span class="n">job</span> <span class="o">=</span> <span class="n">ez</span><span class="o">.</span><span class="n">EIjob</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">polarisation</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;VV&#39;</span><span class="p">],</span><span class="n">satmode</span><span class="o">=</span><span class="s1">&#39;SM&#39;</span><span class="p">,</span><span class="n">log</span><span class="o">=</span><span class="s1">&#39;ezinsarexample.log&#39;</span><span class="p">)</span>
+
+<span class="c1">## Path directory modofications</span>
+<span class="n">job</span><span class="o">.</span><span class="n">workdirectory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">job</span><span class="o">.</span><span class="n">pathSLC</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;./Data_slc&#39;</span><span class="p">)</span>
+<span class="n">job</span><span class="o">.</span><span class="n">pathorbit</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;./Data_orbit&#39;</span><span class="p">)</span>
+<span class="n">job</span><span class="o">.</span><span class="n">pathaux</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;./Data_aux&#39;</span><span class="p">)</span>
+<span class="n">job</span><span class="o">.</span><span class="n">pathDEM</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;./DEM&#39;</span><span class="p">)</span>
+
+<span class="c1">## Define the Region of Interest</span>
+<span class="n">job</span><span class="o">.</span><span class="n">importroi</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="p">[</span><span class="mf">55.628551272769705</span><span class="p">,</span><span class="o">-</span><span class="mf">21.315123458202194</span><span class="p">,</span><span class="mf">55.85024829403256</span><span class="p">,</span><span class="o">-</span><span class="mf">21.186127122294817</span><span class="p">])</span>
+
+<span class="c1">## Date definition</span>
+<span class="n">job</span><span class="o">.</span><span class="n">date1</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s1">&#39;2023-06-29T00:00:00.000000Z&#39;</span><span class="p">,</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%S.</span><span class="si">%f</span><span class="s1">Z&#39;</span><span class="p">)</span>
+<span class="n">job</span><span class="o">.</span><span class="n">date2</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s1">&#39;2023-07-15T00:00:00.000000Z&#39;</span><span class="p">,</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%S.</span><span class="si">%f</span><span class="s1">Z&#39;</span><span class="p">)</span>
+
+<span class="c1">## Satellite parameters</span>
+<span class="n">job</span><span class="o">.</span><span class="n">relorbit</span> <span class="o">=</span> <span class="mi">144</span>
+<span class="n">job</span><span class="o">.</span><span class="n">satpass</span> <span class="o">=</span> <span class="s1">&#39;ASCENDING&#39;</span>
+
+<span class="c1">## Creation of the directories</span>
+<span class="n">job</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span>
+
+<span class="c1">## Quick checking of the job</span>
+<span class="n">job</span><span class="o">.</span><span class="n">check</span><span class="p">()</span>
+
+<span class="c1">## Initialisation of the SLC list (and print it)</span>
+<span class="n">job</span><span class="o">.</span><span class="n">initiateSLC</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;online&#39;</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">job</span><span class="o">.</span><span class="n">printSLClist</span><span class="p">()</span>
+
+<span class="c1">## Save the job</span>
+<span class="n">ez</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">job</span><span class="p">,</span><span class="s1">&#39;example2.ei&#39;</span><span class="p">)</span>
+
+<span class="c1">## Quit Python</span>
+<span class="n">quit</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="download-the-sentinel-1-data-slc-and-orbits">
+<h2>2 Download the Sentinel-1 data (SLC and orbits)<a class="headerlink" href="#download-the-sentinel-1-data-slc-and-orbits" title="Link to this heading"></a></h2>
+<p>Even if <strong>EZ-InSAR</strong> offers easy tools for Sentinel-1 downloading, we will use the Python to download the imagery (and the orbit files), because we will use some advanced options of <strong>EZ-InSAR</strong> to download only the VV polarisation of Sentinel-1 data. This option is only compatible with the Copernicus server.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ezinsar.job</span> <span class="k">as</span> <span class="nn">ez</span>
+
+<span class="n">job</span> <span class="o">=</span> <span class="n">ez</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;example2.ei&#39;</span><span class="p">)</span>
+
+<span class="n">job</span><span class="o">.</span><span class="n">downloadSLC</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;xxxxxxx&#39;</span><span class="p">,</span><span class="n">password</span><span class="o">=</span><span class="s2">&quot;xxxxxxx&quot;</span><span class="p">,</span><span class="n">partialdownloading</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;-vh-&#39;</span><span class="p">],</span><span class="n">modepartial</span><span class="o">=</span><span class="s1">&#39;exclude&#39;</span><span class="p">,</span><span class="n">zipping</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">job</span><span class="o">.</span><span class="n">downloadorbit</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;xxxxxxx&#39;</span><span class="p">,</span><span class="n">password</span><span class="o">=</span><span class="s2">&quot;xxxxxxx&quot;</span><span class="p">)</span>
+<span class="n">job</span><span class="o">.</span><span class="n">checkSLClist</span><span class="p">()</span>
+<span class="n">job</span><span class="o">.</span><span class="n">displaySLClist</span><span class="p">(</span><span class="n">figure</span><span class="o">=</span><span class="s1">&#39;fig1_example2.jpg&#39;</span><span class="p">)</span>
+
+<span class="n">ez</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">job</span><span class="p">,</span><span class="s1">&#39;example2.ei&#39;</span><span class="p">)</span>
+
+<span class="n">quit</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="fig1_example2.job" src="../../../_images/fig1_example2.jpg" />
+<p>Map generated by <strong>EZ-InSAR</strong> regarding the SLC extents and the ROI.</p>
+</section>
+<section id="download-the-dem">
+<h2>3 Download the DEM<a class="headerlink" href="#download-the-dem" title="Link to this heading"></a></h2>
+<p>Since this step, we will use the command-line interface of <strong>EZ-InSAR</strong>. Here the goal is to download the DEM.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>DEM<span class="w"> </span>-s<span class="w"> </span>example2.ei<span class="w"> </span>-b<span class="w"> </span><span class="m">0</span>,0,0,0<span class="w"> </span>--typeDEM<span class="w"> </span>Copernicus-ell<span class="w"> </span>--processor<span class="w"> </span>doris
+</pre></div>
+</div>
+</section>
+<section id="coregistration">
+<h2>4 Coregistration<a class="headerlink" href="#coregistration" title="Link to this heading"></a></h2>
+<p>After the DEM retrieval, <strong>EZ-InSAR</strong> is ready to run the coregistration. Firstly, we need to add the coregistration job:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>init<span class="w"> </span>-p<span class="w"> </span>doris<span class="w"> </span>-t<span class="w"> </span>coreg<span class="w"> </span>-f<span class="w"> </span>example2.ei<span class="w"> </span>-j<span class="w"> </span>example2.ei
+</pre></div>
+</div>
+<p>All default parameters are correct, we therefore can run the processing:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>run<span class="w"> </span>-f<span class="w"> </span>example2.ei<span class="w"> </span>-s<span class="w"> </span><span class="m">1</span>-14
+</pre></div>
+</div>
+<p>Some images can be verified to make sure that the coregistration was correct.</p>
+<p>The master image:</p>
+<img alt="20230630.vv.slc.jpg" src="../../../_images/20230630.vv.slc.jpg" />
+<p>The slave image (before the coregistration):</p>
+<img alt="20230712.vv.slc.jpg" src="../../../_images/20230712.vv.slc.jpg" />
+<p>The interferogram without any correction:</p>
+<img alt="20230630_vv_20230712_vv.cint.jpg" src="../../../_images/20230630_vv_20230712_vv.cint.jpg" />
+</section>
+<section id="interferometric-computation">
+<h2>5 Interferometric computation<a class="headerlink" href="#interferometric-computation" title="Link to this heading"></a></h2>
+<p>From the coregistred stack, we are now able to run the interferometric computation. Again, we need to add the ifgstack job:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>init<span class="w"> </span>-p<span class="w"> </span>doris<span class="w"> </span>-t<span class="w"> </span>ifgstack<span class="w"> </span>-f<span class="w"> </span>example2.ei<span class="w"> </span>-j<span class="w"> </span>example2.ei
+</pre></div>
+</div>
+<p>Some parameters need to be changed. Here we desire to increase the resolution of geotiff InSAR products (final images) by modifying the oversampling factor of the DEM. This can be done because of the StripMap data.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>init<span class="w"> </span>-t<span class="w"> </span>ifgstack<span class="w"> </span>-f<span class="w"> </span>example2.ei<span class="w"> </span>-j<span class="w"> </span>example2.ei<span class="w"> </span>--modify<span class="w"> </span><span class="s1">&#39;ifggeocoding[&quot;overlon&quot;][&quot;value&quot;]=3.0&#39;</span>
+ezinsar<span class="w"> </span>init<span class="w"> </span>-t<span class="w"> </span>ifgstack<span class="w"> </span>-f<span class="w"> </span>example2.ei<span class="w"> </span>-j<span class="w"> </span>example2.ei<span class="w"> </span>--modify<span class="w"> </span><span class="s1">&#39;ifggeocoding[&quot;overlat&quot;][&quot;value&quot;]=3.0&#39;</span>
+</pre></div>
+</div>
+<p>Finally, we are ready for the processing. <strong>Be carefully, we have to select the ifgstack job.</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>run<span class="w"> </span>-f<span class="w"> </span>example2.ei<span class="w"> </span>-s<span class="w"> </span><span class="m">1</span>-8
+</pre></div>
+</div>
+<p>The result images can be found in the geotiff directory.</p>
+<p>The filtered interferogram:</p>
+<img alt="S1_SM_20230630_VV_20230712_VV.diff.filt.geo.pha.jpg" src="../../../_images/S1_SM_20230630_VV_20230712_VV.diff.filt.geo.pha.jpg" />
+<p>The coherence:</p>
+<img alt="S1_SM_20230630_VV_20230712_VV.cc.geo.jpg" src="../../../_images/S1_SM_20230630_VV_20230712_VV.cc.geo.jpg" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../../theme_preparation/example1/notebook_example1.html" class="btn btn-neutral float-left" title="Management of Sentinel-1 images via Python scripts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../example3/notebook_example3.html" class="btn btn-neutral float-right" title="Computation of a Sentinel-1 IW time series with LiCSBAS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright  2025, EZ-InSAR / UCD / iCRAG.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

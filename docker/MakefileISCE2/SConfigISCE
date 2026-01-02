@@ -1,0 +1,18 @@
+PRJ_SCONS_BUILD=/home/isce2/build
+PRJ_SCONS_INSTALL=/home/isce2/isce
+
+LIBPATH=/usr/lib/x86_64-linux-gnu /usr/lib /usr/lib/x86_64-linux-gnu/hdf5/serial
+CPPPATH=/usr/include/x86_64-linux-gnu /usr/include /usr/include/python3.11m /usr/include/hdf5/serial /usr/include/gdal /miniconda3/include/python3.11 /miniconda3/lib/python3.11/site-packages/numpy/core/include /miniconda3/lib/python3.11/site-packages/opencv2/core/include /usr/include/opencv2 /usr/local/include/opencv2
+FORTRANPATH=/usr/include /usr/lib/gcc/x86_64-linux-gnu/7/finclude
+
+FORTRAN=/usr/bin/gfortran
+CC=/usr/bin/gcc
+CXX=/usr/bin/g++
+
+MOTIFLIBPATH = /usr/lib/x86_64-linux-gnu
+X11LIBPATH = /usr/lib/x86_64-linux-gnu
+MOTIFINCPATH = /usr/include/Xm
+X11INCPATH = /usr/include/X11
+
+ENABLE_CUDA=False
+CUDA_TOOLKIT_PATH=/usr/local/cuda-9.2

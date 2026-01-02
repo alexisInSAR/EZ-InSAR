@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Run EZ-InSAR &mdash; EZ-InSAR  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Import, download, check the SLC images (and orbit files)" href="slcguide.html" />
+    <link rel="prev" title="Digital Elevation Models" href="../dem.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            EZ-InSAR
+              <img src="../_static/EZ_InSAR_logo_whiteback.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.3.1 Dec. 2025
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Content of the documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">EZ-InSAR’s Read-Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proc_sensors.html">SAR and InSAR processors and sensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installationprocessor.html">Installation of SAR/InSAR processors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optmodules.html">EZ-InSAR optional Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dem.html">Digital Elevation Models</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Run EZ-InSAR</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#create-an-ez-insar-job">Create an EZ-InSAR job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#process-insar-data-using-ez-insar">Process InSAR data using EZ-InSAR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="slcguide.html">Import, download, check the SLC images (and orbit files)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DEMguide.html">Download the DEM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="coregguide.html">Run a coregistration of SLCs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgguide.html">Compute an interferometric stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tsguide.html">Compute a time series of displacements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intguide.html">Compute a backscatter-intensity stack</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#save-and-load-an-ez-insar-job">Save and load an EZ-InSAR job</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../clihelp.html">Command-line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical.html">Technical information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../subprograms/index.html">EZ-InSAR supplementary tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contrib.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgments.html#satellite-data">Satellite data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgments.html#partners">Partners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Change-log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dvptplan.html">Development plan of EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../issue_tracker.html">Issue tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses.html">Licenses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">EZ-InSAR-scripts documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/alexisInSAR/EZ-InSAR-3">EZ-InSAR's GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.ucd.ie">University College Dublin</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.icrag-centre.org">iCRAG</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">EZ-InSAR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Run EZ-InSAR</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/use/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="run-ez-insar">
+<h1>Run EZ-InSAR<a class="headerlink" href="#run-ez-insar" title="Link to this heading"></a></h1>
+<section id="create-an-ez-insar-job">
+<h2>Create an EZ-InSAR job<a class="headerlink" href="#create-an-ez-insar-job" title="Link to this heading"></a></h2>
+<p><strong>The first step is the definition of an EZ-InSAR job. So, the EZ-InSAR package needs to be imported:</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ezinsar.job</span> <span class="k">as</span> <span class="nn">ez</span>
+</pre></div>
+</div>
+<p>Then, the job can be easily initialised:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span> <span class="o">=</span> <span class="n">ez</span><span class="o">.</span><span class="n">EIjob</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">polarisation</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;VV&#39;</span><span class="p">,</span><span class="s1">&#39;VH&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All EZ-InSAR job’s attributes can be given during the initialisation of the job as optional arguments.</p>
+</div>
+<p>By default, the Sentinel-1 data - in IW acquition mode - will be used. Then, the paths of the required directories must be defined:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">workdirectory</span> <span class="o">=</span> <span class="s1">&#39;./WKtest&#39;</span>            <span class="c1"># Path of the workdirectory</span>
+<span class="n">job</span><span class="o">.</span><span class="n">pathSLC</span> <span class="o">=</span> <span class="s1">&#39;./WKtest/Data_slc&#39;</span>         <span class="c1"># Path of the SLCs (if needed)</span>
+<span class="n">job</span><span class="o">.</span><span class="n">pathorbit</span> <span class="o">=</span> <span class="s1">&#39;./WKtest/Data_orbit&#39;</span>     <span class="c1"># Path of the orbit files (if needed)</span>
+<span class="n">job</span><span class="o">.</span><span class="n">pathaux</span> <span class="o">=</span> <span class="s1">&#39;./WKtest/Data_aux&#39;</span>         <span class="c1"># Path of the Aux. files (if needed)</span>
+</pre></div>
+</div>
+<p>Using Sentinel-1 imagery, we must to define the research dates:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">job</span><span class="o">.</span><span class="n">date1</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s1">&#39;2020-12-01T00:00:00.000000Z&#39;</span><span class="p">,</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%S.</span><span class="si">%f</span><span class="s1">Z&#39;</span><span class="p">)</span>      <span class="c1"># First date of the research</span>
+<span class="n">job</span><span class="o">.</span><span class="n">date2</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s1">&#39;2020-12-31T00:00:00.000000Z&#39;</span><span class="p">,</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%S.</span><span class="si">%f</span><span class="s1">Z&#39;</span><span class="p">)</span>      <span class="c1"># Last date of the research</span>
+</pre></div>
+</div>
+<p>These dates are only used for researching the SAR acquisitions. During processing, <strong>EZ-InSAR</strong> will try to use all the files stored.</p>
+<p><strong>The next step to intialise an EZ-InSAR job is the definition of a Region of Interest (ROI).</strong>. The method <em>importroi</em> deals with tree definition of ROIs:</p>
+<ol class="arabic">
+<li><p>by a file: it can be a shapefile, or other vector drivers which can be read by GDAL:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">importroi</span><span class="p">(</span><span class="nb">input</span><span class="o">=&lt;</span><span class="n">your</span> <span class="n">vector</span> <span class="n">file</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>by a BBOX in longitude and latitude coordinates (EPGS:4326):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">importroi</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="p">[</span><span class="n">W</span><span class="p">,</span><span class="n">S</span><span class="p">,</span><span class="n">E</span><span class="p">,</span><span class="n">N</span><span class="p">])</span>
+</pre></div>
+</div>
+</li>
+<li><p>by a name of a volcano.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">importroi</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s1">&#39;Campi Flegrei&#39;</span><span class="p">,</span> <span class="n">radiusvolc</span> <span class="o">=</span> <span class="mi">20000</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here the option <em>radiusvolc</em> allows to define the radius of the ROI (in metres).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>EZ-InSAR can displayed the volcano list by using the sub-program volcanoname:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ezinsar</span> <span class="n">program</span> <span class="n">volcanoname</span>
+</pre></div>
+</div>
+</div>
+</li>
+</ol>
+<p><strong>Finally, the directories can be easily created by:</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><em>mkdir</em> has the same behaviour than the <em>mkdir</em> system command.</p>
+<p><strong>At this stage, the EZ-InSAR job is ready.</strong></p>
+</section>
+<section id="process-insar-data-using-ez-insar">
+<h2>Process InSAR data using EZ-InSAR<a class="headerlink" href="#process-insar-data-using-ez-insar" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="slcguide.html">Import, download, check the SLC images (and orbit files)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="slcguide.html#import-the-slc-data">Import the SLC data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="slcguide.html#check-the-slc-list">Check the SLC list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="slcguide.html#print-the-slc-list">Print the SLC list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="slcguide.html#save-the-slc-list">Save the SLC list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="slcguide.html#display-a-map-of-slcs">Display a map of SLCs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="slcguide.html#save-a-kmz-file-from-a-slc-list">Save a .kmz file from a SLC list</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DEMguide.html">Download the DEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coregguide.html">Run a coregistration of SLCs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="coregguide.html#with-isce2-processor">With ISCE2 processor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coregguide.html#with-doris-processor">With Doris processor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coregguide.html#with-snap-processor">With SNAP processor</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ifgguide.html">Compute an interferometric stack</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ifgguide.html#with-isce2-processor">With ISCE2 processor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ifgguide.html#with-doris-processor">With Doris processor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ifgguide.html#with-snap-processor">With SNAP processor</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tsguide.html">Compute a time series of displacements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tsguide.html#with-mintpy-processor">With MintPy processor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tsguide.html#with-stamps-processor">With StaMPS processor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tsguide.html#with-licsbas-processor">With LiCSBAS processor</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="intguide.html">Compute a backscatter-intensity stack</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intguide.html#with-snap-processor">With SNAP processor</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="save-and-load-an-ez-insar-job">
+<h2>Save and load an EZ-InSAR job<a class="headerlink" href="#save-and-load-an-ez-insar-job" title="Link to this heading"></a></h2>
+<p>Any EZ-InSAR job (i.e., ezinsar, coregistration, interferogram stack, time-series analysis) can be saved and stored.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ez</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">job</span><span class="p">,</span><span class="s1">&#39;jobsave&#39;</span><span class="p">)</span>
+<span class="n">newjob</span> <span class="o">=</span> <span class="n">ez</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;jobsave.ei&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The loaded job will be the same type of the stored job: e.g., if the user stored only a coregistration job, the loaded job will be a coregistration job.</p>
+<p>In this example, only the coregistration job is saved and loaded.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ez</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">coregistration</span><span class="p">,</span><span class="s1">&#39;jobsave&#39;</span><span class="p">)</span>
+<span class="n">newjobcoregistration</span> <span class="o">=</span> <span class="n">ez</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;jobsave.ei&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../dem.html" class="btn btn-neutral float-left" title="Digital Elevation Models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="slcguide.html" class="btn btn-neutral float-right" title="Import, download, check the SLC images (and orbit files)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright  2025, EZ-InSAR / UCD / iCRAG.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

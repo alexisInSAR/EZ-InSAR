@@ -1,0 +1,7 @@
+folium
+localtileserver
+plotly
+PyQt5
+PyQt5-sip
+pyqtdarktheme
+PyQtWebEngine

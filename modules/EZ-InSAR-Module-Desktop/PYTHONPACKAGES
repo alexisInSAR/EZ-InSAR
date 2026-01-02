@@ -1,0 +1,28 @@
+Name,License,Comment
+branca,MIT License,Installed
+copy,Python Software Foundation License,Python Standard Library
+docopt,MIT License,Installed
+ezinsar,GNU General Public License (GPL) version 3,Installed
+folium,MIT License,Installed
+glob,MIT License,Python Standard Library
+importlib,MIT License,Python Standard Library
+json,MIT License,Python Standard Library
+localtileserver,MIT License,Installed
+numpy,BSD-3-Clause,Installed
+os,MIT License,Python Standard Library
+osgeo,MIT License,Installed
+pandas,BSD-3-Clause,Installed
+pathlib,MIT License,Python Standard Library
+pillow,MIT License,Installed
+plotly,MIT License,Installed
+pyproj,MIT License,Installed
+PyQt5,GNU General Public License (GPL) version 3,Installed
+PyQt5-sip,BSD-2-Clause,Installed
+PyQtWebEngine,GNU General Public License (GPL) version 3,Installed
+random,Python Software Foundation License,Python Standard Library
+shapely,BSD-3-Clause,Installed
+shutil,MIT License,Python Standard Library
+subprocess,BSD-2-Clause,Python Standard Library
+sys,MIT License,Python Standard Library
+time,MIT License,Python Standard Library
+webbrowser,MIT License,Python Standard Library

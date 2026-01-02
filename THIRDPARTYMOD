@@ -1,0 +1,61 @@
+./docker/MakefileDoris/doriscoreMakefile
+    Modified by Alexis Hrysiewicz, Dec. 2024 
+
+./docker/MakefileDoris/dorisutilMakefile
+    Modified by Alexis Hrysiewicz, Dec. 2024 
+
+./docker/MakefileDoris/stepDORIS.py
+    Unmodifed
+
+./docker/MakefileStaMPS/Makefilesrc
+    Created by Andy Hooper, 08-May_2006
+    Modified by Alexis Hrysiewicz, Dec. 2024 
+
+./src/ezinsar/3rdparty/GVP_Volcano_List_Holocene.csv
+    Global Volcanism Program, 2024. [Database] Volcanoes of the World (v. 5.2.7; 21 Feb 2025). Distributed by Smithsonian Institution, compiled by Venzke, E. https://doi.org/10.5479/si.GVP.VOTW5-2024.5.2 
+    Unmodified but reformatted by Alexis Hrysiewicz, Dec. 2024 
+
+./src/ezinsar/3rdparty/isce2mod/croppingstack_ISCE.csh
+    Created by David Bekaert, 2016
+    Modified by Alexis Hrysiewicz, Dec. 2024 
+    Original file from isce2 (isce2/contrib/timeseries/prepStackToStaMPS/bin/run_SLCcropStack.csh)
+
+./src/ezinsar/3rdparty/isce2mod/unpackFrame_ALOS2_ezinsar.py
+    Unchanged
+    Original file from isce2 (/isce2/contrib/stack/stripmapStack/unpackFrame_ALOS2.py)
+
+./src/ezinsar/3rdparty/isce2mod/unpackFrame_TSX_ezinsar.py
+    Modified by Alexis Hrysiewicz, Dec. 2024 
+    Original file from isce2 (isce2/contrib/timeseries/prepStackToStaMPS/bin/unpackFrame_TSX.csh)
+
+./src/ezinsar/3rdparty/isce2mod/unpackFrame_PAZ_ezinsar.py
+    Modified by Alexis Hrysiewicz, Dec. 2024 
+    Original file from isce2 (isce2/contrib/timeseries/prepStackToStaMPS/bin/unpackFrame_TSX.csh)
+
+./src/ezinsar/3rdparty/isce2mod/make_small_baselines_isce_cp
+    Modified by Alexis Hrysiewicz, Dec. 2024 
+    Original file from isce2 (isce2/contrib/timeseries/prepStackToStaMPS/bin/make_small_baselines_isce)
+
+./src/ezinsar/3rdparty/isce2mod/make_single_reference_stack_isce_cp
+    Modified by Alexis Hrysiewicz, Dec. 2024 
+    Original file from isce2 (isce2/contrib/timeseries/prepStackToStaMPS/bin/make_single_reference_stack_isce)
+
+./src/ezinsar/api/THEIAapi
+    This script is based on the scripts from Olivier Hagolle https://github.com/olivierhagolle/theia_download 
+
+For Doris, EZ-InSAR writes the input files based on the Doris inputs and Doris documentation. 
+
+For ISCE-2, EZ-InSAR writes the input files based on the ISCE-2 examples.
+
+For LicSBAS, EZ-InSAR writes the parameter descriptions based on the LicSBAS examples. 
+
+For MintPy, EZ-InSAR writes the parameter descriptions based on the MintPy examples. 
+
+For SNAP, EZ-InSAR writes the parameter descriptions based on the SNAP documentation. 
+
+For StaMPS, EZ-InSAR writes the parameter descriptions based on the StaMPS documentation. 
+
+The EZ-InSAR documentation is based on the examples of pydoctor. 
+
+
+

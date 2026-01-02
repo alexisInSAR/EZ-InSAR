@@ -1,0 +1,79 @@
+Package name,License,Comment
+alive_progress,MIT License,Installed package
+asf_search,BSD-3-Clause,Installed package
+basemap,MIT License,Installed package
+basemap-data-hires,GNU Lesser General Public License v3,Installed package
+burst2safe,BSD-2-Clause,Installed package
+clint,ISC License,Installed package
+contextily,BSD-3-Clause,Installed package
+copy,Python Software Foundation License (PSF),Python Standard Library
+datetime,Apache License Version 2.0 & BSD-3-Clause,Python Standard Library
+dateutil,Apache License Version 2.0 & BSD-3-Clause,Python Standard Library
+docker,Apache License Version 2.0,Installed package
+docopt,MIT License,Installed package
+elevation,Apache License Version 2.0,Installed package
+email,Python Software Foundation License (PSF),Python Standard Library
+esa-snappy,GNU General Public License (GPL) version 3,Installed package
+fiona,BSD-3-Clause,Installed package
+gdal,MIT License,Installed package
+geopandas,BSD-3-Clause,Installed package
+getpass,Python Software Foundation License (PSF),Python Standard Library
+git,MIT License,Installed package
+GitPython,BSD-3-Clause,Installed package
+glob,MIT License,Python Standard Library
+gnupg,GNU General Public License (GPL) version 3,Installed package
+h5py,BSD-3-Clause,Installed package
+importlib,MIT License,Python Standard Library
+isce,Apache License Version 2.0,Installed package
+jdcal,BSD-2-Clause,Installed package
+joblib,BSD-3-Clause,Python Standard Library
+json,MIT License,Python Standard Library
+logging,MIT License,Python Standard Library
+matlabengine,MathWorks License,Installed package
+matplotlib,Python Software Foundation License,Installed package
+mintpy,GNU General Public License v3,Installed package
+multiprocessing,BSD-3-Clause,Installed package
+numpy,BSD-3-Clause,Installed package
+opencv-python,Apache License Version 2.0,Installed package
+os,MIT License,Python Standard Library
+osgeo,MIT License,Installed package
+osgeo_utils,MIT License,Installed package
+pandas,BSD-3-Clause,Installed package
+pathlib,MIT License,Python Standard Library
+pillow,MIT License,Installed package
+platform,MIT License,Python Standard Library
+psutil,MIT License,Python Standard Library
+pygmt,BSD-3-Clause,Installed package
+pylatex,MIT License,Installed package
+pyproj,MIT License,Installed package
+pywebview,BSD-3-Clause,Installed package
+py7zr,GNU Lesser General Public License v2 or later (LGPLv2+),Installed package
+random,Python Software Foundation License,Python Standard Library
+rasterio,BSD-3-Clause,Installed package
+re,Python Software Foundation License,Python Standard Library
+requests,Apache License Version 2.0,Installed package
+rioxarray,Apache License Version 2.0,Installed package
+scikit-image,BSD-3-Clause,Installed package
+scipy,BSD-3-Clause,Installed package
+setuptools,MIT License,Python Standard Library
+shapely,BSD-3-Clause,Installed package
+shutil,MIT License,Python Standard Library
+simplekml,GNU Lesser General Public License v3,Installed package
+smtplib,Python Software Foundation License (PSF),Python Standard Library
+socket,MIT License,Python Standard Library
+ssl,Python Software Foundation License (PSF),Python Standard Library
+string,MIT License,Python Standard Library
+struct,Python Software Foundation License,Python Standard Library
+subprocess,BSD-2-Clause,Python Standard Library
+sys,MIT License,Python Standard Library
+tarfile,Python Software Foundation License,Python Standard Library
+threading,Python Software Foundation License (PSF),Python Standard Library
+time,MIT License,Python Standard Library
+timeit,Python Software Foundation License (PSF),Python Standard Library
+tqdm,MIT License / Mozilla Public License 2.0 (MPL 2.0),Installed package
+typing,Python Software Foundation License (PSF),Python Standard Library
+urllib3,MIT License,Python Standard Library
+webbrower,MIT License,Python Standard Library
+xml,Python Software Foundation License,Python Standard Library
+xmltodict,MIT License,Installed package
+zipfile,Python Software Foundation License (PSF),Python Standard Library

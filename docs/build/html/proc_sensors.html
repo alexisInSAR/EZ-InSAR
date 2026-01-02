@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAR and InSAR processors and sensors &mdash; EZ-InSAR  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="installation.html" />
+    <link rel="prev" title="Quick Start" href="quickstart.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            EZ-InSAR
+              <img src="_static/EZ_InSAR_logo_whiteback.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.3.1 Dec. 2025
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Content of the documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">EZ-InSAR’s Read-Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">SAR and InSAR processors and sensors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#processors-available-for-sar-insar-processing">Processors available for SAR/InSAR processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sensors-available-for-insar-processing">Sensors available for InSAR processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sensors-available-for-sar-backscatter-intensity-computation">Sensors available for SAR backscatter-intensity computation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sensors-available-for-offset-tracking-computation">Sensors available for Offset-tracking computation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#processor-regarding-the-operating-system">Processor regarding the operating system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#servers-available-with-ez-insar">Servers available with <strong>EZ-InSAR</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installationprocessor.html">Installation of SAR/InSAR processors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optmodules.html">EZ-InSAR optional Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dem.html">Digital Elevation Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use/index.html">Run EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clihelp.html">Command-line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technical.html">Technical information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subprograms/index.html">EZ-InSAR supplementary tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contrib.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html#satellite-data">Satellite data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html#partners">Partners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Change-log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dvptplan.html">Development plan of EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue_tracker.html">Issue tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licenses.html">Licenses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">EZ-InSAR-scripts documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/alexisInSAR/EZ-InSAR-3">EZ-InSAR's GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.ucd.ie">University College Dublin</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.icrag-centre.org">iCRAG</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">EZ-InSAR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">SAR and InSAR processors and sensors</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/proc_sensors.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sar-and-insar-processors-and-sensors">
+<h1>SAR and InSAR processors and sensors<a class="headerlink" href="#sar-and-insar-processors-and-sensors" title="Link to this heading"></a></h1>
+<p><strong>EZ-InSAR</strong> incorporates the most popular InSAR processors to perform SAR interferometric and displacement time-series analysis.</p>
+<p><strong>Overall, the current open-source processors are:</strong></p>
+<ul class="simple">
+<li><p><strong>ISCE-2</strong> - <em>Interferometric synthetic aperture radar Scientific Computing Environment (ISCE-2)</em>. ISCE-2 is an InSAR processing software developed by NASA’s Jet Propulsion Laboratory (JPL) and it is currently the best free available software of its kind. For Sentinel-1 TOPS data, ISCE-2 provides a set of applications (e.g., topsApp.py and stackSentinel.py) to easily control the data processing.</p></li>
+<li><p><strong>StaMPS</strong> - <em>Stanford Method for Persistent Scatterers (StaMPS)</em>. StaMPS is a software package that can implement PS or SBAS methods to extract ground displacements from time series of synthetic aperture radar (SAR) acquisitions. The original version was developed at Stanford University but subsequent development has taken place at the University of Iceland, Delft University of Technology and the University of Leeds.</p></li>
+<li><p><strong>MintPy</strong> - <em>The Miami INsar Time-series software in Python (MintPy)</em>. MintPy is an open-source package for InSAR time series analysis. It can read the stack of interferograms (coregistered and unwrapped) and produces three-dimensional (2D in space and 1D in time) ground surface displacement in line-of-sight direction. It includes a routine time series analysis application (i.e., smallbaselineApp.py) and some independent toolbox.</p></li>
+<li><p><strong>SNAP</strong> - <em>Sentinel Application Platform (SNAP)</em>. SNAP is a common architecture for all Sentinel Toolboxes. The SNAP architecture is ideal for Earth observation (EO) processing and analysis due to the following technological innovations: extensibility, portability, modular rich client platform, generic EO data abstraction, tiled memory management, and a graph processing framework. SNAP and the individual Sentinel Toolboxes support numerous sensors other than Sentinel sensors.</p></li>
+<li><p><strong>Doris</strong> - <em>Delft object-oriented radar interferometric software (Doris)</em>. Delft Institute of Earth Observation and Space Systems of Delft University of Technology has developed an Interferometric Synthetic Aperture Radar (InSAR) processor named Doris. The Doris software can be downloaded freely from this site for non-commercial applications (conditions).</p></li>
+<li><p><strong>LiCSBAS</strong>. LiCSBAS is an open-source package in Python and bash to carry out InSAR time series analysis using LiCSAR products (i.e., unwrapped interferograms and coherence) which are freely available on the COMET-LiCS web portal.</p></li>
+</ul>
+<p><strong>The next tables gives the compatibility between available sensors and processors in EZ-InSAR (X for No, O for Yes)</strong>:</p>
+<section id="processors-available-for-sar-insar-processing">
+<h2>Processors available for SAR/InSAR processing<a class="headerlink" href="#processors-available-for-sar-insar-processing" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Processor</p></th>
+<th class="head"><p>Coregistration</p></th>
+<th class="head"><p>Interferometric stack</p></th>
+<th class="head"><p>Time-Series analysis</p></th>
+<th class="head"><p>Remark</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="line-block">
+<div class="line"><strong>ISCE2</strong></div>
+<div class="line"><strong>SNAP</strong></div>
+<div class="line"><strong>Doris</strong></div>
+<div class="line"><strong>StaMPS</strong></div>
+<div class="line"><strong>MintPy</strong></div>
+<div class="line"><strong>LiCSBAS</strong></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">O</div>
+<div class="line">O</div>
+<div class="line">Only for StripMap-like data</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">O</div>
+<div class="line">O</div>
+<div class="line">Only for StripMap-like data</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line">O</div>
+<div class="line">O</div>
+<div class="line">O</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line">PS, SBAS and merged approaches</div>
+<div class="line">SBAS approach</div>
+<div class="line">SBAS approach</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sensors-available-for-insar-processing">
+<h2>Sensors available for InSAR processing<a class="headerlink" href="#sensors-available-for-insar-processing" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Satellite</p></td>
+<td><p>Mode</p></td>
+<td><p>Ready</p></td>
+<td><p>Supported InSAR processor</p></td>
+<td><p>Remarks</p></td>
+<td><p>EZ-InSAR keys</p></td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line"><strong>Sentinel-1</strong></div>
+<div class="line"><br /></div>
+<div class="line"><strong>TerraSAR-X</strong></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><strong>PAZ</strong></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><strong>COSMO-SkyMed</strong></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><strong>COSMO-SkyMed Second Generation</strong></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><strong>ALOS1</strong></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><strong>ALOS2</strong></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><strong>RADARSAT-1</strong></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><strong>RADARSAT-2</strong></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><em>IW</em></div>
+<div class="line"><em>StripMap</em></div>
+<div class="line"><em>ScanSAR</em></div>
+<div class="line"><em>StripMap</em></div>
+<div class="line"><em>Spotlight</em></div>
+<div class="line"><em>HS-Spotlight</em></div>
+<div class="line"><em>Staring-Spotlight</em></div>
+<div class="line"><em>StripMap</em></div>
+<div class="line"><em>Spotlight</em></div>
+<div class="line"><em>HS-Spotlight</em></div>
+<div class="line"><em>Staring-Spotlight</em></div>
+<div class="line"><em>HIMAGE</em></div>
+<div class="line"><em>PingPong</em></div>
+<div class="line"><em>ScanSAR Wide</em></div>
+<div class="line"><em>ScanSAR Huge</em></div>
+<div class="line"><em>StripMap</em></div>
+<div class="line"><em>PingPong</em></div>
+<div class="line"><em>Quad Pol</em></div>
+<div class="line"><em>ScanSAR-1</em></div>
+<div class="line"><em>ScanSAR-2</em></div>
+<div class="line"><em>StripMap</em></div>
+<div class="line"><em>Spotlight</em></div>
+<div class="line"><em>ScanSAR</em></div>
+<div class="line"><em>StripMap</em></div>
+<div class="line"><em>Spotlight</em></div>
+<div class="line"><em>ScanSAR</em></div>
+<div class="line"><em>Standard</em></div>
+<div class="line"><em>Fine</em></div>
+<div class="line"><em>Wide</em></div>
+<div class="line"><em>Extended</em></div>
+<div class="line"><em>ScanSAR</em></div>
+<div class="line"><em>StripMap Quad. Pol.</em></div>
+<div class="line"><em>Fine Quad. Pol</em></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">O</div>
+<div class="line">O</div>
+<div class="line">X</div>
+<div class="line">O</div>
+<div class="line">O</div>
+<div class="line">O</div>
+<div class="line">O</div>
+<div class="line">O</div>
+<div class="line">O</div>
+<div class="line">O</div>
+<div class="line">O</div>
+<div class="line">O</div>
+<div class="line">O</div>
+<div class="line">X</div>
+<div class="line">X</div>
+<div class="line">O</div>
+<div class="line">O</div>
+<div class="line">X</div>
+<div class="line">X</div>
+<div class="line">X</div>
+<div class="line">O</div>
+<div class="line">O</div>
+<div class="line">X</div>
+<div class="line">O</div>
+<div class="line">O</div>
+<div class="line">X</div>
+<div class="line">X</div>
+<div class="line">X</div>
+<div class="line">X</div>
+<div class="line">X</div>
+<div class="line">X</div>
+<div class="line">O</div>
+<div class="line">O</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">ISCE2, LiCSBAS, SNAP</div>
+<div class="line">ISCE2, Doris, SNAP</div>
+<div class="line"><br /></div>
+<div class="line">ISCE2, Doris</div>
+<div class="line">ISCE2, Doris</div>
+<div class="line">ISCE2, Doris</div>
+<div class="line">ISCE2</div>
+<div class="line">ISCE2, Doris</div>
+<div class="line">ISCE2, Doris</div>
+<div class="line">ISCE2, Doris</div>
+<div class="line">ISCE2</div>
+<div class="line">Doris, ISCE2</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line">ISCE2</div>
+<div class="line">ISCE2</div>
+<div class="line"><br /></div>
+<div class="line">ISCE2</div>
+<div class="line">ISCE2</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line">Doris, ISCE2</div>
+<div class="line">Doris, ISCE2</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">A, B and C / Automatic downloading</div>
+<div class="line">-</div>
+<div class="line">TSX and TDM</div>
+<div class="line">Under tests. ISCE and Doris will read only one Pol.</div>
+<div class="line">Not tested with ISCE2. Under tests. ISCE and Doris will read only one Pol.</div>
+<div class="line">Not tested with ISCE2</div>
+<div class="line">Not tested with ISCE2</div>
+<div class="line">Not tested with ISCE2. Under tests. ISCE and Doris will read only one Pol.</div>
+<div class="line">Not tested with ISCE2. Under tests. ISCE and Doris will read only one Pol.</div>
+<div class="line">Not tested with ISCE2. Under tests. ISCE and Doris will read only one Pol.</div>
+<div class="line">Not tested with ISCE2</div>
+<div class="line">Under test. ISCE and Doris will read only one Pol.</div>
+<div class="line">Implementation in progress</div>
+<div class="line">Implementation in progress</div>
+<div class="line">Implementation in progress</div>
+<div class="line">Implementation in progress</div>
+<div class="line">Implementation in progress</div>
+<div class="line">Implementation in progress</div>
+<div class="line">Implementation in progress</div>
+<div class="line">Implementation in progress</div>
+<div class="line">Under tests</div>
+<div class="line">Under tests</div>
+<div class="line">Under tests</div>
+<div class="line">Under tests</div>
+<div class="line">Under tests</div>
+<div class="line">Under tests</div>
+<div class="line">Implementation in progress</div>
+<div class="line">Implementation in progress</div>
+<div class="line">Implementation in progress</div>
+<div class="line">Implementation in progress</div>
+<div class="line">Implementation in progress</div>
+<div class="line">Under test. ISCE and Doris will read only one Pol.</div>
+<div class="line">Under test. ISCE and Doris will read only one Pol.</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">S1 - IW</div>
+<div class="line">S1 - SM</div>
+<div class="line">TSX - SC</div>
+<div class="line">TSX - SM</div>
+<div class="line">TSX - SPT</div>
+<div class="line">TSX - HSSPT</div>
+<div class="line">TSX - STSPT</div>
+<div class="line">PAZ - SM</div>
+<div class="line">PAZ - SPT</div>
+<div class="line">PAZ - HSSPT</div>
+<div class="line">PAZ - STSPT</div>
+<div class="line">CSK - HI</div>
+<div class="line">CSK - PP</div>
+<div class="line">CSK - SW</div>
+<div class="line">CSK - PP</div>
+<div class="line">CSK - SM</div>
+<div class="line">CSK - PP</div>
+<div class="line">CSK - QP</div>
+<div class="line">CSK - SC1</div>
+<div class="line">CSK - SC2</div>
+<div class="line">ALOS - SM</div>
+<div class="line">ALOS - SPT</div>
+<div class="line">ALOS - SC</div>
+<div class="line">ALOS2 - SM</div>
+<div class="line">ALOS2 - SPT</div>
+<div class="line">ALOS2 - SC</div>
+<div class="line">RSAT - STD</div>
+<div class="line">RSAT - Fine</div>
+<div class="line">RSAT - Wide</div>
+<div class="line">RSAT - EXT</div>
+<div class="line">RSAT - SC</div>
+<div class="line">RSAT2 - FQ</div>
+<div class="line">RSAT2 - FQ</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Please find the sources of data used for implementation:</p>
+<ul class="simple">
+<li><p>Sentinel-1: Copernicus Data Space Ecosystem amd Alaska Satellite Facility</p></li>
+<li><p>TerraSAR-X: <a class="reference external" href="https://earth.esa.int/eogateway/missions/terrasar-x-and-tandem-x/sample-data">https://earth.esa.int/eogateway/missions/terrasar-x-and-tandem-x/sample-data</a></p></li>
+<li><p>PAZ: <a class="reference external" href="https://earth.esa.int/eogateway/missions/paz/sample-data">https://earth.esa.int/eogateway/missions/paz/sample-data</a></p></li>
+<li><p>COSMO-SkyMed: <a class="reference external" href="https://earth.esa.int/eogateway/missions/cosmo-skymed/sample-data">https://earth.esa.int/eogateway/missions/cosmo-skymed/sample-data</a></p></li>
+<li><p>COSMO-SkyMed Second Generation: <a class="reference external" href="https://earth.esa.int/eogateway/missions/cosmo-skymed-second-generation/sample-data">https://earth.esa.int/eogateway/missions/cosmo-skymed-second-generation/sample-data</a></p></li>
+<li><p>ALOS1: Alaska Satellite Facility</p></li>
+<li><p>ALOS2: <a class="reference external" href="https://www.eorc.jaxa.jp/ALOS/en/alos-2/datause/a2_sample_e.htm">https://www.eorc.jaxa.jp/ALOS/en/alos-2/datause/a2_sample_e.htm</a></p></li>
+<li><p>RADARSAT-1: <a class="reference external" href="https://earth.esa.int/eogateway/missions/radarsat/sample-data">https://earth.esa.int/eogateway/missions/radarsat/sample-data</a></p></li>
+<li><p>RADARSAT-2: <a class="reference external" href="https://earth.esa.int/eogateway/catalog/radarsat-2-esa-archive">https://earth.esa.int/eogateway/catalog/radarsat-2-esa-archive</a></p></li>
+</ul>
+</section>
+<section id="sensors-available-for-sar-backscatter-intensity-computation">
+<h2>Sensors available for SAR backscatter-intensity computation<a class="headerlink" href="#sensors-available-for-sar-backscatter-intensity-computation" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Satellite</p></th>
+<th class="head"><p>Processor</p></th>
+<th class="head"><p>Variables</p></th>
+<th class="head"><p>Remark</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Sentinel-1</strong></p></td>
+<td><p>SNAP (only IW)</p></td>
+<td><p>sigma0 and 0</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sensors-available-for-offset-tracking-computation">
+<h2>Sensors available for Offset-tracking computation<a class="headerlink" href="#sensors-available-for-offset-tracking-computation" title="Link to this heading"></a></h2>
+</section>
+<section id="processor-regarding-the-operating-system">
+<h2>Processor regarding the operating system<a class="headerlink" href="#processor-regarding-the-operating-system" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Processor</p></th>
+<th class="head"><p>Windows</p></th>
+<th class="head"><p>MacOS</p></th>
+<th class="head"><p>Linux</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="line-block">
+<div class="line"><strong>ISCE2</strong></div>
+<div class="line"><strong>Doris</strong></div>
+<div class="line"><strong>StaMPS</strong></div>
+<div class="line"><strong>MintPy</strong></div>
+<div class="line"><strong>LiCSBAS</strong></div>
+<div class="line"><strong>SNAP</strong></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+<div class="line">Yes (EZ-InSAR uses Docker)</div>
+<div class="line">No</div>
+<div class="line">Not tested but Yes (theorically)</div>
+<div class="line">Not tested but Yes (theorically)</div>
+<div class="line">Yes</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">The user needs to compiles the sources or use Docker</div>
+<div class="line">The user needs to compiles the sources or use Docker</div>
+<div class="line">The user needs to compiles the sources</div>
+<div class="line">Yes</div>
+<div class="line">Yes</div>
+<div class="line">Yes</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">Yes</div>
+<div class="line">Yes</div>
+<div class="line">Yes</div>
+<div class="line">Yes</div>
+<div class="line">Yes</div>
+<div class="line">Yes</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>However, for MacOS Silicon and Windows system, we recommend using the Docker version of EZ-InSAR.</strong></p>
+<p><strong>The use of Docker will increase the computing time, especially for Windows.</strong></p>
+</section>
+<section id="servers-available-with-ez-insar">
+<h2>Servers available with <strong>EZ-InSAR</strong><a class="headerlink" href="#servers-available-with-ez-insar" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Server</p></th>
+<th class="head"><p>Imagery/Files</p></th>
+<th class="head"><p>Features</p></th>
+<th class="head"><p>Identification</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="line-block">
+<div class="line"><strong>Copernicus Data Space</strong></div>
+<div class="line"><strong>ASF</strong></div>
+<div class="line"><strong>EarthDATA</strong></div>
+<div class="line"><strong>GEODES</strong></div>
+<div class="line"><strong>THEIA</strong></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">Sentinel-1, Sentinel-2, S1 orbits</div>
+<div class="line">Sentinel-1, S1 orbits</div>
+<div class="line">Sentinel-1</div>
+<div class="line">Sentinel-1, Sentinel-2,S1 orbits</div>
+<div class="line">Sentinel-2, etc.</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">Partial downloading possible</div>
+<div class="line">Burst splitting possible</div>
+<div class="line"><br /></div>
+<div class="line">Implementation in progress</div>
+<div class="line">Implementation in progress</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">ID / Password</div>
+<div class="line">ID / Password</div>
+<div class="line">ID / Password</div>
+<div class="line">Token</div>
+<div class="line">ID / Password</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="quickstart.html" class="btn btn-neutral float-left" title="Quick Start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright  2025, EZ-InSAR / UCD / iCRAG.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

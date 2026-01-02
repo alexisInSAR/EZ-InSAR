@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compute a time series of displacements &mdash; EZ-InSAR  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Compute a backscatter-intensity stack" href="intguide.html" />
+    <link rel="prev" title="Compute an interferometric stack" href="ifgguide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            EZ-InSAR
+              <img src="../_static/EZ_InSAR_logo_whiteback.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.3.1 Dec. 2025
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Content of the documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">EZ-InSAR’s Read-Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proc_sensors.html">SAR and InSAR processors and sensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installationprocessor.html">Installation of SAR/InSAR processors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optmodules.html">EZ-InSAR optional Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dem.html">Digital Elevation Models</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Run EZ-InSAR</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#create-an-ez-insar-job">Create an EZ-InSAR job</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#process-insar-data-using-ez-insar">Process InSAR data using EZ-InSAR</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="slcguide.html">Import, download, check the SLC images (and orbit files)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DEMguide.html">Download the DEM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="coregguide.html">Run a coregistration of SLCs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgguide.html">Compute an interferometric stack</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Compute a time series of displacements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#with-mintpy-processor">With MintPy processor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#with-stamps-processor">With StaMPS processor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#with-licsbas-processor">With LiCSBAS processor</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="intguide.html">Compute a backscatter-intensity stack</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#save-and-load-an-ez-insar-job">Save and load an EZ-InSAR job</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../clihelp.html">Command-line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical.html">Technical information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../subprograms/index.html">EZ-InSAR supplementary tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contrib.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgments.html#satellite-data">Satellite data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgments.html#partners">Partners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Change-log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dvptplan.html">Development plan of EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../issue_tracker.html">Issue tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses.html">Licenses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">EZ-InSAR-scripts documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/alexisInSAR/EZ-InSAR-3">EZ-InSAR's GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.ucd.ie">University College Dublin</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.icrag-centre.org">iCRAG</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">EZ-InSAR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Run EZ-InSAR</a></li>
+      <li class="breadcrumb-item active">Compute a time series of displacements</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/use/tsguide.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="compute-a-time-series-of-displacements">
+<h1>Compute a time series of displacements<a class="headerlink" href="#compute-a-time-series-of-displacements" title="Link to this heading"></a></h1>
+<p><strong>An EZ-InSAR interferometric-stack job (or a coregistration job for GAMMA) can be completed with an EZ-InSAR time series analysis job.</strong> The step names depends on the InSAR-TS processor. First, it is required to initiate the ts-processing job:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">initiatets</span><span class="p">(</span><span class="n">processor</span><span class="o">=&lt;</span><span class="n">processor</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Of course, it is possible to check the interferometric-stack parameters (see the API documentation for further information such as the default parameters):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">tsprocessing</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The user can modify any parameters: e.g.,:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">tsprocessing</span><span class="o">.&lt;</span><span class="n">step</span><span class="o">&gt;</span><span class="p">[</span><span class="o">&lt;</span><span class="n">parameter</span><span class="o">&gt;</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">value</span> <span class="n">of</span> <span class="n">the</span> <span class="n">parameter</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><strong>To run a tsprocessing step:</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">tsprocessing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">step</span><span class="o">=&lt;</span><span class="nb">list</span> <span class="n">of</span> <span class="n">steps</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If the step name <em>all</em> is used, <strong>EZ-InSAR</strong> will run all steps.</p>
+<div class="warning admonition">
+<p class="admonition-title">Warning</p>
+<blockquote>
+<div><p>Do not forget to give the reference point.</p>
+</div></blockquote>
+</div>
+<p><strong>EZ-InSAR tsprocessing job is prior to the configuration file of StaMPS and MintPy. If the user wants to read the built-in parameter files, it is required to use the following methods:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>readparameters</em> for StaMPS;</p></li>
+<li><p><em>readcfg</em> for MintPy.</p></li>
+</ul>
+</div></blockquote>
+<section id="with-mintpy-processor">
+<h2>With MintPy processor<a class="headerlink" href="#with-mintpy-processor" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">initiatets</span><span class="p">(</span><span class="n">processor</span><span class="o">=</span><span class="s1">&#39;mintpy&#39;</span><span class="p">)</span>
+<span class="n">job</span><span class="o">.</span><span class="n">tsprocessing</span><span class="o">.</span><span class="n">readcfg</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">tsprocessing</span><span class="p">,</span> <span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;MintPy.cfg&#39;</span><span class="p">)</span>
+<span class="n">job</span><span class="o">.</span><span class="n">tsprocessing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">step</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;load_data&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;modify_network&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;reference_point&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;quick_overview&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;correct_unwrap_error&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;invert_network&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;correct_LOD&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;correct_SET&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;correct_troposphere&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;deramp&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;correct_topography&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;residual_RMS&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;reference_date&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;velocity&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;geocode&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;google_earth&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;hdfeos5&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;extract_res&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="with-stamps-processor">
+<h2>With StaMPS processor<a class="headerlink" href="#with-stamps-processor" title="Link to this heading"></a></h2>
+<p><strong>For the PS or SBAS processing</strong>:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">initiatets</span><span class="p">(</span><span class="n">processor</span><span class="o">=</span><span class="s1">&#39;stamps-ps&#39;</span><span class="p">)</span> <span class="c1"># or job.initiatets(processor=&#39;stamps-sbas&#39;)</span>
+<span class="n">job</span><span class="o">.</span><span class="n">tsprocessing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">step</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mt_prep&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;load_data&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;phase_noise&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ps_selection&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ps_weeding&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;phase_correction&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;phase_unwrapping&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;corr_lkerror&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;corr_noise&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;extract_res&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p><strong>For the merged processing</strong> (the PS and SBAS processing should be made):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">initiatets</span><span class="p">(</span><span class="n">processor</span><span class="o">=</span><span class="s1">&#39;stamps-merged&#39;</span><span class="p">)</span>
+<span class="n">job</span><span class="o">.</span><span class="n">tsprocessing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">step</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;merging&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;phase_unwrapping&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;corr_lkerror&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;corr_noise&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;extract_res&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="with-licsbas-processor">
+<h2>With LiCSBAS processor<a class="headerlink" href="#with-licsbas-processor" title="Link to this heading"></a></h2>
+<div class="warning admonition">
+<p class="admonition-title">Warning</p>
+<p>No interferometric-stack processing is required.</p>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">initiatets</span><span class="p">(</span><span class="n">processor</span><span class="o">=</span><span class="s1">&#39;licsbas&#39;</span><span class="p">)</span>
+<span class="n">job</span><span class="o">.</span><span class="n">tsprocessing</span><span class="o">.</span><span class="n">detectframe</span><span class="p">()</span>
+<span class="n">job</span><span class="o">.</span><span class="n">tsprocessing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">step</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;get_geotiff&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;prep_ifg&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;check_unw&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;loop_closure&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sb_inv&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;vel_std&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;mask_ts&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;filt_ts&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;extract_res&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After a time-series-analysis job, <strong>EZ-InSAR-GUI</strong> can be used for result visualisation.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ifgguide.html" class="btn btn-neutral float-left" title="Compute an interferometric stack" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="intguide.html" class="btn btn-neutral float-right" title="Compute a backscatter-intensity stack" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright  2025, EZ-InSAR / UCD / iCRAG.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

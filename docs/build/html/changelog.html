@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Change-log &mdash; EZ-InSAR  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Development plan of EZ-InSAR" href="dvptplan.html" />
+    <link rel="prev" title="Acknowledgments" href="acknowledgments.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            EZ-InSAR
+              <img src="_static/EZ_InSAR_logo_whiteback.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.3.1 Dec. 2025
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Content of the documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">EZ-InSAR’s Read-Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proc_sensors.html">SAR and InSAR processors and sensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installationprocessor.html">Installation of SAR/InSAR processors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optmodules.html">EZ-InSAR optional Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dem.html">Digital Elevation Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use/index.html">Run EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clihelp.html">Command-line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technical.html">Technical information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subprograms/index.html">EZ-InSAR supplementary tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contrib.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html#satellite-data">Satellite data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html#partners">Partners</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Change-log</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#alpha-dec-2025">3.3.1 Alpha (Dec. 2025)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overall">Overall</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#alpha-oct-2025">3.3.0 Alpha (Oct. 2025)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Overall</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">3.2.3 Alpha (Oct. 2025)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#processor">Processor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#alpha-sep-2025">3.2.2 Alpha (Sep. 2025)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Overall</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sensors">Sensors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">3.2.1 Alpha (Sep. 2025)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Overall</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dem">DEM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Sensors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#apis">APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Overall</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#alpha-aug-2025">3.2.0 Alpha (Aug. 2025)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Overall</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#digital-elevation-model">Digital Elevation Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#processors">Processors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#alpha-feb-2025">3.1.0 Alpha (Feb. 2025)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Overall</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">Sensors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Processors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#others">Others</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#alpha-jan-2025">3.0.1 Alpha (Jan. 2025)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id12">Overall</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">Processors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#graphical-user-interface">Graphical user interface</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#alpha-dec-2024">3.0.0 Alpha (Dec. 2024)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#programming-language">Programming language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toolkit-structure">Toolkit structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">Graphical user interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#satellite-and-sensors">Satellite and Sensors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">Processors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">Digital Elevation Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for-isce-2">For ISCE-2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for-doris">For Doris</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for-snap">For SNAP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for-stamps">For StaMPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for-mintpy">For MintPy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#divers">Divers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ongoing-developments">Ongoing developments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#beta-august-2024">2.2.4 Beta (August, 2024)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#beta-april-2024">2.2.3 Beta (April, 2024)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#beta-march-2024">2.2.2 Beta (March, 2024)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#beta-january-2024">2.2.1 Beta (January, 2024)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#beta-november-2023">2.2.0 Beta (November, 2023)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#beta-september-2023">2.1.0 Beta (September, 2023)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#beta-july-2023">2.0.3 Beta (July, 2023)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#beta-april-2023">2.0.2 Beta (April, 2023)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#beta-march-2023">2.0.1 Beta (March, 2023)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#beta-august-19-2022">2.0.0 Beta (August 19, 2022)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#beta-march-01-2022">1.0.0 beta (March 01, 2022)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dvptplan.html">Development plan of EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue_tracker.html">Issue tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licenses.html">Licenses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">EZ-InSAR-scripts documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/alexisInSAR/EZ-InSAR-3">EZ-InSAR's GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.ucd.ie">University College Dublin</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.icrag-centre.org">iCRAG</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">EZ-InSAR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Change-log</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/changelog.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="change-log">
+<h1>Change-log<a class="headerlink" href="#change-log" title="Link to this heading"></a></h1>
+<section id="alpha-dec-2025">
+<h2>3.3.1 Alpha (Dec. 2025)<a class="headerlink" href="#alpha-dec-2025" title="Link to this heading"></a></h2>
+<section id="overall">
+<h3>Overall<a class="headerlink" href="#overall" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>For greater clarity, the links between EZ-InSAR and the optional GAMMA module have been modified. Before the change, EZ-InSAR tried to import the module, and returned a warning. EZ-InSAR will automatically import the E-InSAR job with GAMMA, if it is available.</p></li>
+<li><p>Simplication of the import. Now, <em>import ezinsar.job as ez</em> is used to import a EZ-InSAR job. This modification is transparent for CLI users. Each module has been modified.</p></li>
+<li><p>Now, the EZ-InSAR job class is checked with the following string: <em>EIjob</em>.</p></li>
+</ul>
+</section>
+</section>
+<section id="alpha-oct-2025">
+<h2>3.3.0 Alpha (Oct. 2025)<a class="headerlink" href="#alpha-oct-2025" title="Link to this heading"></a></h2>
+<section id="id1">
+<h3>Overall<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Bug fix the links between EZ-InSAR and Docker</p></li>
+<li><p>Add the parameters (configuration file) to change the conda environments when MintPy, ISCE-2, etc. are used. Currently under testing.</p></li>
+</ul>
+</section>
+</section>
+<section id="id2">
+<h2>3.2.3 Alpha (Oct. 2025)<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<section id="processor">
+<h3>Processor<a class="headerlink" href="#processor" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Modification of the Sentinel-1 SM Doris reader (delete the MFF format).</p></li>
+</ul>
+</section>
+</section>
+<section id="alpha-sep-2025">
+<h2>3.2.2 Alpha (Sep. 2025)<a class="headerlink" href="#alpha-sep-2025" title="Link to this heading"></a></h2>
+<section id="id3">
+<h3>Overall<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Delete the support of wget for Windows.</p></li>
+</ul>
+</section>
+<section id="sensors">
+<h3>Sensors<a class="headerlink" href="#sensors" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>New command <em>S1detect</em> for automatic detection of Sentinel-1 IW track and orbits</p></li>
+<li><p>The burst file of s1iwbrustIDapp tool is stored in cached.</p></li>
+</ul>
+</section>
+</section>
+<section id="id4">
+<h2>3.2.1 Alpha (Sep. 2025)<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<section id="id5">
+<h3>Overall<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Harmonisation of Sentinel-1 orbit file management (checking, downloading). Copernicus server can retrieve MOEORB files.</p></li>
+</ul>
+</section>
+<section id="dem">
+<h3>DEM<a class="headerlink" href="#dem" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Geoide files are stored in the user cache directory.</p></li>
+<li><p>Full rewriting of the DEM module for best performance and accuracy. Now a full interface is available (see ezinsar dem command).</p></li>
+</ul>
+</section>
+<section id="id6">
+<h3>Sensors<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Implementation of the ETAD Sentinel-1 downloading (<em>job.downloadETAD()</em> function) and new CLI command <em>S1etad</em>.</p></li>
+<li><p>New function (and command line) to find the next Sentinel-1 acquisitions from an EZ-InSAR job.</p></li>
+</ul>
+</section>
+<section id="apis">
+<h3>APIs<a class="headerlink" href="#apis" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Add the checksum with the ASF, EarthData APIs.</p></li>
+<li><p>Add an experimental support of the GEODES server.</p></li>
+</ul>
+</section>
+<section id="id7">
+<h3>Overall<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+</section>
+</section>
+<section id="alpha-aug-2025">
+<h2>3.2.0 Alpha (Aug. 2025)<a class="headerlink" href="#alpha-aug-2025" title="Link to this heading"></a></h2>
+<section id="id8">
+<h3>Overall<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Some bug fixes have been carried out.</p></li>
+<li><p>Some changes in order to have a compatibility with Windows (Docker running).</p></li>
+<li><p>New command to generate the EZ-InSAR configuration file: ezinsar toolkit configfile.</p></li>
+<li><p>DEM module is compatible with Windows.</p></li>
+<li><p>Increase the numbers of parameters in the EZ-InSAR configuration file.</p></li>
+<li><p>Add a fixed Docker environment.</p></li>
+<li><p>New DEM sources.</p></li>
+<li><p>Documetation modifications.</p></li>
+<li><p>Configuration file locations have been changed.</p></li>
+<li><p>New function for job: changepaths</p></li>
+<li><p>New tools with ezinsar toolkit</p></li>
+<li><p>Development of the installer</p></li>
+</ul>
+</section>
+<section id="digital-elevation-model">
+<h3>Digital Elevation Model<a class="headerlink" href="#digital-elevation-model" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Add the possibility to prepare DEMs inside a Docker container.</p></li>
+</ul>
+</section>
+<section id="processors">
+<h3>Processors<a class="headerlink" href="#processors" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>MiaplPy processor has been implemeneted (under testing).</p></li>
+<li><p>SARvey processor has been implemeneted (under testing).</p></li>
+</ul>
+</section>
+</section>
+<section id="alpha-feb-2025">
+<h2>3.1.0 Alpha (Feb. 2025)<a class="headerlink" href="#alpha-feb-2025" title="Link to this heading"></a></h2>
+<div class="warning admonition">
+<p class="admonition-title">New structure</p>
+<p>The structure of EZ-InSAR has been modified. Now EZ-InSAR is seperated into a core and several modules (see the documentation). The module can be requested by emails:</p>
+<ul class="simple">
+<li><p>module for multispectral imagery;</p></li>
+<li><p>module for NISAR (under development);</p></li>
+<li><p>etc.</p></li>
+</ul>
+<p>The new structure is transparent for users.</p>
+</div>
+<section id="id9">
+<h3>Overall<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Some bug fixes have been carried out.</p></li>
+<li><p>A new module named <em>templatevar.py</em> was created in order to store empty variables.</p></li>
+<li><p>A new module name <em>miscellaneous.py</em> was created in order to store divers functions.</p></li>
+<li><p>New <em>-m</em> or <em>–module*</em> parameter for the <em>ezinsar docs</em>. This parameter allows to open the module-related docuementation.</p></li>
+<li><p>Each version numbers for any SAR/InSAR processors and sensors is independent.</p></li>
+<li><p>New command - <em>ezinsar info</em> allows to print the information of the EZ-InSAR installation.</p></li>
+<li><p>Documentation writing.</p></li>
+</ul>
+</section>
+<section id="id10">
+<h3>Sensors<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>New package <em>api</em> has been created to group the different api for data downloading. We started migrating the scripts into this package.</p></li>
+<li><p>APIs for GEODES and THEIA servers under developments</p></li>
+<li><p>Fixes and improvements for the slctools.writeSLClisttokmz function</p></li>
+<li><p><em>__CopernicusSLCdownloader__</em> has been changed to <em>__SLCdownloader__</em> as variable.</p></li>
+<li><p>Add the compatibility between different versions of SLC lists.</p></li>
+<li><p>New method for unzip .zip SLC files</p></li>
+<li><p>Start the support of COSMO-SkyMed (StripMap-like imagery)</p></li>
+<li><p>Start the support of COSMO-SkyMed Second Generation (StripMap-like imagery)</p></li>
+<li><p>Start the support of RADARSAT-1 (StripMap-like imagery)</p></li>
+<li><p>Start the support of RADARSAT-2 (StripMap-like imagery)</p></li>
+<li><p><em>checkSLClist</em> has been finalised.</p></li>
+</ul>
+</section>
+<section id="id11">
+<h3>Processors<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>LiCBAS is functionnal.</p></li>
+</ul>
+</section>
+<section id="others">
+<h3>Others<a class="headerlink" href="#others" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>A fix in the <em>geocoding.py</em> function has been solved (see change-log inside the function).</p></li>
+</ul>
+</section>
+</section>
+<section id="alpha-jan-2025">
+<h2>3.0.1 Alpha (Jan. 2025)<a class="headerlink" href="#alpha-jan-2025" title="Link to this heading"></a></h2>
+<section id="id12">
+<h3>Overall<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Some bug fixes have been carried out.</p></li>
+</ul>
+</section>
+<section id="id13">
+<h3>Processors<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>The descriptions and formats of each processing parameter for StaMPS have been added.</p></li>
+<li><p>The verification of StaMPS parameters is now available.</p></li>
+</ul>
+</section>
+<section id="graphical-user-interface">
+<h3>Graphical user interface<a class="headerlink" href="#graphical-user-interface" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>The SNAP coregistration and ifgstack processing are now available with the GUI (tests are being performed).</p></li>
+<li><p>The StaMPS ts processing are now available with the GUI (tests are being performed).</p></li>
+</ul>
+</section>
+</section>
+<section id="alpha-dec-2024">
+<h2>3.0.0 Alpha (Dec. 2024)<a class="headerlink" href="#alpha-dec-2024" title="Link to this heading"></a></h2>
+<div class="danger admonition">
+<p class="admonition-title">MATLAB version</p>
+<p><strong>This new version is in Python (from the version 3). The MATLAB version is now depreciated.</strong> Of course, it still is available.</p>
+</div>
+<p>Even if the spirit does not change, <strong>EZ-InSAR-3</strong> can be considered as a new toolkit and numerous changes have been done, please find a short summary of changes.</p>
+<section id="programming-language">
+<h3>Programming language<a class="headerlink" href="#programming-language" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>EZ-InSAR</strong> has been translated into Python language. <strong>EZ-InSAR</strong> can be launched by command-line interface, Python scripts or Graphical User interface.</p></li>
+<li><p>MATLAB is still required for StaMPS, and has been integrated in the Python scripts via the MATLAB enguine.</p></li>
+<li><p>Easier installation: i.e., the environment variables are automatically managed by <strong>EZ-InSAR</strong>. The user only needs to install the different SAR/InSAR processors.</p></li>
+<li><p>Docker file for any other operating systems different than Linux.</p></li>
+<li><p>New documentation (local and online).</p></li>
+</ul>
+</section>
+<section id="toolkit-structure">
+<h3>Toolkit structure<a class="headerlink" href="#toolkit-structure" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>EZ-InSAR</strong> now uses EZ-InSAR job containing all information and parameters.</p></li>
+<li><p><strong>EZ-InSAR</strong> job are stored in .xml format files allowing user’s changes.</p></li>
+</ul>
+</section>
+<section id="id14">
+<h3>Graphical user interface<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>New graphical user interface developed as a web application.</p></li>
+</ul>
+</section>
+<section id="satellite-and-sensors">
+<h3>Satellite and Sensors<a class="headerlink" href="#satellite-and-sensors" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>The support of COSMO-SkyMed has been deleted and will be implemented in a next version.</p></li>
+<li><p>Copernicus Data Space ans ASF servers can be used for Sentinel-1 downloading (SLC and orbit files).</p></li>
+<li><p>Automatic detection of Sentinel-1 track and pass.</p></li>
+</ul>
+</section>
+<section id="id15">
+<h3>Processors<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Doris is now supported for Sentinel-1 StripMap.</p></li>
+</ul>
+</section>
+<section id="id16">
+<h3>Digital Elevation Model<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Personal DEM is now supported (with and without ellipsoid correction).</p></li>
+<li><p>SRTM DEM is now supported.</p></li>
+<li><p>ALOS DEM is now supported (required user account).</p></li>
+</ul>
+</section>
+<section id="for-isce-2">
+<h3>For ISCE-2<a class="headerlink" href="#for-isce-2" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>More parameters for processing.</p></li>
+<li><p>Geocoding of interferometric products supported.</p></li>
+<li><p>The development of stack updates has been started (i.e., not fully tested).</p></li>
+</ul>
+</section>
+<section id="for-doris">
+<h3>For Doris<a class="headerlink" href="#for-doris" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>New implementation for StripMap data (only for Sentinel-1).</p></li>
+</ul>
+</section>
+<section id="for-snap">
+<h3>For SNAP<a class="headerlink" href="#for-snap" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Backscatterer intensity stacks are now supported for Sentinel-1 imagery (only IW mode).</p></li>
+</ul>
+</section>
+<section id="for-stamps">
+<h3>For StaMPS<a class="headerlink" href="#for-stamps" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fix regarding the super-single-master file naming (reference vs master).</p></li>
+<li><p>Extraction of displacements is now supported.</p></li>
+<li><p>Full parallisation of processing possible for the steps 1-4.</p></li>
+</ul>
+</section>
+<section id="for-mintpy">
+<h3>For MintPy<a class="headerlink" href="#for-mintpy" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Extraction of displacements is now supported.</p></li>
+</ul>
+</section>
+<section id="divers">
+<h3>Divers<a class="headerlink" href="#divers" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Implementation of multispectral (Sentinel-2 and Landsat 8/9) data.</p></li>
+</ul>
+</section>
+<section id="ongoing-developments">
+<h3>Ongoing developments<a class="headerlink" href="#ongoing-developments" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Creation of an EZ-InSAR server in order to run several EZ-InSAR instances inside Docker environment. The users will run EZ-InSAR via the GUI.</p></li>
+<li><p>Implementation of the SNAP processor.</p></li>
+<li><p>Documentation</p></li>
+</ul>
+</section>
+</section>
+<section id="beta-august-2024">
+<h2>2.2.4 Beta (August, 2024)<a class="headerlink" href="#beta-august-2024" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix for the egm96-15 file (only for the NASADEM and SRTM). The previous link has been deactived. The Copernicus DEM can be used to avoid any problems.</p></li>
+</ul>
+</section>
+<section id="beta-april-2024">
+<h2>2.2.3 Beta (April, 2024)<a class="headerlink" href="#beta-april-2024" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix regarding the detection of the reference date for StaMPS stack (StripMap data)</p></li>
+</ul>
+</section>
+<section id="beta-march-2024">
+<h2>2.2.2 Beta (March, 2024)<a class="headerlink" href="#beta-march-2024" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Modification of the orbit-server server (ASF -&gt; Copernicus Data Space)</p></li>
+<li><p>Add a change-log document in the main directory</p></li>
+</ul>
+</section>
+<section id="beta-january-2024">
+<h2>2.2.1 Beta (January, 2024)<a class="headerlink" href="#beta-january-2024" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix the NASADEM geoid conversion</p></li>
+</ul>
+</section>
+<section id="beta-november-2023">
+<h2>2.2.0 Beta (November, 2023)<a class="headerlink" href="#beta-november-2023" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix the issue with the Sentinel-1 SLC list</p></li>
+<li><p>Add the possibility to download the S1 orbits from QSF server, via the S1 downloader.</p></li>
+</ul>
+</section>
+<section id="beta-september-2023">
+<h2>2.1.0 Beta (September, 2023)<a class="headerlink" href="#beta-september-2023" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Management of the dual-polarisation mode for TerraSAR-X and PAZ data.</p></li>
+</ul>
+</section>
+<section id="beta-july-2023">
+<h2>2.0.3 Beta (July, 2023)<a class="headerlink" href="#beta-july-2023" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Some fixes concerning the creation of the Sentinel-1 IW list.</p></li>
+</ul>
+</section>
+<section id="beta-april-2023">
+<h2>2.0.2 Beta (April, 2023)<a class="headerlink" href="#beta-april-2023" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix for the compatibility with the last version of MintPy.</p></li>
+</ul>
+</section>
+<section id="beta-march-2023">
+<h2>2.0.1 Beta (March, 2023)<a class="headerlink" href="#beta-march-2023" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Some fixes concerning the creation of the Sentinel-1 IW list.</p></li>
+</ul>
+</section>
+<section id="beta-august-19-2022">
+<h2>2.0.0 Beta (August 19, 2022)<a class="headerlink" href="#beta-august-19-2022" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Support of SAR sensors with Stripmap acquisition mode (TerraSAR-X, COSMO-SkyMed, PAZ, Sentinel-1 in Stripmap mode)</p></li>
+<li><p>Modification of the main interface</p></li>
+</ul>
+</section>
+<section id="beta-march-01-2022">
+<h2>1.0.0 beta (March 01, 2022)<a class="headerlink" href="#beta-march-01-2022" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Initial version</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="acknowledgments.html" class="btn btn-neutral float-left" title="Acknowledgments" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dvptplan.html" class="btn btn-neutral float-right" title="Development plan of EZ-InSAR" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright  2025, EZ-InSAR / UCD / iCRAG.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

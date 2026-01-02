@@ -1,0 +1,2175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas</title>
+    <meta name="generator" content="pydoctor 24.3.3"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="readthedocstheme.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          <a href="../index.html" class="projecthome">EZ-InSAR</a> <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+    
+        <!-- Side navigation -->
+      <div class="sidebarcontainer">
+        <nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.html" class="internal-link" title="This class">sbas</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#check" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.check">check</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#print" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.print">print</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#readcfg" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.readcfg">readcfg</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#run" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.run">run</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#writecfg" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.writecfg">writecfg</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#computer" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.computer">computer</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#correct_LOD" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.correct_LOD">correct_<wbr></wbr>LOD</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#correct_SET" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.correct_SET">correct_<wbr></wbr>SET</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#correct_topography" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.correct_topography">correct<wbr></wbr>_topography</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#correct_troposphere" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.correct_troposphere">correct<wbr></wbr>_troposphere</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#correct_unwrap_error" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.correct_unwrap_error">correct<wbr></wbr>_unwrap<wbr></wbr>_error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#deramp" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.deramp">deramp</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#email" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.email">email</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#extract_res" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.extract_res">extract<wbr></wbr>_res</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#geocode" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.geocode">geocode</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#google_earth" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.google_earth">google<wbr></wbr>_earth</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#gui" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.gui">gui</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#hdfeos5" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.hdfeos5">hdfeos5</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ifgprocessor" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.ifgprocessor">ifgprocessor</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#invert_network" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.invert_network">invert<wbr></wbr>_network</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#load_data" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.load_data">load<wbr></wbr>_data</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#log" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.log">log</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#mlazi" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.mlazi">mlazi</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#mlran" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.mlran">mlran</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#mode" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.mode">mode</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#modify_network" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.modify_network">modify<wbr></wbr>_network</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#pathmintpyconfig" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.pathmintpyconfig">pathmintpyconfig</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plotoptions" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.plotoptions">plotoptions</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#polarisation" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.polarisation">polarisation</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#processor" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.processor">processor</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#quick_overview" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.quick_overview">quick<wbr></wbr>_overview</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#reference_date" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.reference_date">reference<wbr></wbr>_date</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#reference_point" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.reference_point">reference<wbr></wbr>_point</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#relorbit" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.relorbit">relorbit</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#residual_RMS" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.residual_RMS">residual_<wbr></wbr>RMS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#roi" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.roi">roi</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#satellite" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.satellite">satellite</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#satmode" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.satmode">satmode</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#satpass" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.satpass">satpass</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#title" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.title">title</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#velocity" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.velocity">velocity</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#verbose" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.verbose">verbose</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#workdirectory" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.workdirectory">workdirectory</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.html" class="internal-link" title="The parent of this class">mintpytsprocessing</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.html" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas">sbas</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        <!-- No sidebar toggle for read the docs theme, the sidebar is always
+          visible when the screen is width enough.
+        -->
+      </div>
+
+    </nav>
+    
+    <div class="container-fluid">
+
+      <div id="main" class="">
+        
+
+        
+
+        <div id="search-results-container" style="display: none;">
+        
+          <div id="search-buttons">
+            <span class="label label-default" id="search-docstrings-button">
+            <label class="checkbox-inline">
+              <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+                search in docstrings
+              </input>
+            </label>
+            </span>
+            
+          </div>
+          
+          <noscript>
+              <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+          </noscript>
+  
+          <div class="hint" id="search-help-box">
+            <p class="rst-last">
+        
+              Search bar offers the following options:
+              <ul>   
+                  <li>
+                    <strong>Term presence.</strong> The below example searches for documents that 
+                      must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                  </li> 
+  
+                  <li>
+                    <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                  </li> 
+  
+                  <li>
+                    <strong>Search in specific fields.</strong> The following search matches all objects 
+                    in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+  
+                    <p>
+                      Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                      Last two fields are only applicable if "search in docstrings" is enabled.
+                    </p>
+                  </li>
+  
+                  <li>
+                    <strong>Fuzzy matches.</strong> The following search matches all documents 
+                    that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                  </li>
+              </ul>
+  
+            </p>
+          </div>
+  
+          <div id="search-status"> </div>
+  
+          <div class="warning" id="search-warn-box" style="display: none;">
+            <p class="rst-last"><span id="search-warn"></span></p>
+          </div>
+  
+          <table id="search-results">
+            <!-- Filled dynamically by JS -->
+          </table>
+          
+          <div style="margin-top: 8px;">
+            <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+          </div>
+        </div>
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">ezinsar</a></code><wbr></wbr>.<code><a href="ezinsar.eicomponents.html" class="internal-link" title="ezinsar.eicomponents">eicomponents</a></code><wbr></wbr>.<code><a href="ezinsar.eicomponents.processor.html" class="internal-link" title="ezinsar.eicomponents.processor">processor</a></code><wbr></wbr>.<code><a href="ezinsar.eicomponents.processor.mintpymodule.html" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule">mintpymodule</a></code><wbr></wbr>.<code><a href="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.html" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing">mintpytsprocessing</a></code><wbr></wbr>.<code><a href="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.html" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas">sbas</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">sbas</span>: <a href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L38" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.__init__">sbas(job, title, workdirectory, pathmintpyconfig, ...)</a></code></p>
+          <p><a href="classIndex.html#ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Attributes:
+title (str): Name/Definition of the user [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]
+workdirectory (str): Work directory of the coregistration processin. [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]
+pathmintpyconfig (str): Path of the MintPy configuration file. [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]
+polarisation (str):  Polarisation. [Default: <tt class="rst-docutils rst-literal">VV</tt>]
+roi (str): Polygon of the Region of Interest. [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]
+satellite (str): Satellite name. [Default: <tt class="rst-docutils rst-literal">S1</tt>]
+satmode (str): Satellite mode. [Default: <tt class="rst-docutils rst-literal">SM</tt>]
+relorbit (int): Relative orbit number. [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]
+satpass (str): Satellite direction. [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]
+email (dict): Dictionary of the emal parameters
+processor (str): Processor. [Default: <tt class="rst-docutils rst-literal">mintpy</tt>]
+ifgprocessor (str): Interferometric processor. [Default: <tt class="rst-docutils rst-literal">gamma</tt>]
+mode (str): Mode of the time series processing. [Default: <tt class="rst-docutils rst-literal">sbas</tt>]
+mlazi (int): Multilook factor in azimuth
+mlran (int): Multilook factor in range
+computer (dict): EZ-InSAR parameter dictionary</p>
+<p>load_data (dict): EZ-InSAR parameter dictionary
+modify_network (dict): EZ-InSAR parameter dictionary
+reference_point (dict): EZ-InSAR parameter dictionary
+quick_overview (dict): EZ-InSAR parameter dictionary
+correct_unwrap_error (dict): EZ-InSAR parameter dictionary
+invert_network (dict): EZ-InSAR parameter dictionary
+correct_LOD (dict): EZ-InSAR parameter dictionary
+correct_SET (dict): EZ-InSAR parameter dictionary
+correct_troposphere (dict): EZ-InSAR parameter dictionary
+deramp (dict): EZ-InSAR parameter dictionary
+correct_topography (dict): EZ-InSAR parameter dictionary
+residual_RMS (dict): EZ-InSAR parameter dictionary
+reference_date (dict): EZ-InSAR parameter dictionary
+velocity (dict): EZ-InSAR parameter dictionary
+geocode (dict): EZ-InSAR parameter dictionary
+google_earth (dict): EZ-InSAR parameter dictionary
+hdfeos5 (dict): EZ-InSAR parameter dictionary
+extract_res (dict): EZ-InSAR parameter dictionary
+plotoptions (dict): EZ-InSAR parameter dictionary
+verbose (bool): Verbose mode. [Default: <code><a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a></code>]
+log (str): Log file
+gui (bool): GUI mode (not used). [Default: <code><a href="https://docs.python.org/3/library/constants.html#False" class="intersphinx-link">False</a></code>]</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id109">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.__init__">__init__</a></code></td>
+    <td>Initilisation of the job for EZ-InSAR</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#check" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.check">check</a></code></td>
+    <td>Check and display the tsprocessing-processing attributes of the EZ-InSAR class</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#print" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.print">print</a></code></td>
+    <td>Print the tsprocessing-processing attributes of the EZ-InSAR class</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#readcfg" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.readcfg">readcfg</a></code></td>
+    <td>Read the MintPy configuration file and update an EZ-InSAR job</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#run" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.run">run</a></code></td>
+    <td>Run the coregsitration using MintPy processor</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#writecfg" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.writecfg">writecfg</a></code></td>
+    <td>Write the MintPy configuration file from an EZ-InSAR job</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#computer" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.computer">computer</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#correct_LOD" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.correct_LOD">correct_<wbr></wbr>LOD</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#correct_SET" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.correct_SET">correct_<wbr></wbr>SET</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#correct_topography" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.correct_topography">correct<wbr></wbr>_topography</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#correct_troposphere" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.correct_troposphere">correct<wbr></wbr>_troposphere</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#correct_unwrap_error" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.correct_unwrap_error">correct<wbr></wbr>_unwrap<wbr></wbr>_error</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#deramp" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.deramp">deramp</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#email" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.email">email</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#extract_res" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.extract_res">extract<wbr></wbr>_res</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#geocode" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.geocode">geocode</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#google_earth" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.google_earth">google<wbr></wbr>_earth</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#gui" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.gui">gui</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#hdfeos5" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.hdfeos5">hdfeos5</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#ifgprocessor" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.ifgprocessor">ifgprocessor</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#invert_network" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.invert_network">invert<wbr></wbr>_network</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#load_data" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.load_data">load<wbr></wbr>_data</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#log" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.log">log</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#mlazi" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.mlazi">mlazi</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#mlran" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.mlran">mlran</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#mode" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.mode">mode</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#modify_network" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.modify_network">modify<wbr></wbr>_network</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#pathmintpyconfig" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.pathmintpyconfig">pathmintpyconfig</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#plotoptions" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.plotoptions">plotoptions</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#polarisation" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.polarisation">polarisation</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#processor" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.processor">processor</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#quick_overview" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.quick_overview">quick<wbr></wbr>_overview</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#reference_date" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.reference_date">reference<wbr></wbr>_date</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#reference_point" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.reference_point">reference<wbr></wbr>_point</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#relorbit" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.relorbit">relorbit</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#residual_RMS" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.residual_RMS">residual_<wbr></wbr>RMS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#roi" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.roi">roi</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#satellite" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.satellite">satellite</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#satmode" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.satmode">satmode</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#satpass" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.satpass">satpass</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#title" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.title">title</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#velocity" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.velocity">velocity</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#verbose" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.verbose">verbose</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#workdirectory" class="internal-link" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.workdirectory">workdirectory</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, job: <code><a href="https://docs.python.org/3/library/functions.html#any" class="intersphinx-link">any</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, title: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, workdirectory: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, pathmintpyconfig: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, polarisation: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <span class="rst-variable-quote">'</span><span class="rst-variable-string">VV</span><span class="rst-variable-quote">'</span>, roi: <code><a href="https://docs.python.org/3/library/functions.html#any" class="intersphinx-link">any</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, satellite: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <span class="rst-variable-quote">'</span><span class="rst-variable-string">S1</span><span class="rst-variable-quote">'</span>, satmode: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <span class="rst-variable-quote">'</span><span class="rst-variable-string">IW</span><span class="rst-variable-quote">'</span>, relorbit: <code><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, satpass: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, email: <code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, processor: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <span class="rst-variable-quote">'</span><span class="rst-variable-string">mintpy</span><span class="rst-variable-quote">'</span>, ifgprocessor: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <span class="rst-variable-quote">'</span><span class="rst-variable-string">gamma</span><span class="rst-variable-quote">'</span>, mode: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <span class="rst-variable-quote">'</span><span class="rst-variable-string">sbas</span><span class="rst-variable-quote">'</span>, mlazi: <code><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = 1, mlran: <code><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = 1, computer: <code><a href="https://docs.python.org/3/library/functions.html#any" class="intersphinx-link">any</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, load_data: <code><a href="https://docs.python.org/3/library/functions.html#any" class="intersphinx-link">any</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, modify_network: <code><a href="https://docs.python.org/3/library/functions.html#any" class="intersphinx-link">any</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, reference_point: <code><a href="https://docs.python.org/3/library/functions.html#any" class="intersphinx-link">any</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, quick_overview: <code><a href="https://docs.python.org/3/library/functions.html#any" class="intersphinx-link">any</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, correct_unwrap_error: <code><a href="https://docs.python.org/3/library/functions.html#any" class="intersphinx-link">any</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, invert_network: <code><a href="https://docs.python.org/3/library/functions.html#any" class="intersphinx-link">any</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, correct_LOD: <code><a href="https://docs.python.org/3/library/functions.html#any" class="intersphinx-link">any</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, correct_SET: <code><a href="https://docs.python.org/3/library/functions.html#any" class="intersphinx-link">any</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, correct_troposphere: <code><a href="https://docs.python.org/3/library/functions.html#any" class="intersphinx-link">any</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, deramp: <code><a href="https://docs.python.org/3/library/functions.html#any" class="intersphinx-link">any</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, correct_topography: <code><a href="https://docs.python.org/3/library/functions.html#any" class="intersphinx-link">any</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, residual_RMS: <code><a href="https://docs.python.org/3/library/functions.html#any" class="intersphinx-link">any</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, reference_date: <code><a href="https://docs.python.org/3/library/functions.html#any" class="intersphinx-link">any</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, velocity: <code><a href="https://docs.python.org/3/library/functions.html#any" class="intersphinx-link">any</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, geocode: <code><a href="https://docs.python.org/3/library/functions.html#any" class="intersphinx-link">any</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, google_earth: <code><a href="https://docs.python.org/3/library/functions.html#any" class="intersphinx-link">any</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, hdfeos5: <code><a href="https://docs.python.org/3/library/functions.html#any" class="intersphinx-link">any</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, extract_res: <code><a href="https://docs.python.org/3/library/functions.html#any" class="intersphinx-link">any</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, plotoptions: <code><a href="https://docs.python.org/3/library/functions.html#any" class="intersphinx-link">any</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, verbose: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a>, log: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, gui: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#False" class="intersphinx-link">False</a>)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L86">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#__init__" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Initilisation of the job for EZ-InSAR</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">job:</span><tt class="rst-docutils rst-literal">ezinsar.job</tt></td><td class="fieldArgDesc">EZ-InSAR interferometric job</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">title:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">Name/Definition of the user [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">workdirectory:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">Work directory of the coregistration processin. [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">pathmintpyconfig:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">Path of the MintPy configuration file. [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">polarisation:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">Polarisation. [Default: <tt class="rst-docutils rst-literal">VV</tt>]</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">roi:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">Polygon of the Region of Interest. [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">satellite:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">Satellite name. [Default: <tt class="rst-docutils rst-literal">S1</tt>]</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">satmode:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">Satellite mode. [Default: <tt class="rst-docutils rst-literal">SM</tt>]</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">relorbit:</span><code><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a></code></td><td class="fieldArgDesc">Relative orbit number. [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">satpass:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">Satellite direction. [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">email:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code></td><td class="fieldArgDesc">Dictionary of the emal parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">processor:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">Processor. [Default: <tt class="rst-docutils rst-literal">mintpy</tt>]</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ifgprocessor:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">Interferometric processor. [Default: <tt class="rst-docutils rst-literal">gamma</tt>]</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">mode:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">Mode of the time series processing. [Default: <tt class="rst-docutils rst-literal">sbas</tt>]</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">mlazi:</span><code><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a></code></td><td class="fieldArgDesc">Multilook factor in azimuth</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">mlran:</span><code><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a></code></td><td class="fieldArgDesc">Multilook factor in range</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">computer:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code></td><td class="fieldArgDesc">EZ-InSAR parameter dictionary</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">load<wbr></wbr>_data:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code></td><td class="fieldArgDesc">EZ-InSAR parameter dictionary</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">modify<wbr></wbr>_network:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code></td><td class="fieldArgDesc">EZ-InSAR parameter dictionary</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">reference<wbr></wbr>_point:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code></td><td class="fieldArgDesc">EZ-InSAR parameter dictionary</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">quick<wbr></wbr>_overview:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code></td><td class="fieldArgDesc">EZ-InSAR parameter dictionary</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">correct<wbr></wbr>_unwrap<wbr></wbr>_error:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code></td><td class="fieldArgDesc">EZ-InSAR parameter dictionary</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">invert<wbr></wbr>_network:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code></td><td class="fieldArgDesc">EZ-InSAR parameter dictionary</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">correct_<wbr></wbr>LOD:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code></td><td class="fieldArgDesc">EZ-InSAR parameter dictionary</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">correct_<wbr></wbr>SET:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code></td><td class="fieldArgDesc">EZ-InSAR parameter dictionary</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">correct<wbr></wbr>_troposphere:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code></td><td class="fieldArgDesc">EZ-InSAR parameter dictionary</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">deramp:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code></td><td class="fieldArgDesc">EZ-InSAR parameter dictionary</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">correct<wbr></wbr>_topography:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code></td><td class="fieldArgDesc">EZ-InSAR parameter dictionary</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">residual_<wbr></wbr>RMS:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code></td><td class="fieldArgDesc">EZ-InSAR parameter dictionary</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">reference<wbr></wbr>_date:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code></td><td class="fieldArgDesc">EZ-InSAR parameter dictionary</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">velocity:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code></td><td class="fieldArgDesc">EZ-InSAR parameter dictionary</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">geocode:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code></td><td class="fieldArgDesc">EZ-InSAR parameter dictionary</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">google<wbr></wbr>_earth:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code></td><td class="fieldArgDesc">EZ-InSAR parameter dictionary</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">hdfeos5:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code></td><td class="fieldArgDesc">EZ-InSAR parameter dictionary</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">extract<wbr></wbr>_res:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code></td><td class="fieldArgDesc">EZ-InSAR parameter dictionary</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">plotoptions:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code></td><td class="fieldArgDesc">EZ-InSAR parameter dictionary</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">Verbose mode. [Default: <code><a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a></code>]</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">log:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">Log file</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">gui:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">GUI mode (not used). [Default: <code><a href="https://docs.python.org/3/library/constants.html#False" class="intersphinx-link">False</a></code>]</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.check">
+    
+  </a>
+  <a name="check">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">check</span><span class="function-signature">(self, **kwargs)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L1031">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#check" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.check">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check and display the tsprocessing-processing attributes of the EZ-InSAR class</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">**kwargs</span></td><td class="fieldArgDesc">Arbitrary keyword arguments. See <code><a href="ezinsar.eicomponents.slcmodule.slctools.html#displaySLClist" class="internal-link" title="ezinsar.eicomponents.slcmodule.slctools.displaySLClist">slctools.displaySLClist</a></code> for more information.</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><tt class="rst-docutils rst-literal">ezinsar.job</tt></td><td class="fieldArgDesc">Return the <tt class="rst-docutils rst-literal">ezinsar.job</tt> used</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.print">
+    
+  </a>
+  <a name="print">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">print</span><span class="function-signature">(self)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L1016">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#print" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.print">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Print the tsprocessing-processing attributes of the EZ-InSAR class</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><tt class="rst-docutils rst-literal">ezinsar.job</tt></td><td class="fieldArgDesc">Return the <tt class="rst-docutils rst-literal">ezinsar.job</tt> used</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.readcfg">
+    
+  </a>
+  <a name="readcfg">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">readcfg</span><span class="function-signature">(self, **kwargs)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L1065">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#readcfg" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.readcfg">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Read the MintPy configuration file and update an EZ-InSAR job</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">**kwargs</span></td><td class="fieldArgDesc">Arbitrary keyword arguments.</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><tt class="rst-docutils rst-literal">ezinsar.job</tt></td><td class="fieldArgDesc">Return the <tt class="rst-docutils rst-literal">ezinsar.job</tt> used</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.run">
+    
+  </a>
+  <a name="run">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">run</span><span class="function-signature">(self, **kwargs)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L1082">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#run" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.run">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Run the coregsitration using MintPy processor</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">**kwargs</span></td><td class="fieldArgDesc">Arbitrary keyword arguments.</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><tt class="rst-docutils rst-literal">ezinsar.job</tt></td><td class="fieldArgDesc">Return the <tt class="rst-docutils rst-literal">ezinsar.job</tt> used</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.writecfg">
+    
+  </a>
+  <a name="writecfg">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">writecfg</span><span class="function-signature">(self, **kwargs)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L1048">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#writecfg" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.writecfg">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Write the MintPy configuration file from an EZ-InSAR job</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">**kwargs</span></td><td class="fieldArgDesc">Arbitrary keyword arguments.</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><tt class="rst-docutils rst-literal">ezinsar.job</tt></td><td class="fieldArgDesc">Return the <tt class="rst-docutils rst-literal">ezinsar.job</tt> used</td></tr></table></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.computer">
+    
+  </a>
+  <a name="computer">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">computer</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L269">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#computer" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.computer">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.correct_LOD">
+    
+  </a>
+  <a name="correct_LOD">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">correct_LOD</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L647">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#correct_LOD" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.correct_LOD">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.correct_SET">
+    
+  </a>
+  <a name="correct_SET">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">correct_SET</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L661">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#correct_SET" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.correct_SET">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.correct_topography">
+    
+  </a>
+  <a name="correct_topography">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">correct_topography</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L743">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#correct_topography" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.correct_topography">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.correct_troposphere">
+    
+  </a>
+  <a name="correct_troposphere">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">correct_troposphere</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L679">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#correct_troposphere" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.correct_troposphere">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.correct_unwrap_error">
+    
+  </a>
+  <a name="correct_unwrap_error">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">correct_unwrap_error</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L555">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#correct_unwrap_error" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.correct_unwrap_error">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.deramp">
+    
+  </a>
+  <a name="deramp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">deramp</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L721">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#deramp" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.deramp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.email">
+    
+  </a>
+  <a name="email">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">email</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L233">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#email" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.email">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.extract_res">
+    
+  </a>
+  <a name="extract_res">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">extract_res</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L937">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#extract_res" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.extract_res">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.geocode">
+    
+  </a>
+  <a name="geocode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">geocode</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L862">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#geocode" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.geocode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.google_earth">
+    
+  </a>
+  <a name="google_earth">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">google_earth</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L896">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#google_earth" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.google_earth">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.gui">
+    
+  </a>
+  <a name="gui">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">gui</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L987">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#gui" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.gui">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.hdfeos5">
+    
+  </a>
+  <a name="hdfeos5">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">hdfeos5</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L914">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#hdfeos5" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.hdfeos5">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.ifgprocessor">
+    
+  </a>
+  <a name="ifgprocessor">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ifgprocessor</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L223">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#ifgprocessor" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.ifgprocessor">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.invert_network">
+    
+  </a>
+  <a name="invert_network">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">invert_network</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L593">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#invert_network" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.invert_network">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.load_data">
+    
+  </a>
+  <a name="load_data">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">load_data</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L299">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#load_data" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.load_data">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.log">
+    
+  </a>
+  <a name="log">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">log</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L986">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#log" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.log">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.mlazi">
+    
+  </a>
+  <a name="mlazi">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">mlazi</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L197">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#mlazi" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.mlazi">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.mlran">
+    
+  </a>
+  <a name="mlran">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">mlran</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L198">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#mlran" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.mlran">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.mode">
+    
+  </a>
+  <a name="mode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">mode</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L226">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#mode" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.mode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.modify_network">
+    
+  </a>
+  <a name="modify_network">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">modify_network</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L429">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#modify_network" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.modify_network">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.pathmintpyconfig">
+    
+  </a>
+  <a name="pathmintpyconfig">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">pathmintpyconfig</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L227">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#pathmintpyconfig" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.pathmintpyconfig">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.plotoptions">
+    
+  </a>
+  <a name="plotoptions">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">plotoptions</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L960">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#plotoptions" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.plotoptions">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.polarisation">
+    
+  </a>
+  <a name="polarisation">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">polarisation</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L190">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#polarisation" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.polarisation">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.processor">
+    
+  </a>
+  <a name="processor">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">processor</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L225">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#processor" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.processor">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.quick_overview">
+    
+  </a>
+  <a name="quick_overview">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">quick_overview</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L541">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#quick_overview" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.quick_overview">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.reference_date">
+    
+  </a>
+  <a name="reference_date">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">reference_date</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L807">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#reference_date" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.reference_date">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.reference_point">
+    
+  </a>
+  <a name="reference_point">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">reference_point</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L507">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#reference_point" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.reference_point">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.relorbit">
+    
+  </a>
+  <a name="relorbit">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">relorbit</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L193">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#relorbit" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.relorbit">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.residual_RMS">
+    
+  </a>
+  <a name="residual_RMS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">residual_RMS</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L781">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#residual_RMS" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.residual_RMS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.roi">
+    
+  </a>
+  <a name="roi">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">roi</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L195">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#roi" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.roi">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.satellite">
+    
+  </a>
+  <a name="satellite">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">satellite</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L191">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#satellite" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.satellite">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.satmode">
+    
+  </a>
+  <a name="satmode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">satmode</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L192">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#satmode" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.satmode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.satpass">
+    
+  </a>
+  <a name="satpass">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">satpass</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L194">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#satpass" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.satpass">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.title">
+    
+  </a>
+  <a name="title">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">title</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L189">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#title" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.title">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.velocity">
+    
+  </a>
+  <a name="velocity">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">velocity</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L828">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#velocity" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.velocity">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.verbose">
+    
+  </a>
+  <a name="verbose">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">verbose</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L985">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#verbose" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.verbose">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.workdirectory">
+    
+  </a>
+  <a name="workdirectory">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">workdirectory</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/mintpymodule/mintpytsprocessing.py#L196">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#workdirectory" title="ezinsar.eicomponents.processor.mintpymodule.mintpytsprocessing.sbas.workdirectory">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+    <hr />
+    
+    
+    <div class="container">
+      <a href="index.html">API Documentation</a> for <a href="../index.html" class="projecthome">EZ-InSAR</a>,
+    generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+      24.3.3 at 2026-01-02 23:43:35.
+    </div>
+    
+    <script src="ajax.js" type="text/javascript"></script>
+    <script src="searchlib.js" type="text/javascript"></script>
+    <script src="search.js" type="text/javascript"></script>
+  
+  </footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

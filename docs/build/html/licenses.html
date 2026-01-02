@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Licenses &mdash; EZ-InSAR  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="EZ-InSAR-scripts documentation" href="api/index.html" />
+    <link rel="prev" title="Issue tracker" href="issue_tracker.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            EZ-InSAR
+              <img src="_static/EZ_InSAR_logo_whiteback.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.3.1 Dec. 2025
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Content of the documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">EZ-InSAR’s Read-Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proc_sensors.html">SAR and InSAR processors and sensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installationprocessor.html">Installation of SAR/InSAR processors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optmodules.html">EZ-InSAR optional Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dem.html">Digital Elevation Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use/index.html">Run EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clihelp.html">Command-line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technical.html">Technical information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subprograms/index.html">EZ-InSAR supplementary tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contrib.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html#satellite-data">Satellite data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html#partners">Partners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Change-log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dvptplan.html">Development plan of EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue_tracker.html">Issue tracker</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Licenses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ez-insar-license">EZ-InSAR license</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list-of-python-package-imported-by-ez-insar">List of Python Package imported by EZ-InSAR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list-of-python-package-imported-by-ez-insar-for-documentation">List of Python Package imported by EZ-InSAR for documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list-of-3rd-party-programs-used-by-ez-insar">List of 3rd-party programs used by EZ-InSAR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list-of-3rd-party-programs-modified-and-redistributed-by-ez-insar">List of 3rd-party programs modified and redistributed by EZ-InSAR</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">EZ-InSAR-scripts documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/alexisInSAR/EZ-InSAR-3">EZ-InSAR's GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.ucd.ie">University College Dublin</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.icrag-centre.org">iCRAG</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">EZ-InSAR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Licenses</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/licenses.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="licenses">
+<h1>Licenses<a class="headerlink" href="#licenses" title="Link to this heading"></a></h1>
+<section id="ez-insar-license">
+<h2>EZ-InSAR license<a class="headerlink" href="#ez-insar-license" title="Link to this heading"></a></h2>
+<p><strong>EZ-InSAR</strong> is distributed for free under the [<strong>GPLV3 License</strong>](<a class="reference external" href="https://www.gnu.org/licenses/gpl-3.0.html">https://www.gnu.org/licenses/gpl-3.0.html</a>).</p>
+<p>The documentation is copyrighted by Alexis Hrysiewicz and distributed under <em>CC BY</em> (Creative Commons Attribution 4.0 license).</p>
+<p><strong>Please ensure that you comply with the licences for each SAR/InSAR processor, file (i.e. DEMs), etc.</strong></p>
+</section>
+<section id="list-of-python-package-imported-by-ez-insar">
+<h2>List of Python Package imported by EZ-InSAR<a class="headerlink" href="#list-of-python-package-imported-by-ez-insar" title="Link to this heading"></a></h2>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Python Packages imported by EZ-InSAR, installed by the user</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Package name</p></th>
+<th class="head"><p>License</p></th>
+<th class="head"><p>Comment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>alive_progress</p></td>
+<td><p>MIT License</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-odd"><td><p>asf_search</p></td>
+<td><p>BSD-3-Clause</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-even"><td><p>basemap</p></td>
+<td><p>MIT License</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-odd"><td><p>basemap-data-hires</p></td>
+<td><p>GNU Lesser General Public License v3</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-even"><td><p>burst2safe</p></td>
+<td><p>BSD-2-Clause</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-odd"><td><p>clint</p></td>
+<td><p>ISC License</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-even"><td><p>contextily</p></td>
+<td><p>BSD-3-Clause</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-odd"><td><p>copy</p></td>
+<td><p>Python Software Foundation License (PSF)</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-even"><td><p>datetime</p></td>
+<td><p>Apache License Version 2.0 &amp; BSD-3-Clause</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-odd"><td><p>dateutil</p></td>
+<td><p>Apache License Version 2.0 &amp; BSD-3-Clause</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-even"><td><p>docker</p></td>
+<td><p>Apache License Version 2.0</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-odd"><td><p>docopt</p></td>
+<td><p>MIT License</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-even"><td><p>elevation</p></td>
+<td><p>Apache License Version 2.0</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-odd"><td><p>email</p></td>
+<td><p>Python Software Foundation License (PSF)</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-even"><td><p>esa-snappy</p></td>
+<td><p>GNU General Public License (GPL) version 3</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-odd"><td><p>fiona</p></td>
+<td><p>BSD-3-Clause</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-even"><td><p>gdal</p></td>
+<td><p>MIT License</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-odd"><td><p>geopandas</p></td>
+<td><p>BSD-3-Clause</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-even"><td><p>getpass</p></td>
+<td><p>Python Software Foundation License (PSF)</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-odd"><td><p>git</p></td>
+<td><p>MIT License</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-even"><td><p>GitPython</p></td>
+<td><p>BSD-3-Clause</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-odd"><td><p>glob</p></td>
+<td><p>MIT License</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-even"><td><p>gnupg</p></td>
+<td><p>GNU General Public License (GPL) version 3</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-odd"><td><p>h5py</p></td>
+<td><p>BSD-3-Clause</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-even"><td><p>importlib</p></td>
+<td><p>MIT License</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-odd"><td><p>isce</p></td>
+<td><p>Apache License Version 2.0</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-even"><td><p>jdcal</p></td>
+<td><p>BSD-2-Clause</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-odd"><td><p>joblib</p></td>
+<td><p>BSD-3-Clause</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-even"><td><p>json</p></td>
+<td><p>MIT License</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-odd"><td><p>logging</p></td>
+<td><p>MIT License</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-even"><td><p>matlabengine</p></td>
+<td><p>MathWorks License</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-odd"><td><p>matplotlib</p></td>
+<td><p>Python Software Foundation License</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-even"><td><p>mintpy</p></td>
+<td><p>GNU General Public License v3</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-odd"><td><p>multiprocessing</p></td>
+<td><p>BSD-3-Clause</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-even"><td><p>numpy</p></td>
+<td><p>BSD-3-Clause</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-odd"><td><p>opencv-python</p></td>
+<td><p>Apache License Version 2.0</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-even"><td><p>os</p></td>
+<td><p>MIT License</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-odd"><td><p>osgeo</p></td>
+<td><p>MIT License</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-even"><td><p>osgeo_utils</p></td>
+<td><p>MIT License</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-odd"><td><p>pandas</p></td>
+<td><p>BSD-3-Clause</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-even"><td><p>pathlib</p></td>
+<td><p>MIT License</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-odd"><td><p>pillow</p></td>
+<td><p>MIT License</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-even"><td><p>platform</p></td>
+<td><p>MIT License</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-odd"><td><p>psutil</p></td>
+<td><p>MIT License</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-even"><td><p>pygmt</p></td>
+<td><p>BSD-3-Clause</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-odd"><td><p>pylatex</p></td>
+<td><p>MIT License</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-even"><td><p>pyproj</p></td>
+<td><p>MIT License</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-odd"><td><p>pywebview</p></td>
+<td><p>BSD-3-Clause</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-even"><td><p>py7zr</p></td>
+<td><p>GNU Lesser General Public License v2 or later (LGPLv2+)</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-odd"><td><p>random</p></td>
+<td><p>Python Software Foundation License</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-even"><td><p>rasterio</p></td>
+<td><p>BSD-3-Clause</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-odd"><td><p>re</p></td>
+<td><p>Python Software Foundation License</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-even"><td><p>requests</p></td>
+<td><p>Apache License Version 2.0</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-odd"><td><p>rioxarray</p></td>
+<td><p>Apache License Version 2.0</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-even"><td><p>scikit-image</p></td>
+<td><p>BSD-3-Clause</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-odd"><td><p>scipy</p></td>
+<td><p>BSD-3-Clause</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-even"><td><p>setuptools</p></td>
+<td><p>MIT License</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-odd"><td><p>shapely</p></td>
+<td><p>BSD-3-Clause</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-even"><td><p>shutil</p></td>
+<td><p>MIT License</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-odd"><td><p>simplekml</p></td>
+<td><p>GNU Lesser General Public License v3</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-even"><td><p>smtplib</p></td>
+<td><p>Python Software Foundation License (PSF)</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-odd"><td><p>socket</p></td>
+<td><p>MIT License</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-even"><td><p>ssl</p></td>
+<td><p>Python Software Foundation License (PSF)</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-odd"><td><p>string</p></td>
+<td><p>MIT License</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-even"><td><p>struct</p></td>
+<td><p>Python Software Foundation License</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-odd"><td><p>subprocess</p></td>
+<td><p>BSD-2-Clause</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-even"><td><p>sys</p></td>
+<td><p>MIT License</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-odd"><td><p>tarfile</p></td>
+<td><p>Python Software Foundation License</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-even"><td><p>threading</p></td>
+<td><p>Python Software Foundation License (PSF)</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-odd"><td><p>time</p></td>
+<td><p>MIT License</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-even"><td><p>timeit</p></td>
+<td><p>Python Software Foundation License (PSF)</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-odd"><td><p>tqdm</p></td>
+<td><p>MIT License / Mozilla Public License 2.0 (MPL 2.0)</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-even"><td><p>typing</p></td>
+<td><p>Python Software Foundation License (PSF)</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-odd"><td><p>urllib3</p></td>
+<td><p>MIT License</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-even"><td><p>webbrower</p></td>
+<td><p>MIT License</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-odd"><td><p>xml</p></td>
+<td><p>Python Software Foundation License</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+<tr class="row-even"><td><p>xmltodict</p></td>
+<td><p>MIT License</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-odd"><td><p>zipfile</p></td>
+<td><p>Python Software Foundation License (PSF)</p></td>
+<td><p>Python Standard Library</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="list-of-python-package-imported-by-ez-insar-for-documentation">
+<h2>List of Python Package imported by EZ-InSAR for documentation<a class="headerlink" href="#list-of-python-package-imported-by-ez-insar-for-documentation" title="Link to this heading"></a></h2>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Python Packages imported by EZ-InSAR for documentation, installed by the user</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>License</p></th>
+<th class="head"><p>Comment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>renku-sphinx-theme</p></td>
+<td><p>Apache License Version 2.0</p></td>
+<td><p>Installed</p></td>
+</tr>
+<tr class="row-odd"><td><p>sphinx</p></td>
+<td><p>BSD-2-Clause</p></td>
+<td><p>Installed</p></td>
+</tr>
+<tr class="row-even"><td><p>sphinxcontrib-spelling</p></td>
+<td><p>BSD-2-Clause</p></td>
+<td><p>Installed</p></td>
+</tr>
+<tr class="row-odd"><td><p>notebook</p></td>
+<td><p>BSD-3-Clause</p></td>
+<td><p>Installed</p></td>
+</tr>
+<tr class="row-even"><td><p>sphinx-gallery</p></td>
+<td><p>BSD-3-Clause</p></td>
+<td><p>Installed</p></td>
+</tr>
+<tr class="row-odd"><td><p>sphinxemoji</p></td>
+<td><p>BSD-3-Clause</p></td>
+<td><p>Installed</p></td>
+</tr>
+<tr class="row-even"><td><p>pyenchant</p></td>
+<td><p>GNU Lesser General Public License v3</p></td>
+<td><p>Installed</p></td>
+</tr>
+<tr class="row-odd"><td><p>myst-parser</p></td>
+<td><p>MIT License</p></td>
+<td><p>Installed</p></td>
+</tr>
+<tr class="row-even"><td><p>pydoctor</p></td>
+<td><p>MIT License</p></td>
+<td><p>Installed</p></td>
+</tr>
+<tr class="row-odd"><td><p>nbsphinx</p></td>
+<td><p>MIT License</p></td>
+<td><p>Installed</p></td>
+</tr>
+<tr class="row-even"><td><p>sphinx-argparse</p></td>
+<td><p>MIT License</p></td>
+<td><p>Installed</p></td>
+</tr>
+<tr class="row-odd"><td><p>sphinx_rtd_theme</p></td>
+<td><p>MIT License</p></td>
+<td><p>Installed</p></td>
+</tr>
+<tr class="row-even"><td><p>sphinx-tabs</p></td>
+<td><p>MIT License</p></td>
+<td><p>Installed</p></td>
+</tr>
+<tr class="row-odd"><td><p>python-docs-theme</p></td>
+<td><p>Python Software Foundation License</p></td>
+<td><p>Installed</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="list-of-3rd-party-programs-used-by-ez-insar">
+<h2>List of 3rd-party programs used by EZ-InSAR<a class="headerlink" href="#list-of-3rd-party-programs-used-by-ez-insar" title="Link to this heading"></a></h2>
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-text">3rd-party programs used by EZ-InSAR, installed by the user</span><a class="headerlink" href="#id3" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>License</p></th>
+<th class="head"><p>Comment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>isce</p></td>
+<td><p>Apache License Version 2.0</p></td>
+<td><p>SAR/InSAR processor</p></td>
+</tr>
+<tr class="row-odd"><td><p>mintpy</p></td>
+<td><p>GNU General Public License v3</p></td>
+<td><p>SAR/InSAR processor</p></td>
+</tr>
+<tr class="row-even"><td><p>snap</p></td>
+<td><p>GNU General Public License v3</p></td>
+<td><p>SAR/InSAR processor</p></td>
+</tr>
+<tr class="row-odd"><td><p>matlabengine</p></td>
+<td><p>MathWorks License</p></td>
+<td><p>Installed package</p></td>
+</tr>
+<tr class="row-even"><td><p>doris</p></td>
+<td><p>GNU General Public License v3</p></td>
+<td><p>SAR/InSAR processor</p></td>
+</tr>
+<tr class="row-odd"><td><p>StaMPS</p></td>
+<td><p>GNU General Public License v3</p></td>
+<td><p>SAR/InSAR processor</p></td>
+</tr>
+<tr class="row-even"><td><p>LiCSBAS</p></td>
+<td><p>GNU General Public License v3</p></td>
+<td><p>SAR/InSAR processor</p></td>
+</tr>
+<tr class="row-odd"><td><p>GMT</p></td>
+<td><p>GNU Lesser General Public License v3</p></td>
+<td><p>Mapping software</p></td>
+</tr>
+<tr class="row-even"><td><p>snaphu</p></td>
+<td><p>MIT License</p></td>
+<td><p>Unwrapping software</p></td>
+</tr>
+<tr class="row-odd"><td><p>triangle</p></td>
+<td><p>MIT License</p></td>
+<td><p>Delaunay-triangulation tool</p></td>
+</tr>
+<tr class="row-even"><td><p>awscliv2</p></td>
+<td><p>Apache License Version 2.0</p></td>
+<td><p>Amazon downloader</p></td>
+</tr>
+<tr class="row-odd"><td><p>MiaplPy</p></td>
+<td><p>GNU General Public License v3</p></td>
+<td><p>SAR/InSAR processor</p></td>
+</tr>
+<tr class="row-even"><td><p>SARvey</p></td>
+<td><p>GNU General Public License v3</p></td>
+<td><p>SAR/InSAR processor</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="list-of-3rd-party-programs-modified-and-redistributed-by-ez-insar">
+<h2>List of 3rd-party programs modified and redistributed by EZ-InSAR<a class="headerlink" href="#list-of-3rd-party-programs-modified-and-redistributed-by-ez-insar" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>./docker/MakefileDoris/doriscoreMakefile</dt><dd><p>Modified by Alexis Hrysiewicz, Dec. 2024</p>
+</dd>
+<dt>./docker/MakefileDoris/dorisutilMakefile</dt><dd><p>Modified by Alexis Hrysiewicz, Dec. 2024</p>
+</dd>
+<dt>./docker/MakefileDoris/stepDORIS.py</dt><dd><p>Unmodifed</p>
+</dd>
+<dt>./docker/MakefileStaMPS/Makefilesrc</dt><dd><p>Created by Andy Hooper, 08-May_2006
+Modified by Alexis Hrysiewicz, Dec. 2024</p>
+</dd>
+<dt>./src/ezinsar/3rdparty/GVP_Volcano_List_Holocene.csv</dt><dd><p>Global Volcanism Program, 2024. [Database] Volcanoes of the World (v. 5.2.7; 21 Feb 2025). Distributed by Smithsonian Institution, compiled by Venzke, E. <a class="reference external" href="https://doi.org/10.5479/si.GVP.VOTW5-2024.5.2">https://doi.org/10.5479/si.GVP.VOTW5-2024.5.2</a>
+Unmodified but reformatted by Alexis Hrysiewicz, Dec. 2024</p>
+</dd>
+<dt>./src/ezinsar/3rdparty/isce2mod/croppingstack_ISCE.csh</dt><dd><p>Created by David Bekaert, 2016
+Modified by Alexis Hrysiewicz, Dec. 2024
+Original file from isce2 (isce2/contrib/timeseries/prepStackToStaMPS/bin/run_SLCcropStack.csh)</p>
+</dd>
+<dt>./src/ezinsar/3rdparty/isce2mod/unpackFrame_ALOS2_ezinsar.py</dt><dd><p>Unchanged
+Original file from isce2 (/isce2/contrib/stack/stripmapStack/unpackFrame_ALOS2.py)</p>
+</dd>
+<dt>./src/ezinsar/3rdparty/isce2mod/unpackFrame_TSX_ezinsar.py</dt><dd><p>Modified by Alexis Hrysiewicz, Dec. 2024
+Original file from isce2 (isce2/contrib/timeseries/prepStackToStaMPS/bin/unpackFrame_TSX.csh)</p>
+</dd>
+<dt>./src/ezinsar/3rdparty/isce2mod/unpackFrame_PAZ_ezinsar.py</dt><dd><p>Modified by Alexis Hrysiewicz, Dec. 2024
+Original file from isce2 (isce2/contrib/timeseries/prepStackToStaMPS/bin/unpackFrame_TSX.csh)</p>
+</dd>
+<dt>./src/ezinsar/3rdparty/isce2mod/make_small_baselines_isce_cp</dt><dd><p>Modified by Alexis Hrysiewicz, Dec. 2024
+Original file from isce2 (isce2/contrib/timeseries/prepStackToStaMPS/bin/make_small_baselines_isce)</p>
+</dd>
+<dt>./src/ezinsar/3rdparty/isce2mod/make_single_reference_stack_isce_cp</dt><dd><p>Modified by Alexis Hrysiewicz, Dec. 2024
+Original file from isce2 (isce2/contrib/timeseries/prepStackToStaMPS/bin/make_single_reference_stack_isce)</p>
+</dd>
+<dt>./src/ezinsar/api/THEIAapi</dt><dd><p>This script is based on the scripts from Olivier Hagolle <a class="reference external" href="https://github.com/olivierhagolle/theia_download">https://github.com/olivierhagolle/theia_download</a></p>
+</dd>
+</dl>
+<p>For Doris, EZ-InSAR writes the input files based on the Doris inputs and Doris documentation.</p>
+<p>For ISCE-2, EZ-InSAR writes the input files based on the ISCE-2 examples.</p>
+<p>For LicSBAS, EZ-InSAR writes the parameter descriptions based on the LicSBAS examples.</p>
+<p>For MintPy, EZ-InSAR writes the parameter descriptions based on the MintPy examples.</p>
+<p>For SNAP, EZ-InSAR writes the parameter descriptions based on the SNAP documentation.</p>
+<p>For StaMPS, EZ-InSAR writes the parameter descriptions based on the StaMPS documentation.</p>
+<p>The EZ-InSAR documentation is based on the examples of pydoctor.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="issue_tracker.html" class="btn btn-neutral float-left" title="Issue tracker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api/index.html" class="btn btn-neutral float-right" title="EZ-InSAR-scripts documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright  2025, EZ-InSAR / UCD / iCRAG.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Management of Sentinel-1 images via Python scripts &mdash; EZ-InSAR  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/nbsphinx-code-cells.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Computation of a Sentinel-1 StripMap single interferogram via CLI of EZ-InSAR" href="../../theme_computation/example2/notebook_example2.html" />
+    <link rel="prev" title="Tutorials" href="../../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            EZ-InSAR
+              <img src="../../../_static/EZ_InSAR_logo_whiteback.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.3.1 Dec. 2025
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Content of the documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../readme.html">EZ-InSAR’s Read-Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../proc_sensors.html">SAR and InSAR processors and sensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installationprocessor.html">Installation of SAR/InSAR processors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../optmodules.html">EZ-InSAR optional Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dem.html">Digital Elevation Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../use/index.html">Run EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../clihelp.html">Command-line Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Management of Sentinel-1 images via Python scripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#1.-Initialiation-of-the-EZ-InSAR-job">1. Initialiation of the EZ-InSAR job</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#2.-Import-the-ROI">2. Import the ROI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#3.-Creation-of-the-directories">3. Creation of the directories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#4.-Selection-of-relative-orbits-and-directions">4. Selection of relative orbits and directions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#5.-Create-the-SLC-list">5. Create the SLC list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#6.-Download-the-SLCs-and-orbits">6. Download the SLCs and orbits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#7.-Save-the-job">7. Save the job</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../theme_computation/example2/notebook_example2.html">Computation of a Sentinel-1 StripMap single interferogram via CLI of EZ-InSAR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../theme_computation/example3/notebook_example3.html">Computation of a Sentinel-1 IW time series with LiCSBAS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contrib/ex_shipdetect_snap.html">Ship detection from Sentinel-1 GRD images using SNAP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../technical.html">Technical information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../subprograms/index.html">EZ-InSAR supplementary tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contrib.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../acknowledgments.html#satellite-data">Satellite data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../acknowledgments.html#partners">Partners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Change-log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dvptplan.html">Development plan of EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../issue_tracker.html">Issue tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../licenses.html">Licenses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">EZ-InSAR-scripts documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/alexisInSAR/EZ-InSAR-3">EZ-InSAR's GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.ucd.ie">University College Dublin</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.icrag-centre.org">iCRAG</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">EZ-InSAR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Tutorials</a></li>
+      <li class="breadcrumb-item active">Management of Sentinel-1 images via Python scripts</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/tutorials/theme_preparation/example1/notebook_example1.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Management-of-Sentinel-1-images-via-Python-scripts">
+<h1>Management of Sentinel-1 images via Python scripts<a class="headerlink" href="#Management-of-Sentinel-1-images-via-Python-scripts" title="Link to this heading"></a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env python3</span>
+<span class="c1"># -*- coding: iso-8859-1 -*-</span>
+<span class="n">__docformat__</span> <span class="o">=</span> <span class="s2">&quot;plaintext&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Import the required Python packages</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span> <span class="c1"># Datetime pakage</span>
+<span class="kn">import</span> <span class="nn">ezinsar.job</span> <span class="k">as</span> <span class="nn">ez</span> <span class="c1"># EZ-InSAR package</span>
+<span class="kn">import</span> <span class="nn">os</span>
+</pre></div>
+</div>
+</div>
+<section id="1.-Initialiation-of-the-EZ-InSAR-job">
+<h2>1. Initialiation of the EZ-InSAR job<a class="headerlink" href="#1.-Initialiation-of-the-EZ-InSAR-job" title="Link to this heading"></a></h2>
+<p>The first step is the initialiation of an EZ-InSAR job. Of course, it is possible to define some parameters:</p>
+<ul class="simple">
+<li><p>we want to use both polarisations available with Sentinel-1 data: <strong>VV and VH</strong>;</p></li>
+<li><p>we decide to use the default acquisition mode of Sentinel-1: <strong>IW</strong>;</p></li>
+<li><p>we decide to active the <strong>verbose</strong>;</p></li>
+<li><p>and we also decide to save the log into the <em>ezinsarexample.log</em> <strong>file</strong>.</p></li>
+</ul>
+<p><strong>The Sentinel-1 satellites are selected by default.</strong></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">job</span> <span class="o">=</span> <span class="n">ez</span><span class="o">.</span><span class="n">EIjob</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">polarisation</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;VV&#39;</span><span class="p">,</span><span class="s1">&#39;VH&#39;</span><span class="p">],</span><span class="n">satmode</span><span class="o">=</span><span class="s1">&#39;IW&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>However, we need to define some parameters: i.e., <strong>the different directory paths and the dates</strong>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Path directory modifications</span>
+<span class="n">job</span><span class="o">.</span><span class="n">workdirectory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;../example1/WKtest&#39;</span><span class="p">)</span>
+<span class="n">job</span><span class="o">.</span><span class="n">pathSLC</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;../example1/WKtest/Data_slc&#39;</span><span class="p">)</span>
+<span class="n">job</span><span class="o">.</span><span class="n">pathorbit</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;../example1/WKtest/Data_orbit&#39;</span><span class="p">)</span>
+<span class="n">job</span><span class="o">.</span><span class="n">pathaux</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;../example1/WKtest/Data_aux&#39;</span><span class="p">)</span>
+
+<span class="c1"># Date defintion</span>
+<span class="n">job</span><span class="o">.</span><span class="n">date1</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s1">&#39;2014-10-01T00:00:00.000000Z&#39;</span><span class="p">,</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%S.</span><span class="si">%f</span><span class="s1">Z&#39;</span><span class="p">)</span>
+<span class="n">job</span><span class="o">.</span><span class="n">date2</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s1">&#39;2024-12-31T00:00:00.000000Z&#39;</span><span class="p">,</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%S.</span><span class="si">%f</span><span class="s1">Z&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>To avoid any mistakes or errors, the full set of parameters can be displayed <strong>and checked</strong> by using the method <em>check()</em>.</p>
+<p>It also is possible to display the parameters by using the method <em>print()</em>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the parameters</span>
+<span class="n">job</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>
+
+<span class="c1"># Display and check the parameters</span>
+<span class="n">job</span><span class="o">.</span><span class="n">check</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>The warnings should be carefully checked because they could be errors during the next steps.</p>
+</section>
+<section id="2.-Import-the-ROI">
+<h2>2. Import the ROI<a class="headerlink" href="#2.-Import-the-ROI" title="Link to this heading"></a></h2>
+<p>EZ-InSAR requires a ROI (Region of Interest). Of course, the user has several options to define this parameter. They can use:</p>
+<ul class="simple">
+<li><p>a shapefile (in Polygon mode);</p></li>
+<li><p>a string variable (i.e., W,S,N,E) in EPGS:4326;</p></li>
+<li><p>a shapely Polygon.</p></li>
+</ul>
+<p>Here the first option will be used.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import the ROI on the Piton de la Fournaise volcano</span>
+<span class="n">job</span><span class="o">.</span><span class="n">importroi</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s1">&#39;ROI_PdF.shp&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>We can display the ROI by using the method <em>displayroi()</em>. <strong>Here, the figure will be saved because the figure option is given.</strong></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">displayroi</span><span class="p">(</span><span class="n">figure</span><span class="o">=</span><span class="s1">&#39;fig1_example1.jpg&#39;</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<img alt="Figure 1" src="../../../_images/fig1_example1.jpg" />
+</section>
+<section id="3.-Creation-of-the-directories">
+<h2>3. Creation of the directories<a class="headerlink" href="#3.-Creation-of-the-directories" title="Link to this heading"></a></h2>
+<p>Users can used the next method to create the required directories.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="4.-Selection-of-relative-orbits-and-directions">
+<h2>4. Selection of relative orbits and directions<a class="headerlink" href="#4.-Selection-of-relative-orbits-and-directions" title="Link to this heading"></a></h2>
+<p>For Sentinel-1, it needs to define the relative orbit and the pass direction (ascending or descending) in order to select the desired SAR data. Users have two options:</p>
+<ul class="simple">
+<li><p>the use of the sub-package <em>s1iwburstIDapp</em> to <strong>automatically detect the best parameters</strong>;</p></li>
+<li><p>a manual selection.</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## For a manual selection, we directly affect the values into the EZ-InSAR job.</span>
+<span class="n">job</span><span class="o">.</span><span class="n">relorbit</span> <span class="o">=</span> <span class="mi">144</span>
+<span class="n">job</span><span class="o">.</span><span class="n">satpass</span> <span class="o">=</span> <span class="s1">&#39;ASCENDING&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## For an automatic selection</span>
+
+<span class="c1"># We import the application</span>
+<span class="kn">from</span> <span class="nn">ezinsar.eicomponents.sensor.s1module</span> <span class="kn">import</span> <span class="n">s1iwburstIDapp</span>
+
+<span class="c1"># We create a &quot;selection&quot; job</span>
+<span class="n">jobS1selection</span> <span class="o">=</span> <span class="n">s1iwburstIDapp</span><span class="o">.</span><span class="n">s1iwburstIDapp</span><span class="p">()</span>
+
+<span class="c1"># We check if the S1 ID map is downloaded and available</span>
+<span class="n">jobS1selection</span><span class="o">.</span><span class="n">S1burstIDmap</span><span class="p">()</span>
+
+<span class="c1">######################################################</span>
+<span class="c1"># For the following step, the EZ-InSAR job is required</span>
+<span class="c1">######################################################</span>
+
+<span class="c1"># We detect the burst ID</span>
+<span class="n">jobS1selection</span><span class="o">.</span><span class="n">detectfromIDmap</span><span class="p">(</span><span class="n">job</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># We analyse the results to find the best options</span>
+<span class="n">job</span><span class="o">.</span><span class="n">relorbit</span><span class="p">,</span> <span class="n">job</span><span class="o">.</span><span class="n">satpass</span><span class="p">,</span> <span class="n">res</span> <span class="o">=</span> <span class="n">jobS1selection</span><span class="o">.</span><span class="n">analyse</span><span class="p">(</span><span class="n">job</span><span class="p">)</span>
+
+<span class="c1"># Of course, it is possible to merge the methods:</span>
+<span class="c1"># job.relorbit, job.satpass, res = s1iwburstIDapp().S1burstIDmap().detectfromIDmap(job,verbose=True).analyse(job)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="5.-Create-the-SLC-list">
+<h2>5. Create the SLC list<a class="headerlink" href="#5.-Create-the-SLC-list" title="Link to this heading"></a></h2>
+<p>To generate the SLC list, EZ-InSAR offers three methods:</p>
+<ol class="arabic simple">
+<li><p>EZ-InSAR can find the available images from two different servers: <strong>ASF</strong> and <strong>Copernicus</strong>. By default, the <strong>Copernicus</strong> server will be used. The <em>server</em> allows to select the server. <strong>This option is only available for Sentinel-1</strong>.</p></li>
+<li><p>EZ-InSAR can detect the SLCs stored in the directory (given by the <em>pathSLC</em> attribute). For Sentinel-1, the directory should contains .zip and/or .SAFE files.</p></li>
+<li><p>EZ-InSAR can read a EZ-InSAR SLC list.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## If users want to use the SLC directory:</span>
+<span class="n">job</span><span class="o">.</span><span class="n">initiateSLC</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;onfile&#39;</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1">## If users want to use a SLC list:</span>
+<span class="n">job</span><span class="o">.</span><span class="n">initiateSLC</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;list&#39;</span><span class="p">,</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;slclist.list.csv&#39;</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, we decide to use the <em>online</em> mode:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">initiateSLC</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;online&#39;</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>And we save the SLC list:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">saveSLClist</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;slclist_example1.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;slclist_example1.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Date1</th>
+      <th>Date2</th>
+      <th>Platform</th>
+      <th>Mode</th>
+      <th>Orbit</th>
+      <th>RelativeOrbit</th>
+      <th>PolyFrame</th>
+      <th>OrbitDirection</th>
+      <th>ProcessingLevel</th>
+      <th>Polarisation1</th>
+      <th>Polarisation2</th>
+      <th>Polarisation3</th>
+      <th>Polarisation4</th>
+      <th>Server</th>
+      <th>Url</th>
+      <th>Status</th>
+      <th>SizeMB</th>
+      <th>Stored</th>
+      <th>Processed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>S1A_IW_SLC__1SDV_20220506T145307_20220506T1453...</td>
+      <td>2022-05-06T14:53:07.277Z</td>
+      <td>2022-05-06T14:53:35.163Z</td>
+      <td>S1A</td>
+      <td>IW</td>
+      <td>43091</td>
+      <td>144</td>
+      <td>POLYGON ((53.656628 -21.291651, 54.086018 -22....</td>
+      <td>ASCENDING</td>
+      <td>SLC</td>
+      <td>VV</td>
+      <td>VH</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Copernicus</td>
+      <td>https://catalogue.dataspace.copernicus.eu/down...</td>
+      <td>ONLINE</td>
+      <td>0.0</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>S1A_IW_SLC__1SDV_20220424T145307_20220424T1453...</td>
+      <td>2022-04-24T14:53:07.100Z</td>
+      <td>2022-04-24T14:53:34.987Z</td>
+      <td>S1A</td>
+      <td>IW</td>
+      <td>42916</td>
+      <td>144</td>
+      <td>POLYGON ((53.654499 -21.291836, 54.083916 -22....</td>
+      <td>ASCENDING</td>
+      <td>SLC</td>
+      <td>VV</td>
+      <td>VH</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Copernicus</td>
+      <td>https://catalogue.dataspace.copernicus.eu/down...</td>
+      <td>ONLINE</td>
+      <td>0.0</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>S1A_IW_SLC__1SDV_20220412T145306_20220412T1453...</td>
+      <td>2022-04-12T14:53:06.220Z</td>
+      <td>2022-04-12T14:53:34.103Z</td>
+      <td>S1A</td>
+      <td>IW</td>
+      <td>42741</td>
+      <td>144</td>
+      <td>POLYGON ((53.655212 -21.292917, 54.084541 -22....</td>
+      <td>ASCENDING</td>
+      <td>SLC</td>
+      <td>VV</td>
+      <td>VH</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Copernicus</td>
+      <td>https://catalogue.dataspace.copernicus.eu/down...</td>
+      <td>ONLINE</td>
+      <td>0.0</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>S1A_IW_SLC__1SDV_20220331T145305_20220331T1453...</td>
+      <td>2022-03-31T14:53:05.968Z</td>
+      <td>2022-03-31T14:53:33.855Z</td>
+      <td>S1A</td>
+      <td>IW</td>
+      <td>42566</td>
+      <td>144</td>
+      <td>POLYGON ((53.654209 -21.292057, 54.083591 -22....</td>
+      <td>ASCENDING</td>
+      <td>SLC</td>
+      <td>VV</td>
+      <td>VH</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Copernicus</td>
+      <td>https://catalogue.dataspace.copernicus.eu/down...</td>
+      <td>ONLINE</td>
+      <td>0.0</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>S1A_IW_SLC__1SDV_20220319T145305_20220319T1453...</td>
+      <td>2022-03-19T14:53:05.800Z</td>
+      <td>2022-03-19T14:53:33.681Z</td>
+      <td>S1A</td>
+      <td>IW</td>
+      <td>42391</td>
+      <td>144</td>
+      <td>POLYGON ((53.654175 -21.293095, 54.083492 -22....</td>
+      <td>ASCENDING</td>
+      <td>SLC</td>
+      <td>VV</td>
+      <td>VH</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Copernicus</td>
+      <td>https://catalogue.dataspace.copernicus.eu/down...</td>
+      <td>ONLINE</td>
+      <td>0.0</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>S1A_IW_SLC__1SDV_20220307T145305_20220307T1453...</td>
+      <td>2022-03-07T14:53:05.634Z</td>
+      <td>2022-03-07T14:53:33.516Z</td>
+      <td>S1A</td>
+      <td>IW</td>
+      <td>42216</td>
+      <td>144</td>
+      <td>POLYGON ((53.654926 -21.292032, 54.084278 -22....</td>
+      <td>ASCENDING</td>
+      <td>SLC</td>
+      <td>VV</td>
+      <td>VH</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Copernicus</td>
+      <td>https://catalogue.dataspace.copernicus.eu/down...</td>
+      <td>ONLINE</td>
+      <td>0.0</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>S1A_IW_SLC__1SDV_20220223T145305_20220223T1453...</td>
+      <td>2022-02-23T14:53:05.830Z</td>
+      <td>2022-02-23T14:53:33.721Z</td>
+      <td>S1A</td>
+      <td>IW</td>
+      <td>42041</td>
+      <td>144</td>
+      <td>POLYGON ((53.654953 -21.291512, 54.08448 -22.9...</td>
+      <td>ASCENDING</td>
+      <td>SLC</td>
+      <td>VV</td>
+      <td>VH</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Copernicus</td>
+      <td>https://catalogue.dataspace.copernicus.eu/down...</td>
+      <td>ONLINE</td>
+      <td>0.0</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>S1A_IW_SLC__1SDV_20220211T145305_20220211T1453...</td>
+      <td>2022-02-11T14:53:05.933Z</td>
+      <td>2022-02-11T14:53:33.817Z</td>
+      <td>S1A</td>
+      <td>IW</td>
+      <td>41866</td>
+      <td>144</td>
+      <td>POLYGON ((53.655411 -21.292044, 54.084805 -22....</td>
+      <td>ASCENDING</td>
+      <td>SLC</td>
+      <td>VV</td>
+      <td>VH</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Copernicus</td>
+      <td>https://catalogue.dataspace.copernicus.eu/down...</td>
+      <td>ONLINE</td>
+      <td>0.0</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>S1A_IW_SLC__1SDV_20220130T145306_20220130T1453...</td>
+      <td>2022-01-30T14:53:06.073Z</td>
+      <td>2022-01-30T14:53:33.962Z</td>
+      <td>S1A</td>
+      <td>IW</td>
+      <td>41691</td>
+      <td>144</td>
+      <td>POLYGON ((53.655602 -21.291559, 54.085064 -22....</td>
+      <td>ASCENDING</td>
+      <td>SLC</td>
+      <td>VV</td>
+      <td>VH</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Copernicus</td>
+      <td>https://catalogue.dataspace.copernicus.eu/down...</td>
+      <td>ONLINE</td>
+      <td>0.0</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>S1A_IW_SLC__1SDV_20220118T145306_20220118T1453...</td>
+      <td>2022-01-18T14:53:06.516Z</td>
+      <td>2022-01-18T14:53:34.408Z</td>
+      <td>S1A</td>
+      <td>IW</td>
+      <td>41516</td>
+      <td>144</td>
+      <td>POLYGON ((53.655819 -21.292294, 54.085327 -22....</td>
+      <td>ASCENDING</td>
+      <td>SLC</td>
+      <td>VV</td>
+      <td>VH</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Copernicus</td>
+      <td>https://catalogue.dataspace.copernicus.eu/down...</td>
+      <td>ONLINE</td>
+      <td>0.0</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p><strong>EZ-InSAR contains several methods to check and print the SLC list.</strong></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">checkSLClist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">printSLClist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>The <em>displaySLClist()</em> method can generate this map of SLC extents.</p>
+<p><strong>TIPS:</strong> If the SLCs are not downloaded, the extents of SLCs will be displayed. However, it is possible to display the bursts if EZ-InSAR detects downloaded SLCs.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Create the map and save it into a file:</span>
+<span class="n">job</span><span class="o">.</span><span class="n">displaySLClist</span><span class="p">(</span><span class="n">figure</span><span class="o">=</span><span class="s1">&#39;fig2_example1.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<img alt="Figure 2" src="../../../_images/fig2_example1.jpg" />
+<p>For the Google-Earth users, the SLC list can be saved into a .kmz file.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">writeSLClisttokmz</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;example1.kmz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="6.-Download-the-SLCs-and-orbits">
+<h2>6. Download the SLCs and orbits<a class="headerlink" href="#6.-Download-the-SLCs-and-orbits" title="Link to this heading"></a></h2>
+<p><strong>From the EZ-InSAR job, users can download the SLCs and the orbits.</strong></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## To download the SLCs:</span>
+<span class="n">job</span><span class="o">.</span><span class="n">downloadSLC</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">,</span><span class="n">password</span><span class="o">=</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## To download the orbits:</span>
+<span class="n">job</span><span class="o">.</span><span class="n">downloadorbit</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">,</span><span class="n">password</span><span class="o">=</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>The priorities are:</p>
+<ol class="arabic simple">
+<li><p>the use of precise orbits;</p></li>
+<li><p>the use of restitued orbits;</p></li>
+<li><p>the use of orbits which can be found inside the .zip (or .SAFE) files.</p></li>
+</ol>
+</section>
+<section id="7.-Save-the-job">
+<h2>7. Save the job<a class="headerlink" href="#7.-Save-the-job" title="Link to this heading"></a></h2>
+<p>Finally, we an decide to save the job.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Save the EZ-InSAR job:</span>
+<span class="n">ez</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">job</span><span class="p">,</span><span class="s1">&#39;example1.ei&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../../index.html" class="btn btn-neutral float-left" title="Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../theme_computation/example2/notebook_example2.html" class="btn btn-neutral float-right" title="Computation of a Sentinel-1 StripMap single interferogram via CLI of EZ-InSAR" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright  2025, EZ-InSAR / UCD / iCRAG.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

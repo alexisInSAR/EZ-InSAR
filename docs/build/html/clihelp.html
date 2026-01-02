@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Command-line Interface &mdash; EZ-InSAR  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tutorials" href="tutorials/index.html" />
+    <link rel="prev" title="Compute a backscatter-intensity stack" href="use/intguide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            EZ-InSAR
+              <img src="_static/EZ_InSAR_logo_whiteback.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.3.1 Dec. 2025
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Content of the documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">EZ-InSAR’s Read-Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proc_sensors.html">SAR and InSAR processors and sensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installationprocessor.html">Installation of SAR/InSAR processors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optmodules.html">EZ-InSAR optional Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dem.html">Digital Elevation Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use/index.html">Run EZ-InSAR</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Command-line Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#commun-use-and-options">Commun use and options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sar-data-management">SAR data management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ezinsar-s1slc">ezinsar <em>S1slc</em></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ezinsar-s1orbit">ezinsar <em>S1orbit</em></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ezinsar-s1etad">ezinsar <em>S1etad</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#digital-elevation-model-download">Digital Elevation Model download</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ezinsar-dem">ezinsar <em>DEM</em></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sar-and-insar-processing">SAR and InSAR processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ezinsar-init">ezinsar <em>init</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ezinsar-run">ezinsar <em>run</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ezinsar-bestref">ezinsar <em>bestref</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ezinsar-update">ezinsar <em>update</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ezinsar-job">ezinsar <em>job</em></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#quick-interferogram-computation">Quick interferogram computation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ezinsar-quickifg">ezinsar <em>quickifg</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ezinsar-lasts1">ezinsar <em>lastS1</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#archive-the-ez-insar-results">Archive the EZ-InSAR results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interface-commands">Interface commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ezinsar-desktop">ezinsar <em>desktop</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ezinsar-webapp">ezinsar <em>webapp</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ezinsar-tsdisplayer">ezinsar <em>tsdisplayer</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#docker-command">Docker command</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ezinsar-docker">ezinsar <em>docker</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#optional-module-related-commands">Optional-module-related commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ezinsar-gamma">ezinsar <em>gamma</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ezinsar-gnss">ezinsar <em>gnss</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ezinsar-multispectral">ezinsar <em>multispectral</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sub-program-command">Sub-program command</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ezinsar-program">ezinsar <em>program</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#manage-installation">Manage installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technical.html">Technical information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subprograms/index.html">EZ-InSAR supplementary tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contrib.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html#satellite-data">Satellite data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html#partners">Partners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Change-log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dvptplan.html">Development plan of EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue_tracker.html">Issue tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licenses.html">Licenses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">EZ-InSAR-scripts documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/alexisInSAR/EZ-InSAR-3">EZ-InSAR's GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.ucd.ie">University College Dublin</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.icrag-centre.org">iCRAG</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">EZ-InSAR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Command-line Interface</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/clihelp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="command-line-interface">
+<h1>Command-line Interface<a class="headerlink" href="#command-line-interface" title="Link to this heading"></a></h1>
+<p><strong>EZ-InSAR can be launched by command-line interface. The name of the command is ezinsar. This is the easiest way to run EZ-InSAR based on an EZ-InSAR job file.</strong></p>
+<section id="commun-use-and-options">
+<h2>Commun use and options<a class="headerlink" href="#commun-use-and-options" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>&lt;command&gt;
+</pre></div>
+</div>
+<p>The help can be displayed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>--help
+<span class="c1">#or</span>
+ezinsar<span class="w"> </span>-h
+</pre></div>
+</div>
+<p>Each command-related help can be displayed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w">  </span>&lt;command&gt;<span class="w"> </span>--help
+</pre></div>
+</div>
+</section>
+<section id="sar-data-management">
+<h2>SAR data management<a class="headerlink" href="#sar-data-management" title="Link to this heading"></a></h2>
+<section id="ezinsar-s1slc">
+<h3>ezinsar <em>S1slc</em><a class="headerlink" href="#ezinsar-s1slc" title="Link to this heading"></a></h3>
+<p><em>S1slc</em> allows to download Sentinel-1 data. By default, EZ-InSAR will explorer the different track and satellite directory to propose the best option. Be carefully, there is a large list of parameters. At the minimum, users requires to give the path of the SLC files and the Region of Interest:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>S1slc<span class="w"> </span>-s<span class="w"> </span>&lt;path_SLC<span class="w"> </span>or<span class="w"> </span>EZ-InSAR<span class="w"> </span>job<span class="w"> </span>file&gt;<span class="w"> </span>-b<span class="w"> </span>&lt;bbox&gt;
+</pre></div>
+</div>
+<p>An EZ-InSAR job can be given under the <em>ezinsarjob</em> option. All other parameters will be bypassed to respect the parameters contained in the job file.</p>
+<section id="example">
+<h4>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h4>
+<p><strong>Without an EZ-InSAR job</strong></p>
+<p>The command will download Sentinel-1 IW for a Region of Interest in Ireland, between 2014 and 2024 (included) for the descending 125 acquitions, and the VV polarisation. The selected server is ASF and EZ-InSAR will save the maps of SLC extents.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>S1slc<span class="w"> </span>-s<span class="w"> </span>Data_slc<span class="w"> </span>-b<span class="w"> </span>private/ROI_Clara.shp<span class="w"> </span>-i<span class="w"> </span><span class="m">2014</span>-01-01T00:00:00<span class="w"> </span>-j<span class="w"> </span><span class="m">2025</span>-01-01T00:00:00<span class="w"> </span>-o<span class="w"> </span><span class="m">125</span><span class="w"> </span>-f<span class="w"> </span>d<span class="w"> </span>--polarisation<span class="w"> </span>VV<span class="w"> </span>-u<span class="w"> </span>xxxxxx<span class="w"> </span>-p<span class="w"> </span>xxxxxx<span class="w"> </span>--server<span class="w"> </span>ASF<span class="w"> </span>--savemap<span class="w"> </span>--download<span class="w"> </span>--nolog
+</pre></div>
+</div>
+<p><strong>With an EZ-InSAR job</strong></p>
+<p>Here, dummy values are required for the path of SLCs and the ROI. In addition, the username and password will be extrated from the EZ-InSAR config file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>S1slc<span class="w"> </span>-s<span class="w"> </span>.<span class="w"> </span>-b<span class="w"> </span><span class="m">0</span>,0,0,0<span class="w"> </span>--ezinsarjob<span class="w"> </span>job_Clara.ei<span class="w"> </span>-u<span class="w"> </span>xxxxxx<span class="w"> </span>-p<span class="w"> </span>xxxxxx<span class="w"> </span>--savemap<span class="w"> </span>--download<span class="w"> </span>--nolog
+</pre></div>
+</div>
+</section>
+</section>
+<section id="ezinsar-s1orbit">
+<h3>ezinsar <em>S1orbit</em><a class="headerlink" href="#ezinsar-s1orbit" title="Link to this heading"></a></h3>
+<p><em>S1orbit</em> will download Sentinel-1 orbit files. At the minimum, a SLC-list file and a directory (to store the orbit files) are required.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>S1orbit<span class="w"> </span>-f<span class="w"> </span>&lt;path_SLC&gt;<span class="w"> </span>-o<span class="w"> </span>&lt;path_orbit&gt;
+</pre></div>
+</div>
+<p>Instead of a SLC-list file, the user can give an EZ-InSAR job file.</p>
+<section id="id1">
+<h4>Example<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+<p><strong>Without an EZ-InSAR job</strong></p>
+<p>If no EZ-InSAR job is given, a SLC list is required.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>S1orbit<span class="w"> </span>-f<span class="w"> </span>SLC.list<span class="w"> </span>-o<span class="w"> </span>Data_orbit<span class="w"> </span>-u<span class="w"> </span>xxxxxx<span class="w"> </span>-p<span class="w"> </span>xxxxxxx<span class="w"> </span>--server<span class="w"> </span>Copernicus<span class="w"> </span>--nolog
+</pre></div>
+</div>
+<p><strong>With an EZ-InSAR job</strong></p>
+<p>Here, dummy value is required for the path of orbit files.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>S1orbit<span class="w"> </span>-f<span class="w"> </span>job_EZInSAR.ei<span class="w"> </span>-o<span class="w"> </span>.<span class="w"> </span>-u<span class="w"> </span>xxxxxx<span class="w"> </span>-p<span class="w"> </span>xxxxxxx<span class="w"> </span>--server<span class="w"> </span>Copernicus<span class="w"> </span>--nolog
+</pre></div>
+</div>
+</section>
+</section>
+<section id="ezinsar-s1etad">
+<h3>ezinsar <em>S1etad</em><a class="headerlink" href="#ezinsar-s1etad" title="Link to this heading"></a></h3>
+<p><em>S1etad</em> will download Sentinel-1 ETAD files. An EZ-InSAR job file is required.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>S1etad<span class="w"> </span>-f<span class="w"> </span>&lt;EZ-InSAR<span class="w"> </span>job<span class="w"> </span>file&gt;
+</pre></div>
+</div>
+</section>
+</section>
+<section id="digital-elevation-model-download">
+<h2>Digital Elevation Model download<a class="headerlink" href="#digital-elevation-model-download" title="Link to this heading"></a></h2>
+<section id="ezinsar-dem">
+<h3>ezinsar <em>DEM</em><a class="headerlink" href="#ezinsar-dem" title="Link to this heading"></a></h3>
+<p><em>DEM</em> will download a DEM file regarding the user’s options. Directory path and bbox are required but users can give an EZ-InSAR job file instead of the path (all other parameters will be bypassed to respect the parameters contained by the job file). This command also has options to apply a correction according to ellipsoid elevations.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>DEM<span class="w"> </span>-s<span class="w"> </span>&lt;pathDEM<span class="w"> </span>or<span class="w"> </span>EZ-InSAR<span class="w"> </span>job<span class="w"> </span>file&gt;<span class="w"> </span>-b<span class="w"> </span>&lt;W,S,E,N&gt;
+</pre></div>
+</div>
+<section id="id2">
+<h4>Example<a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
+<p><strong>Without an EZ-InSAR job</strong></p>
+<p>If an EZ-InSAR job is not given, users needs to define the DEM directory path and the Region of Interest (here the ROI is given by using a vector file). We define to use the Copernicus DEM with the ellipsoid correction and block the cropping of the DEM. The planned InSAR processor is ISCE-2.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>dem<span class="w"> </span>run<span class="w"> </span>-s<span class="w"> </span>./DEM<span class="w"> </span>-b<span class="w"> </span>private/ROI_Clara.shp<span class="w"> </span>--nameDEM<span class="w"> </span>DEM_Clara<span class="w"> </span>--typeDEM<span class="w"> </span>Copernicus-ell<span class="w"> </span>--no_clip<span class="w"> </span>--processor<span class="w"> </span>isce2
+</pre></div>
+</div>
+<p><strong>With an EZ-InSAR job</strong></p>
+<p>Here, dummy value is required for the ROI because it will be extracted from the job.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>dem<span class="w"> </span>run<span class="w"> </span>-s<span class="w"> </span>job_EZInSAR.ei<span class="w"> </span>-b<span class="w"> </span><span class="m">0</span>,0,0,0<span class="w"> </span>--typeDEM<span class="w"> </span>Copernicus-ell<span class="w"> </span>--processor<span class="w"> </span>isce2
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="sar-and-insar-processing">
+<h2>SAR and InSAR processing<a class="headerlink" href="#sar-and-insar-processing" title="Link to this heading"></a></h2>
+<section id="ezinsar-init">
+<h3>ezinsar <em>init</em><a class="headerlink" href="#ezinsar-init" title="Link to this heading"></a></h3>
+<p><em>init</em> can be used to generate an EZ-InSAR job file. No arguments are required but this command has a large list of options to set the EZ-InSAR processing job up.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>init<span class="w"> </span>-p<span class="w"> </span>isce2
+</pre></div>
+</div>
+<p>To add a coregistration processing job into the EZ-InSAR job:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>init<span class="w"> </span>-f<span class="w"> </span>&lt;your<span class="w"> </span>job<span class="w"> </span>file&gt;<span class="w"> </span>-j<span class="w"> </span>&lt;your<span class="w"> </span>job<span class="w"> </span>file&gt;<span class="w"> </span>-t<span class="w"> </span>coreg
+</pre></div>
+</div>
+<p>This command can also used to modify the parameters of the job.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>init<span class="w"> </span>-j<span class="w"> </span>&lt;your<span class="w"> </span>job<span class="w"> </span>file&gt;<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;&lt;step&gt;:&lt;parameter&gt;=&lt;new value&gt;&#39;</span>
+</pre></div>
+</div>
+<p>For example, to modify the value of the done parameter for the checkSLC step:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>init<span class="w"> </span>-j<span class="w"> </span>&lt;your<span class="w"> </span>job<span class="w"> </span>file&gt;<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;checkSLC:done=True&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="ezinsar-run">
+<h3>ezinsar <em>run</em><a class="headerlink" href="#ezinsar-run" title="Link to this heading"></a></h3>
+<p><em>run</em> will execute the processing contained in the selected EZ-InSAR job. If several processing are stored, EZ-InSAR will ask the wanted processing from users.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>run<span class="w"> </span>-f<span class="w"> </span>&lt;your<span class="w"> </span>job<span class="w"> </span>file&gt;<span class="w"> </span>-s<span class="w"> </span>&lt;name<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>step<span class="w"> </span><span class="o">(</span>or<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>step<span class="o">)</span>&gt;
+</pre></div>
+</div>
+<p>For example, the processing step can be given by using a step name: i.e., ‘extractimage’. Several steps can be given by using several comma-separeted step names and : i.e., ‘initref,extractimage’. All the steps can be done by using the full name or a number: i.e., 1-3, in this case, all the steps from checkSLC to coarserefdate will be processed in case of coregistration processing. If ‘all’ is used as the step name, it will process all different steps</p>
+</section>
+<section id="ezinsar-bestref">
+<h3>ezinsar <em>bestref</em><a class="headerlink" href="#ezinsar-bestref" title="Link to this heading"></a></h3>
+<p><em>bestref</em> will compute a coarse interferometric network to find the best reference date, and based on a geometric average (i.e., barycentre). This command is accurate for Sentinel-1 data, but we recommend selecting manually the reference date for the other sensors, by visualising the output of this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>bestref<span class="w"> </span>-s<span class="w"> </span>&lt;path<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>SLC<span class="w"> </span>files&gt;<span class="w"> </span>-b<span class="w"> </span>&lt;bbox&gt;
+</pre></div>
+</div>
+</section>
+<section id="ezinsar-update">
+<h3>ezinsar <em>update</em><a class="headerlink" href="#ezinsar-update" title="Link to this heading"></a></h3>
+<p><em>update</em> will update an EZ-InSAR processing based on an EZ-InSAR job file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>update<span class="w"> </span>-f<span class="w"> </span>&lt;EZ-InSAR<span class="w"> </span>job<span class="w"> </span>file&gt;
+</pre></div>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Warning</p>
+<p>This function is not fully implemented and tested.</p>
+</div>
+</section>
+<section id="ezinsar-job">
+<h3>ezinsar <em>job</em><a class="headerlink" href="#ezinsar-job" title="Link to this heading"></a></h3>
+<p><em>job</em> will add some tools in order to manupilate EZ-InSAR jobs.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>job<span class="w"> </span>-h
+</pre></div>
+</div>
+<section id="id3">
+<h4>Example<a class="headerlink" href="#id3" title="Link to this heading"></a></h4>
+<p>The following function will remove the coregistration processing available in the EZ-InSAR job.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>job<span class="w"> </span>-f<span class="w"> </span>job.ei<span class="w"> </span>-t<span class="w"> </span>clearprocess<span class="w"> </span>--process<span class="w"> </span>coregistration
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="quick-interferogram-computation">
+<h2>Quick interferogram computation<a class="headerlink" href="#quick-interferogram-computation" title="Link to this heading"></a></h2>
+<p>The following commands allow to quickly compute an interferogram. Do not hesitate to check the full lists of options.</p>
+<section id="ezinsar-quickifg">
+<h3>ezinsar <em>quickifg</em><a class="headerlink" href="#ezinsar-quickifg" title="Link to this heading"></a></h3>
+<p>The first command will compute interferograms based on SLC files. It is available for Sentinel-1 data, other sensors will be implemented later. For a set of default parameters:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>quickifg<span class="w"> </span>-m<span class="w"> </span>&lt;path-of-the-reference-image&gt;<span class="w"> </span>-s<span class="w"> </span>&lt;path-of-the-secondary-image&gt;
+</pre></div>
+</div>
+</section>
+<section id="ezinsar-lasts1">
+<h3>ezinsar <em>lastS1</em><a class="headerlink" href="#ezinsar-lasts1" title="Link to this heading"></a></h3>
+<p><em>lastS1</em> will compute the last Sentinel-1 interferogram (available for IW and SM acquisition modes). Only a work directory and a Region of Interest are required. For an use of default parameters:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>lastS1<span class="w"> </span>-w<span class="w"> </span>&lt;path_wk&gt;<span class="w"> </span>-b<span class="w"> </span>&lt;bbox&gt;
+</pre></div>
+</div>
+</section>
+</section>
+<section id="archive-the-ez-insar-results">
+<h2>Archive the EZ-InSAR results<a class="headerlink" href="#archive-the-ez-insar-results" title="Link to this heading"></a></h2>
+<p>Both commands can be used to archive, share the EZ-InSAR results by using the archive function. <em>archive</em> will create the archive and <em>archive_decrypt</em> will decrypte an EZ-InSAR archive if it is encrypted. Also there is a large list of options to create the archive.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>archive<span class="w"> </span>-f<span class="w"> </span>&lt;EZ-InSAR<span class="w"> </span>job<span class="w"> </span>file&gt;<span class="w">  </span><span class="c1"># Create the archive</span>
+ezinsar<span class="w"> </span>archive_decrypt<span class="w"> </span>-f<span class="w"> </span>&lt;EZ-InSAR<span class="w"> </span>archive&gt;<span class="w"> </span>-k<span class="w"> </span>&lt;key&gt;<span class="w"> </span><span class="c1"># Unzip the archive</span>
+</pre></div>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Warning</p>
+<p>We are actively working on this functionnality of EZ-InSAR. Please see the documentation to know which processing are compatible.</p>
+</div>
+</section>
+<section id="interface-commands">
+<h2>Interface commands<a class="headerlink" href="#interface-commands" title="Link to this heading"></a></h2>
+<section id="ezinsar-desktop">
+<h3>ezinsar <em>desktop</em><a class="headerlink" href="#ezinsar-desktop" title="Link to this heading"></a></h3>
+<p><em>desktop</em> will open the command-line interface of the EZ-InSAR Desktop module.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>desktop<span class="w"> </span>-h
+</pre></div>
+</div>
+</section>
+<section id="ezinsar-webapp">
+<h3>ezinsar <em>webapp</em><a class="headerlink" href="#ezinsar-webapp" title="Link to this heading"></a></h3>
+<p><em>webapp</em> will open the command-line interface of the EZ-InSAR WebApp module.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>webapp<span class="w"> </span>-h
+</pre></div>
+</div>
+</section>
+<section id="ezinsar-tsdisplayer">
+<h3>ezinsar <em>tsdisplayer</em><a class="headerlink" href="#ezinsar-tsdisplayer" title="Link to this heading"></a></h3>
+<p><em>tsdisplayer</em> will open the command-line interface of the EZ-InSAR time-series Displayer module.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>tsdisplayer<span class="w"> </span>-h
+</pre></div>
+</div>
+</section>
+</section>
+<section id="docker-command">
+<h2>Docker command<a class="headerlink" href="#docker-command" title="Link to this heading"></a></h2>
+<p>EZ-InSAR offers a command to run EZ-InSAR inside a Docker container.</p>
+<section id="ezinsar-docker">
+<h3>ezinsar <em>docker</em><a class="headerlink" href="#ezinsar-docker" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>docker<span class="w"> </span>-v<span class="w"> </span>/media/Data1/Workdirectory<span class="w"> </span>-p<span class="w"> </span><span class="m">8050</span>
+</pre></div>
+</div>
+<p>The argument volume allows to mount the directory onto the container.</p>
+</section>
+</section>
+<section id="optional-module-related-commands">
+<h2>Optional-module-related commands<a class="headerlink" href="#optional-module-related-commands" title="Link to this heading"></a></h2>
+<section id="ezinsar-gamma">
+<h3>ezinsar <em>gamma</em><a class="headerlink" href="#ezinsar-gamma" title="Link to this heading"></a></h3>
+<p><em>gamma</em> will open the command-line interface of the EZ-InSAR GAMMA module.</p>
+</section>
+<section id="ezinsar-gnss">
+<h3>ezinsar <em>gnss</em><a class="headerlink" href="#ezinsar-gnss" title="Link to this heading"></a></h3>
+<p><em>gnss</em> will open the command-line interface of the EZ-InSAR GNSS module.</p>
+</section>
+<section id="ezinsar-multispectral">
+<h3>ezinsar <em>multispectral</em><a class="headerlink" href="#ezinsar-multispectral" title="Link to this heading"></a></h3>
+<p><em>multispectral</em> will open the command-line interface of the EZ-InSAR multispectral module.</p>
+</section>
+</section>
+<section id="sub-program-command">
+<h2>Sub-program command<a class="headerlink" href="#sub-program-command" title="Link to this heading"></a></h2>
+<p>Even if EZ-InSAR provides an environment for SAR/InSAR data, some supplementary programs (developed in MATLAB and Python language) can be available. Please see the related documentation in order to know the available tools.</p>
+<section id="ezinsar-program">
+<h3>ezinsar <em>program</em><a class="headerlink" href="#ezinsar-program" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>program<span class="w"> </span>&lt;name<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>sub-program&gt;<span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h2>
+<p>The <em>docs</em> command will open the documentation (online or offline).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>docs
+</pre></div>
+</div>
+<p>If a specified documentation - related to an optional EZ-InSAR module - is desired: i.e., for the Multispectral module:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ezinsar<span class="w"> </span>docs<span class="w"> </span>-m<span class="w"> </span>multispectral
+</pre></div>
+</div>
+</section>
+<section id="manage-installation">
+<h2>Manage installation<a class="headerlink" href="#manage-installation" title="Link to this heading"></a></h2>
+<p>The <em>toolkit</em> command allows to manage the current installation of EZ-InSAR.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="use/intguide.html" class="btn btn-neutral float-left" title="Compute a backscatter-intensity stack" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tutorials/index.html" class="btn btn-neutral float-right" title="Tutorials" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright  2025, EZ-InSAR / UCD / iCRAG.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

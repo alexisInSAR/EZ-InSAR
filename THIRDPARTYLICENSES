@@ -1,0 +1,14 @@
+Name,License,Comment
+isce,Apache License Version 2.0,SAR/InSAR processor
+mintpy,GNU General Public License v3,SAR/InSAR processor
+snap,GNU General Public License v3,SAR/InSAR processor
+matlabengine,MathWorks License,Installed package
+doris,GNU General Public License v3,SAR/InSAR processor
+StaMPS,GNU General Public License v3,SAR/InSAR processor
+LiCSBAS,GNU General Public License v3,SAR/InSAR processor
+GMT,GNU Lesser General Public License v3,Mapping software
+snaphu,MIT License,Unwrapping software
+triangle,MIT License,Delaunay-triangulation tool
+awscliv2,Apache License Version 2.0,Amazon downloader
+MiaplPy,GNU General Public License v3,SAR/InSAR processor
+SARvey,GNU General Public License v3,SAR/InSAR processor

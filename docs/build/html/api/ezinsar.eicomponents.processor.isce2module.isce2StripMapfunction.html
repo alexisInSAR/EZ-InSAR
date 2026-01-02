@@ -1,0 +1,1194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction</title>
+    <meta name="generator" content="pydoctor 24.3.3"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="readthedocstheme.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          <a href="../index.html" class="projecthome">EZ-InSAR</a> <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+    
+        <!-- Side navigation -->
+      <div class="sidebarcontainer">
+        <nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.html" class="internal-link" title="This module">isce2<wbr></wbr>Strip<wbr></wbr>Mapfunction</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#checkOrbit" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.checkOrbit">check<wbr></wbr>Orbit</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#checkSLC" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.checkSLC">check<wbr></wbr>SLC</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#coarserefdate" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.coarserefdate">coarserefdate</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#crop_slc" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.crop_slc">crop<wbr></wbr>_slc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#filter_coherence" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.filter_coherence">filter<wbr></wbr>_coherence</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#finalstack" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.finalstack">finalstack</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#fineResamp" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.fineResamp">fine<wbr></wbr>Resamp</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#focus_split" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.focus_split">focus<wbr></wbr>_split</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#generate_igram" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.generate_igram">generate<wbr></wbr>_igram</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#geo2rdr_coarseResamp" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.geo2rdr_coarseResamp">geo2rdr_coarse<wbr></wbr>Resamp</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#grid_baseline" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.grid_baseline">grid<wbr></wbr>_baseline</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ifggeocoding" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.ifggeocoding">ifggeocoding</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ifgnetwork" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.ifgnetwork">ifgnetwork</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#invertMisreg" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.invertMisreg">invert<wbr></wbr>Misreg</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#reference" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.reference">reference</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#refineSecondaryTiming" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.refineSecondaryTiming">refine<wbr></wbr>Secondary<wbr></wbr>Timing</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#unpack_slc" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.unpack_slc">unpack<wbr></wbr>_slc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#unwrap" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.unwrap">unwrap</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="ezinsar.eicomponents.processor.isce2module.html" class="internal-link" title="The parent of this module">isce2module</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ezinsar.eicomponents.processor.isce2module.isce2coregistration.html" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2coregistration">isce2coregistration</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ezinsar.eicomponents.processor.isce2module.isce2ifgstack.html" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2ifgstack">isce2ifgstack</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ezinsar.eicomponents.processor.isce2module.isce2IWfunction.html" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2IWfunction">isce2<wbr></wbr>IWfunction</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.html" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction">isce2<wbr></wbr>Strip<wbr></wbr>Mapfunction</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ezinsar.eicomponents.processor.isce2module.isce2tools.html" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2tools">isce2tools</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ezinsar.eicomponents.processor.isce2module.html#__authorPackage__" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.__authorPackage__">__author<wbr></wbr>Package__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ezinsar.eicomponents.processor.isce2module.html#__copyrightPackage__" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.__copyrightPackage__">__copyright<wbr></wbr>Package__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ezinsar.eicomponents.processor.isce2module.html#__namePackage__" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.__namePackage__">__name<wbr></wbr>Package__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ezinsar.eicomponents.processor.isce2module.html#__versionPackage__" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.__versionPackage__">__version<wbr></wbr>Package__</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        <!-- No sidebar toggle for read the docs theme, the sidebar is always
+          visible when the screen is width enough.
+        -->
+      </div>
+
+    </nav>
+    
+    <div class="container-fluid">
+
+      <div id="main" class="">
+        
+
+        
+
+        <div id="search-results-container" style="display: none;">
+        
+          <div id="search-buttons">
+            <span class="label label-default" id="search-docstrings-button">
+            <label class="checkbox-inline">
+              <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+                search in docstrings
+              </input>
+            </label>
+            </span>
+            
+          </div>
+          
+          <noscript>
+              <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+          </noscript>
+  
+          <div class="hint" id="search-help-box">
+            <p class="rst-last">
+        
+              Search bar offers the following options:
+              <ul>   
+                  <li>
+                    <strong>Term presence.</strong> The below example searches for documents that 
+                      must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                  </li> 
+  
+                  <li>
+                    <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                  </li> 
+  
+                  <li>
+                    <strong>Search in specific fields.</strong> The following search matches all objects 
+                    in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+  
+                    <p>
+                      Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                      Last two fields are only applicable if "search in docstrings" is enabled.
+                    </p>
+                  </li>
+  
+                  <li>
+                    <strong>Fuzzy matches.</strong> The following search matches all documents 
+                    that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                  </li>
+              </ul>
+  
+            </p>
+          </div>
+  
+          <div id="search-status"> </div>
+  
+          <div class="warning" id="search-warn-box" style="display: none;">
+            <p class="rst-last"><span id="search-warn"></span></p>
+          </div>
+  
+          <table id="search-results">
+            <!-- Filled dynamically by JS -->
+          </table>
+          
+          <div style="margin-top: 8px;">
+            <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+          </div>
+        </div>
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="index.html" class="internal-link">ezinsar</a></code><wbr></wbr>.<code><a href="ezinsar.eicomponents.html" class="internal-link" title="ezinsar.eicomponents">eicomponents</a></code><wbr></wbr>.<code><a href="ezinsar.eicomponents.processor.html" class="internal-link" title="ezinsar.eicomponents.processor">processor</a></code><wbr></wbr>.<code><a href="ezinsar.eicomponents.processor.isce2module.html" class="internal-link" title="ezinsar.eicomponents.processor.isce2module">isce2module</a></code><wbr></wbr>.<code><a href="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.html" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction">isce2StripMapfunction</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <a href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/isce2module/isce2StripMapfunction.py" class="sourceLink">(source)</a>
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Module to process ScanSAR data with ISCE-2 processor</p>
+<p>The module allows to process ScanSAR data with ISCE-2 processor
+from an <tt class="rst-docutils rst-literal">ezinsar.coregistration</tt> job.</p>
+<blockquote>
+(From <code><a href="index.html" class="internal-link">ezinsar</a></code> package)</blockquote>
+<div class="rst-admonition rst-note">
+<p class="rst-admonition-title rst-first">Note</p>
+<p class="rst-last">Each function can directly used in Python scripts or/and a Python terminal</p>
+</div>
+<dl class="rst-docutils">
+<dt>Changelog:</dt>
+<dd><ul class="rst-simple rst-first rst-last">
+<li>1.2.0: New checking of S1 orbit, Aug. 2025, Alexis Hrysiewicz</li>
+<li><dl class="rst-docutils rst-first">
+<dt>1.1.0: Several changes, Feb. 2025, Alexis Hrysiewicz</dt>
+<dd><ul class="rst-first rst-last">
+<li>Add the support of Sentinel-1 C and D</li>
+<li>Start the support of RADARSAT-2 FQ and SQ imagery</li>
+<li>Start the support of CSK HIMAGE imagery</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>1.0.0: Initial version, Jan. 2024</li>
+</ul>
+</dd>
+</dl>
+<div class="rst-admonition rst-admonition-todo">
+<p class="rst-admonition-title rst-first">Todo</p>
+<ul class="rst-simple rst-last">
+<li>This module needs a huge optimisation.</li>
+<li>Write the part to send an email</li>
+</ul>
+</div>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id87">
+  
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#checkOrbit" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.checkOrbit">check<wbr></wbr>Orbit</a></code></td>
+    <td>Check the orbit files</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#checkSLC" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.checkSLC">check<wbr></wbr>SLC</a></code></td>
+    <td>Check the SLC files</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#coarserefdate" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.coarserefdate">coarserefdate</a></code></td>
+    <td>Detection of the best potential reference date</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#crop_slc" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.crop_slc">crop<wbr></wbr>_slc</a></code></td>
+    <td>Crop the SLC images based on the ROI</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#filter_coherence" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.filter_coherence">filter<wbr></wbr>_coherence</a></code></td>
+    <td>filter_coherence</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#finalstack" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.finalstack">finalstack</a></code></td>
+    <td>finalstack</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#fineResamp" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.fineResamp">fine<wbr></wbr>Resamp</a></code></td>
+    <td>fineResamp</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#focus_split" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.focus_split">focus<wbr></wbr>_split</a></code></td>
+    <td>focus_split</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#generate_igram" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.generate_igram">generate<wbr></wbr>_igram</a></code></td>
+    <td>generate_igram</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#geo2rdr_coarseResamp" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.geo2rdr_coarseResamp">geo2rdr_coarse<wbr></wbr>Resamp</a></code></td>
+    <td>geo2rdr_coarseResamp</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#grid_baseline" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.grid_baseline">grid<wbr></wbr>_baseline</a></code></td>
+    <td>grid_baseline</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ifggeocoding" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.ifggeocoding">ifggeocoding</a></code></td>
+    <td>ifggeocoding</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ifgnetwork" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.ifgnetwork">ifgnetwork</a></code></td>
+    <td>ifgnetwork</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#invertMisreg" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.invertMisreg">invert<wbr></wbr>Misreg</a></code></td>
+    <td>invertMisreg</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#reference" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.reference">reference</a></code></td>
+    <td>Initialisation of the reference image</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#refineSecondaryTiming" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.refineSecondaryTiming">refine<wbr></wbr>Secondary<wbr></wbr>Timing</a></code></td>
+    <td>refineSecondaryTiming</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#unpack_slc" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.unpack_slc">unpack<wbr></wbr>_slc</a></code></td>
+    <td>Unpack the SLC files</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#unwrap" class="internal-link" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.unwrap">unwrap</a></code></td>
+    <td>unwrap</td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.checkOrbit">
+    
+  </a>
+  <a name="checkOrbit">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">checkOrbit</span><span class="function-signature">(jobcoreg, verbose: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/isce2module/isce2StripMapfunction.py#L179">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#checkOrbit" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.checkOrbit">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check the orbit files</p>
+<p>The function checks the orbit files, from an <tt class="rst-docutils rst-literal">ezinsar.coregistration</tt>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">jobcoreg:</span><tt class="rst-docutils rst-literal">ezinsar.coregistration</tt></td><td class="fieldArgDesc">EZ-InSAR coregistration job for ISCE-2 processor</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">verbose [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]. If <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>, the function will use the value from the <code><a href="ezinsar.ezinsarprocessor.EIjob.html" class="internal-link" title="ezinsar.ezinsarprocessor.EIjob">EIjob</a></code> job.</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><tt class="rst-docutils rst-literal">ezinsar.coregistration</tt></td><td class="fieldArgDesc">Return an EZ-InSAR coregistration class</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.checkSLC">
+    
+  </a>
+  <a name="checkSLC">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">checkSLC</span><span class="function-signature">(jobcoreg, verbose: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/isce2module/isce2StripMapfunction.py#L67">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#checkSLC" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.checkSLC">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check the SLC files</p>
+<p>The function checks the SLC files, from an <tt class="rst-docutils rst-literal">ezinsar.coregistration</tt>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">jobcoreg:</span><tt class="rst-docutils rst-literal">ezinsar.coregistration</tt></td><td class="fieldArgDesc">EZ-InSAR coregistration job for ISCE-2 processor</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">verbose [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]. If <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>, the function will use the value from the <code><a href="ezinsar.ezinsarprocessor.EIjob.html" class="internal-link" title="ezinsar.ezinsarprocessor.EIjob">EIjob</a></code> job.</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><tt class="rst-docutils rst-literal">ezinsar.coregistration</tt></td><td class="fieldArgDesc">Return an EZ-InSAR coregistration class</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.coarserefdate">
+    
+  </a>
+  <a name="coarserefdate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">coarserefdate</span><span class="function-signature">(jobcoreg, verbose: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/isce2module/isce2StripMapfunction.py#L226">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#coarserefdate" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.coarserefdate">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Detection of the best potential reference date</p>
+<p>The function defines the best potential reference date, from an <tt class="rst-docutils rst-literal">ezinsar.coregistration</tt>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">jobcoreg:</span><tt class="rst-docutils rst-literal">ezinsar.coregistration</tt></td><td class="fieldArgDesc">EZ-InSAR coregistration job for ISCE-2 processor</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">verbose [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]. If <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>, the function will use the value from the <code><a href="ezinsar.ezinsarprocessor.EIjob.html" class="internal-link" title="ezinsar.ezinsarprocessor.EIjob">EIjob</a></code> job.</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><tt class="rst-docutils rst-literal">ezinsar.coregistration</tt></td><td class="fieldArgDesc">Return an EZ-InSAR coregistration class</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.crop_slc">
+    
+  </a>
+  <a name="crop_slc">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">crop_slc</span><span class="function-signature">(jobcoreg, verbose: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, modeforce: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a>)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/isce2module/isce2StripMapfunction.py#L480">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#crop_slc" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.crop_slc">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Crop the SLC images based on the ROI</p>
+<p>The function crops the SLC images, from an <tt class="rst-docutils rst-literal">ezinsar.coregistration</tt>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">jobcoreg:</span><tt class="rst-docutils rst-literal">ezinsar.coregistration</tt></td><td class="fieldArgDesc">EZ-InSAR coregistration job for ISCE-2 processor</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">verbose [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]. If <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>, the function will use the value from the <code><a href="ezinsar.ezinsarprocessor.EIjob.html" class="internal-link" title="ezinsar.ezinsarprocessor.EIjob">EIjob</a></code> job.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">modeforce:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><tt class="rst-docutils rst-literal">ezinsar.coregistration</tt></td><td class="fieldArgDesc">Return an EZ-InSAR coregistration class</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.filter_coherence">
+    
+  </a>
+  <a name="filter_coherence">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">filter_coherence</span><span class="function-signature">(jobifg, verbose: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, modeforce: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a>)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/isce2module/isce2StripMapfunction.py#L1494">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#filter_coherence" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.filter_coherence">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>filter_coherence</p>
+<p>The function will ..., from an <tt class="rst-docutils rst-literal">ezinsar.ifgstack</tt>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">jobifg:</span><tt class="rst-docutils rst-literal">ezinsar.ifgstack</tt></td><td class="fieldArgDesc">EZ-InSAR ifgstack job for ISCE-2 processor</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">verbose [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]. If <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>, the function will use the value from the <code><a href="ezinsar.ezinsarprocessor.EIjob.html" class="internal-link" title="ezinsar.ezinsarprocessor.EIjob">EIjob</a></code> job.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">modeforce:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><tt class="rst-docutils rst-literal">ezinsar.ifgstack</tt></td><td class="fieldArgDesc">Return an EZ-InSAR ifgstack class</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.finalstack">
+    
+  </a>
+  <a name="finalstack">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">finalstack</span><span class="function-signature">(jobifg, verbose: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, modeforce: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a>)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/isce2module/isce2StripMapfunction.py#L1817">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#finalstack" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.finalstack">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>finalstack</p>
+<p>The function will ..., from an <tt class="rst-docutils rst-literal">ezinsar.ifgstack</tt>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">jobifg:</span><tt class="rst-docutils rst-literal">ezinsar.ifgstack</tt></td><td class="fieldArgDesc">EZ-InSAR ifgstack job for ISCE-2 processor</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">verbose [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]. If <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>, the function will use the value from the <code><a href="ezinsar.ezinsarprocessor.EIjob.html" class="internal-link" title="ezinsar.ezinsarprocessor.EIjob">EIjob</a></code> job.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">modeforce:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><tt class="rst-docutils rst-literal">ezinsar.ifgstack</tt></td><td class="fieldArgDesc">Return an EZ-InSAR ifgstack class</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.fineResamp">
+    
+  </a>
+  <a name="fineResamp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">fineResamp</span><span class="function-signature">(jobcoreg, verbose: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, modeforce: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a>)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/isce2module/isce2StripMapfunction.py#L979">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#fineResamp" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.fineResamp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>fineResamp</p>
+<p>The function will ..., from an <tt class="rst-docutils rst-literal">ezinsar.coregistration</tt>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">jobcoreg:</span><tt class="rst-docutils rst-literal">ezinsar.coregistration</tt></td><td class="fieldArgDesc">EZ-InSAR coregistration job for ISCE-2 processor</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">verbose [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]. If <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>, the function will use the value from the <code><a href="ezinsar.ezinsarprocessor.EIjob.html" class="internal-link" title="ezinsar.ezinsarprocessor.EIjob">EIjob</a></code> job.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">modeforce:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><tt class="rst-docutils rst-literal">ezinsar.coregistration</tt></td><td class="fieldArgDesc">Return an EZ-InSAR coregistration class</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.focus_split">
+    
+  </a>
+  <a name="focus_split">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">focus_split</span><span class="function-signature">(jobcoreg, verbose: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, modeforce: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a>)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/isce2module/isce2StripMapfunction.py#L658">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#focus_split" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.focus_split">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>focus_split</p>
+<p>The function XX, from an <tt class="rst-docutils rst-literal">ezinsar.coregistration</tt>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">jobcoreg:</span><tt class="rst-docutils rst-literal">ezinsar.coregistration</tt></td><td class="fieldArgDesc">EZ-InSAR coregistration job for ISCE-2 processor</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">verbose [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]. If <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>, the function will use the value from the <code><a href="ezinsar.ezinsarprocessor.EIjob.html" class="internal-link" title="ezinsar.ezinsarprocessor.EIjob">EIjob</a></code> job.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">modeforce:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><tt class="rst-docutils rst-literal">ezinsar.coregistration</tt></td><td class="fieldArgDesc">Return an EZ-InSAR coregistration class</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.generate_igram">
+    
+  </a>
+  <a name="generate_igram">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">generate_igram</span><span class="function-signature">(jobifg, verbose: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, modeforce: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a>)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/isce2module/isce2StripMapfunction.py#L1399">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#generate_igram" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.generate_igram">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>generate_igram</p>
+<p>The function will ..., from an <tt class="rst-docutils rst-literal">ezinsar.ifgstack</tt>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">jobifg:</span><tt class="rst-docutils rst-literal">ezinsar.ifgstack</tt></td><td class="fieldArgDesc">EZ-InSAR ifgstack job for ISCE-2 processor</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">verbose [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]. If <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>, the function will use the value from the <code><a href="ezinsar.ezinsarprocessor.EIjob.html" class="internal-link" title="ezinsar.ezinsarprocessor.EIjob">EIjob</a></code> job.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">modeforce:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><tt class="rst-docutils rst-literal">ezinsar.ifgstack</tt></td><td class="fieldArgDesc">Return an EZ-InSAR ifgstack class</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.geo2rdr_coarseResamp">
+    
+  </a>
+  <a name="geo2rdr_coarseResamp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">geo2rdr_coarseResamp</span><span class="function-signature">(jobcoreg, verbose: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, modeforce: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a>)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/isce2module/isce2StripMapfunction.py#L727">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#geo2rdr_coarseResamp" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.geo2rdr_coarseResamp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>geo2rdr_coarseResamp</p>
+<p>The function XX, from an <tt class="rst-docutils rst-literal">ezinsar.coregistration</tt>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">jobcoreg:</span><tt class="rst-docutils rst-literal">ezinsar.coregistration</tt></td><td class="fieldArgDesc">EZ-InSAR coregistration job for ISCE-2 processor</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">verbose [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]. If <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>, the function will use the value from the <code><a href="ezinsar.ezinsarprocessor.EIjob.html" class="internal-link" title="ezinsar.ezinsarprocessor.EIjob">EIjob</a></code> job.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">modeforce:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><tt class="rst-docutils rst-literal">ezinsar.coregistration</tt></td><td class="fieldArgDesc">Return an EZ-InSAR coregistration class</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.grid_baseline">
+    
+  </a>
+  <a name="grid_baseline">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">grid_baseline</span><span class="function-signature">(jobcoreg, verbose: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, modeforce: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a>)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/isce2module/isce2StripMapfunction.py#L1098">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#grid_baseline" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.grid_baseline">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>grid_baseline</p>
+<p>The function will ..., from an <tt class="rst-docutils rst-literal">ezinsar.coregistration</tt>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">jobcoreg:</span><tt class="rst-docutils rst-literal">ezinsar.coregistration</tt></td><td class="fieldArgDesc">EZ-InSAR coregistration job for ISCE-2 processor</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">verbose [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]. If <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>, the function will use the value from the <code><a href="ezinsar.ezinsarprocessor.EIjob.html" class="internal-link" title="ezinsar.ezinsarprocessor.EIjob">EIjob</a></code> job.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">modeforce:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><tt class="rst-docutils rst-literal">ezinsar.coregistration</tt></td><td class="fieldArgDesc">Return an EZ-InSAR coregistration class</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.ifggeocoding">
+    
+  </a>
+  <a name="ifggeocoding">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ifggeocoding</span><span class="function-signature">(jobifg, verbose: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, modeforce: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a>)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/isce2module/isce2StripMapfunction.py#L1683">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#ifggeocoding" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.ifggeocoding">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>ifggeocoding</p>
+<p>The function will ..., from an <tt class="rst-docutils rst-literal">ezinsar.ifgstack</tt>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">jobifg:</span><tt class="rst-docutils rst-literal">ezinsar.ifgstack</tt></td><td class="fieldArgDesc">EZ-InSAR ifgstack job for ISCE-2 processor</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">verbose [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]. If <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>, the function will use the value from the <code><a href="ezinsar.ezinsarprocessor.EIjob.html" class="internal-link" title="ezinsar.ezinsarprocessor.EIjob">EIjob</a></code> job.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">modeforce:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><tt class="rst-docutils rst-literal">ezinsar.ifgstack</tt></td><td class="fieldArgDesc">Return an EZ-InSAR ifgstack class</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.ifgnetwork">
+    
+  </a>
+  <a name="ifgnetwork">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ifgnetwork</span><span class="function-signature">(jobifg, verbose: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, modeforce: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a>)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/isce2module/isce2StripMapfunction.py#L1191">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#ifgnetwork" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.ifgnetwork">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>ifgnetwork</p>
+<p>The function will ..., from an <tt class="rst-docutils rst-literal">ezinsar.ifgstack</tt>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">jobifg:</span><tt class="rst-docutils rst-literal">ezinsar.ifgstack</tt></td><td class="fieldArgDesc">EZ-InSAR ifgstack job for ISCE-2 processor</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">verbose [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]. If <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>, the function will use the value from the <code><a href="ezinsar.ezinsarprocessor.EIjob.html" class="internal-link" title="ezinsar.ezinsarprocessor.EIjob">EIjob</a></code> job.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">modeforce:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><tt class="rst-docutils rst-literal">ezinsar.ifgstack</tt></td><td class="fieldArgDesc">Return an EZ-InSAR ifgstack class</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.invertMisreg">
+    
+  </a>
+  <a name="invertMisreg">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">invertMisreg</span><span class="function-signature">(jobcoreg, verbose: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, modeforce: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a>)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/isce2module/isce2StripMapfunction.py#L917">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#invertMisreg" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.invertMisreg">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>invertMisreg</p>
+<p>The function will ..., from an <tt class="rst-docutils rst-literal">ezinsar.coregistration</tt>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">jobcoreg:</span><tt class="rst-docutils rst-literal">ezinsar.coregistration</tt></td><td class="fieldArgDesc">EZ-InSAR coregistration job for ISCE-2 processor</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">verbose [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]. If <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>, the function will use the value from the <code><a href="ezinsar.ezinsarprocessor.EIjob.html" class="internal-link" title="ezinsar.ezinsarprocessor.EIjob">EIjob</a></code> job.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">modeforce:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><tt class="rst-docutils rst-literal">ezinsar.coregistration</tt></td><td class="fieldArgDesc">Return an EZ-InSAR coregistration class</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.reference">
+    
+  </a>
+  <a name="reference">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">reference</span><span class="function-signature">(jobcoreg, verbose: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, modeforce: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a>)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/isce2module/isce2StripMapfunction.py#L567">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#reference" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.reference">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Initialisation of the reference image</p>
+<p>The function initialises the reference image, from an <tt class="rst-docutils rst-literal">ezinsar.coregistration</tt>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">jobcoreg:</span><tt class="rst-docutils rst-literal">ezinsar.coregistration</tt></td><td class="fieldArgDesc">EZ-InSAR coregistration job for ISCE-2 processor</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">verbose [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]. If <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>, the function will use the value from the <code><a href="ezinsar.ezinsarprocessor.EIjob.html" class="internal-link" title="ezinsar.ezinsarprocessor.EIjob">EIjob</a></code> job.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">modeforce:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><tt class="rst-docutils rst-literal">ezinsar.coregistration</tt></td><td class="fieldArgDesc">Return an EZ-InSAR coregistration class</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.refineSecondaryTiming">
+    
+  </a>
+  <a name="refineSecondaryTiming">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">refineSecondaryTiming</span><span class="function-signature">(jobcoreg, verbose: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, modeforce: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a>)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/isce2module/isce2StripMapfunction.py#L821">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#refineSecondaryTiming" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.refineSecondaryTiming">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>refineSecondaryTiming</p>
+<p>The function XX, from an <tt class="rst-docutils rst-literal">ezinsar.coregistration</tt>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">jobcoreg:</span><tt class="rst-docutils rst-literal">ezinsar.coregistration</tt></td><td class="fieldArgDesc">EZ-InSAR coregistration job for ISCE-2 processor</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">verbose [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]. If <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>, the function will use the value from the <code><a href="ezinsar.ezinsarprocessor.EIjob.html" class="internal-link" title="ezinsar.ezinsarprocessor.EIjob">EIjob</a></code> job.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">modeforce:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><tt class="rst-docutils rst-literal">ezinsar.coregistration</tt></td><td class="fieldArgDesc">Return an EZ-InSAR coregistration class</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.unpack_slc">
+    
+  </a>
+  <a name="unpack_slc">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">unpack_slc</span><span class="function-signature">(jobcoreg, verbose: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, modeforce: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a>)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/isce2module/isce2StripMapfunction.py#L332">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#unpack_slc" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.unpack_slc">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Unpack the SLC files</p>
+<p>The function unpacks the SLC files, from an <tt class="rst-docutils rst-literal">ezinsar.coregistration</tt>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">jobcoreg:</span><tt class="rst-docutils rst-literal">ezinsar.coregistration</tt></td><td class="fieldArgDesc">EZ-InSAR coregistration job for ISCE-2 processor</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">verbose [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]. If <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>, the function will use the value from the <code><a href="ezinsar.ezinsarprocessor.EIjob.html" class="internal-link" title="ezinsar.ezinsarprocessor.EIjob">EIjob</a></code> job.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">modeforce:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><tt class="rst-docutils rst-literal">ezinsar.coregistration</tt></td><td class="fieldArgDesc">Return an EZ-InSAR coregistration class</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.unwrap">
+    
+  </a>
+  <a name="unwrap">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">unwrap</span><span class="function-signature">(jobifg, verbose: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, modeforce: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a>)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR/tree/main/src/ezinsar/eicomponents/processor/isce2module/isce2StripMapfunction.py#L1586">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#unwrap" title="ezinsar.eicomponents.processor.isce2module.isce2StripMapfunction.unwrap">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>unwrap</p>
+<p>The function will ..., from an <tt class="rst-docutils rst-literal">ezinsar.ifgstack</tt>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">jobifg:</span><tt class="rst-docutils rst-literal">ezinsar.ifgstack</tt></td><td class="fieldArgDesc">EZ-InSAR ifgstack job for ISCE-2 processor</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">verbose [Default: <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>]. If <code><a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code>, the function will use the value from the <code><a href="ezinsar.ezinsarprocessor.EIjob.html" class="internal-link" title="ezinsar.ezinsarprocessor.EIjob">EIjob</a></code> job.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">modeforce:</span><code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><tt class="rst-docutils rst-literal">ezinsar.ifgstack</tt></td><td class="fieldArgDesc">Return an EZ-InSAR ifgstack class</td></tr></table></div>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+    <hr />
+    
+    
+    <div class="container">
+      <a href="index.html">API Documentation</a> for <a href="../index.html" class="projecthome">EZ-InSAR</a>,
+    generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+      24.3.3 at 2026-01-02 23:43:35.
+    </div>
+    
+    <script src="ajax.js" type="text/javascript"></script>
+    <script src="searchlib.js" type="text/javascript"></script>
+    <script src="search.js" type="text/javascript"></script>
+  
+  </footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

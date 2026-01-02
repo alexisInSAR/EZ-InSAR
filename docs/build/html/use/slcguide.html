@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Import, download, check the SLC images (and orbit files) &mdash; EZ-InSAR  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Download the DEM" href="DEMguide.html" />
+    <link rel="prev" title="Run EZ-InSAR" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            EZ-InSAR
+              <img src="../_static/EZ_InSAR_logo_whiteback.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.3.1 Dec. 2025
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Content of the documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">EZ-InSAR’s Read-Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proc_sensors.html">SAR and InSAR processors and sensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installationprocessor.html">Installation of SAR/InSAR processors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optmodules.html">EZ-InSAR optional Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dem.html">Digital Elevation Models</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Run EZ-InSAR</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#create-an-ez-insar-job">Create an EZ-InSAR job</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#process-insar-data-using-ez-insar">Process InSAR data using EZ-InSAR</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Import, download, check the SLC images (and orbit files)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#import-the-slc-data">Import the SLC data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#check-the-slc-list">Check the SLC list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#print-the-slc-list">Print the SLC list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#save-the-slc-list">Save the SLC list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#display-a-map-of-slcs">Display a map of SLCs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#save-a-kmz-file-from-a-slc-list">Save a .kmz file from a SLC list</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="DEMguide.html">Download the DEM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="coregguide.html">Run a coregistration of SLCs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgguide.html">Compute an interferometric stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tsguide.html">Compute a time series of displacements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intguide.html">Compute a backscatter-intensity stack</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#save-and-load-an-ez-insar-job">Save and load an EZ-InSAR job</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../clihelp.html">Command-line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical.html">Technical information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../subprograms/index.html">EZ-InSAR supplementary tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contrib.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgments.html#satellite-data">Satellite data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgments.html#partners">Partners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Change-log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dvptplan.html">Development plan of EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../issue_tracker.html">Issue tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses.html">Licenses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">EZ-InSAR-scripts documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/alexisInSAR/EZ-InSAR-3">EZ-InSAR's GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.ucd.ie">University College Dublin</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.icrag-centre.org">iCRAG</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">EZ-InSAR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Run EZ-InSAR</a></li>
+      <li class="breadcrumb-item active">Import, download, check the SLC images (and orbit files)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/use/slcguide.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="import-download-check-the-slc-images-and-orbit-files">
+<h1>Import, download, check the SLC images (and orbit files)<a class="headerlink" href="#import-download-check-the-slc-images-and-orbit-files" title="Link to this heading"></a></h1>
+<p><strong>The following sections present the management of SLC images with EZ-InSAR</strong>.</p>
+<section id="import-the-slc-data">
+<h2>Import the SLC data<a class="headerlink" href="#import-the-slc-data" title="Link to this heading"></a></h2>
+<section id="for-sentinel-1-data">
+<h3>For Sentinel-1 data<a class="headerlink" href="#for-sentinel-1-data" title="Link to this heading"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>EZ-InSAR</strong> can manage the .zip and .SAFE files of Sentinel-1 products but we recommend using the .zip files for space-storage compliance.</p>
+</div>
+<p>First, users must to define the satellite parameters. The relative orbits must be defined:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">relorbit</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>The second parameter is the satellite direction (ASCENDING or DESCENDING):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">satpass</span> <span class="o">=</span> <span class="s1">&#39;ASCENDING&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">s1iwburstIDapp</span></code> to automatically find the relative orbit and the satellite direction:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ezinsar.eicomponents.sensor.s1module</span> <span class="kn">import</span> <span class="n">s1iwburstIDapp</span>
+<span class="n">job</span><span class="o">.</span><span class="n">relorbit</span><span class="p">,</span> <span class="n">job</span><span class="o">.</span><span class="n">satpass</span> <span class="o">=</span> <span class="n">s1iwburstIDapp</span><span class="o">.</span><span class="n">S1burstIDmap</span><span class="p">()</span><span class="o">.</span><span class="n">checkfile</span><span class="p">()</span><span class="o">.</span><span class="n">downloadfile</span><span class="p">()</span><span class="o">.</span><span class="n">detectfromIDmap</span><span class="p">(</span><span class="n">jobezinsar</span><span class="p">)</span><span class="o">.</span><span class="n">analyse</span><span class="p">(</span><span class="n">jobezinsar</span><span class="p">)</span>
+
+<span class="c1"># Users will have a list of orbit/direction couples.</span>
+</pre></div>
+</div>
+</div>
+<p>The next step is the creation of the SLC list. Here the Copernicus server will be used in order to create the SLC list.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">initiateSLC</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;online&#39;</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">server</span><span class="o">=</span><span class="s1">&#39;Copernicus&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Based on the SLC list, <strong>EZ-InSAR</strong> can now download the images:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">downloadSLC</span><span class="p">(</span><span class="n">username</span><span class="o">=&lt;</span><span class="n">Username</span><span class="o">&gt;</span><span class="p">,</span><span class="n">password</span><span class="o">=&lt;</span><span class="n">Password</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And the orbit files can be downloaded (the server can be specified):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">downloadorbit</span><span class="p">(</span><span class="n">username</span><span class="o">=&lt;</span><span class="n">Username</span><span class="o">&gt;</span><span class="p">,</span><span class="n">password</span><span class="o">=&lt;</span><span class="n">Password</span><span class="o">&gt;</span><span class="p">,</span><span class="n">server</span><span class="o">=</span><span class="s1">&#39;ASF&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Of course, it is also possible to import the SLC list from files, or from a saved list of SLCs.</p>
+<p>ETAD files can be downloaded by using the corresponding functions. The server will be Copernicus.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">downloadETAD</span><span class="p">()(</span><span class="n">username</span><span class="o">=&lt;</span><span class="n">Username</span><span class="o">&gt;</span><span class="p">,</span><span class="n">password</span><span class="o">=&lt;</span><span class="n">Password</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="for-other-sensors">
+<h3>For other sensors<a class="headerlink" href="#for-other-sensors" title="Link to this heading"></a></h3>
+<p>EZ-InSAR will create the SLC list based on your available stored files:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">initiateSLC</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;onfile&#39;</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>The name of SAR files needs to respect some conventions:</strong></p>
+<ul class="simple">
+<li><p>for TerraSAR-X or PAZ: unzipped PAZ1_* or TSX1_* directory in the SLC directory.</p></li>
+</ul>
+</section>
+</section>
+<section id="check-the-slc-list">
+<h2>Check the SLC list<a class="headerlink" href="#check-the-slc-list" title="Link to this heading"></a></h2>
+<p><strong>EZ-InSAR</strong> can check the SLC list to verify that the consistency of SLC files with the user parameters:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">checkSLClist</span><span class="p">(</span><span class="n">verbose</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;low&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The option <code class="docutils literal notranslate"><span class="pre">mode</span></code> can be <code class="docutils literal notranslate"><span class="pre">'high'</span></code> or <code class="docutils literal notranslate"><span class="pre">'low'</span></code>. If <code class="docutils literal notranslate"><span class="pre">'high'</span></code>, the warmings will be errors.</p>
+</section>
+<section id="print-the-slc-list">
+<h2>Print the SLC list<a class="headerlink" href="#print-the-slc-list" title="Link to this heading"></a></h2>
+<p><strong>EZ-InSAR</strong> can print an overview of the SLC list.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">printSLClist</span><span class="p">(</span><span class="n">verbose</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="save-the-slc-list">
+<h2>Save the SLC list<a class="headerlink" href="#save-the-slc-list" title="Link to this heading"></a></h2>
+<p><strong>EZ-InSAR</strong> can the SLC list in .csv format. This list could be used later.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">saveSLClist</span><span class="p">(</span><span class="n">verbose</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;SLClist.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="display-a-map-of-slcs">
+<h2>Display a map of SLCs<a class="headerlink" href="#display-a-map-of-slcs" title="Link to this heading"></a></h2>
+<p>The user can display a map of the SLCs. There are two different modes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'Extent'</span></code> to display the SLC extents (slices);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'Bursts'</span></code> to display the burst limits if the SLCs are Sentinel-1 and already downloaded.</p></li>
+</ul>
+<p>If the user gives the <code class="docutils literal notranslate"><span class="pre">figure</span></code> option (other than None), the figure will be saved and not displayed.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">displaySLClist</span><span class="p">(</span><span class="n">verbose</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">basemap</span> <span class="o">=</span> <span class="s1">&#39;World_Imagery&#39;</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;Extent&#39;</span><span class="p">,</span> <span class="n">figure</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="save-a-kmz-file-from-a-slc-list">
+<h2>Save a .kmz file from a SLC list<a class="headerlink" href="#save-a-kmz-file-from-a-slc-list" title="Link to this heading"></a></h2>
+<p>The SLC list can be saved in .kmz for Google-Earth visualisation:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">writeSLClisttokmz</span><span class="p">(</span><span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;SLClist.kmz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Run EZ-InSAR" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="DEMguide.html" class="btn btn-neutral float-right" title="Download the DEM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright  2025, EZ-InSAR / UCD / iCRAG.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

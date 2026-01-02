@@ -1,0 +1,1176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ezinsardesktopmodule.process.processRunDialog.runDial</title>
+    <meta name="generator" content="pydoctor 24.3.3"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="readthedocstheme.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          <a href="../index.html" class="projecthome">EZ-InSAR Desktop Module</a> <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+    
+        <!-- Side navigation -->
+      <div class="sidebarcontainer">
+        <nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ezinsardesktopmodule.process.processRunDialog.runDial.html" class="internal-link" title="This class">run<wbr></wbr>Dial</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cancel" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.cancel">cancel</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#checkstepfromupdate" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.checkstepfromupdate">checkstepfromupdate</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#messageerror" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.messageerror">messageerror</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#messagesuccess" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.messagesuccess">messagesuccess</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#openhelp" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.openhelp">openhelp</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#stopcurrentworker" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.stopcurrentworker">stopcurrentworker</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#valid" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.valid">valid</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#btCancel" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.btCancel">bt<wbr></wbr>Cancel</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#btOkay" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.btOkay">bt<wbr></wbr>Okay</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#jobfile" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.jobfile">jobfile</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#mode" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.mode">mode</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#parent" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.parent">parent</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#requiredstep" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.requiredstep">requiredstep</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#result" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.result">result</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#steps" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.steps">steps</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#threadprocess" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.threadprocess">threadprocess</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#updatestep" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.updatestep">updatestep</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#validation" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.validation">validation</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#workerprocess" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.workerprocess">workerprocess</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ezinsardesktopmodule.process.processRunDialog.html" class="internal-link" title="The parent of this class">process<wbr></wbr>Run<wbr></wbr>Dialog</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ezinsardesktopmodule.process.processRunDialog.runDial.html" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial">run<wbr></wbr>Dial</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ezinsardesktopmodule.process.processRunDialog.Worker.html" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.Worker"><wbr></wbr>Worker</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ezinsardesktopmodule.process.processRunDialog.html#main" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.main">main</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ezinsardesktopmodule.process.processRunDialog.html#__docstringapp__" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.__docstringapp__">__docstringapp__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ezinsardesktopmodule.process.processRunDialog.html#__root_module__" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.__root_module__">__root<wbr></wbr>_module__</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        <!-- No sidebar toggle for read the docs theme, the sidebar is always
+          visible when the screen is width enough.
+        -->
+      </div>
+
+    </nav>
+    
+    <div class="container-fluid">
+
+      <div id="main" class="">
+        
+
+        
+
+        <div id="search-results-container" style="display: none;">
+        
+          <div id="search-buttons">
+            <span class="label label-default" id="search-docstrings-button">
+            <label class="checkbox-inline">
+              <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+                search in docstrings
+              </input>
+            </label>
+            </span>
+            
+          </div>
+          
+          <noscript>
+              <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+          </noscript>
+  
+          <div class="hint" id="search-help-box">
+            <p class="rst-last">
+        
+              Search bar offers the following options:
+              <ul>   
+                  <li>
+                    <strong>Term presence.</strong> The below example searches for documents that 
+                      must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                  </li> 
+  
+                  <li>
+                    <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                  </li> 
+  
+                  <li>
+                    <strong>Search in specific fields.</strong> The following search matches all objects 
+                    in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+  
+                    <p>
+                      Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                      Last two fields are only applicable if "search in docstrings" is enabled.
+                    </p>
+                  </li>
+  
+                  <li>
+                    <strong>Fuzzy matches.</strong> The following search matches all documents 
+                    that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                  </li>
+              </ul>
+  
+            </p>
+          </div>
+  
+          <div id="search-status"> </div>
+  
+          <div class="warning" id="search-warn-box" style="display: none;">
+            <p class="rst-last"><span id="search-warn"></span></p>
+          </div>
+  
+          <table id="search-results">
+            <!-- Filled dynamically by JS -->
+          </table>
+          
+          <div style="margin-top: 8px;">
+            <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+          </div>
+        </div>
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">ezinsardesktopmodule</a></code><wbr></wbr>.<code><a href="ezinsardesktopmodule.process.html" class="internal-link" title="ezinsardesktopmodule.process">process</a></code><wbr></wbr>.<code><a href="ezinsardesktopmodule.process.processRunDialog.html" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog">processRunDialog</a></code><wbr></wbr>.<code><a href="ezinsardesktopmodule.process.processRunDialog.runDial.html" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial">runDial</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">runDial</span>(QDialog): <a href="https://github.com/alexisInSAR/EZ-InSAR-Module-Desktop/tree/main/src/ezinsardesktopmodule/process/processRunDialog.py#L98" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.__init__">runDial(jobfile, parent, mode)</a></code></p>
+          <p><a href="classIndex.html#ezinsardesktopmodule.process.processRunDialog.runDial">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>QDialog class</p>
+<p>Build the dialog windows</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id81">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.__init__">__init__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#cancel" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.cancel">cancel</a></code></td>
+    <td>Cancelation</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#checkstepfromupdate" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.checkstepfromupdate">checkstepfromupdate</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#messageerror" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.messageerror">messageerror</a></code></td>
+    <td>Error message</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#messagesuccess" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.messagesuccess">messagesuccess</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#openhelp" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.openhelp">openhelp</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#stopcurrentworker" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.stopcurrentworker">stopcurrentworker</a></code></td>
+    <td>Stop the current worker</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#valid" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.valid">valid</a></code></td>
+    <td>Validation</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#btCancel" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.btCancel">bt<wbr></wbr>Cancel</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#btOkay" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.btOkay">bt<wbr></wbr>Okay</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#jobfile" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.jobfile">jobfile</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#mode" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.mode">mode</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#parent" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.parent">parent</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#requiredstep" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.requiredstep">requiredstep</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#result" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.result">result</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#steps" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.steps">steps</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#threadprocess" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.threadprocess">threadprocess</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#updatestep" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.updatestep">updatestep</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#validation" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.validation">validation</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#workerprocess" class="internal-link" title="ezinsardesktopmodule.process.processRunDialog.runDial.workerprocess">workerprocess</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="ezinsardesktopmodule.process.processRunDialog.runDial.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, jobfile, parent=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, mode=<span class="rst-variable-quote">'</span><span class="rst-variable-string">coregistration</span><span class="rst-variable-quote">'</span>)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR-Module-Desktop/tree/main/src/ezinsardesktopmodule/process/processRunDialog.py#L103">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#__init__" title="ezinsardesktopmodule.process.processRunDialog.runDial.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ezinsardesktopmodule.process.processRunDialog.runDial.cancel">
+    
+  </a>
+  <a name="cancel">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">cancel</span><span class="function-signature">(self)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR-Module-Desktop/tree/main/src/ezinsardesktopmodule/process/processRunDialog.py#L364">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#cancel" title="ezinsardesktopmodule.process.processRunDialog.runDial.cancel">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Cancelation</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ezinsardesktopmodule.process.processRunDialog.runDial.checkstepfromupdate">
+    
+  </a>
+  <a name="checkstepfromupdate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">checkstepfromupdate</span><span class="function-signature">(self)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR-Module-Desktop/tree/main/src/ezinsardesktopmodule/process/processRunDialog.py#L370">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#checkstepfromupdate" title="ezinsardesktopmodule.process.processRunDialog.runDial.checkstepfromupdate">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ezinsardesktopmodule.process.processRunDialog.runDial.messageerror">
+    
+  </a>
+  <a name="messageerror">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">messageerror</span><span class="function-signature">(self, msg)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR-Module-Desktop/tree/main/src/ezinsardesktopmodule/process/processRunDialog.py#L253">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#messageerror" title="ezinsardesktopmodule.process.processRunDialog.runDial.messageerror">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Error message</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ezinsardesktopmodule.process.processRunDialog.runDial.messagesuccess">
+    
+  </a>
+  <a name="messagesuccess">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">messagesuccess</span><span class="function-signature">(self, msg)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR-Module-Desktop/tree/main/src/ezinsardesktopmodule/process/processRunDialog.py#L260">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#messagesuccess" title="ezinsardesktopmodule.process.processRunDialog.runDial.messagesuccess">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ezinsardesktopmodule.process.processRunDialog.runDial.openhelp">
+    
+  </a>
+  <a name="openhelp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">openhelp</span><span class="function-signature">(self)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR-Module-Desktop/tree/main/src/ezinsardesktopmodule/process/processRunDialog.py#L248">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#openhelp" title="ezinsardesktopmodule.process.processRunDialog.runDial.openhelp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ezinsardesktopmodule.process.processRunDialog.runDial.stopcurrentworker">
+    
+  </a>
+  <a name="stopcurrentworker">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">stopcurrentworker</span><span class="function-signature">(self)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR-Module-Desktop/tree/main/src/ezinsardesktopmodule/process/processRunDialog.py#L265">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#stopcurrentworker" title="ezinsardesktopmodule.process.processRunDialog.runDial.stopcurrentworker">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Stop the current worker</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ezinsardesktopmodule.process.processRunDialog.runDial.valid">
+    
+  </a>
+  <a name="valid">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">valid</span><span class="function-signature">(self)</span>:
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR-Module-Desktop/tree/main/src/ezinsardesktopmodule/process/processRunDialog.py#L270">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#valid" title="ezinsardesktopmodule.process.processRunDialog.runDial.valid">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Validation</p></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsardesktopmodule.process.processRunDialog.runDial.btCancel">
+    
+  </a>
+  <a name="btCancel">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">btCancel</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR-Module-Desktop/tree/main/src/ezinsardesktopmodule/process/processRunDialog.py#L229">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#btCancel" title="ezinsardesktopmodule.process.processRunDialog.runDial.btCancel">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsardesktopmodule.process.processRunDialog.runDial.btOkay">
+    
+  </a>
+  <a name="btOkay">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">btOkay</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR-Module-Desktop/tree/main/src/ezinsardesktopmodule/process/processRunDialog.py#L228">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#btOkay" title="ezinsardesktopmodule.process.processRunDialog.runDial.btOkay">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsardesktopmodule.process.processRunDialog.runDial.jobfile">
+    
+  </a>
+  <a name="jobfile">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">jobfile</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR-Module-Desktop/tree/main/src/ezinsardesktopmodule/process/processRunDialog.py#L110">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#jobfile" title="ezinsardesktopmodule.process.processRunDialog.runDial.jobfile">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsardesktopmodule.process.processRunDialog.runDial.mode">
+    
+  </a>
+  <a name="mode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">mode</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR-Module-Desktop/tree/main/src/ezinsardesktopmodule/process/processRunDialog.py#L109">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#mode" title="ezinsardesktopmodule.process.processRunDialog.runDial.mode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsardesktopmodule.process.processRunDialog.runDial.parent">
+    
+  </a>
+  <a name="parent">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">parent</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR-Module-Desktop/tree/main/src/ezinsardesktopmodule/process/processRunDialog.py#L106">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#parent" title="ezinsardesktopmodule.process.processRunDialog.runDial.parent">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsardesktopmodule.process.processRunDialog.runDial.requiredstep">
+    
+  </a>
+  <a name="requiredstep">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">requiredstep</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#list" class="intersphinx-link">list</a></code> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR-Module-Desktop/tree/main/src/ezinsardesktopmodule/process/processRunDialog.py#L111">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#requiredstep" title="ezinsardesktopmodule.process.processRunDialog.runDial.requiredstep">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsardesktopmodule.process.processRunDialog.runDial.result">
+    
+  </a>
+  <a name="result">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">result</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#list" class="intersphinx-link">list</a></code> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR-Module-Desktop/tree/main/src/ezinsardesktopmodule/process/processRunDialog.py#L108">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#result" title="ezinsardesktopmodule.process.processRunDialog.runDial.result">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsardesktopmodule.process.processRunDialog.runDial.steps">
+    
+  </a>
+  <a name="steps">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">steps</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#list" class="intersphinx-link">list</a></code> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR-Module-Desktop/tree/main/src/ezinsardesktopmodule/process/processRunDialog.py#L181">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#steps" title="ezinsardesktopmodule.process.processRunDialog.runDial.steps">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsardesktopmodule.process.processRunDialog.runDial.threadprocess">
+    
+  </a>
+  <a name="threadprocess">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">threadprocess</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR-Module-Desktop/tree/main/src/ezinsardesktopmodule/process/processRunDialog.py#L113">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#threadprocess" title="ezinsardesktopmodule.process.processRunDialog.runDial.threadprocess">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsardesktopmodule.process.processRunDialog.runDial.updatestep">
+    
+  </a>
+  <a name="updatestep">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">updatestep</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#list" class="intersphinx-link">list</a></code> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR-Module-Desktop/tree/main/src/ezinsardesktopmodule/process/processRunDialog.py#L182">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#updatestep" title="ezinsardesktopmodule.process.processRunDialog.runDial.updatestep">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsardesktopmodule.process.processRunDialog.runDial.validation">
+    
+  </a>
+  <a name="validation">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">validation</span>: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR-Module-Desktop/tree/main/src/ezinsardesktopmodule/process/processRunDialog.py#L107">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#validation" title="ezinsardesktopmodule.process.processRunDialog.runDial.validation">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ezinsardesktopmodule.process.processRunDialog.runDial.workerprocess">
+    
+  </a>
+  <a name="workerprocess">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">workerprocess</span> =
+    <a class="sourceLink" href="https://github.com/alexisInSAR/EZ-InSAR-Module-Desktop/tree/main/src/ezinsardesktopmodule/process/processRunDialog.py#L112">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#workerprocess" title="ezinsardesktopmodule.process.processRunDialog.runDial.workerprocess">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+    <hr />
+    
+    
+    <div class="container">
+      <a href="index.html">API Documentation</a> for <a href="../index.html" class="projecthome">EZ-InSAR Desktop Module</a>,
+    generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+      24.3.3 at 2026-01-02 23:44:18.
+    </div>
+    
+    <script src="ajax.js" type="text/javascript"></script>
+    <script src="searchlib.js" type="text/javascript"></script>
+    <script src="search.js" type="text/javascript"></script>
+  
+  </footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

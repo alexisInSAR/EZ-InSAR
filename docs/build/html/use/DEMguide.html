@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Download the DEM &mdash; EZ-InSAR  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Run a coregistration of SLCs" href="coregguide.html" />
+    <link rel="prev" title="Import, download, check the SLC images (and orbit files)" href="slcguide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            EZ-InSAR
+              <img src="../_static/EZ_InSAR_logo_whiteback.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.3.1 Dec. 2025
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Content of the documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">EZ-InSAR’s Read-Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proc_sensors.html">SAR and InSAR processors and sensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installationprocessor.html">Installation of SAR/InSAR processors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optmodules.html">EZ-InSAR optional Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dem.html">Digital Elevation Models</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Run EZ-InSAR</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#create-an-ez-insar-job">Create an EZ-InSAR job</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#process-insar-data-using-ez-insar">Process InSAR data using EZ-InSAR</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="slcguide.html">Import, download, check the SLC images (and orbit files)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Download the DEM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="coregguide.html">Run a coregistration of SLCs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgguide.html">Compute an interferometric stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tsguide.html">Compute a time series of displacements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intguide.html">Compute a backscatter-intensity stack</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#save-and-load-an-ez-insar-job">Save and load an EZ-InSAR job</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../clihelp.html">Command-line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical.html">Technical information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../subprograms/index.html">EZ-InSAR supplementary tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contrib.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgments.html#satellite-data">Satellite data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgments.html#partners">Partners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Change-log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dvptplan.html">Development plan of EZ-InSAR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../issue_tracker.html">Issue tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses.html">Licenses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quick links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">EZ-InSAR-scripts documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/alexisInSAR/EZ-InSAR-3">EZ-InSAR's GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.ucd.ie">University College Dublin</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.icrag-centre.org">iCRAG</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">EZ-InSAR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Run EZ-InSAR</a></li>
+      <li class="breadcrumb-item active">Download the DEM</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/use/DEMguide.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="download-the-dem">
+<h1>Download the DEM<a class="headerlink" href="#download-the-dem" title="Link to this heading"></a></h1>
+<p><strong>EZ-InSAR offers the possibility to download a DEM from four different sources: (1) NASADEM; (2) SRTM; (3) Copernicus and (4) personal DEM:</strong></p>
+<ul class="simple">
+<li><p>The SRTM and SRTM-ell keys correspond to the normal SRTM DEM.</p></li>
+<li><p>The NASADEM and NASADEM-ell keys corresponds to the reprocessed SRTM DEM by NASA.</p></li>
+<li><p>The Copernicus and Copernicus-ell keys corresponds to the reprocessed Copernicus DEM by ESA. See <a class="reference external" href="https://spacedata.copernicus.eu/web/cscda/dataset-details?articleId=394198">this page</a> for more details.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>InSAR processing requires elevations relative to the ellipsoid. The ‘-ell’ extension allows to correct elevations with the associated ellipsoid. In case of the use of personal DEM, an external ellipsoid file can be given by the user.</p>
+</div>
+<p>Firs, the user can to define some variables of the <strong>EZ-InSAR</strong> job:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">nameDEM</span> <span class="o">=</span> <span class="s1">&#39;dem_EZInSAR.wgs84.tif&#39;</span>
+<span class="n">job</span><span class="o">.</span><span class="n">typeDEM</span> <span class="o">=</span> <span class="s1">&#39;Copernicus-ell&#39;</span> <span class="c1"># ell for the ell. correction</span>
+</pre></div>
+</div>
+<p>And, they can download the DEM by using the <strong>EZ-InSAR</strong> job method:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">downloaddem</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Several options are available:</p>
+<ul class="simple">
+<li><p><em>bbox</em>: the user can give a bbox (automatic extracted from SLC extent);</p></li>
+<li><p><em>ell</em>: the user can give a .tif file for the geoid (automatic downloaded for the downloaded DEM);</p></li>
+<li><p><em>ellcorrection</em> (True or False): applied the ellepsoid correction;</p></li>
+<li><p><em>processor</em>: convert the DEM file for a given InSAR processor;</p></li>
+<li><p><em>clip</em> (True of False): clip the DEM regarding the bbox coordinates;</p></li>
+<li><p><em>verbose</em> and <em>log</em> options.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For the Sentinel-1 IW, <strong>EZ-InSAR</strong> will compute the bbox regarding bursts overlapping the user’s Region of Interest.</p>
+</div>
+<p><strong>In addition, EZ-InSAR offers the possibility to display the DEM, e.g.,:</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">displaydem</span><span class="p">(</span><span class="n">figure</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;hillshade&#39;</span><span class="p">,</span>
+    <span class="n">azimuth</span><span class="o">=</span><span class="mf">225.0</span><span class="p">,</span>
+    <span class="n">angle_altitude</span><span class="o">=</span><span class="mf">45.0</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">log</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If the figure is not <em>None</em>, the map will be saved into a .jpg image (and therefore not displayed).</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="slcguide.html" class="btn btn-neutral float-left" title="Import, download, check the SLC images (and orbit files)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="coregguide.html" class="btn btn-neutral float-right" title="Run a coregistration of SLCs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright  2025, EZ-InSAR / UCD / iCRAG.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
