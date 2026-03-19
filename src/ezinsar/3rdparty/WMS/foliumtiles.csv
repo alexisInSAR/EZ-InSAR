@@ -1,5 +1,3 @@
-Google Satellite -/- http://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z} -/- Google, Landsat / Copernicus / ©2025 TerraMetrics / ©2025 Airbus / ©2025 Maxar Technologies / IBCAO
-Google Maps -/- https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z} -/- Google Maps
 Esri.WorldTerrain -/- http://services.arcgisonline.com/ArcGIS/rest/services/Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x} -/- Tiles &copy; Esri &mdash; Source: USGS, Esri, TANA, DeLorme, and NPS
 Esri.WorldStreetMap -/- https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x} -/- Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012
 Esri.WorldTopoMap -/- https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x} -/- Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community
